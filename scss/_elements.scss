@@ -169,3 +169,9 @@ button.diskBtn{
     }
   }
 }
+
+// 側欄遮罩
+.sidebarMask{ display: none;
+ position: fixed; left: 0; right: 0; top: 0; bottom: 0;
+ background-color: #000a;
+}

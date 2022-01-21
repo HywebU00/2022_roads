@@ -17,8 +17,11 @@ $(function(){
   var _menuCtrl = $('.menuCtrl');
   var _sidebar = $('.sidebar');
 
+  _body.append('<div class="sidebarMask"></div>')
+
   _menu.find('li').has('ul').addClass('hasChild');
 
+  // 寬版「主選單」開合
   _menuCtrl.click(function(){
     if (_menu.hasClass('reveal')) {
       $(this).removeClass('closeIt');
@@ -31,11 +34,14 @@ $(function(){
 
 
   // 行動版側欄選單
-  //複製主選單到側欄給行動版用
+  //複製「主選單」到側欄給行動版用
   _menu.add(_menuCtrl).clone().prependTo(_sidebar);
-  var _sidebarCtrl = _sidebar.find('.menuCtrl');
+  _sidebar.find('.menuCtrl').addClass('sidebarCtrl');
+  $('.topNav').clone().appendTo(_sidebar);
+  var _sidebarCtrl = _sidebar.find('.sidebarCtrl');
   var _sidebarMenu = _sidebar.find('.menu');
   var _hasChild = _sidebarMenu.find('.hasChild>a');
+  var _sidebarMask = $('.sidebarMask');
   _hasChild.click(
     function(e){
       e.preventDefault();
@@ -58,12 +64,12 @@ $(function(){
     if (_sidebar.hasClass('reveal')) {
       _sidebar.removeClass('reveal');
       _sidebarCtrl.removeClass('closeIt');
-      _sidebarCover.fadeOut(400);
+      _sidebarMask.fadeOut(400);
       _body.removeClass('noScroll');
     } else {
       _sidebar.addClass('reveal');
       _sidebarCtrl.addClass('closeIt');
-      _sidebarCover.fadeIn(400);
+      _sidebarMask.fadeIn(400);
       _body.addClass('noScroll')
     }
   })
@@ -97,6 +103,14 @@ $(function(){
 
 
 
+
+
+
+
+  // ======================================================================
+  // ======================================================================
+  // ======================================================================
+  // ======================================================================
 
   // ----------------------------------- 外掛套件 slick 參數設定
   // slick 參數設定：結束

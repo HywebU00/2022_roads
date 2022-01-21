@@ -1,0 +1,171 @@
+// 主選單、漢堡選單
+.menuCtrl{
+  width: 56px; height: 56px;
+  // margin: 10px auto 10px ($sideStripe - 56px)/2;
+  background: none; border: none;
+
+
+  &::before, &::after{
+    content: ''; position: absolute; right: 12px;height: 4px;
+    background: $fontInvert; border-radius: 1px;
+    transition: .2s;
+  }
+  &::before{
+    top: 16px; width: 32px; box-shadow: $fontInvert 0 20px 0;
+  }
+  &::after{
+    top: 26px; width: 24px;
+  }
+
+  &.closeIt{
+    // background-color: $notice;
+    // &:focus{background-color: $notice; box-shadow: $notice 0 0 0 3px;}
+    &::before, &::after{ width: 28px; right: 13px;}
+    &::before{box-shadow: none;top: 26px; transform: rotate(45deg);}
+    &::after{transform: rotate(-45deg);}
+  }
+}
+
+// 查詢圖示
+.searchCtrl{
+  width: 56px; height: 56px; 
+  background: none; border: none; border-radius: 50%; 
+  &::before, &::after{
+    content: ''; position: absolute;
+  }
+  &::before{
+    left: calc(50% - 14px); top: calc(50% - 14px);
+    width: 16px; height: 16px; border: 3px solid $fontInvert; border-radius: 50%;
+  }
+  &::after{
+    width: 12px; height: 4px; background: $fontInvert; border-radius: 0 2px 2px 0;
+    left: calc(50% + 2px); top: calc(50% + 6px);
+    transform: rotate(45deg);
+  }
+}
+
+.menuCtrl, .searchCtrl{
+  cursor: pointer; transition:background .2s, box-shadow .3s; z-index: 9;
+  &:hover, &:focus {
+    background: darken($primaryColor, 10%);
+    box-shadow: darken($primaryColor, 10%) 0 0 0 3px;
+  }
+}
+
+
+// X 關閉 button
+.closeThis{
+  position: absolute; right: 0; top: 0;
+  border: none; background: none; overflow: hidden;
+  width: 44px; height: 44px; text-indent: -10em;
+  transition: .2s;
+
+  &::before, &::after{
+    content: ''; position: absolute; width: 20px; height: 2px; background: #fff;
+    top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg);
+  }
+  &::after{ width: 2px; height: 20px;}
+  &:hover, &:focus{ background-color: #000b;}
+}
+
+
+// 回頁面最上方
+.goTop{
+  position: fixed; bottom: 40px; right: -16px;  z-index: 90; 
+  padding: 0 8px 0 44px;margin: 0; height: 2em; line-height: 2.1;
+  text-transform: uppercase; font-family: 'Times New Roman', Times, serif; font-weight: bold;
+  border: none; border-radius: 4px;
+  background: transparentize($primaryColor, .4);color: $fontInvert;
+  transform: rotate(90deg); transition:background .2s;
+  cursor: pointer;
+
+  &:hover{
+    background: $assistant;
+  }
+
+  &::before, &::after{
+    content: ''; position: absolute;
+  }
+  &::before{
+    width: 6px; height: 6px; 
+    top: 50%; left: 8px;
+    border: 2px solid $fontInvert;  border-top: none; border-right: none;
+    transform: rotate(45deg) translateY(-58%);
+  }
+  &::after{
+    width: 24px; height: 1px; background: $fontInvert;
+    left: 12px; top: 50%;
+  }
+
+  @media screen and (min-width: $wwMaximum + 96px){
+    right: auto;
+    left: calc(50% + #{$wwMaximum}/2 - 16px);
+  }
+
+}
+
+
+// 本頁快速連結點點
+.dotNav{
+  position: fixed; top: 50vh; right: 16px; z-index: 99;
+  transform: translateY(-55%);
+  // outline: 1px solid pink;
+  ul{list-style: none; margin: 0; padding: 0;}
+  li{margin:5px auto; padding: 0;
+    a{
+      position: relative;
+      display: block; width: 20px; height: 20px; 
+      &::before{
+        content: ''; position: absolute; left: 4px;top: 4px;
+        width: 12px; height: 12px; border-radius: 50%;
+        background: $primaryColor; box-shadow: $fontInvert 0 0 3px;
+        // transition: .2s;
+      }
+      &:hover, &:focus{
+        &::before{
+          background: $assistant;
+          box-shadow: $assistant 0 0 0 2px, $fontInvert 0 0 4px 4px;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum + 96px){
+    right: auto;
+    left: calc(50% + #{$wwMaximum}/2 + 12px );
+  }
+
+}
+
+// 左右箭頭 button
+button.diskBtn{
+  position: relative; cursor: pointer; transition: .2s;
+  border: none; width: 64px; height: 64px; border-radius: 50%; overflow: hidden;
+  background: $primaryColor; color: $fontInvert; text-indent: -10em;
+
+  &:hover{
+    background: $assistant; box-shadow: $assistant 0 0 0 2px;
+  }
+
+  &.prev, &.next{
+    &::before, &::after{
+      content: ''; position: absolute;
+    }
+    &::before{
+      left: 20px; top: 29px;
+      width: 6px; height: 6px; border: 2px solid $fontInvert; border-top: none; border-right: none;
+      transform: rotate(45deg) translateY(-2px);
+    }
+    &::after{
+      left: 21px; top: 50%;
+      transform: translateY(-1px);
+      width: 24px; height: 1px; background: $fontInvert;
+    }
+  }
+  &.next{
+    &::before{
+      left: auto; right: 20px;
+      border: 2px solid $fontInvert; border-bottom: none; border-left: none;
+    }
+  }
+}

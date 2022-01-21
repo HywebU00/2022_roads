@@ -1,0 +1,28 @@
+// 檔案應用申請服務
+.aas{
+  display: flex; flex-flow: row wrap; justify-content: space-between;
+  padding: 0 0 1.6em; margin: 0 auto; width: 87vw;
+  border-bottom: 2px solid $primaryColor; 
+  .blockHeader{ margin: 0 0 1em; 
+    &>h2{ flex: 1 1 auto; font-size: 2em;}
+  }
+
+  ul{ list-style: none; margin: 0;padding: 0; overflow: hidden;}
+  li{ float: left; margin: 0 3px 6px; letter-spacing: .1em;
+    a{
+      display: block; height: 3.2em; line-height: 3.2;
+      padding: 0 1em;
+      background: $primaryColor; color: $fontInvert; 
+      text-decoration: none; text-align: center;
+      &>img{
+      display: inline-block; margin: -3px .4em 0 0; vertical-align: middle;
+      width: 2.6em; height: 2.6em;
+    }
+    }
+    &:last-child{ float: none; clear: both; margin-top: 4.2em; text-align: center;}
+  }
+  
+  @media screen and (min-width: $wwMaximum){
+    width: calc(#{$wwMaximum} - 160px);
+  }
+}

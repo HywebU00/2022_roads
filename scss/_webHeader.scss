@@ -1,0 +1,137 @@
+// ---------- webHeader
+.webHeader{
+  position: fixed; z-index: 199;
+  width: 100vw; height: 62px;
+  background: $primaryColor;
+
+  h1{margin: 0 64px; padding: 0; height: 52px; 
+    overflow: hidden;
+    // border: 1px solid yellow;
+    img{ 
+      display: block;position: static;
+      margin: 10px 4px 0; width: 100px; 
+    }
+  }
+  .topNav, .decoImg{display: none;}
+
+  .searchCtrl{
+    position: absolute; bottom: 3px; right: 3px; margin: 0; border-radius: 0;
+  }
+  .menuCtrl{display: none;}
+
+
+
+  @media screen and (min-width: $wwNormal) {
+    overflow: hidden; position: relative;
+    background: url(../images/header_bg_archive.jpg) center top no-repeat;
+    background-size: 100%;
+    height: 58.33vw;  max-height: 700px;margin: 0 auto;
+
+    .menuCtrl, .searchCtrl{ position: relative; left: auto; right: auto; display: block;border-radius: 50%; }
+    .searchCtrl{ margin: 10px auto 10px ($sideStripe - 56px)/2; position: absolute; top: 55%;}
+    .menuCtrl{  margin: 10px auto 10px ($sideStripe - 56px)/2;}
+  
+    &::before{
+      content: ""; 
+      width: $sideStripe;
+      position: absolute; top: 0; bottom: 0; left: 0; 
+      background-color: transparentize($primaryColor, .3);
+      // background: url(../images/deer.png) center bottom 7% no-repeat;
+    }
+  
+    h1{
+      position: relative; margin: 0; padding: 20px 0;
+      left: $sideStripe*.5 - 40px; width: 80px; height: auto;
+      text-indent: -20em; overflow: hidden;
+      img{display: block; width: 100%; height: auto; margin: 0;}
+    }
+  
+    .decoImg{ display: block; z-index: 8; position: absolute; bottom: 5%; 
+      width:80px; left: $sideStripe*.5 - 40px;
+    }
+  
+  
+  
+    // ---------- 右上導覽列 topNav
+    .topNav{
+      position: absolute; right: 3.25vw; top: 2.5vw;
+      font-size: 1.125em;
+      ul{list-style: none; margin: 0; padding: 0;}
+      &>ul{
+        overflow: hidden; line-height: 1;
+        &>li{
+          float: left; position: relative; margin: 0; padding: 0 .8em;
+          &::before{
+            content: ''; position: absolute; right: 0; top: .2em;
+            width: 1px; height: .5em; background: $fontColor;
+          }
+          &:last-child{
+            &::before{display: none;}
+          }
+          a{
+            display: block; padding: 0 0 4px; position: relative;
+            text-decoration: none; color: $fontColor;
+            &::after{content: ''; position: absolute; left: 50%; bottom: 0;
+              height: 3px; width: 0;
+              background-color: $assistant; transition: .2s;
+            }
+  
+            &:hover::after{
+              width: 100%; left: 0;
+            }
+          }
+        }
+      }
+    }
+  
+
+    h1, .menuCtrl, .searchCtrl{ z-index: 9;}
+    &::before{ width: $sideStripe;z-index: 8;}
+  }
+
+  @media screen and (min-width: $wwMaximum) {
+
+    height: 700px; width: $wwMaximum;
+    &::before{ background-position: center bottom 40px;}
+    // h1{ width: 80px; left: 13px; }
+
+
+    .topNav{ right: 39px; top: 30px;}
+  }
+
+}
+
+
+// 快速查詢區
+.search { 
+  display: none;
+  position: absolute; top: 62px; right: 0;
+  transform: translateX(105%);
+  padding: 50px 1em 15px; 
+  background: #000a; color: darken($fontInvert, 20%);
+  transition: .6s;
+
+  a{ color: $fontInvert;}
+  form{margin: 0;padding: 0;}
+  input{ font-size: inherit; height: 2.8em; border-radius: 4px;border: none;padding: 0 .5em; margin: 0; vertical-align: top;}
+  input[type="text"]{ width: 15em; margin-right: 3px;}
+
+  // 熱門關鍵字
+  .hotKeywords{ margin-top: 1em;width: 18.5em;
+    .label{display: inline-block; margin-bottom: .4em;line-height: 1.1; vertical-align: top;}
+    ul{ list-style: none; margin: 0; padding: 0; display: inline-block; line-height: 1.1;}
+    li{ margin:0 1em .4em 0; float: left;
+      a{ display: block; text-decoration: none; cursor: pointer;
+        &:hover, &:focus{ text-decoration: underline;}
+      }
+    }
+  }
+
+  &.reveal{ transform: translateX(0); opacity: 1;}
+
+  @media screen and (min-width: $wwNormal){
+    left: 0; top: 55%; right: auto; transform:translateX(-100%);
+    &.reveal{ left: $sideStripe; opacity: 1;transform:translateX(0);}
+  }
+
+}

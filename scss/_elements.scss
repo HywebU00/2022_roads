@@ -107,24 +107,27 @@
 
 // 本頁快速連結點點
 .dotNav{
-  position: fixed; top: 50vh; right: 16px; z-index: 99;
-  transform: translateY(-55%);
-  // outline: 1px solid pink;
-  ul{list-style: none; margin: 0; padding: 0;}
-  li{margin:5px auto; padding: 0;
-    a{
-      position: relative;
-      display: block; width: 20px; height: 20px; 
-      &::before{
-        content: ''; position: absolute; left: 4px;top: 4px;
-        width: 12px; height: 12px; border-radius: 50%;
-        background: $primaryColor; box-shadow: $fontInvert 0 0 3px;
-        // transition: .2s;
-      }
-      &:hover, &:focus{
+  display: none;
+  @media screen and (min-width: $wwNormal){
+    position: fixed; top: 50vh; right: 16px; z-index: 99;
+    transform: translateY(-55%);
+    // outline: 1px solid pink;
+    ul{list-style: none; margin: 0; padding: 0;}
+    li{margin:5px auto; padding: 0;
+      a{
+        position: relative;
+        display: block; width: 20px; height: 20px; 
         &::before{
-          background: $assistant;
-          box-shadow: $assistant 0 0 0 2px, $fontInvert 0 0 4px 4px;
+          content: ''; position: absolute; left: 4px;top: 4px;
+          width: 12px; height: 12px; border-radius: 50%;
+          background: $primaryColor; box-shadow: $fontInvert 0 0 3px;
+          // transition: .2s;
+        }
+        &:hover, &:focus{
+          &::before{
+            background: $assistant;
+            box-shadow: $assistant 0 0 0 2px, $fontInvert 0 0 4px 4px;
+          }
         }
       }
     }

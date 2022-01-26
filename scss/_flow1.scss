@@ -1,0 +1,119 @@
+.flowBox {
+  ul{ list-style: none; margin: 0; padding: 0;}
+  .flowList{
+    &>li{ padding: 0; margin: 0;
+      &>a{ display: block; color: $fontColor; text-decoration: none;}
+      img{ display: block; border: none;}
+    }
+  }
+}
+
+
+// -----------------------//
+// 寬版顯示三筆，每筆等寬 //
+.flow1 {
+  $dotDia : 12px;
+  $bottom : 40px; 
+  .blockHeader{ margin: 0 7% 3em; }
+
+  .flowBox{position: relative;
+    margin: 0 6.5vw;padding: 0 0 $bottom*2; overflow: hidden; 
+    &::after{
+      content: ''; position: absolute; bottom: $bottom - 2px; right: 0; left: 0;
+      height: 2px; background-color: #4B3321;
+    }
+  
+  }
+
+  .flowList{ display: flex; 
+    &>li{ position: relative;
+      flex: 0 0 85vw;  margin: 0 1vw;
+      &>a{ width: 100%; }
+      img{width: 100%; height: 119vw; object-fit: cover;}
+      // 圖檔寬高比 width:height = 10:14
+
+      .title{
+        font-family: Georgia, 'Times New Roman', Times, serif; font-size: 9vw;
+        margin: 10px 0;line-height: 1; z-index: 5;
+      }
+      .type{
+        position: absolute; right: 0; top: 0;
+        font-size: 1.5em; line-height: 1.4;
+        padding: 1em .8em; width: 2.6em; min-height: 8em;
+        color: $fontInvert;
+      }
+      &:nth-child(3n+1){
+        .type{ background-color: $assistant1;}
+      }
+      &:nth-child(3n+2){
+        .type{ background-color: $assistant2;}
+      }
+      &:nth-child(3n){
+        .type{ background-color: $assistant3;}
+      }
+    }
+  }
+
+  // 左右箭頭 button
+  .diskBtn{ position: absolute; bottom: 6px; right: 4vw; z-index: 9;
+    &.prev{ margin-right: 80px;}
+  }
+
+  .flowNav{ position: absolute; bottom: $bottom - $dotDia + 1px; z-index: 9;
+    width: calc(100% - 144px - 4vw);
+    ul{list-style: none; margin: 0; padding: 0; text-align: center;}
+    li{ margin: 0 5px; padding: 0; display: inline-block;
+      button{
+        width: $dotDia; height: $dotDia; border-radius: 50%;
+        background: $primaryColor; border: none; margin: 0; padding: 0;
+        transition: .2s;
+      }
+      &.now{
+        button{ background: $assistant; box-shadow: $assistant 0 0 0 2px;}
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    .flowBox{ 
+      margin: 0 0 0 7%;padding: 0 0 120px;
+      &::after{ left: 20px; }
+    }
+    .flowList{
+      &>li{
+        flex: 0 0 27vw;  margin: 0 2.4vw 0 1.6vw;
+        img{width: 100%; height: 37.8vw; object-fit: cover;}
+        // 圖檔寬高比 width:height = 10:14
+
+        .title{
+          font-size: 4vw; margin: -10px 0 0 -15px;
+        }
+        .type{
+          position: absolute; right: 0; top: 0;
+          font-size: 1.5em; line-height: 1.4;
+          padding: 1em .8em; width: 2.6em; min-height: 8em; max-height: 37.8vw;
+          color: $fontInvert; word-break: break-all; overflow: hidden;
+        }
+      }
+    }
+    .flowNav{
+      li{margin: 0 9px;}
+    }
+
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    .flowBox{width: $wwMaximum*.93; margin-left: $wwMaximum*.07;}
+    .flowList{
+      &>li{
+        flex-basis: $wwMaximum*.27;  margin: 0 $wwMaximum*.024 0 $wwMaximum*.016;
+        img{height: $wwMaximum*.378; }
+        .title{ font-size: 3em;}
+      }
+    }
+    .diskBtn{ right: $wwMaximum*.06;}
+  }
+
+}
+
+

@@ -8,15 +8,16 @@ $(function(){
   var wh = _window.height();
   var wwNew = ww;
 
-  const wwMedium = 640; //此值以下是手機
-  const wwWide = 960;  //此值以上是電腦
+  const wwSlim = 480;
+  const wwMedium = 700; //此值以下是手機
+  const wwNormal = 960;  //此值以上是電腦
   const wwMaximum = 1200;
-  const wwSlim = 500;
 
   var _menu = $('.webHeader .menu');
   var _menuCtrl = $('.menuCtrl');
   var _sidebar = $('.sidebar');
 
+  
   _body.append('<div class="sidebarMask"></div>')
 
   _menu.find('li').has('ul').addClass('hasChild');
@@ -98,6 +99,12 @@ $(function(){
   }
 
 
+  // -----------------------------------------------------向上捲動箭頭
+	var _goTop = $('.goTop');
+  _goTop.click(function(){
+    _html.stop(true,false).animate({scrollTop: 0}, 800);
+  });
+
 
 
 
@@ -108,6 +115,324 @@ $(function(){
 
 
   // ======================================================================
+  //  ----------------------------------------- 點選左右箭頭滑動（非自動輪播）
+  // 寬版顯示三筆，每筆等寬
+  var _flow = $('.flow1');
+  _flow.each(function () {
+    let _this = $(this);
+    let _floxBox = _this.find('.flowBox');
+    let _flowList = _floxBox.find('.flowList');
+    let _flowItem = _flowList.children('li');
+    let slideDistance = _flowItem.outerWidth(true);
+    let slideCount = _flowItem.length;
+    let _btnRight = _this.find('.diskBtn.next');
+    let _btnLeft = _this.find('.diskBtn.prev');
+    const speed = 600;
+    let i = 0;
+    let j;
+    let _dots = '';
+
+    // 產生 indicator
+    _floxBox.append('<div class="flowNav"><ul></ul></div>');
+    let _indicator = _this.find(".flowNav>ul");
+    for (let n = 0; n < slideCount; n++) {
+      _dots = _dots + '<li><button type="botton"></button></li>';
+    }
+    _indicator.append(_dots);
+    let _indicatItem = _indicator.find('li');
+    _indicatItem.eq(i).addClass('now');
+
+    // 依據可視的 slide 項目，決定 indicator 樣式
+    indicatReady();
+    function indicatReady() {
+      ww = _window.width();
+      _indicatItem.removeClass('now');
+      _indicatItem.eq(i).addClass('now');
+      if (ww < wwMedium && slideCount > 1) {
+        _indicator.show();
+      }
+      if (ww >= wwMedium) {
+        if (slideCount <= 2) {
+          _indicator.hide();
+        } else {
+          _indicator.show();
+          _indicatItem.eq((i + 1) % slideCount).addClass("now");
+        }
+      }
+      if (ww >= wwNormal) {
+        if (slideCount <= 3) {
+          _indicator.add(_btnRight).add(_btnLeft).hide();
+        } else {
+          _indicatItem.eq((i + 1) % slideCount).addClass("now");
+          _indicatItem.eq((i + 2) % slideCount).addClass("now");
+        }
+      }
+    }
+
+    function slideForward() {
+      _flowList.stop(true, false).animate({ 
+        'margin-left': -1 * slideDistance }, speed, function () {
+          j = (i + 1) % slideCount;
+          _flowItem.eq(i).appendTo(_flowList);
+          _indicatItem.eq(i).removeClass('now');
+          _indicatItem.eq(j).addClass('now');
+          _flowList.css('margin-left', 0);
+
+          // if (ww >= wwMedium) {
+          //   _indicatItem.eq((j + 1) % slideCount).addClass('now');
+          // }
+          if (ww >= wwNormal) {
+            _indicatItem.eq((j + 1) % slideCount).addClass('now');
+            _indicatItem.eq((j + 2) % slideCount).addClass('now');
+          }
+          i = j;
+        });
+    }
+    function slideBackward() {
+      j = (i - 1) % slideCount;
+      _flowItem.eq(j).prependTo(_flowList);
+      _flowList.css("margin-left", -1 * slideDistance);
+
+      _flowList.stop(true, false).animate({ "margin-left": 0 }, speed, function () {
+          _indicatItem.eq(j).addClass("now");
+          if (ww >= wwNormal) {
+            _indicatItem.eq((i + 2) % slideCount).removeClass("now");
+          // } else if (ww >= wwMedium) {
+          //   _indicatItem.eq((i + 1) % slideCount).removeClass("now");
+          } else {
+            _indicatItem.eq(i).removeClass("now");
+          }
+          i = j;
+        });
+    }
+
+    // 點擊向右箭頭
+    _btnRight.click(function () {
+      slideForward();
+    });
+
+    // 點擊向左箭頭
+    _btnLeft.click(function () {
+      slideBackward();
+    });
+
+    // touch and swipe 左右滑動
+    _floxBox.swipe({
+      swipeRight: function () {slideBackward();},
+      swipeLeft: function () {slideForward();},
+      threshold: 20,
+    });
+
+    var winResizeTimer2;
+    _window.resize(function () {
+      clearTimeout(winResizeTimer2);
+      winResizeTimer2 = setTimeout(function () {
+        slideDistance = _flowItem.outerWidth(true);
+        _flowList.width(slideDistance * slideCount);
+        indicatReady();
+      }, 210);
+    });
+
+
+  });
+
+  // 寬版顯示三筆，中間圖放大且與其他li排版不同
+  var _flowCenter = $('.flow2');
+  _flowCenter.each(function () {
+    let _this = $(this);
+    let _floxBox = _this.find('.flowBox');
+    let _flowList = _floxBox.find('.flowList');
+    let _flowItem = _flowList.children('li');
+    let slideDistance = _flowItem.eq(0).outerWidth(true);
+    let slideCount = _flowItem.length;
+    let _btnRight = _this.find('.diskBtn.next');
+    let _btnLeft = _this.find('.diskBtn.prev');
+    const speed = 600;
+    let i = 0;
+    let j;
+    let _dots = '';
+
+    // 產生 indicator
+    _flowList.after('<div class="flowNav"><ul></ul></div>');
+    let _indicator = _this.find(".flowNav>ul");
+    for (let n = 1; n <= slideCount; n++) {
+      _dots = _dots + '<li><button type="botton">' + n + '</button></li>';
+    }
+    _indicator.append(_dots);
+    let _indicatItem = _indicator.find('li');
+    _indicatItem.removeClass('active').eq(1).addClass('active');
+    _flowItem.removeClass('active').eq(1).addClass('active');
+
+    function slideForward() {
+      j = (i + 1) % slideCount;
+      _flowItem.eq(j).removeClass('active');
+      _flowItem.eq((j + 1) % slideCount).addClass('active');
+
+      _flowList.stop(true, false).animate({'left': -1 * slideDistance}, speed, function () {
+        _flowList.css('left', 0);
+        _flowItem.eq(i).appendTo(_flowList);
+        _indicatItem.eq(j).removeClass('active');
+        _indicatItem.eq((j + 1) % slideCount).addClass('active');
+        i = j;
+      });
+    }
+
+    function slideBackward() {
+      j = (i - 1) % slideCount;
+      _flowItem.eq((i + 1) % slideCount).removeClass('active');
+      _flowItem.eq(i).addClass('active');
+      _flowItem.eq(j).prependTo(_flowList);
+      _flowList.css('left', -1 * slideDistance);
+
+      _flowList.stop(true, false).animate({ 'left': 0  }, speed, function () {
+        // _flowList.css('left', -1 * slideDistance);
+        _indicatItem.removeClass('active').eq(i).addClass('active');
+        i = j;
+      });
+    }
+
+    // 點擊向右箭頭
+    _btnRight.click(function () {
+      slideForward();
+    });
+
+    // 點擊向左箭頭
+    _btnLeft.click(function () {
+      slideBackward();
+    });
+
+    // touch and swipe 左右滑動
+    _floxBox.swipe({
+      swipeRight: function () {slideBackward();},
+      swipeLeft: function () {slideForward();},
+      threshold: 20,
+    });
+
+    let winResizeTimer;
+    _window.resize(function () {
+      clearTimeout(winResizeTimer);
+      winResizeTimer = setTimeout(function () {
+        slideDistance = _flowItem.not('.active').outerWidth(true);
+      }, 200);
+    });
+  });
+
+  // 寬版顯示兩筆完整，第三筆顯示局部
+  var _flow3 = $('.flow3');
+  _flow3.each(function () {
+    let _this = $(this);
+    let _floxBox = _this.find('.flowBox');
+    let _flowList = _floxBox.find('.flowList');
+    let _flowItem = _flowList.children('li');
+    let slideDistance = _flowItem.first().outerWidth(true);
+    let slideCount = _flowItem.length;
+    let _btnRight = _this.find('.diskBtn.next');
+    let _btnLeft = _this.find('.diskBtn.prev');
+    const speed = 600;
+    let i = 0;
+    let j;
+    let _dots = '';
+
+    // 產生 indicator
+    _floxBox.append('<div class="flowNav"><ul></ul></div>');
+    let _indicator = _this.find(".flowNav>ul");
+    for (let n = 0; n < slideCount; n++) {
+      _dots = _dots + '<li><button type="botton"></button></li>';
+    }
+    _indicator.append(_dots);
+    let _indicatItem = _indicator.find('li');
+    _indicatItem.eq(i).addClass('now');
+
+    // 依據可視的 slide 項目，決定 indicator 樣式
+    indicatReady();
+    function indicatReady() {
+      ww = _window.width();
+      _indicatItem.removeClass('now');
+      _indicatItem.eq(i).addClass('now');
+      if (ww < wwMedium && slideCount > 1) {
+        _indicator.show();
+      }
+      if (ww >= wwNormal) {
+        if (slideCount <= 2) {
+          _indicator.add(_btnRight).add(_btnLeft).hide();
+        } else {
+          _indicatItem.eq((i + 1) % slideCount).addClass("now");
+          // _indicatItem.eq((i + 2) % slideCount).addClass("now");
+        }
+      }
+    }
+
+    function slideForward() {
+      _flowList.stop(true, false).animate({ 
+        'margin-left': -1 * slideDistance }, speed, function () {
+          j = (i + 1) % slideCount;
+          _flowItem.eq(i).appendTo(_flowList);
+          _indicatItem.eq(i).removeClass('now');
+          _indicatItem.eq(j).addClass('now');
+          _flowList.css('margin-left', 0);
+
+          // if (ww >= wwMedium) {
+          //   _indicatItem.eq((j + 1) % slideCount).addClass('now');
+          // }
+          if (ww >= wwNormal) {
+            _indicatItem.eq((j + 1) % slideCount).addClass('now');
+            // _indicatItem.eq((j + 2) % slideCount).addClass('now');
+          }
+          i = j;
+        });
+    }
+    function slideBackward() {
+      j = (i - 1) % slideCount;
+      _flowItem.eq(j).prependTo(_flowList);
+      _flowList.css("margin-left", -1 * slideDistance);
+
+      _flowList.stop(true, false).animate({ "margin-left": 0 }, speed, function () {
+          _indicatItem.eq(j).addClass("now");
+          if (ww >= wwNormal) {
+            // _indicatItem.eq(i).removeClass("now");
+            _indicatItem.eq((i + 1) % slideCount).removeClass("now");
+          // } else if (ww >= wwMedium) {
+          //   _indicatItem.eq((i + 1) % slideCount).removeClass("now");
+          } else {
+            _indicatItem.eq(i).removeClass("now");
+          }
+          i = j;
+        });
+    }
+
+    // 點擊向右箭頭
+    _btnRight.click(function () {
+      slideForward();
+    });
+
+    // 點擊向左箭頭
+    _btnLeft.click(function () {
+      slideBackward();
+    });
+
+    // touch and swipe 左右滑動
+    _floxBox.swipe({
+      swipeRight: function () {slideBackward();},
+      swipeLeft: function () {slideForward();},
+      threshold: 20,
+    });
+
+    var winResizeTimer;
+    _window.resize(function () {
+      clearTimeout(winResizeTimer);
+      winResizeTimer = setTimeout(function () {
+        slideDistance = _flowItem.first().outerWidth(true);
+        indicatReady();
+      }, 210);
+    });
+
+
+  });
+
+
+
+
+
   // ======================================================================
   // ======================================================================
   // ======================================================================

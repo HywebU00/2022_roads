@@ -1,0 +1,152 @@
+// 寬版顯示三筆，中間圖放大且與其他li排版不同 //
+
+.flow2{
+  .blockHeader{ margin: 0 6.5vw 1.5em; }
+  // -------------------- flowBox
+  .flowBox{
+    position: relative; overflow: hidden;
+    width: 87vw; margin: 0 auto; padding-bottom: 80px;
+  }
+  // -------------------- flowList
+  .flowList{  position: relative;
+    display: flex;  flex-flow: row nowrap;
+    padding: 0; margin: 0 0 0 -87vw;
+
+    &>li{
+      position: relative; line-height: 1.8; padding: 0;
+      flex: 0 0 87vw; height: auto;
+      &>a{width: 100%;}
+
+      figure{ display: block; margin: 0; padding: 0; background: $assistant1;
+        img{display: block;  width: 87vw; height: 63vw; object-fit: cover;}
+        figcaption{ display: block; width: 87vw; padding: .6em; color: $fontInvert; }
+      }
+      .brief{
+        display: -webkit-box;
+        -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+        margin: 1em auto 0;overflow: hidden;
+      }
+    }
+  }
+
+  // ---------- 左右箭頭 button
+  .diskBtn{
+    position: absolute; bottom: 5px; right: 5px; z-index: 9;
+    &.prev{ margin-right: 80px;}
+  }
+
+  // ---------- flowNav 點點或數字
+  .flowNav{ text-align: center; margin: 1em 0 0;
+    ul{ list-style: none; margin: 0;padding: 0;font-size: 1.25em;}
+    li{
+      display: inline-block; margin: 0 1px; padding: 0;
+      button{
+        width: 1.6em; height: 1.6em; font-size: inherit;
+        background: none; border: none; margin: 0; padding: 0;
+        color: $primaryColor; cursor: pointer;
+        &:hover, &:focus { color: $assistant;}
+      }
+      &.active{
+        button{
+          background: url(../images/poly02.svg) 0 0 no-repeat;
+          background-size: contain;
+          color: $fontInvert;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    .blockHeader{ margin: 0 7% 3em; }
+
+    // ---------- flowBox
+    .flowBox{ position: relative; width: 100%; padding-bottom: 16px;
+      background: url(../images/poly01.svg) calc(18vw - 2px) 0 no-repeat;
+      background-size: auto 100%;
+    }
+  
+    // ---------- flowList
+    .flowList{ padding: 10vw 0 6vw; margin: 0 0 10px;
+      &>li{
+        height: calc(30vw + 100px); width: auto; flex-basis: 8vw;
+        padding: 60px 5vw 0; font-size: .85em; line-height: 1.8;
+        transition: .6s;
+  
+        &::before, &::after{
+          content: ''; position: absolute; top: calc(60px + 6vw + 1.4em);
+          width: 4vw; height: 2px; background: $fontColor;
+        }
+        &::before{ left: 0;}
+        &::after{ right: 0;}
+
+        figure{ width: 8vw; background-color: transparent;
+          img{ width: 8vw;  height: 6vw; transition: .6s;}
+          figcaption{
+            width: calc(8vw + 1em);
+            padding: .6em 0 0; margin: 0 -.5em;
+            color: $fontColor;    
+          }
+        }
+        .brief{ height: 0;}
+  
+        // 中間大圖
+        &.active{ 
+          flex: 0 0 64vw; padding-right: 0; padding-top: 0; font-size: 1em; 
+          &::before, &::after{ display: none;}
+          figure{ 
+            position: relative; width: 100%; background-color: $assistant1;
+            img{ width: 40vw; height: 30vw;}
+            figcaption{
+              position: absolute; left: 40vw;bottom: 0; top: 0; 
+              padding: 1em; margin: 0; width: 19vw;overflow: hidden;
+
+              display: flex; flex-flow: row; align-items: center;
+              font-size: 1.15em; font-weight: bold; color: $fontInvert;
+            }
+          }
+          .brief{margin: 1em auto 0;height: 5.4em;overflow: hidden;}
+        }
+      }
+    }
+  
+    // 左右箭頭 button
+    .diskBtn{
+      position: absolute; bottom: 5px; right: 6vw; z-index: 9;
+      &.prev{ margin-right: 80px;}
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    .flowBox{
+      background-position: $wwMaximum*.18 0;
+    }
+
+    .flowList{ 
+      padding: $wwMaximum*.1 0 $wwMaximum*.06;
+      background-position: calc( #{$wwMaximum}*.18 - 2px) 0;
+
+      &>li{
+        width: $wwMaximum*.18; flex-basis: $wwMaximum*.18;
+        padding-left: $wwMaximum*.05; padding-right: $wwMaximum*.05;
+        height: calc(#{$wwMaximum}*.3 + 100px);
+        &::before, &::after {
+          top: calc(60px + #{$wwMaximum}*.06 + 1.4em); width: $wwMaximum*.04;
+        }
+
+        figure{
+          img { width: $wwMaximum*.08; height: $wwMaximum*0.06;}
+          figcaption { width:calc( #{$wwMaximum}*.08 + 1em );}
+        }
+
+        &.active{ flex-basis: $wwMaximum*.64; padding-left: 60px;
+          figure{ padding-right: 228px;
+            img{ width: $wwMaximum*.4; height: $wwMaximum*.3;}
+            figcaption{ left: $wwMaximum*.4; width: $wwMaximum*.19; }
+          }
+        }
+      }
+    }
+
+    .diskBtn{ right: $wwMaximum*.06;}
+  }
+}

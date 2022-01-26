@@ -10,7 +10,7 @@
 } 
 
 
-// 側欄
+// 行動版側欄
 .sidebar{ position: fixed; z-index: 199;
   width: $sideBarWidth; margin-left:$sideBarWidth * (-1);
   top: 62px; bottom: 0; overflow: auto;
@@ -71,13 +71,13 @@
 
   // 寬版選單
   .webHeader .menu{ display: block;
-    position: absolute; top: 0; right: 100vw; width:calc(100vw - #{$sideStripe});
-    // padding: 80px 60px 50px 40px; 
-    padding: 6.5vw 5vw 4vw 3vw;
-    height: 100%; overflow: auto;
-    transition:right .8s;
-    background: #000a;
-    a{ color: $fontInvert; text-decoration: none;}
+    position: absolute; top: 0; left:$sideStripe;  width:calc(100vw - #{$sideStripe});
+    transform: translateX(-120%);
+    padding: 6.5vw 5vw 4vw 3vw;// padding: 80px 60px 50px 40px; 
+    height: 100%; overflow-Y: auto; background: #000a;
+    transition:.8s;
+    
+    a{ color: $fontInvert; text-decoration: none; }
 
     &>ul{
       display: flex;flex-flow: row wrap; line-height: 1.4;
@@ -103,7 +103,8 @@
     }
   
     &.reveal{
-      right: 0;
+      // right: 0;
+      transform: translateX(0);
     }
   
     @media screen and (min-width: $wwMaximum){
@@ -114,7 +115,6 @@
           &~*{ margin-left: 96px; }
         }
       }
-  
     }
   }
 }

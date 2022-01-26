@@ -21,34 +21,52 @@ body{
    .row + .row {margin-top: 120px;}
 }
 
-.blockHeader{
-  display: flex; justify-content: space-between;
-  margin: 0 0 2em;
-  &>h2{
-  flex:0 0 33%;
-  font-size: 2.4em; font-weight: normal;line-height: 1.3;margin: 0;
+// .blockHeader{ margin: 0 0 1em; text-align: center;
+//   &>h2{ flex: 1 1 auto; font-size: 2em;
+//     *[lang='en']{ margin-left: 0; }
+//   }
+// }
+.blockHeader{ margin: 0 0 1em; text-align: center;
+  &>h2{ font-size: 2em; font-weight: normal; line-height: 1.3; margin: 0;
     *[lang='en']{
       font-size: 75%;;
       display: block; font-family: Georgia, 'Times New Roman', Times, serif;
       line-height: 1;
-      margin-left: 1em; text-align: center;
     }
   }
 
-  .brief{
-    flex:0 0 60%;
-    line-height: 1.8; margin: 0 0 0 2em;
+  .brief{ line-height: 1.8; margin: 1em 0 0;
   
-    h3{ line-height: 1.3; margin: 0; padding: 0;
-    &+p{ margin-top: .5em; }
+    h3{ line-height: 1.3; margin:1em 0 0; padding: 0; }
+    p{ margin: .5em 0 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
   }
-  p{
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+
+  @media screen and (min-width: $wwNormal){
+    display: flex; justify-content: space-between; text-align: left;
+    margin: 0 0 2em;
+    &>h2{
+      flex:0 0 33%;
+      font-size: 2.4em;
+        *[lang='en']{
+          margin-left: 1em; text-align: center;
+      }
+    }
+    
+    .brief{ flex:0 0 60%; margin: 0 0 0 2em;
+      p{
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
   }
-  }
+
 }
 
 

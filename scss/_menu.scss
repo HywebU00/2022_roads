@@ -14,19 +14,23 @@
 .sidebar{ position: fixed; z-index: 199;
   width: $sideBarWidth; margin-left:$sideBarWidth * (-1);
   top: 62px; bottom: 0; overflow: auto;
-  background: $primaryColor;color: $fontInvert;
+  background: $sidebarBg; color: $fontInvert;
   transition: .5s;
 
   &.reveal{ margin-left:0; }
 
   a{ color: $fontInvert; text-decoration: none;}
 
-  .menuCtrl{ position: fixed; top: 3px; left: 3px;}
+  // .menuCtrl{ position: fixed; top: 3px; left: 3px;}
 
   .menu{ font-size: 1.15em;
-    &>ul{ line-height: 1.4;
-      li{
-        a{ padding: .9em .8em .8em; border-bottom: 1px solid #fff3;}
+    &>ul{ line-height: 1.4;border-bottom: 3px solid #fff8;
+      li{ border-bottom: 1px solid #fff4;
+        &:last-child{ border-bottom: none;}
+        a{ padding: .9em .8em .8em;
+          transition: .2s;
+          &:hover{ background-color: #0007 }
+        }
 
         &.hasChild{
           &>a{padding-right: 36px; position: relative;
@@ -41,14 +45,14 @@
           }
         }
 
-        ul{ display: none; font-size: 1rem;
-          margin-left: 1em; margin-right: 8px;
-          a{ border-left: 1px solid #fff3; border-right: 1px solid #fff3;}
+        ul{ 
+          display: none; font-size: 1rem;
+          border: 1px solid #fff3; 
+          margin: 0 8px 8px 1.2em;
         }
       }
       &>li{
         img.deco{display: none;}
-        &>ul{ margin-left: 1em; }
       }
     }
   }
@@ -61,6 +65,8 @@
         a{
           display: block; height: 2.8em; line-height: 2.8;
           border: 1px solid #fff3; text-align: center;
+          transition: .2s;
+          &:hover{ border-color: $hilight; box-shadow: $hilight 0 0 0 1px;}
         }
       }
     }

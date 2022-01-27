@@ -1,10 +1,15 @@
+// ---------- 主選單、漢堡選單、查詢圖示
+.menuCtrl, .searchCtrl, .sidebarCtrl{
+  width: 56px; height: 56px; z-index: 9; 
+  cursor: pointer; transition:background .2s, box-shadow .3s; 
+  margin: 0; border: none; background: none; 
+  &:hover, &:focus {
+    background: $assistant;
+  }
+}
+
 // 主選單、漢堡選單
-.menuCtrl{
-  width: 56px; height: 56px;
-  // margin: 10px auto 10px ($sideStripe - 56px)/2;
-  background: none; border: none;
-
-
+.menuCtrl, .sidebarCtrl{
   &::before, &::after{
     content: ''; position: absolute; right: 12px;height: 4px;
     background: $fontInvert; border-radius: 1px;
@@ -28,8 +33,6 @@
 
 // 查詢圖示
 .searchCtrl{
-  width: 56px; height: 56px; 
-  background: none; border: none; border-radius: 50%; 
   &::before, &::after{
     content: ''; position: absolute;
   }
@@ -44,13 +47,6 @@
   }
 }
 
-.menuCtrl, .searchCtrl{
-  cursor: pointer; transition:background .2s, box-shadow .3s; z-index: 9;
-  &:hover, &:focus {
-    background: darken($primaryColor, 10%);
-    box-shadow: darken($primaryColor, 10%) 0 0 0 3px;
-  }
-}
 
 
 // X 關閉 button
@@ -58,14 +54,13 @@
   position: absolute; right: 0; top: 0;
   border: none; background: none; overflow: hidden;
   width: 44px; height: 44px; text-indent: -10em;
-  transition: .2s;
-
+  transition: background-color .2s;
   &::before, &::after{
     content: ''; position: absolute; width: 20px; height: 2px; background: #fff;
     top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg);
   }
   &::after{ width: 2px; height: 20px;}
-  &:hover, &:focus{ background-color: #000b;}
+  &:hover, &:focus{ background-color: $assistant;}
 }
 
 

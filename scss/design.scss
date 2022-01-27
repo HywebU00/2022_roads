@@ -6,8 +6,9 @@ $assistant1: #A35539;
 $assistant2: #B34841;
 $assistant3: #8D713F;
 $notice: $assistant;
+$hilight: #d26c00;
 
-
+$sidebarBg : #6f4d24;
 $bodyBg: #EDE3CC;
 $footerBg: #2B1207;
 $footerBg2: #220E06;
@@ -32,6 +33,7 @@ $wwMaximum: 1200px;
 @import "_default";
 @import "_elements";
 @import "_webHeader";
+@import "_bigBanner";
 @import "_menu";
 @import "webFooter";
 @import "_aas";

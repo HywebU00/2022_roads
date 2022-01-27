@@ -16,10 +16,12 @@ $(function(){
   var _menu = $('.webHeader .menu');
   var _menuCtrl = $('.menuCtrl');
   var _sidebar = $('.sidebar');
+  var _webHeader = $('.webHeader');
 
-  
-  _body.append('<div class="sidebarMask"></div>')
+  // 製作側欄選單遮罩
+  _body.append('<div class="sidebarMask"></div>');
 
+  // 找出_menu中有次選單的li
   _menu.find('li').has('ul').addClass('hasChild');
 
   // 寬版「主選單」開合
@@ -36,10 +38,11 @@ $(function(){
 
   // 行動版側欄選單
   //複製「主選單」到側欄給行動版用
-  _menu.add(_menuCtrl).clone().prependTo(_sidebar);
-  _sidebar.find('.menuCtrl').addClass('sidebarCtrl');
+  _menu.clone().prependTo(_sidebar);
+  _menuCtrl.clone().appendTo(_webHeader).addClass('sidebarCtrl').removeClass('menuCtrl');
+  // _sidebar.find('.menuCtrl').addClass('sidebarCtrl');
   $('.topNav').clone().appendTo(_sidebar);
-  var _sidebarCtrl = _sidebar.find('.sidebarCtrl');
+  var _sidebarCtrl = _webHeader.find('.sidebarCtrl');
   var _sidebarMenu = _sidebar.find('.menu');
   var _hasChild = _sidebarMenu.find('.hasChild>a');
   var _sidebarMask = $('.sidebarMask');
@@ -73,6 +76,12 @@ $(function(){
       _sidebarMask.fadeIn(400);
       _body.addClass('noScroll')
     }
+  })
+  _sidebarMask.click(function(){
+    _sidebar.removeClass('reveal');
+    _sidebarCtrl.removeClass('closeIt');
+    _body.removeClass('noScroll');
+    $(this).fadeOut(400);
   })
 
 

@@ -1,29 +1,22 @@
 // 寬版顯示兩筆完整，第三筆顯示局部
 .flow3{
-  $dotDia : 12px;
-  $bottom : 40px; 
-
   max-width: $wwMaximum;
   .blockHeader{ width: 93vw; max-width: 93%; margin: 0 0 3em auto; }
 
-  .flowBox{
-    position: relative; 
+  .flowBox{ position: relative; 
     width: 93vw; margin-left: 7vw; padding-bottom: 7em;overflow: hidden;
-    outline: 1px solid red;
   }
   
   .flowList{ display: flex; 
-    &>li{
-      position: relative;flex: 0 0 76vw; margin-right: 4vw;
-      outline: 1px solid blue;
-
+    &>li{ position: relative;flex: 0 0 76vw; margin-right: 4vw;
       a{ width: 100%; }
-      img { // width:height = 7:10
-        width: 90%; height: 98vw; // 98vw ~= 76vw * 90% * (10/7)
+      img { 
+        width: 90%; height: 98vw; 
+        // width:height = 7:10 , 98vw ~= 76vw * 90% * (10/7)
         margin: 10% auto 0; object-fit: cover;
       }
       
-      // 簡述文字
+      // --- 簡述文字
       .brief{
         position: absolute; left: 5%; bottom: 0; width: 90%;
         padding: 60px 7% 1.5em;
@@ -35,13 +28,13 @@
         p{
           line-height: 2; margin: 1em 0 0; padding: 1em 0 0;
           border-top: 2px solid $fontInvert;
-          display: -webkit-box;overflow: hidden;
+          display: -webkit-box; overflow: hidden;
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
         }
       }
 
-      // 日期
+      // --- 日期
       time{
         position: absolute; right: 0; top: 0;
         padding:1.8em 0 0; margin: 0; width: 6.5em; height: 6.5em;
@@ -52,7 +45,7 @@
           content: attr(data-label); display: block; font-size: .9rem;
         }
       }
-      // 左邊裝飾色塊
+      // --- 左邊裝飾色塊
       &::before{
         content: ''; z-index: 8;
         position: absolute; left: 0;top: 0; width: 10%; height: 85%;
@@ -63,65 +56,25 @@
     }
   }
 
-  // 左右箭頭 button
+  // ------ 左右箭頭 button
   .diskBtn{
     position: absolute; bottom: 5px; right: 6vw; z-index: 9;
     &.prev{ margin-right: 80px;}
   }
 
-  .flowNav{ position: absolute; bottom: 40px; z-index: 9;
-    width: calc(100% - 144px - 4vw);
-    ul{list-style: none; margin: 0; padding: 0; text-align: center;}
-    li{ margin: 0 5px; padding: 0; display: inline-block;
-      button{
-        width: $dotDia; height: $dotDia; border-radius: 50%;
-        background: $primaryColor; border: none; margin: 0; padding: 0;
-        transition: .2s;
-      }
-      &.now{
-        button{ background: $assistant; box-shadow: $assistant 0 0 0 2px;}
-      }
-    }
-  }
 
-  @media screen and (min-width: $wwNormal){
+  @media screen and (min-width: $wwMedium){
     .flowList{
       &>li{
         flex-basis: 40vw; margin-right: 3vw;
-        img { // width:height = 7:10
-          width: 90%; height: 51.4vw; // 51.4vw = 40vw * 90% * (10/7)
-        }
-        
-        // 簡述文字
-        .brief{
-          position: absolute; left: 5%; bottom: 0; width: 90%;
-          padding: 60px 7% 1.5em;
-          background: linear-gradient(#0000, #0008 30%, #000f); color: #fff;
-          h3{
-            line-height: 1.6; margin: 0; padding: 0;
-            text-overflow: ellipsis; white-space: nowrap; overflow: hidden;
-          }
-          p{
-            line-height: 2; margin: 1em 0 0; padding: 1em 0 0;
-            border-top: 2px solid $fontInvert;
-            display: -webkit-box;overflow: hidden;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-          }
+        img {
+           height: 51.4vw; // width:height = 7:10 , 51.4vw = 40vw * 90% * (10/7)
         }
   
         // 日期
         time{ font-size: 1.25em;
           &::after{ font-size: 1rem;}
         }
-        // 左邊裝飾色塊
-        &::before{
-          content: ''; z-index: 8;
-          position: absolute; left: 0;top: 0; width: 10%; height: 85%;
-        }
-        &:nth-child(3n+1)::before{background-color: $assistant1;}
-        &:nth-child(3n+2)::before{background-color: $assistant2;}
-        &:nth-child(3n)::before{background-color: $assistant3;}
       }
     }
   

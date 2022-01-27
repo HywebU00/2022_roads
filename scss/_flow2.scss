@@ -62,7 +62,7 @@
     // ---------- flowBox
     .flowBox{ position: relative; width: 100%; padding-bottom: 16px;
       background: url(../images/poly01.svg) calc(18vw - 2px) 0 no-repeat;
-      background-size: auto 100%;
+      background-size: auto calc(100% - 80px) ;
     }
   
     // ---------- flowList

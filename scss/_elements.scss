@@ -102,9 +102,9 @@
 
 // 本頁快速連結點點
 .dotNav{
-  display: none;
+  // display: none;
   @media screen and (min-width: $wwNormal){
-    position: fixed; top: 50vh; right: 16px; z-index: 99;
+    position: fixed; top: 50vh; right: 16px; z-index: 599;
     transform: translateY(-55%);
     // outline: 1px solid pink;
     ul{list-style: none; margin: 0; padding: 0;}
@@ -172,4 +172,14 @@ button.diskBtn{
 .sidebarMask{ display: none;
  position: fixed; left: 0; right: 0; top: 0; bottom: 0;
  background-color: #000a;
+}
+
+
+// ***** 要移出成獨立的檔案
+.video{
+  margin: 30px auto; 
+  border: 2px solid darkred;
+  div{
+    width: 560px; height: 360px; margin: 10px auto;
+  }
 }

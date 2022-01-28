@@ -20,11 +20,14 @@
   .sidebarCtrl{ display: block;position: absolute; top: 4px; left: 4px;}
 
   @media screen and (min-width: $wwNormal) {
-    
-    overflow: hidden; position: relative; margin: 0 auto;
+    position: relative;
+    // position: relative;
+    height: 58vw;
+    background: none; margin: 0; 
+    overflow: hidden; 
+   
     // background: url(../images/header_bg_archive.jpg) center top no-repeat;
     // background-size: 100%;
-    height: 58vw;
 
     .sidebarCtrl {display: none;}
     .menuCtrl, .searchCtrl{display: block; position: absolute; left: auto; right: auto; }
@@ -82,8 +85,9 @@
   }
 
   @media screen and (min-width: $wwMaximum) {
-
-    height: 696px; width: $wwMaximum;
+    width: $wwMaximum;
+    height: 696px; margin: 0 auto;
+    // left: calc(50vw - #{$wwMaximum}*.5);
     &::before{ background-position: center bottom 40px;}
     // h1{ width: 80px; left: 13px; }
 
@@ -93,7 +97,7 @@
 }
 
 
-// 快速查詢區
+// ---------- 快速查詢區
 .search { 
   display: none;
   position: absolute; top: 64px; left: 100vw;
@@ -103,7 +107,7 @@
 
   a{ color: $fontInvert;}
   form{margin: 0;padding: 0;}
-  input{ font-size: inherit; height: 2.8em; border-radius: 4px;border: none;padding: 0 .5em; margin: 0; vertical-align: top;}
+  input{ font-size: inherit; height: 2.8em; border-radius: 4px;border: none;padding: 0 .5em; margin: 0; vertical-align: top; display: inline;}
   input[type="text"]{ width: calc(100vw - 4em - 68px); max-width: 24em; margin-right: 3px;}
 
   // 熱門關鍵字
@@ -122,10 +126,10 @@
   .closeThis{ right: 4px; top: 4px;}
 
   @media screen and (min-width: $wwNormal){
-    left: 0; top: 55%; right: auto; width: auto; padding-top: 54px;
+    left: 0; top: 55%; right: auto; width: 21em; padding-top: 54px;
     transform:translateX(-100%);
     &.reveal{ left: $sideStripe; opacity: 1;transform:translateX(0);}
-    input[type="text"]{ width: 16em;}
+    input[type="text"]{ width: 15em; }
   }
 
 }

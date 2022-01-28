@@ -87,3 +87,23 @@
     }
   }
 }
+
+.fatFootCtrl{
+  position: absolute;right:30px; top: -20px; z-index: 9;
+  width: 54px; height: 54px; background: $primaryColor;
+  text-indent: -10em; overflow: hidden; border: none;
+  transition: .2s;
+
+  &:hover, &:focus{ background-color: $assistant;}
+
+  &::before{
+    content: '';position: absolute; left: 50%; top: 50%;
+     width: 10px; height: 10px; margin: -4px auto auto -5px;
+    border: 1px solid #fff; border-right: none; border-bottom: none;
+    transform: rotate(45deg); transition: .4s;
+  }
+
+  &.closed{
+    &::before{transform: rotate(225deg); margin-top: -8px;}
+  }
+}

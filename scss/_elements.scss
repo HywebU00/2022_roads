@@ -1,10 +1,51 @@
+a:focus{outline: none;}
+
+// ---------- 快捷鍵
+.accesskey{ display: none; }
+@media screen and (min-width: $wwNormal){
+  .accesskey{ display: block;z-index: 9;
+    position: absolute; left: 0; top: 0; margin: 2px;
+    text-decoration: none; color: darken($bodyBg, 60%);
+    &:focus{ outline: 2px solid $assistant;}
+  }
+  .webHeader .accesskey{color: $primaryColor;}
+  .main .accesskey{ top: 58vw;}
+  .webFooter .accesskey{ top: 40px;color: darken($bodyBg, 40%);}
+}
+@media screen and (min-width: $wwMaximum){
+  .accesskey{left: calc(50vw - #{$wwMaximum}/2); }
+  .main .accesskey{ top: $wwMaximum*.58; }
+
+}
+
+// ---------- 跳至內容區
+.goCenter{
+  display: none;
+  @media screen and (min-width: $wwNormal){
+    display: block;;z-index: 99; opacity: .5 ; overflow: hidden;
+    position: absolute; top: -2em;left: $sideStripe;
+    font-size: .9rem; border-radius: 0 0 4px 4px;
+    height: 1.6em; line-height: 1.6; padding: 0 .5em; margin-left: 1em;
+    background: $assistant;color: $fontInvert;
+    text-decoration: none; outline: none;  cursor: pointer;
+    transition:.3s; 
+    &:focus{ top: 0;}
+    &:hover, &:focus{ border-color: $assistant; opacity: 1;
+    }
+  }
+  @media screen and (min-width: $wwMaximum){
+    left: calc(50vw - #{$wwMaximum}/2 + #{$sideStripe});
+  }
+  
+}
+
 // ---------- 主選單、漢堡選單、查詢圖示
 .menuCtrl, .searchCtrl, .sidebarCtrl{
   width: 56px; height: 56px; z-index: 9; 
   cursor: pointer; transition:background .2s, box-shadow .3s; 
-  margin: 0; border: none; background: none; 
+  margin: 0; border: none; background: none; border-radius: 0;
   &:hover, &:focus {
-    background: $assistant;
+    background: $assistant;border: none;box-shadow: none;
   }
 }
 
@@ -52,7 +93,7 @@
 // X 關閉 button
 .closeThis{
   position: absolute; right: 0; top: 0;
-  border: none; background: none; overflow: hidden;
+  border: none; background: none; margin: 0; overflow: hidden;
   width: 44px; height: 44px; text-indent: -10em;
   transition: background-color .2s;
   &::before, &::after{
@@ -61,22 +102,22 @@
   }
   &::after{ width: 2px; height: 20px;}
   &:hover, &:focus{ background-color: $assistant;}
+  &:focus{ box-shadow: $assistant 0 0 0 2px;}
 }
 
 
 // 回頁面最上方
 .goTop{
-  position: fixed; bottom: 40px; right: -16px;  z-index: 90; 
+  position: fixed; bottom: -60px; right: -16px;  z-index: 90; 
   padding: 0 8px 0 44px;margin: 0; height: 2em; line-height: 2.1;
   text-transform: uppercase; font-family: 'Times New Roman', Times, serif; font-weight: bold;
-  border: none; border-radius: 4px;
+  border: none; border-radius: 4px; box-shadow: none;
   background: transparentize($primaryColor, .4);color: $fontInvert;
-  transform: rotate(90deg); transition:background .2s;
+  transform: rotate(90deg); transition:bottom .5s;
   cursor: pointer;
 
-  &:hover{
-    background: $assistant;
-  }
+  &:hover, &:focus{ background: $assistant; border: none;}
+  &:focus{ box-shadow: $assistant 0 0 0 2px; }
 
   &::before, &::after{
     content: ''; position: absolute;
@@ -92,7 +133,9 @@
     left: 12px; top: 50%;
   }
 
-  @media screen and (min-width: $wwMaximum + 96px){
+  &.show{bottom: 40px; transition:background .3s, box-shadow .3s, bottom .8s;}
+
+  @media screen and (min-width: $wwMaximum + 110px){
     right: auto;
     left: calc(50% + #{$wwMaximum}/2 - 16px);
   }
@@ -101,28 +144,48 @@
 
 
 // 本頁快速連結點點
-.dotNav{
-  // display: none;
+.mpNav{
+  display: none;
   @media screen and (min-width: $wwNormal){
-    position: fixed; top: 50vh; right: 16px; z-index: 599;
+    display: block;
+    position: fixed; top: 45vh; right: 16px; z-index: 599;
     transform: translateY(-55%);
     // outline: 1px solid pink;
     ul{list-style: none; margin: 0; padding: 0;}
-    li{margin:5px auto; padding: 0;
+    li{margin:8px auto; padding: 0;
       a{
         position: relative;
         display: block; width: 20px; height: 20px; 
+        // text-indent: -20em;
         &::before{
           content: ''; position: absolute; left: 4px;top: 4px;
-          width: 12px; height: 12px; border-radius: 50%;
+          width: 12px; height: 12px; border-radius: 50%; z-index: 9;
           background: $primaryColor; box-shadow: $fontInvert 0 0 3px;
+          background-size: contain;
           // transition: .2s;
         }
+        &::after{ content: attr(title);
+          position: absolute; right: -2px; top: -2px; white-space: nowrap; 
+          height: 1.5em; line-height: 1.5;
+          background-color: transparent; color: transparent;
+          border-radius: 1em;
+          width: 0; padding: 0; overflow: hidden; transition:background-color .5s, color .5s;
+        }
         &:hover, &:focus{
+          outline: none;
           &::before{
             background: $assistant;
-            box-shadow: $assistant 0 0 0 2px, $fontInvert 0 0 4px 4px;
           }
+          &::after{
+            background-color: transparentize($fontColor, .6); color: $fontInvert;
+            width: auto;padding: 0 25px 0 .6em; 
+          }
+        }
+        &:focus{
+          &::before{
+            box-shadow: $assistant 0 0 0 2px, $fontInvert 0 0 0 4px;
+          }
+          &::after{background-color: $fontColor;}
         }
       }
     }
@@ -133,6 +196,24 @@
     left: calc(50% + #{$wwMaximum}/2 + 12px );
   }
 
+}
+
+
+// 「實境展覽」連結圖示
+.vrLink{ position: fixed; bottom: 110px; right: 6px; z-index: 599;
+  a{ 
+    display: block; width: 5.6em;
+    padding:2em 1.8em; line-height: 1.5;
+    background: url(../images/polyColor1.svg) 0 center no-repeat;
+    background-size: contain;
+    text-decoration: none; color: $fontInvert;
+  }
+
+  @media screen and (min-width: $wwMaximum ){
+    // right: auto;
+    right: calc( 50vw - #{$wwMaximum}/2 + 6px );
+
+  }
 }
 
 // 左右箭頭 button
@@ -168,18 +249,33 @@ button.diskBtn{
   }
 }
 
+
+.more{ margin: 1em -5px; overflow: hidden; padding: 5px;
+  a{ position: relative;
+    float: right; height: 3.6em; line-height: 3.7; padding: 0 52px 0 1.5em;
+    background: $primaryColor; color: $fontInvert;
+    text-decoration: none; border-radius: 2em; transition: .2s;
+
+    &::before{content: ''; position: absolute;
+      right: 28px; top: 24px;
+      width: 11px; height: 11px; border: 1px solid $fontInvert; border-bottom: none; border-left: none;
+      transform: rotate(45deg) translateY(-2px);
+    }
+    // &::after{
+    //   right: 22px; top: 50%;
+    //   transform: translateY(-1px);
+    //   width: 24px; height: 1px; background: $fontInvert;
+    // }
+    &:hover{
+      background-color: $assistant;
+      box-shadow: $assistant 0 0 0 2px;
+    }
+  }
+}
+
+
 // 側欄遮罩
 .sidebarMask{ display: none;
  position: fixed; left: 0; right: 0; top: 0; bottom: 0;
  background-color: #000a;
-}
-
-
-// ***** 要移出成獨立的檔案
-.video{
-  margin: 30px auto; 
-  border: 2px solid darkred;
-  div{
-    width: 560px; height: 360px; margin: 10px auto;
-  }
 }

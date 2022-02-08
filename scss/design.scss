@@ -1,6 +1,8 @@
 // ---------- 變數群 ---------- //
 // 顏色
 $primaryColor: #3B2213;
+$secondaryColor: #3B2213;
+
 $assistant: #a40e03;
 $assistant1: #A35539;
 $assistant2: #B34841;
@@ -15,6 +17,20 @@ $footerBg2: #220E06;
 
 $fontColor: #000;
 $fontInvert: #fff;
+
+$border-color: #aaa;
+$border-color-light: #ddd;
+$border-color-dark:#777;
+$shadow:#0003;
+$shadow2:#0006;
+
+$btn-bg1: $primaryColor ;
+$btn-bg2:darken($primaryColor, 12%);
+
+$gray: #ddd;
+$grayLight: #ececec;
+$grayDark: #555;
+
 
 // 長度
 $sideStripe : 100px; //寬版 logo 區寬度
@@ -35,8 +51,10 @@ $wwMaximum: 1200px;
 @import "_webHeader";
 @import "_bigBanner";
 @import "_menu";
-@import "webFooter";
+@import "_webFooter";
+@import "_form";
 @import "_aas";
 @import "_flow1";
 @import "_flow2";
 @import "_flow3";
+@import "_videoPreview";

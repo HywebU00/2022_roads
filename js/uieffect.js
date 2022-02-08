@@ -18,6 +18,10 @@ $(function(){
   var _sidebar = $('.sidebar');
   var _webHeader = $('.webHeader');
 
+
+  _html.removeClass('no-js');
+
+
   // 製作側欄選單遮罩
   _body.append('<div class="sidebarMask"></div>');
 
@@ -140,12 +144,15 @@ $(function(){
   var _mainRow = _main.children('.row');
   var roleCount = _mainRow.length;
   var rowDotLi = '';
-  _body.append('<nav class="dotNav"><ul></ul></nav>');
-  let _navDotsUl = $('.dotNav>ul');
+  _body.append('<nav class="mpNav"><ul></ul></nav>');
+  let _navDotsUl = $('.mpNav>ul');
   for (let n = 0; n < roleCount; n++) {
-    rowDotLi = rowDotLi + `<li><a href="#row${n}"></a></li>`;
+    let rowtext = _mainRow.eq(n).find('.blockHeader>h2').text();
+    rowDotLi = rowDotLi + `<li><a href="#row${n}" title="${rowtext}"></a></li>`;
     _mainRow.eq(n).attr('id', 'row' + n);
+    // console.log(_mainRow.eq(n).find('.blockHeader>h2').text());
   }
+
   _navDotsUl.append(rowDotLi);
   _navDotsUl.each(function(){
     let _navDot = $(this).find('li>a');

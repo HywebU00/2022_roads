@@ -73,7 +73,7 @@
               position: absolute; left: 50%; bottom: 0; height: 3px; width: 0;
               background-color: $assistant; transition: .2s;
             }
-            &:hover::after{ width: 100%; left: 0; }
+            &:hover::after, &:focus::after{ width: 100%; left: 0; }
           }
         }
       }
@@ -107,8 +107,20 @@
 
   a{ color: $fontInvert;}
   form{margin: 0;padding: 0;}
-  input{ font-size: inherit; height: 2.8em; border-radius: 4px;border: none;padding: 0 .5em; margin: 0; vertical-align: top; display: inline;}
-  input[type="text"]{ width: calc(100vw - 4em - 68px); max-width: 24em; margin-right: 3px;}
+  input[type="text"], input[type="button"]{ font-size: inherit; height: 2.8em; border-radius: 4px;border: none;padding: 0 .5em; margin: 0; vertical-align: top; display: inline;
+    // background-color: $bodyBg;
+  }
+  input[type="text"]{
+    width: calc(100vw - 4em - 68px); max-width: 24em; margin-right: 3px;
+    background-color: #fff;
+    &:focus{box-shadow: $hilight 0 0 0 2px;}
+  }
+  input[type="button"]{
+    background-color: $assistant;
+    &:hover{ background-color: $hilight; box-shadow: $hilight 0 0 0 2px;}
+    &:focus{ background-color: $assistant; box-shadow: $assistant 0 0 0 2px;}
+
+  }
 
   // 熱門關鍵字
   .hotKeywords{ margin-top: 1em;width: 18.5em;
@@ -123,7 +135,7 @@
 
   &.reveal{ left: 0;}
 
-  .closeThis{ right: 4px; top: 4px;}
+  .closeThis{ right: 2px; top: 2px; }
 
   @media screen and (min-width: $wwNormal){
     left: 0; top: 55%; right: auto; width: 21em; padding-top: 54px;

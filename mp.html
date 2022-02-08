@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-TW" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,23 +12,17 @@
   <script src="js/uieffect.js"></script>
 </head>
 <body>
+  <a class="goCenter" href="#aC" tabindex="0">跳至內容區</a>
+
   <header class="webHeader">
+    <a class="accesskey" href="#aU" id="aU" accesskey="U" title="上方功能區塊" >:::</a>
+
     <h1 title="檔案應用專區">
       <img class="normal" src="publicData/h1_archive.png" alt="檔案應用專區"><!-- 寬螢幕用 -->
       <img class="mobile" src="publicData/h1_archive_mobile.png" alt="檔案應用專區"><!-- 手機、小螢幕用 -->
     </h1>
-    <button class="menuCtrl" type="button"></button>
-    <button class="searchCtrl" type="button"></button>
-    <img class="decoImg" src="publicData/deer.png" alt=""><!-- 裝飾圖 -->
-
-    <nav class="topNav">
-      <ul>
-        <li><a href="#">回首頁</a></li>
-        <li><a href="sitemap.html">網站導覽</a></li>
-        <li><a href="#">交通部公路總局</a></li>
-      </ul>
-    </nav>
-
+    
+    <button class="menuCtrl" type="button"></button><!-- 主選單開關 -->
     <nav class="menu">
       <ul>
         <li>
@@ -105,6 +99,7 @@
       </ul>
     </nav>
 
+    <button class="searchCtrl" type="button"></button><!-- 查詢區開關 -->
     <section class="search">
       <button class="closeThis" type="button">關閉</button>
       <form action="">
@@ -114,13 +109,25 @@
       <div class="hotKeywords">
         <span class="label">熱門關鍵字：</span>
         <ul>
-          <li><a>關鍵字ㄧ</a></li>
-          <li><a>關鍵字二</a></li>
+          <li><a href="x">關鍵字ㄧ</a></li>
+          <li><a href="x">關鍵字二</a></li>
           <li><a href="x">關鍵字關３</a></li>
           <!-- <li><a href="x">關鍵關鍵字４</a></li> -->
         </ul>
       </div>
     </section>
+    
+    <img class="decoImg" src="publicData/deer.png" alt=""><!-- 裝飾圖 -->
+
+    <nav class="topNav">
+      <ul>
+        <li><a href="#">回首頁</a></li>
+        <li><a href="sitemap.html">網站導覽</a></li>
+        <li><a href="#">交通部公路總局</a></li>
+      </ul>
+    </nav>
+
+
 
 
   </header>
@@ -133,8 +140,8 @@
         <li><img src="publicData/dataPh21.jpg" alt="替代文字"></li>
         <li><img src="publicData/dataPh25.jpg" alt="替代文字"></li>
       </ul>
-      <!-- <button type="button" class="diskBtn prev">上一筆</button>
-      <button type="button" class="diskBtn next">下一筆</button> -->
+      <button type="button" class="diskBtn prev">上一筆</button>
+      <button type="button" class="diskBtn next">下一筆</button>
     </div>
   </section>
 
@@ -143,7 +150,8 @@
   </aside><!-- /.sidebar -->
   
   <main class="main" style="background: url(images/main_bg.jpg) no-repeat center -60px">
-
+    <a class="accesskey" href="#aC" id="aC" accesskey="C" title="中央內容區塊">:::</a>
+    
     <section class="row aas">
       <header class="blockHeader">
         <h2>檔案應用申請服務 <span lang="en">Archives Application Service</span></h2>
@@ -326,18 +334,35 @@
       </div>
     </section>
 
-    <section class="row video">
+    <section class="row videoPreview">
       <header class="blockHeader">
-        <h2>影音區塊 <span lang="en">Video</span></h2>
+        <h2>影音區塊 <span lang="en">Videos</span></h2>
       </header>
 
-      <div>準備中...</div>
+      <section class="preview">
+        <a href="#">
+          <div class="image">
+            <img src="publicData/dataPh25.jpg" alt="替代文字">
+            <span class="type">活動紀錄</span>
+          </div>
+          <div class="brief">
+            <h3>非易評麼起可的語</h3>
+            <p>歌園在內了作一定去國定學味事不的法覺；就那大農投相然認總地向理，著紅區體己開市能體成格大加史曾相會面他加預動不功就：望次海但是響給裡子層一大這麼落洋上來品東。願少山球邊演人想小得熱機業。口媽而點價不事似通在重玩的行紅識麼子上己；紅事年先室了事作不自實好；是紀他都義吸首策獎本機良星功生，我氣用毒現，先的美回。力一性響色於化我時我英小人管決小理種老員不野現了引已興去力接、無那孩樣只毒包物以關究中？任運大多。日一藥座童才收部業無鄉運氣就，大母不統，做確了動示！長道育母值究。</p>
+          </div>
+        </a>
+      </section>
+      <div class="more"><a href="x">更多影音</a></div>
+
     </section>
+
+    <div class="vrLink"><a href="x">實境展覽</a></div>
 
 
   </main>
 
   <footer class="webFooter">
+    <a class="accesskey" href="#aZ" id="aZ" accesskey="Z" title="頁腳區">:::</a>
+
     <button type="button" class="fatFootCtrl" data-altText="開啟">收合</button>
     <div class="fatFooter">
       <nav class="siteTree">

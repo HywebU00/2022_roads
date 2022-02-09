@@ -41,7 +41,7 @@
     li{
       display: inline-block; margin: 0 1px; padding: 0;
       button{
-        width: 1.6em; height: 1.6em; font-size: inherit;
+        width: 1.6em; height: 1.6em; line-height: 1.6; font-size: inherit;
         background: none; border: none; margin: 0; padding: 0;
         color: $primaryColor; cursor: pointer;
         &:hover, &:focus { color: $assistant;}

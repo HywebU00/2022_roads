@@ -200,7 +200,11 @@ a:focus{outline: none;}
 
 
 // 「實境展覽」連結圖示
-.vrLink{ position: fixed; bottom: 110px; right: 6px; z-index: 599;
+.vrLink{ display: none;
+  @media screen and (min-width: $wwNormal){
+    display: block;
+    position: fixed; bottom: 110px; right: 6px; z-index: 599;
+  }
   a{ 
     display: block; width: 5.6em;
     padding:2em 1.8em; line-height: 1.5;
@@ -210,7 +214,6 @@ a:focus{outline: none;}
   }
 
   @media screen and (min-width: $wwMaximum ){
-    // right: auto;
     right: calc( 50vw - #{$wwMaximum}/2 + 6px );
 
   }
@@ -222,7 +225,7 @@ button.diskBtn{
   border: none; width: 64px; height: 64px; border-radius: 50%; overflow: hidden;
   background: $primaryColor; color: $fontInvert; text-indent: -10em;
 
-  &:hover{
+  &:hover, &:focus{
     background: $assistant; box-shadow: $assistant 0 0 0 2px;
   }
 

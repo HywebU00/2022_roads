@@ -9,11 +9,19 @@
   
   .flowList{ display: flex; 
     &>li{ position: relative;flex: 0 0 76vw; margin-right: 4vw;
-      a{ width: 100%; }
-      img { 
-        width: 90%; height: 98vw; 
-        // width:height = 7:10 , 98vw ~= 76vw * 90% * (10/7)
-        margin: 6% auto 0; object-fit: cover;
+      a{ width: 100%;
+        &:hover{
+          img{ transform: scale(1.1);}
+        }
+        &:focus{
+          .image{ box-shadow:#fff 0 0 0 4px, $assistant 0 0 0 6px;}
+        }
+      }
+      .image { 
+        width: 90%; height: 98vw; overflow: hidden; 
+        //img: width:height = 7:10 , 98vw ~= 76vw * 90% * (10/7)
+        margin: 6% auto 0;  box-shadow:none; transition: .2s;
+        img{ width: 100%; height: 100%; object-fit: cover; transition: .3s;}
       }
       
       // --- 簡述文字
@@ -71,7 +79,7 @@
     .flowList{
       &>li{
         flex-basis: 40vw; margin-right: 3vw;
-        img {
+        .image {
            height: 51.4vw; // width:height = 7:10 , 51.4vw = 40vw * 90% * (10/7)
         }
   
@@ -88,7 +96,7 @@
     .flowBox{ width: $wwMaximum*.93; margin-left: $wwMaximum*.07;}
     .flowList{
       &>li{ flex-basis: $wwMaximum*.4; margin-right: $wwMaximum*.03;
-        img{ width: $wwMaximum*.36; height: $wwMaximum*.51;
+        .image{ width: $wwMaximum*.36; height: $wwMaximum*.51;
           // .36 = .4 * 90% , .36 * (10/7) ~= .51
         }
       }

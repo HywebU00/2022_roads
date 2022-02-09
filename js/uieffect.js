@@ -170,7 +170,7 @@ $(function(){
 
 
 
-  // 大圖自動輪播
+  // 大圖自動輪播 -----------------------------------------------------
   var _bigBanner = $('.bigBanner');
   _bigBanner.each( function() {
     let _this = $(this);
@@ -277,7 +277,7 @@ $(function(){
     _floxBox.append('<div class="flowNav"><ul></ul></div>');
     let _indicator = _this.find(".flowNav>ul");
     for (let n = 0; n < slideCount; n++) {
-      _dots = _dots + '<li><button type="botton"></button></li>';
+      _dots = _dots + '<li></li>';
     }
     _indicator.append(_dots);
     let _indicatItem = _indicator.find('li');
@@ -320,23 +320,22 @@ $(function(){
       _indicator.add(_btnRight).add(_btnLeft).hide();
     }
 
-    function slideForward() {
-      _flowList.stop(true, false).animate({ 
-        'margin-left': -1 * slideDistance }, speed, function () {
-          j = (i + 1) % slideCount;
-          _flowItem.eq(i).appendTo(_flowList);
-          _indicatItem.eq(i).removeClass(actClassName);
-          _indicatItem.eq(j).addClass(actClassName);
-          _flowList.css('margin-left', 0);
-          if (ww >= wwMedium) {
-            _indicatItem.eq((j + 1) % slideCount).addClass(actClassName);
-          }
-          if (ww >= wwNormal) {
-            _indicatItem.eq((j + 1) % slideCount).addClass(actClassName);
-            _indicatItem.eq((j + 2) % slideCount).addClass(actClassName);
-          }
-          i = j;
-        });
+    function slideForward(){
+      _flowList.stop(true, false).animate({'margin-left': -1 * slideDistance }, speed, function(){
+        j = (i + 1) % slideCount;
+        _flowItem.eq(i).appendTo(_flowList);
+        _indicatItem.eq(i).removeClass(actClassName);
+        _indicatItem.eq(j).addClass(actClassName);
+        _flowList.css('margin-left', 0);
+        if (ww >= wwMedium) {
+          _indicatItem.eq((j + 1) % slideCount).addClass(actClassName);
+        }
+        if (ww >= wwNormal) {
+          _indicatItem.eq((j + 1) % slideCount).addClass(actClassName);
+          _indicatItem.eq((j + 2) % slideCount).addClass(actClassName);
+        }
+        i = j;
+      });
     }
     function slideBackward() {
       j = (i - 1) % slideCount;
@@ -369,6 +368,20 @@ $(function(){
       threshold: 20,
     });
 
+    // tab focus
+    let tabCount = 0;
+    _flowItem.children('a').focus(function (e) { 
+      e.preventDefault();
+      if ( tabCount > 0 && tabCount <= slideCount) {
+        slideForward();
+      }
+      tabCount++
+      if(tabCount > slideCount) {
+        _btnLeft.focus();
+        tabCount = 0;
+      }
+    });
+
     let winResizeTimer;
     _window.resize(function () {
       clearTimeout(winResizeTimer);
@@ -396,7 +409,7 @@ $(function(){
     const speed = 800;
     const actClassName = 'active';
     let i = 0;
-    let j;
+    let j = 1;
     let _dots = '';
 
     // 產生 indicator
@@ -450,6 +463,24 @@ $(function(){
       threshold: 20,
     });
 
+    // 點擊數字 ＊＊＊未完成
+    // _indicatItem.children('button').click(function(){
+    //   let k = $(this).parent().index();
+    //   $(this).parent().addClass(actClassName).siblings().removeClass(actClassName);
+    //   _flowItem.eq(k).addClass(actClassName).siblings().removeClass(actClassName);
+
+    //   if (k > j) {
+    //     _flowList.stop(true, false).animate({'left': (j - k) * slideDistance}, speed, function () {
+    //       _flowList.css('left', 0);
+    //       _flowItem.eq(i).appendTo(_flowList);
+    //       j = k;
+    //     });
+    //   }
+
+    // })
+
+    
+
     let winResizeTimer;
     _window.resize(function () {
       clearTimeout(winResizeTimer);
@@ -482,7 +513,7 @@ $(function(){
     _floxBox.append('<div class="flowNav"><ul></ul></div>');
     let _indicator = _this.find(".flowNav>ul");
     for (let n = 0; n < slideCount; n++) {
-      _dots = _dots + '<li><button type="botton"></button></li>';
+      _dots = _dots + '<li></li>';
     }
     _indicator.append(_dots);
     let _indicatItem = _indicator.find('li');

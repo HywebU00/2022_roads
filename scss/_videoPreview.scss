@@ -16,10 +16,13 @@
         border-color: transparent transparent transparent $fontColor;
         z-index: 9;
       }
-      &:hover{
+      &:hover, &:focus{
         &::before{background: $assistant;}
         &::after{border-left-color: $fontInvert;}
         text-decoration: underline;
+      }
+      &:focus{
+        outline: 2px solid $assistant;
       }
     }
   }

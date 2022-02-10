@@ -135,7 +135,6 @@ $(function(){
   function searchHide(){
     _search.removeClass('reveal');
     setTimeout(function(){_search.removeAttr('style')}, 800);
-
   }
 
 
@@ -161,6 +160,13 @@ $(function(){
   _goTop.click(function(){
     _html.stop(true,false).animate({scrollTop: 0}, 800);
   });
+	_window.scroll(function() {
+		if ( $(this).scrollTop() > 200){
+			_goTop.addClass('show');
+		} else {
+      _goTop.removeClass('show');
+		}
+	});
 
 
   // 右側點點快速連結 -----------------------------------------------------
@@ -200,12 +206,6 @@ $(function(){
       }, 1000);
     });
   })
-
-
-
-
-  
-
 
 
   // 大圖自動輪播 -----------------------------------------------------
@@ -315,15 +315,6 @@ $(function(){
     }
 
   })
-
-
-
-
-
-
-
-
-
 
 
   // 點選左右箭頭滑動（非自動輪播） -----------------------------------------
@@ -486,7 +477,7 @@ $(function(){
     _flowList.after('<div class="flowNav"><ul></ul></div>');
     let _indicator = _this.find(".flowNav>ul");
     for (let n = 1; n <= slideCount; n++) {
-      _dots = _dots + '<li><button type="botton">' + n + '</button></li>';
+      _dots = _dots + '<li><span>' + n + '</span></li>';
     }
     _indicator.append(_dots);
     let _indicatItem = _indicator.find('li');
@@ -532,6 +523,24 @@ $(function(){
       swipeLeft: function () {slideForward();},
       threshold: 20,
     });
+
+    // tab focus
+    let tabCount = 0;
+    _flowItem.children('a').focus(function(e){
+      e.preventDefault();
+      if (tabCount == 0) {
+        slideBackward();
+        tabCount++;
+      } else if ( tabCount < slideCount) {
+        slideForward();
+        tabCount++;
+      } else {
+        _btnLeft.focus();
+      }
+      console.log(tabCount);
+    })
+
+
 
     // 點擊數字 ＊＊＊未完成
     // _indicatItem.children('button').click(function(){
@@ -668,6 +677,19 @@ $(function(){
       threshold: 20,
     });
 
+    // tab focus
+    let tabCount = 0;
+    _flowItem.children('a').focus(function (e) { 
+      e.preventDefault();
+      if ( tabCount > 0 && tabCount <= slideCount) {
+        slideForward();
+      }
+      tabCount++
+      if(tabCount > slideCount) {
+        _btnLeft.focus();
+        tabCount = 0;
+      }
+    });
     var winResizeTimer;
     _window.resize(function () {
       clearTimeout(winResizeTimer);

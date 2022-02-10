@@ -15,16 +15,39 @@
     &>li{
       position: relative; line-height: 1.8; padding: 0;
       flex: 0 0 87vw; height: auto;
-      &>a{width: 100%;}
-
-      figure{ display: block; margin: 0; padding: 0; background: $assistant1;
-        img{display: block;  width: 87vw; height: 63vw; object-fit: cover;}
-        figcaption{ display: block; width: 87vw; padding: .6em; color: $fontInvert; }
+      figure{ display: block; margin: 0; padding: 0; overflow: hidden; background: $assistant1;
+        img{display: block; width: 87vw; height: 63vw; object-fit: cover; transition: .3s;}
+        figcaption{ display: block; width: 87vw; padding: .6em;
+          background: $assistant1; color: $fontInvert; 
+          position: relative; // 使其蓋過 img
+        }
       }
       .brief{
         display: -webkit-box;
         -webkit-line-clamp: 3; -webkit-box-orient: vertical;
         margin: 1em auto 0;overflow: hidden;
+      }
+
+      &>a{
+        &::before{ content: ''; display: none;
+          position: absolute; left: 0;right: 0;top: 0;bottom: 0;
+          box-shadow: $assistant 0 0 0 2px inset;
+        }
+        &:focus::before{ display: block;}
+        &:hover{ 
+          .brief{ text-decoration: underline; }
+          figure{
+            img{ transform: scale(1.05);}
+          }
+        }
+      }
+
+      &.active{
+        &>a:hover{
+          figure{
+            figcaption{background: darken($assistant1, 8%);}
+          }
+        }
       }
     }
   }
@@ -37,17 +60,16 @@
 
   // ---------- flowNav 點點或數字
   .flowNav{ text-align: center; margin: 1em 0 0;
-    ul{ list-style: none; margin: 0;padding: 0;font-size: 1.25em;}
-    li{
-      display: inline-block; margin: 0 1px; padding: 0;
-      button{
+    ul{ list-style: none; margin: 0;padding: 0;font-size: 1.25em; display: inline-block;}
+    li{margin: 0 2px; padding: 0; float: left;
+      span{ display: block;
         width: 1.6em; height: 1.6em; line-height: 1.6; font-size: inherit;
         background: none; border: none; margin: 0; padding: 0;
         color: $primaryColor; cursor: pointer;
         &:hover, &:focus { color: $assistant;}
       }
       &.active{
-        button{
+        span{
           background: url(../images/poly02.svg) 0 0 no-repeat;
           background-size: contain;
           color: $fontInvert;
@@ -70,8 +92,8 @@
       &>li{
         height: calc(30vw + 100px); width: auto; flex-basis: 8vw;
         padding: 60px 5vw 0; font-size: .85em; line-height: 1.8;
-        transition: .6s;
-  
+        transition: .8s ease-out;
+
         &::before, &::after{
           content: ''; position: absolute; top: calc(60px + 6vw + 1.4em);
           width: 4vw; height: 2px; background: $fontColor;
@@ -79,12 +101,11 @@
         &::before{ left: 0;}
         &::after{ right: 0;}
 
-        figure{ width: 8vw; background-color: transparent;
+        figure{ width: 8vw; background-color: transparent; overflow: visible; transition:transform .3s;
           img{ width: 8vw;  height: 6vw; transition: .6s;}
           figcaption{
-            width: calc(8vw + 1em);
-            padding: .6em 0 0; margin: 0 -.5em;
-            color: $fontColor;    
+            width: calc(8vw + 1em); padding: .6em 0 0; margin: 0 -.5em;
+            color: $fontColor; background-color: transparent;
           }
         }
         .brief{ height: 0;}
@@ -105,6 +126,14 @@
             }
           }
           .brief{margin: 1em auto 0;height: 5.4em;overflow: hidden;}
+        }
+
+        &>a{
+          &:hover{
+            figure{ transform: scale(1.08);
+              img{ transform: none;}
+            }
+          }
         }
       }
     }

@@ -156,8 +156,6 @@ $(function(){
   })
 
 
-
-
   // 向上捲動箭頭 -----------------------------------------------------
 	var _goTop = $('.goTop');
   _goTop.click(function(){
@@ -278,10 +276,14 @@ $(function(){
         clearInterval(autoLoop);
         slideBackward();
       });
+      _btnRight.add(_btnLeft).focus(function(){
+        clearInterval(autoLoop);
+      })
   
       // 開始自動輪播
-      let autoLoop = setInterval( slideForward , duration); 
+      let autoLoop = setInterval( slideForward , duration);
 
+      // 改變視窗大小時，暫停自動輪播
       let winResizeTimer;
       _window.resize(function () {
         clearTimeout(winResizeTimer);
@@ -290,6 +292,24 @@ $(function(){
           autoLoop = setInterval( slideForward , duration);
         }, 200);
       });
+
+      // tab 鍵遊走
+      _flowItem.children('a').focus(function(){
+        clearInterval(autoLoop);
+        $(this).parent().css('left', 0).siblings().css('left', '-100%');
+        i = $(this).parent().index();
+        _indicatItem.removeClass(actClassName).eq(i).addClass(actClassName);
+      })
+      _flowItem.last().children('a').blur( function(){
+        _flowItem.css('left', '100%');
+        _flowItem.last().css('left', 0);
+        i = count - 1;
+        j = (i + 1) % count;
+      })
+      _floxBox.focusout( function(){
+        clearInterval(autoLoop);
+        autoLoop = setInterval( slideForward , duration);
+      })
     } else {
       _btnRight.add(_btnLeft).hide();
     }
@@ -299,9 +319,15 @@ $(function(){
 
 
 
-  // ======================================================================
-  // 點選左右箭頭滑動（非自動輪播 -----------------------------------------
-  // .flow1：寬版顯示三筆，每筆等寬
+
+
+
+
+
+
+
+  // 點選左右箭頭滑動（非自動輪播） -----------------------------------------
+  // .flow1：寬版顯示三筆，每筆等寬 -----------------------------------------
   var _flow1 = $('.flow1');
   _flow1.each(function () {
     let _this = $(this);
@@ -439,8 +465,7 @@ $(function(){
   });
 
 
-
-  // .flow2：寬版顯示三筆，中間圖放大且與其他項排版不同
+  // .flow2：寬版顯示三筆，中間圖放大且與其他項排版不同 --------------------
   var _flowCenter = $('.flow2');
   _flowCenter.each(function () {
     let _this = $(this);
@@ -536,8 +561,7 @@ $(function(){
   });
 
 
-
-  // .flow3：寬版顯示兩筆完整，第三筆顯示局部
+  // .flow3：寬版顯示兩筆完整，第三筆顯示局部 ------------------------------
   var _flow3 = $('.flow3');
   _flow3.each(function () {
     let _this = $(this);
@@ -670,76 +694,55 @@ $(function(){
 
 
 
-
-
-
-
-
   // 燈箱 --- 【所屬單位清單】 顯示／隱藏 ，【登入區】顯示／隱藏 ，【進階查詢】 顯示／隱藏 ，
-  var _showLightbox =  $('.showLightbox');
-  var _lightbox = $('.lightbox');
-  _lightbox.filter('.courtsList').append('<div class="overlayForClose"></div>');
-  var _hideLightbox = _lightbox.find('.closeThis, .hideLightbox, .overlayForClose');
-  var _lightboxNow;
-  const speed = 400;
+  // var _showLightbox =  $('.showLightbox');
+  // var _lightbox = $('.lightbox');
+  // _lightbox.filter('.courtsList').append('<div class="overlayForClose"></div>');
+  // var _hideLightbox = _lightbox.find('.closeThis, .hideLightbox, .overlayForClose');
+  // var _lightboxNow;
+  // const speed = 400;
 
-  _lightbox.before('<div class="cover"></div>');
-  var _cover = $('.cover');
+  // _lightbox.before('<div class="cover"></div>');
+  // var _cover = $('.cover');
   
-  _showLightbox.click(function(){
-    let boxID = $(this).attr('data-id');
-    _lightboxNow = _lightbox.filter( function(){ return $(this).attr('data-id') === boxID} );
-    _lightboxNow.stop(true, false).slideDown(speed).addClass('show');
-    _lightboxNow.prev(_cover).fadeIn(speed);
-    _body.addClass('noScroll');
-  })
+  // _showLightbox.click(function(){
+  //   let boxID = $(this).attr('data-id');
+  //   _lightboxNow = _lightbox.filter( function(){ return $(this).attr('data-id') === boxID} );
+  //   _lightboxNow.stop(true, false).slideDown(speed).addClass('show');
+  //   _lightboxNow.prev(_cover).fadeIn(speed);
+  //   _body.addClass('noScroll');
+  // })
 
-  _hideLightbox.click(function(){
-    let _targetLbx = $(this).parents('.lightbox');
-    _targetLbx.stop(true, false).slideUp(speed,
-      function(){
-        _targetLbx.removeClass('show');
-        if( _targetLbx.has('.tabs')){
-          _targetLbx.removeAttr('style');
-        }
-      }
-    );
-    _targetLbx.prev(_cover).fadeOut(speed);
-    _body.removeClass('noScroll');
-  })
+  // _hideLightbox.click(function(){
+  //   let _targetLbx = $(this).parents('.lightbox');
+  //   _targetLbx.stop(true, false).slideUp(speed,
+  //     function(){
+  //       _targetLbx.removeClass('show');
+  //       if( _targetLbx.has('.tabs')){
+  //         _targetLbx.removeAttr('style');
+  //       }
+  //     }
+  //   );
+  //   _targetLbx.prev(_cover).fadeOut(speed);
+  //   _body.removeClass('noScroll');
+  // })
 
-  _cover.click(function(){
-    let _targetLbx = $(this).next('.lightbox');
-    $(this).fadeOut(speed);
-    _targetLbx.fadeOut(speed,
-      function(){
-        _targetLbx.removeClass('show');
-        if( _targetLbx.has('.tabs')){
-          _targetLbx.removeAttr('style');
-        }
-      }
-    );
-    _body.removeClass('noScroll');
-  })
-
-
+  // _cover.click(function(){
+  //   let _targetLbx = $(this).next('.lightbox');
+  //   $(this).fadeOut(speed);
+  //   _targetLbx.fadeOut(speed,
+  //     function(){
+  //       _targetLbx.removeClass('show');
+  //       if( _targetLbx.has('.tabs')){
+  //         _targetLbx.removeAttr('style');
+  //       }
+  //     }
+  //   );
+  //   _body.removeClass('noScroll');
+  // })
 
 
 
-  //go top ------------------------------------------
-	var _goTop = $('.goTop');
-  _goTop.click(function(e){
-    e.preventDefault();
-    _body.stop(true,false).animate({scrollTop: 0}, 600);
-  });
-
-	$(window).scroll(function() {
-		if ( $(this).scrollTop() > 200){
-			_goTop.addClass('show');
-		} else {
-      _goTop.removeClass('show');
-		}
-	});
 
   // // 條列頁 active 樣式
   // var _category = $('.category');

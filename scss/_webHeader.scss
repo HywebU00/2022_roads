@@ -63,21 +63,22 @@
 .topRow .topNav{display: none;
   @media screen and (min-width: $wwNormal){
     display: block;
-    position: absolute; right: 3.25vw; top: 2.5vw;z-index: 99;
+    position: absolute; right: 3.25vw; top: 0; z-index: 99;
+    padding-top: calc(2.5vw - 1em);
     font-size: 1.125em;
-    ul{list-style: none; margin: 0; padding: 0;}
+    ul{list-style: none; margin:0; padding: 0;}
     &>ul{ overflow: hidden; line-height: 1;
       &>li{ float: left; position: relative; margin: 0; padding: 0 .8em;
         &::before{ content: ''; 
-          position: absolute; right: 0; top: .2em;
+          position: absolute; right: 0; top: .7em;
           width: 1px; height: .5em; background: $fontColor;
         }
         &:last-child::before{display: none;}
-    
         a{ display: block; position: relative;
-          padding: 0 0 4px; text-decoration: none; color: $fontColor;
+          padding: 0; text-decoration: none; color: $fontColor;
+          height: 2em; line-height: 2;
           &::after{content: ''; 
-            position: absolute; left: 50%; bottom: 0; height: 3px; width: 0;
+            position: absolute; left: 50%; bottom: .2em; height: 3px; width: 0;
             background-color: $assistant; transition: .2s;
           }
           &:hover::after, &:focus::after{ width: 100%; left: 0; }
@@ -86,7 +87,6 @@
     }
   }
 }
-
 
 
 // ---------- 快速查詢區
@@ -126,7 +126,6 @@
   }
 
   &.reveal{ left: 0;}
-
   .closeThis{ right: 2px; top: 2px; }
 
   @media screen and (min-width: $wwNormal){

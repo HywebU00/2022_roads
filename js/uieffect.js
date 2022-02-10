@@ -171,27 +171,41 @@ $(function(){
   var roleCount = _mainRow.length;
   var rowDotLi = '';
   _body.append('<nav class="mpNav"><ul></ul></nav>');
-  let _navDotsUl = $('.mpNav>ul');
+  var _navDotsUl = $('.mpNav>ul');
+
+  // 產生<li><a>元件
   for (let n = 0; n < roleCount; n++) {
     let rowtext = _mainRow.eq(n).find('.blockHeader>h2').text();
     rowDotLi = rowDotLi + `<li><a href="#row${n}" title="${rowtext}"></a></li>`;
     _mainRow.eq(n).attr('id', 'row' + n);
-    // console.log(_mainRow.eq(n).find('.blockHeader>h2').text());
   }
-
   _navDotsUl.append(rowDotLi);
-  _navDotsUl.each(function(){
-    let _navDot = $(this).find('li>a');
-    _navDot.click(function(e){
-      _this = $(this);
-      e.preventDefault();
-      // console.log($(this).parent().index());
-      _html.stop(true,false).animate({
-        'scrollTop': _mainRow.eq(_this.parent().index()).offset().top}, 
-        800)
-    })
+  var _navDots = _navDotsUl.find('li');
+  var navDotTop;
+
+  _navDots.children('a').focus( function(e){
+    e.preventDefault();
+    let _dotliNow = $(this).parent();
+    _dotliNow.addClass('focused').siblings().removeClass('focused');
 
   })
+  _navDots.children('a').click(function(e){
+    e.preventDefault();
+    let _dotliNow = $(this).parent();
+    _dotliNow.addClass('focused').siblings().removeClass('focused');
+
+    navDotTop = _mainRow.eq(_dotliNow.index()).offset().top;
+
+    _html.stop(true, false).animate({'scrollTop': navDotTop }, 800, function(){
+      setTimeout(() => {
+        _navDots.removeClass('focused');
+      }, 1000);
+    });
+  })
+
+
+
+
   
 
 

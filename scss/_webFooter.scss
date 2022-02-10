@@ -39,7 +39,7 @@
       float: left; padding: 0; margin:0 0 1em; line-height: 1.2;
       &+li{margin-left: 1em;}
       a{ 
-        display: block; border-bottom: 1px solid transparent;
+        display: block; border-bottom: 2px solid transparent;
         &:hover, &:focus{border-color: $fontInvert;}
       }
     }
@@ -51,6 +51,8 @@
       float: left; margin-right: 1.2em;
       a{display: block;
         img{display: block; width: 152px;}
+
+        &:hover, &:focus{ box-shadow: $fontInvert 0 0 0 2px;}
       }
     }
   }
@@ -88,16 +90,16 @@
 }
 
 .fatFootCtrl{
-  position: absolute;right:30px; top: -10px; z-index: 9;
+  position: absolute; right:30px; top: -10px; z-index: 9;
   width: 54px; height: 54px; background: $primaryColor;
   text-indent: -10em; overflow: hidden; border: none;
   transition: .2s;
 
-  &:hover, &:focus{ background-color: $assistant; box-shadow: none;}
-
+  &:hover, &:focus{ background-color: $assistant; box-shadow: none; outline: none;}
+  &:focus{box-shadow: $assistant 0 0 0 2px}
   &::before{
     content: '';position: absolute; left: 50%; top: 50%;
-     width: 10px; height: 10px; margin: -4px auto auto -5px;
+    width: 10px; height: 10px; margin: -4px auto auto -5px;
     border: 1px solid #fff; border-right: none; border-bottom: none;
     transform: rotate(45deg); transition: .4s;
   }

@@ -150,42 +150,40 @@ a:focus{outline: none;}
     display: block;
     position: fixed; top: 45vh; right: 16px; z-index: 599;
     transform: translateY(-55%);
-    // outline: 1px solid pink;
     ul{list-style: none; margin: 0; padding: 0;}
     li{margin:8px auto; padding: 0;
       a{
         position: relative;
         display: block; width: 20px; height: 20px; 
-        // text-indent: -20em;
         &::before{
           content: ''; position: absolute; left: 4px;top: 4px;
           width: 12px; height: 12px; border-radius: 50%; z-index: 9;
           background: $primaryColor; box-shadow: $fontInvert 0 0 3px;
           background-size: contain;
-          // transition: .2s;
         }
         &::after{ content: attr(title);
           position: absolute; right: -2px; top: -2px; white-space: nowrap; 
-          height: 1.5em; line-height: 1.5;
+          height: 1.5em; line-height: 1.5; border-radius: 1em;
           background-color: transparent; color: transparent;
-          border-radius: 1em;
-          width: 0; padding: 0; overflow: hidden; transition:background-color .5s, color .5s;
+          width: 0; padding: 0; overflow: hidden;
+          transition:background-color .5s, color .5s;
         }
-        &:hover, &:focus{
-          outline: none;
-          &::before{
-            background: $assistant;
-          }
+        &:hover{
+          &::before{background: $assistant;}
           &::after{
-            background-color: transparentize($fontColor, .6); color: $fontInvert;
+            background-color: transparentize($fontColor, .4); color: $fontInvert;
             width: auto;padding: 0 25px 0 .6em; 
           }
         }
-        &:focus{
-          &::before{
-            box-shadow: $assistant 0 0 0 2px, $fontInvert 0 0 0 4px;
-          }
-          &::after{background-color: $fontColor;}
+        &:focus{outline: none;}
+      }
+
+      &.focused a{
+        &::before{background: $assistant; box-shadow:  $fontInvert 0 0 0 3px; }
+        &::after{
+          background-color: $fontColor; color: $fontInvert;
+          width: auto;padding: 0 25px 0 .6em;
+          transition:background-color .5s, color .5s;
         }
       }
     }
@@ -255,30 +253,22 @@ button.diskBtn{
 
 .more{ margin: 1em -5px; overflow: hidden; padding: 5px;
   a{ position: relative;
-    float: right; height: 3.6em; line-height: 3.7; padding: 0 52px 0 1.5em;
+    float: right; height: 3.6em; line-height: 3.6; padding: 0 48px 0 1.6em;
     background: $primaryColor; color: $fontInvert;
     text-decoration: none; border-radius: 2em; transition: .2s;
-
     &::before{content: ''; position: absolute;
-      right: 28px; top: 24px;
+      right: 25px; top: 24px;
       width: 11px; height: 11px; border: 1px solid $fontInvert; border-bottom: none; border-left: none;
       transform: rotate(45deg) translateY(-2px);
     }
-    // &::after{
-    //   right: 22px; top: 50%;
-    //   transform: translateY(-1px);
-    //   width: 24px; height: 1px; background: $fontInvert;
-    // }
-    &:hover{
-      background-color: $assistant;
-      box-shadow: $assistant 0 0 0 2px;
-    }
+    &:hover, &:focus{ background-color: $assistant; }
+    &:focus{ box-shadow: $assistant 0 0 0 3px; }
   }
 }
 
 
 // 側欄遮罩
-.sidebarMask{ display: none;
+.sidebarMask{ display: none; z-index: 980;
  position: fixed; left: 0; right: 0; top: 0; bottom: 0;
- background-color: #000a;
+ background-color: $transDarken;
 }

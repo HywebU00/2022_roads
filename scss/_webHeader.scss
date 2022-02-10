@@ -1,10 +1,10 @@
 // ---------- webHeader
 .webHeader{
   position: fixed; top: 0; z-index: 220; 
-  width: 100vw; height: 64px;
+  width: 100vw; height: 64px;margin: 0 ;
   background: $primaryColor;
 
-  .topNav, .decoImg{display: none;}
+  .decoImg{display: none;}
 
   h1{margin: 0 64px; padding: 0; height: 64px; overflow: hidden;
     &>a{ display: block;}
@@ -20,14 +20,9 @@
   .sidebarCtrl{ display: block;position: absolute; top: 4px; left: 4px;}
 
   @media screen and (min-width: $wwNormal) {
-    position: relative;
-    // position: relative;
-    height: 58vw;
-    background: none; margin: 0; 
-    overflow: hidden; 
-   
-    // background: url(../images/header_bg_archive.jpg) center top no-repeat;
-    // background-size: 100%;
+    position: absolute;
+    height: 58vw; width: 100px; overflow: visible;
+    background: none; 
 
     .sidebarCtrl {display: none;}
     .menuCtrl, .searchCtrl{display: block; position: absolute; left: auto; right: auto; }
@@ -35,7 +30,7 @@
     .menuCtrl{  margin: 10px auto 10px ($sideStripe - 56px)/2; top: calc(55% - 70px);}
   
     &::before{ content: ""; 
-      position: absolute; top: 0; bottom: 0; left: 0; width: $sideStripe;
+      position: absolute; top: 0; bottom: 0; left: 0; width: 100%;
       background-color: transparentize($primaryColor, .3);
     }
   
@@ -52,49 +47,46 @@
       width:80px; 
     }
   
-  
-  
-    // ---------- 右上導覽列 topNav
-    .topNav{ display: block;
-      position: absolute; right: 3.25vw; top: 2.5vw;
-      font-size: 1.125em;
-      ul{list-style: none; margin: 0; padding: 0;}
-      &>ul{ overflow: hidden; line-height: 1;
-        &>li{ float: left; position: relative; margin: 0; padding: 0 .8em;
-          &::before{ content: ''; 
-            position: absolute; right: 0; top: .2em;
-            width: 1px; height: .5em; background: $fontColor;
-          }
-          &:last-child::before{display: none;}
-
-          a{ display: block; position: relative;
-            padding: 0 0 4px; text-decoration: none; color: $fontColor;
-            &::after{content: ''; 
-              position: absolute; left: 50%; bottom: 0; height: 3px; width: 0;
-              background-color: $assistant; transition: .2s;
-            }
-            &:hover::after, &:focus::after{ width: 100%; left: 0; }
-          }
-        }
-      }
-    }
-  
     h1, .menuCtrl, .searchCtrl{ z-index: 9;}
     &::before{ width: $sideStripe; z-index: 8;}
-
   }
 
-  @media screen and (min-width: $wwMaximum) {
-    width: $wwMaximum;
-    height: 696px; margin: 0 auto;
-    // left: calc(50vw - #{$wwMaximum}*.5);
-    &::before{ background-position: center bottom 40px;}
-    // h1{ width: 80px; left: 13px; }
 
-    .topNav{ right: 39px; top: 30px;}
+  @media screen and (min-width: $wwMaximum) {
+    height: $wwMaximum*.58; 
+    // &::before{ background-position: center bottom 40px;}
   }
 
 }
+
+// ---------- 右上導覽列 topNav
+.topRow .topNav{display: none;
+  @media screen and (min-width: $wwNormal){
+    display: block;
+    position: absolute; right: 3.25vw; top: 2.5vw;z-index: 99;
+    font-size: 1.125em;
+    ul{list-style: none; margin: 0; padding: 0;}
+    &>ul{ overflow: hidden; line-height: 1;
+      &>li{ float: left; position: relative; margin: 0; padding: 0 .8em;
+        &::before{ content: ''; 
+          position: absolute; right: 0; top: .2em;
+          width: 1px; height: .5em; background: $fontColor;
+        }
+        &:last-child::before{display: none;}
+    
+        a{ display: block; position: relative;
+          padding: 0 0 4px; text-decoration: none; color: $fontColor;
+          &::after{content: ''; 
+            position: absolute; left: 50%; bottom: 0; height: 3px; width: 0;
+            background-color: $assistant; transition: .2s;
+          }
+          &:hover::after, &:focus::after{ width: 100%; left: 0; }
+        }
+      }
+    }
+  }
+}
+
 
 
 // ---------- 快速查詢區

@@ -3,20 +3,20 @@ a:focus{outline: none;}
 // ---------- 快捷鍵
 .accesskey{ display: none; }
 @media screen and (min-width: $wwNormal){
-  .accesskey{ display: block;z-index: 9;
+  .accesskey{ display: block; z-index: 9;
     position: absolute; left: 0; top: 0; margin: 2px;
     text-decoration: none; color: darken($bodyBg, 60%);
     &:focus{ outline: 2px solid $assistant;}
   }
   .webHeader .accesskey{color: $primaryColor;}
-  .main .accesskey{ top: 58vw;}
+  // .main .accesskey{ top: 58vw;}
   .webFooter .accesskey{ top: 40px;color: darken($bodyBg, 40%);}
 }
-@media screen and (min-width: $wwMaximum){
-  .accesskey{left: calc(50vw - #{$wwMaximum}/2); }
-  .main .accesskey{ top: $wwMaximum*.58; }
+// @media screen and (min-width: $wwMaximum){
+//   // .accesskey{ }
+//   .main .accesskey{top: 0; }
+// }
 
-}
 
 // ---------- 跳至內容區
 .goCenter{

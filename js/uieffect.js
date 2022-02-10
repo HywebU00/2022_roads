@@ -29,13 +29,26 @@ $(function(){
   _menu.find('li').has('ul').addClass('hasChild');
 
   // 寬版「主選單」開合
+  const _sideStripeWidth = 100;
   _menuCtrl.click(function(){
-    if (_menu.hasClass('reveal')) {
+    ww = _window.width();
+    if (_menu.is(':visible')) {
       $(this).removeClass('closeIt');
-      _menu.removeClass('reveal');
+      // _menu.removeClass('reveal');
+      if (ww >= wwMaximum) {
+        _menu.animate({left: -1*wwMaximum }, 800, function(){
+          _menu.hide();
+        })
+
+      } else {
+        _menu.animate({left: '-100vw'}, 800, function(){
+          _menu.hide();
+        })
+      }
     } else {
       $(this).addClass('closeIt');
-      _menu.addClass('reveal');
+      // _menu.addClass('reveal');
+      _menu.show().animate({left: _sideStripeWidth}, 800);
     }
   })
 
@@ -88,8 +101,22 @@ $(function(){
     $(this).fadeOut(400);
   })
 
+  let winResizeTimer0;
+  _window.resize(function () {
+    clearTimeout(winResizeTimer0);
+    ww = _window.width();
+    winResizeTimer = setTimeout(function () {
+      if(ww >= wwNormal) {
+        _sidebarMask.hide();
+        _sidebar.removeClass('reveal');
+        _sidebarCtrl.removeClass('closeIt');
+      }
+    }, 200);
+  });
 
-  // 查詢
+
+
+  // 查詢區開合 -----------------------------------------------------
   var _searchCtrl = $('.searchCtrl');
   var _search = $('.search');
   var _closeSearch = _search.find('.closeThis');
@@ -114,17 +141,16 @@ $(function(){
 
   // fatfooter 開合 -----------------------------------------------------
   var _fatFootCtrl = $('.fatFootCtrl');
-  var _fatFooter = $('.fatFooter');
+  var _footSiteTree = $('.fatFooter').find('.siteTree>ul>li>ul');
   const text1 = _fatFootCtrl.text();
   const text2 = _fatFootCtrl.attr('data-altText');
-  // console.log(text1, text2);
 
   _fatFootCtrl.click(function(){
-    if ( _fatFooter.is(':visible')) {
-      _fatFooter.slideUp();
+    if ( _footSiteTree.is(':visible')) {
+      _footSiteTree.slideUp();
       $(this).addClass('closed').text(text2);
     } else {
-      _fatFooter.slideDown();
+      _footSiteTree.slideDown();
       $(this).removeClass('closed').text(text1);
     }
   })
@@ -139,7 +165,7 @@ $(function(){
   });
 
 
-  // 點點快速連結 -----------------------------------------------------
+  // 右側點點快速連結 -----------------------------------------------------
   var _main = $('.main');
   var _mainRow = _main.children('.row');
   var roleCount = _mainRow.length;
@@ -180,75 +206,80 @@ $(function(){
     let count = _flowItem.length;
     let _btnRight = _this.find('.diskBtn.next');
     let _btnLeft = _this.find('.diskBtn.prev');
-    const speed = 900;
-    const duration = 4000;
-    const actClassName = 'active';
-    let i = 0;
-    let j;
-    let _dots = '';
-
-    // 產生 indicator
-    _floxBox.append('<div class="flowNav"><ul></ul></div>');
-    let _indicator = _this.find(".flowNav>ul");
-    for (let n = 0; n < count; n++) {
-      _dots = _dots + '<li><button type="botton"></button></li>';
-    }
-    _indicator.append(_dots);
-    let _indicatItem = _indicator.find('li');
-    _indicatItem.eq(i).addClass(actClassName);
-
-    function slideForward() {
-      j = (i + 1) % count;
-      _flowItem.eq(i).stop(true, true).animate({'left': '-100%'}, speed, function(){
-        $(this).css('left', '100%');
-      })
-      _flowItem.eq(j).stop(true, true).animate({ 'left': 0}, speed);
-      _indicatItem.eq(i).removeClass(actClassName);
-      _indicatItem.eq(j).addClass(actClassName);
-      i = j;
-    }
-
-    function slideBackward() {
-      j = (i - 1) % count;
-      _flowItem.eq(j).css('left', '-100%').stop(true, true).animate({left: 0} , speed);
-      _flowItem.eq(i).stop(true, true).animate({'left': '100%'}, speed );
-      _indicatItem.eq(i).removeClass(actClassName);
-      _indicatItem.eq(j).addClass(actClassName);
-      i = j;
-    }
-
-    let autoLoop = setInterval( slideForward , duration);
-
-
-    // 點擊向右箭頭
-    _btnRight.click(function () { 
-      clearInterval(autoLoop);
-      slideForward();
-    });
-
-    // 點擊向左箭頭
-    _btnLeft.click(function () {
-      clearInterval(autoLoop);
-      slideBackward();
-    });
-
-
-    _floxBox.mouseenter(function(){
-      clearInterval(autoLoop);
-    });
-    _floxBox.mouseleave(function(){
-      autoLoop = setInterval( slideForward , duration);
-    });
-
-    let winResizeTimer;
-    _window.resize(function () {
-      clearTimeout(winResizeTimer);
-      winResizeTimer = setTimeout(function () {
-        clearInterval(autoLoop);
-        autoLoop = setInterval( slideForward , duration);
-      }, 200);
-    });
     
+    if (count > 1){
+      const speed = 900;
+      const duration = 4000;
+      const actClassName = 'active';
+      let i = 0;
+      let j;
+      let _dots = '';
+
+      // 產生 indicator
+      _floxBox.append('<div class="flowNav"><ul></ul></div>');
+      let _indicator = _this.find(".flowNav>ul");
+      for (let n = 0; n < count; n++) {
+        _dots = _dots + '<li></li>';
+      }
+      _indicator.append(_dots);
+      let _indicatItem = _indicator.find('li');
+      _indicatItem.eq(i).addClass(actClassName);
+
+      // 滑鼠移入、移出輪播區
+      _floxBox.mouseenter(function(){
+        clearInterval(autoLoop);
+      });
+      _floxBox.mouseleave(function(){
+        autoLoop = setInterval( slideForward , duration);
+      });
+  
+      function slideForward() {
+        j = (i + 1) % count;
+        _flowItem.eq(i).stop(true, true).animate({'left': '-100%'}, speed, function(){
+          $(this).css('left', '100%');
+        })
+        _flowItem.eq(j).stop(true, true).animate({ 'left': 0}, speed);
+        _indicatItem.eq(i).removeClass(actClassName);
+        _indicatItem.eq(j).addClass(actClassName);
+        i = j;
+      }
+  
+      function slideBackward() {
+        j = (i - 1) % count;
+        _flowItem.eq(j).css('left', '-100%').stop(true, true).animate({left: 0} , speed);
+        _flowItem.eq(i).stop(true, true).animate({'left': '100%'}, speed );
+        _indicatItem.eq(i).removeClass(actClassName);
+        _indicatItem.eq(j).addClass(actClassName);
+        i = j;
+      }
+
+      // 點擊向右箭頭
+      _btnRight.click(function () { 
+        clearInterval(autoLoop);
+        slideForward();
+      });
+
+      // 點擊向左箭頭
+      _btnLeft.click(function () {
+        clearInterval(autoLoop);
+        slideBackward();
+      });
+  
+      // 開始自動輪播
+      let autoLoop = setInterval( slideForward , duration); 
+
+      let winResizeTimer;
+      _window.resize(function () {
+        clearTimeout(winResizeTimer);
+        winResizeTimer = setTimeout(function () {
+          clearInterval(autoLoop);
+          autoLoop = setInterval( slideForward , duration);
+        }, 200);
+      });
+    } else {
+      _btnRight.add(_btnLeft).hide();
+    }
+
   })
 
 
@@ -681,7 +712,7 @@ $(function(){
 
 
 
-  //go top and bottom------------------------------------------
+  //go top ------------------------------------------
 	var _goTop = $('.goTop');
   _goTop.click(function(e){
     e.preventDefault();
@@ -696,41 +727,41 @@ $(function(){
 		}
 	});
 
-  // 條列頁 active 樣式
-  var _category = $('.category');
-  _category.each(function(){
-    let _item = $(this).find('li');
-    _item.click(function(){
-      $(this).addClass('active').siblings().removeClass('active');
-    })
-  })
+  // // 條列頁 active 樣式
+  // var _category = $('.category');
+  // _category.each(function(){
+  //   let _item = $(this).find('li');
+  //   _item.click(function(){
+  //     $(this).addClass('active').siblings().removeClass('active');
+  //   })
+  // })
 
 
-  // 開合區 slideToggle
-  var _slideToggle = $('.slideToggle');
-  _slideToggle.each(function(){
-    let _this = $(this);
-    let _ctrl = _this.find('.slideCtrl');
-    let _drawer = _this.find('.drawer');
-    let text1 = _ctrl.text();
-    let text2 = _ctrl.attr('data-altTitle');
+  // // 開合區 slideToggle
+  // var _slideToggle = $('.slideToggle');
+  // _slideToggle.each(function(){
+  //   let _this = $(this);
+  //   let _ctrl = _this.find('.slideCtrl');
+  //   let _drawer = _this.find('.drawer');
+  //   let text1 = _ctrl.text();
+  //   let text2 = _ctrl.attr('data-altTitle');
 
-    if(_drawer.is(':hidden')) {
-      _ctrl.addClass('openIt').text(text2);
-    } else {
-      _ctrl.removeClass('openIt').text(text1);
-    }
+  //   if(_drawer.is(':hidden')) {
+  //     _ctrl.addClass('openIt').text(text2);
+  //   } else {
+  //     _ctrl.removeClass('openIt').text(text1);
+  //   }
 
-    _ctrl.click(function(){
-      if (_drawer.is(':visible')) {
-        _drawer.slideUp();
-        $(this).addClass('openIt').text(text2);
-      } else {
-        _drawer.slideDown();
-        $(this).removeClass('openIt').text(text1);
-      }
-    })
-  })
+  //   _ctrl.click(function(){
+  //     if (_drawer.is(':visible')) {
+  //       _drawer.slideUp();
+  //       $(this).addClass('openIt').text(text2);
+  //     } else {
+  //       _drawer.slideDown();
+  //       $(this).removeClass('openIt').text(text1);
+  //     }
+  //   })
+  // })
 
 
 

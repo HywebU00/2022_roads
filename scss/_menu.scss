@@ -5,9 +5,7 @@
   }
 }
 
-.webHeader{
-  .menu {display: none;}
-} 
+.topRow .menu {display: none;}
 
 
 // 行動版側欄
@@ -20,8 +18,6 @@
   &.reveal{ margin-left:0; }
 
   a{ color: $fontInvert; text-decoration: none;}
-
-  // .menuCtrl{ position: fixed; top: 3px; left: 3px;}
 
   .menu{ font-size: 1.15em;
     &>ul{ line-height: 1.4;border-bottom: 3px solid #fff8;
@@ -47,8 +43,7 @@
 
         ul{ 
           display: none; font-size: 1rem;
-          border: 1px solid #fff3; 
-          margin: 0 8px 8px 1.2em;
+          border: 1px solid #fff3; margin: 0 8px 8px 1.2em;
         }
       }
       &>li{
@@ -72,16 +67,16 @@
     }
   }
 }
+
 @media screen and (min-width: $wwNormal){
   .sidebar{display: none;}
 
   // 寬版選單
-  .webHeader .menu{ display: block;
-    position: absolute; top: 0; left:$sideStripe;  width:calc(100vw - #{$sideStripe});
-    transform: translateX(-120%);
-    padding: 6.5vw 5vw 4vw 3vw;// padding: 80px 60px 50px 40px; 
-    height: 100%; overflow-Y: auto; background: #000a;
-    transition:.8s;
+  .topRow .menu{
+    display: none;
+    position: absolute; top: 0; left:-100vw;  width:calc(100vw - #{$sideStripe});
+    padding: 6.5vw 5vw 4vw 3vw;
+    height: 100%; overflow-Y: auto; background: $transDarken;
     
     a{ color: $fontInvert; text-decoration: none; }
 
@@ -107,14 +102,10 @@
         ul ul{ display: none;}
       }
     }
-  
-    &.reveal{
-      // right: 0;
-      transform: translateX(0);
-    }
-  
-    @media screen and (min-width: $wwMaximum){
-      width: $wwMaximum - $sideStripe; right: $wwMaximum;
+  }
+  @media screen and (min-width: $wwMaximum){
+    .topRow .menu{
+      width: $wwMaximum - $sideStripe; left: $sideStripe - $wwMaximum;
       padding: 78px 60px 48px 36px; 
       &>ul>li{
         img.deco{ 
@@ -124,6 +115,3 @@
     }
   }
 }
-
-
-

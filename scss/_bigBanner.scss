@@ -18,7 +18,7 @@
         }
       }
       img{ display: block; width: 100vw; height: 58vw; object-fit: cover;
-        transition: .4s;
+        transition:transform .4s;
       }
     }
   }

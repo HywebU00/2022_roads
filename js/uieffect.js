@@ -108,8 +108,12 @@ $(function(){
     winResizeTimer = setTimeout(function () {
       if(ww >= wwNormal) {
         _sidebarMask.hide();
+        _body.removeClass('noScroll');
         _sidebar.removeClass('reveal');
         _sidebarCtrl.removeClass('closeIt');
+      } else {
+        _menu.hide().removeAttr('style');
+        _menuCtrl.removeClass('closeIt');
       }
     }, 200);
   });
@@ -247,10 +251,10 @@ $(function(){
   
       function slideForward() {
         j = (i + 1) % count;
-        _flowItem.eq(i).stop(true, true).animate({'left': '-100%'}, speed, function(){
+        _flowItem.eq(i).stop(true, false).animate({'left': '-100%'}, speed, function(){
           $(this).css('left', '100%');
         })
-        _flowItem.eq(j).stop(true, true).animate({ 'left': 0}, speed);
+        _flowItem.eq(j).stop(true, false).animate({ 'left': 0}, speed);
         _indicatItem.eq(i).removeClass(actClassName);
         _indicatItem.eq(j).addClass(actClassName);
         i = j;
@@ -320,6 +324,19 @@ $(function(){
     } else {
       _btnRight.add(_btnLeft).hide();
     }
+
+    let winResizeTimer;
+    _window.resize(function () {
+      clearTimeout(winResizeTimer);
+      winResizeTimer = setTimeout(function () {
+        ww = _window.width();
+        clearInterval(autoLoop);
+        autoLoop = setInterval( slideForward , duration);
+
+        // slideDistance = _flowItem.first().outerWidth(true);
+
+      }, 200);
+    });
 
   })
 

@@ -3,3 +3,36 @@
 }
 // 頁腳的選單
 .siteTree{ background: url(../images/footerBg_mhm.jpg) 0 0 no-repeat;}
+
+.topRow{
+  .topNav{
+    @media screen and (min-width: $wwNormal){
+      &>ul{
+        &>li{
+          &::before{ background: $fontInvert;}
+          a{ color: $fontInvert; color: #fff; }
+        }
+      }
+    }
+  }
+
+  .menu{
+    background: transparentize($bodyBg, .1);
+    a{ color: $fontColor;}
+    &>ul{
+      a{ 
+        &:hover, &:focus {border-bottom-color: $fontInvert;}
+      }
+      &>li{
+        &>a{ color: $fontInvert; background: $primaryColor; border-bottom: none; transition:.2s;
+          &:hover, &:focus{background-color: $assistant;}
+          &:focus{box-shadow: $assistant 0 0 0 2px;}
+        }
+        li a{
+          &:hover, &:focus{ border-bottom-color: $primaryColor;}
+        }
+      }
+    }
+  }
+
+}

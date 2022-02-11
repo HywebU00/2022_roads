@@ -279,6 +279,13 @@ $(function(){
       _btnRight.add(_btnLeft).focus(function(){
         clearInterval(autoLoop);
       })
+
+      // touch and swipe 左右滑動
+      _floxBox.swipe({
+        swipeRight: function () {slideBackward();},
+        swipeLeft: function () {slideForward();},
+        threshold: 20,
+      });      
   
       // 開始自動輪播
       let autoLoop = setInterval( slideForward , duration);
@@ -536,8 +543,8 @@ $(function(){
         tabCount++;
       } else {
         _btnLeft.focus();
+        tabCount = 0;
       }
-      console.log(tabCount);
     })
 
 

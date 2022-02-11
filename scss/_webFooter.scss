@@ -59,11 +59,11 @@
 }
 
 
-// 頁腳的快速連結
+// 頁腳的選單
 .siteTree{
   position: relative; z-index: 2;
   padding: 40px 8vw 10px 5vw; font-size: 1em;
-  background: url(../images/footerBg_archive.png) 0 0 no-repeat;
+  // background: url(../images/footerBg_archive.png) 0 0 no-repeat;
   ul{list-style: none; margin: 0; padding: 0; line-height: 1.2;}
   &>ul{ display: flex; flex-flow: row wrap; margin: 0 -15px;
     &>li{

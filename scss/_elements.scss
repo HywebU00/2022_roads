@@ -9,13 +9,8 @@ a:focus{outline: none;}
     &:focus{ outline: 2px solid $assistant;}
   }
   .webHeader .accesskey{color: $primaryColor;}
-  // .main .accesskey{ top: 58vw;}
   .webFooter .accesskey{ top: 40px;color: darken($bodyBg, 40%);}
 }
-// @media screen and (min-width: $wwMaximum){
-//   // .accesskey{ }
-//   .main .accesskey{top: 0; }
-// }
 
 
 // ---------- 跳至內容區
@@ -41,7 +36,8 @@ a:focus{outline: none;}
 
 // ---------- 主選單、漢堡選單、查詢圖示
 .menuCtrl, .searchCtrl, .sidebarCtrl{
-  width: 56px; height: 56px; z-index: 9; 
+  width: 56px; height: 56px; z-index: 9;
+  text-indent: -20em; overflow: hidden;
   cursor: pointer; transition:background .2s, box-shadow .3s; 
   margin: 0; border: none; background: none; border-radius: 0;
   &:hover, &:focus {

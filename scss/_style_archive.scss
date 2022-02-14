@@ -1,5 +1,22 @@
 .main{  
   background: url(../images/main_bg.jpg) no-repeat center -60px; 
+  background-size: 100% auto;
+}
+// 頁腳
+.webFooter{
+  background-color: $footerBg;
+  // &::after{ content: '';
+  //   position: absolute; left: 0;right: 0; bottom: 0; top: 100px;
+  //   background-color: $footerBg;
+  // }
+  @media screen and (min-width: $wwNormal){
+    background-color:transparent;
+  }
 }
 // 頁腳的選單
-.siteTree{ background: url(../images/footerBg_archive.png) 0 0 no-repeat;}
+.siteTree{
+  @media screen and (min-width: $wwNormal){
+    background: url(../images/footerBg_archive.png) right 0 no-repeat;
+    background-size: cover;
+  }
+}

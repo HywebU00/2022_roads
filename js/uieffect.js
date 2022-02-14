@@ -222,6 +222,7 @@ $(function(){
     let count = _flowItem.length;
     let _btnRight = _this.find('.diskBtn.next');
     let _btnLeft = _this.find('.diskBtn.prev');
+    let autoLoop;
     
     if (count > 1){
       const speed = 900;
@@ -325,18 +326,18 @@ $(function(){
       _btnRight.add(_btnLeft).hide();
     }
 
-    let winResizeTimer;
-    _window.resize(function () {
-      clearTimeout(winResizeTimer);
-      winResizeTimer = setTimeout(function () {
-        ww = _window.width();
-        clearInterval(autoLoop);
-        autoLoop = setInterval( slideForward , duration);
+    // let winResizeTimer;
+    // _window.resize(function () {
+    //   clearTimeout(winResizeTimer);
+    //   winResizeTimer = setTimeout(function () {
+    //     ww = _window.width();
+    //     clearInterval(autoLoop);
+    //     autoLoop = setInterval( slideForward , duration);
 
-        // slideDistance = _flowItem.first().outerWidth(true);
+    //     // slideDistance = _flowItem.first().outerWidth(true);
 
-      }, 200);
-    });
+    //   }, 200);
+    // });
 
   })
 

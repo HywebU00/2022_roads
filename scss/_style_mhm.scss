@@ -1,8 +1,22 @@
 .main{  
-  background: url(../images/main_bg.jpg) no-repeat center -60px; 
+  background-color: #F6F3EA;
+  @media screen and (min-width: $wwNormal){
+    background-image: url(../images/archive_bg.jpg);
+  }
+}
+// 頁腳
+.webFooter{
+  background-color: $footerBg;
+  @media screen and (min-width: $wwNormal){
+    background-color:transparent;
+  }
 }
 // 頁腳的選單
-.siteTree{ background: url(../images/footerBg_mhm.jpg) 0 0 no-repeat;}
+.siteTree{
+  @media screen and (min-width: $wwNormal){
+    background: url(../images/footerBg_mhm.jpg) 0 0 no-repeat;
+  }
+}
 
 .topRow{
   .topNav{
@@ -17,7 +31,7 @@
   }
 
   .menu{
-    background: transparentize($bodyBg, .1);
+    background: transparentize(#F6F3EA, .1);
     a{ color: $fontColor;}
     &>ul{
       a{ 

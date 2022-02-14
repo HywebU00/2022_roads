@@ -1,6 +1,8 @@
 .main{  
-  background: url(../images/main_bg.jpg) no-repeat center -60px; 
-  background-size: 100% auto;
+  background-color: #F6F3EA;
+  @media screen and (min-width: $wwNormal){
+    background-image: url(../images/archive_bg.jpg);
+  }
 }
 // 頁腳
 .webFooter{
@@ -17,6 +19,5 @@
 .siteTree{
   @media screen and (min-width: $wwNormal){
     background: url(../images/footerBg_archive.png) right 0 no-repeat;
-    background-size: cover;
   }
 }

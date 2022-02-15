@@ -21,16 +21,28 @@ a, img{border: none;}
   @media screen and (min-width: $wwMaximum){
     width: $wwMaximum; height: $wwMaximum*.58;
   }
+
+
 }
 
 // main：版頭和頁腳之間，主要內容區 -------------------------------------------- //
 .main{
-  position: relative; padding: 0 0 120px;
+  position: relative; padding: 1em 0 120px;
   .row + .row {margin-top: 120px;}
   @media screen and (min-width: $wwNormal){
     background-position: center 0;
     background-repeat: no-repeat;
     background-size: 100% auto;
+
+    &.inner{margin-top: -33vw; padding: 3em 70px 120px 140px;}
+  }
+
+
+  @media screen and (min-width: $wwMaximum){
+    &.inner{
+      margin-top: -1*$wwMaximum*.33;
+    }
+
   }
 }
 

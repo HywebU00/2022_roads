@@ -1,6 +1,7 @@
 // ---------- 長度常數 ---------- //
 $sideStripe : 100px;  //寬版 logo 區寬度
-$sideBarWidth: 280px;  // 窄版側欄選單
+$sideBarWidth: 280px;  // 行動版側欄選單
+$mmw: 94vw; // 行動版內頁模組寬度 modeles width in mobile
 // ---------- 長度常數 ---------- //
 
 // ---------- RWD 斷點 ---------- //
@@ -24,4 +25,6 @@ $wwMaximum: 1200px;
 @import "_flow2";
 @import "_flow3";
 @import "_videoPreview";
+@import "_modules";
+@import "_np";
 @import "_style_mhm"; // 「後山公路文物館」用

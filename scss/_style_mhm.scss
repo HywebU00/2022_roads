@@ -1,9 +1,15 @@
 .main{  
   background-color: #F6F3EA;
   @media screen and (min-width: $wwNormal){
-    background-image: url(../images/archive_bg.jpg);
+    background-image: url(../images/mhm_bg.jpg);
+    &.inner{margin-top: -38vw;}
+  }
+  @media screen and (min-width: $wwMaximum){
+    &.inner{ margin-top: -1*$wwMaximum*.38;}
   }
 }
+
+
 // 頁腳
 .webFooter{
   background-color: $footerBg;
@@ -48,5 +54,14 @@
       }
     }
   }
+}
 
+
+.headBanner{
+  @media screen and (min-width: $wwNormal){
+    img{height: 20vw;}
+  }
+  @media screen and (min-width: $wwMaximum){
+    img{ height: $wwMaximum*.2;}
+  }
 }

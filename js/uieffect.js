@@ -222,16 +222,15 @@ $(function(){
     let count = _flowItem.length;
     let _btnRight = _this.find('.diskBtn.next');
     let _btnLeft = _this.find('.diskBtn.prev');
-    let autoLoop;
+    const speed = 900;
+    const duration = 4000;
+    const actClassName = 'active';
+    let i = 0;
+    let j;
+    let _dots = '';
+    let _indicatItem;
     
     if (count > 1){
-      const speed = 900;
-      const duration = 4000;
-      const actClassName = 'active';
-      let i = 0;
-      let j;
-      let _dots = '';
-
       // 產生 indicator
       _floxBox.append('<div class="flowNav"><ul></ul></div>');
       let _indicator = _this.find(".flowNav>ul");
@@ -239,105 +238,95 @@ $(function(){
         _dots = _dots + '<li></li>';
       }
       _indicator.append(_dots);
-      let _indicatItem = _indicator.find('li');
+      _indicatItem = _indicator.find('li');
       _indicatItem.eq(i).addClass(actClassName);
-
-      // 滑鼠移入、移出輪播區
-      _floxBox.mouseenter(function(){
-        clearInterval(autoLoop);
-      });
-      _floxBox.mouseleave(function(){
-        autoLoop = setInterval( slideForward , duration);
-      });
-  
-      function slideForward() {
-        j = (i + 1) % count;
-        _flowItem.eq(i).stop(true, false).animate({'left': '-100%'}, speed, function(){
-          $(this).css('left', '100%');
-        })
-        _flowItem.eq(j).stop(true, false).animate({ 'left': 0}, speed);
-        _indicatItem.eq(i).removeClass(actClassName);
-        _indicatItem.eq(j).addClass(actClassName);
-        i = j;
-      }
-  
-      function slideBackward() {
-        j = (i - 1) % count;
-        _flowItem.eq(j).css('left', '-100%').stop(true, true).animate({left: 0} , speed);
-        _flowItem.eq(i).stop(true, true).animate({'left': '100%'}, speed );
-        _indicatItem.eq(i).removeClass(actClassName);
-        _indicatItem.eq(j).addClass(actClassName);
-        i = j;
-      }
-
-      // 點擊向右箭頭
-      _btnRight.click(function () { 
-        clearInterval(autoLoop);
-        slideForward();
-      });
-
-      // 點擊向左箭頭
-      _btnLeft.click(function () {
-        clearInterval(autoLoop);
-        slideBackward();
-      });
-      _btnRight.add(_btnLeft).focus(function(){
-        clearInterval(autoLoop);
-      })
-
-      // touch and swipe 左右滑動
-      _floxBox.swipe({
-        swipeRight: function () {slideBackward();},
-        swipeLeft: function () {slideForward();},
-        threshold: 20,
-      });      
-  
-      // 開始自動輪播
-      let autoLoop = setInterval( slideForward , duration);
-
-      // 改變視窗大小時，暫停自動輪播
-      let winResizeTimer;
-      _window.resize(function () {
-        clearTimeout(winResizeTimer);
-        winResizeTimer = setTimeout(function () {
-          clearInterval(autoLoop);
-          autoLoop = setInterval( slideForward , duration);
-        }, 200);
-      });
-
-      // tab 鍵遊走
-      _flowItem.children('a').focus(function(){
-        clearInterval(autoLoop);
-        $(this).parent().css('left', 0).siblings().css('left', '-100%');
-        i = $(this).parent().index();
-        _indicatItem.removeClass(actClassName).eq(i).addClass(actClassName);
-      })
-      _flowItem.last().children('a').blur( function(){
-        _flowItem.css('left', '100%');
-        _flowItem.last().css('left', 0);
-        i = count - 1;
-        j = (i + 1) % count;
-      })
-      _floxBox.focusout( function(){
-        clearInterval(autoLoop);
-        autoLoop = setInterval( slideForward , duration);
-      })
     } else {
       _btnRight.add(_btnLeft).hide();
     }
 
-    // let winResizeTimer;
-    // _window.resize(function () {
-    //   clearTimeout(winResizeTimer);
-    //   winResizeTimer = setTimeout(function () {
-    //     ww = _window.width();
-    //     clearInterval(autoLoop);
-    //     autoLoop = setInterval( slideForward , duration);
+    // 開始自動輪播
+    let autoLoop = setInterval( slideForward , duration);
 
-    //     // slideDistance = _flowItem.first().outerWidth(true);
 
-    //   }, 200);
-    // });
+    // 滑鼠移入、移出輪播區
+    _floxBox.mouseenter(function(){
+      clearInterval(autoLoop);
+    });
+    _floxBox.mouseleave(function(){
+      autoLoop = setInterval( slideForward , duration);
+    });
+
+    function slideForward() {
+      j = (i + 1) % count;
+      _flowItem.eq(i).stop(true, false).animate({'left': '-100%'}, speed, function(){
+        $(this).css('left', '100%');
+      })
+      _flowItem.eq(j).stop(true, false).animate({ 'left': 0}, speed);
+      _indicatItem.eq(i).removeClass(actClassName);
+      _indicatItem.eq(j).addClass(actClassName);
+      i = j;
+    }
+
+    function slideBackward() {
+      j = (i - 1) % count;
+      _flowItem.eq(j).css('left', '-100%').stop(true, true).animate({left: 0} , speed);
+      _flowItem.eq(i).stop(true, true).animate({'left': '100%'}, speed );
+      _indicatItem.eq(i).removeClass(actClassName);
+      _indicatItem.eq(j).addClass(actClassName);
+      i = j;
+    }
+
+    // 點擊向右箭頭
+    _btnRight.click(function () { 
+      clearInterval(autoLoop);
+      slideForward();
+    });
+
+    // 點擊向左箭頭
+    _btnLeft.click(function () {
+      clearInterval(autoLoop);
+      slideBackward();
+    });
+    _btnRight.add(_btnLeft).focus(function(){
+      clearInterval(autoLoop);
+    })
+
+    // touch and swipe 左右滑動
+    _floxBox.swipe({
+      swipeRight: function () {slideBackward();},
+      swipeLeft: function () {slideForward();},
+      threshold: 20,
+    });      
+
+
+    // 改變視窗大小時，暫停自動輪播
+    let winResizeTimer;
+    _window.resize(function () {
+      clearTimeout(winResizeTimer);
+      winResizeTimer = setTimeout(function () {
+        clearInterval(autoLoop);
+        autoLoop = setInterval( slideForward , duration);
+      }, 200);
+    });
+
+    // tab 鍵遊走
+    _flowItem.children('a').focus(function(){
+      clearInterval(autoLoop);
+      $(this).parent().css('left', 0).siblings().css('left', '-100%');
+      i = $(this).parent().index();
+      _indicatItem.removeClass(actClassName).eq(i).addClass(actClassName);
+    })
+    _flowItem.last().children('a').blur( function(){
+      _flowItem.css('left', '100%');
+      _flowItem.last().css('left', 0);
+      i = count - 1;
+      j = (i + 1) % count;
+    })
+    _floxBox.focusout( function(){
+      clearInterval(autoLoop);
+      autoLoop = setInterval( slideForward , duration);
+    })
+
 
   })
 

@@ -2,6 +2,7 @@
   background-color: #F6F3EA;
   @media screen and (min-width: $wwNormal){
     background-image: url(../images/archive_bg.jpg);
+    &.inner{ background-image: url(../images/mhm_bg.jpg);}
   }
 }
 // 頁腳
@@ -19,5 +20,14 @@
 .siteTree{
   @media screen and (min-width: $wwNormal){
     background: url(../images/footerBg_archive.png) right 0 no-repeat;
+  }
+}
+
+.headBanner{
+  @media screen and (min-width: $wwNormal){
+    img{height: 25vw;}
+  }
+  @media screen and (min-width: $wwMaximum){
+    img{ height: $wwMaximum*.25; }
   }
 }

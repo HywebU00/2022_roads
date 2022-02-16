@@ -31,3 +31,9 @@ $grayLight: #ececec;
 $grayDark: #555;
 
 $transDarken: #1a0d05bb;
+
+// -------------------------
+%linkText{ color: $assistant; text-decoration: none;box-shadow:$assistant 0 2px 0 -1px;
+  &:hover{text-decoration: none; box-shadow:$assistant 0 3px 0 -1px;}
+  &:focus{text-decoration: none; box-shadow:$assistant 0 0 0 1px;}
+}

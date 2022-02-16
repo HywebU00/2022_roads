@@ -17,9 +17,9 @@ $footerBg2: #220E06;
 $fontColor: #000;
 $fontInvert: #fff;
 
-$border-color: #aaa;
-$border-color-light: #ddd;
-$border-color-dark:#777;
+$border-color: #a29984;
+$border-color-light: #b6b1a2;
+$border-color-dark:#777164;
 $shadow:#0003;
 $shadow2:#0006;
 
@@ -31,3 +31,9 @@ $grayLight: #ececec;
 $grayDark: #555;
 
 $transDarken: #1a0d05bb;
+
+// -------------------------
+%linkText{ color: $assistant; text-decoration: none;box-shadow:$assistant 0 2px 0 -1px;
+  &:hover{text-decoration: none; box-shadow:$assistant 0 3px 0 -1px;}
+  &:focus{text-decoration: none; box-shadow:$assistant 0 0 0 1px;}
+}

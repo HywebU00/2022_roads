@@ -1,5 +1,5 @@
 .np, .npTree{
-  ul{list-style: none; margin: 0; padding: 0; line-height: 1.4;}
+  ul{list-style: none; margin: 0; padding: 0; line-height: 1.6;}
   li{padding: 2px 0;
     a{
       position: relative; display: block; padding: .7em .5em .65em 26px;
@@ -12,29 +12,41 @@
 
 
 // 單層
-.np{
+.np{width: $mmw; margin: 10px auto;
   &>ul{
-    display: flex; flex-flow: row wrap; justify-content: space-between; margin: 15px 0;
+    // display: flex; flex-flow: row wrap; justify-content: space-between; 
+    margin: 15px 0;
     &>li{
-      flex:0 0 calc(50% - 6px);
-      margin: 6px; padding:0;
-      &:nth-child(odd){ margin-left: 0;}
-      &:nth-child(even){ margin-right: 0;}
+      // flex:0 0 calc(50% - 6px);
+      margin: 5px 0 10px; padding:0;
 
       &>a{
-        box-shadow: $border-color 0 0 0 1px;  padding: .9em .5em .8em 44px;
+        box-shadow: $border-color 0 0 0 1px;  padding: .9em .5em .8em 32px;
         height: 100%; transition: .2s;
         &::before{
           content: '';position: absolute;
-          left:20px; top:1em; width: 0;height: 0; box-sizing: content-box; 
+          left:12px; top:1.15em; width: 0;height: 0; box-sizing: content-box; 
           border-style: solid; border-width: 8px 0 8px 10px;
           border-color: transparent transparent transparent $border-color-dark;
         }
-        &:hover{
-          box-shadow: $primaryColor 0 0 0 1px, $border-color 0 6px 20px -3px;
+        &:hover, &:focus{
+          box-shadow: $fontInvert 0 0 0 1px, $border-color 0 6px 20px -3px;
+          &::before{ border-left-color: $assistant;}
         }
       }
     }
+  }
+  @media screen and (min-width: $wwMedium){
+    &>ul{
+      display: flex; flex-flow: row wrap; justify-content: space-between;
+      &>li{ flex:0 0 calc(50% - 5px); margin: 5px;
+        &:nth-child(odd){ margin-left: 0;}
+        &:nth-child(even){ margin-right: 0;}
+      }
+    }  
+  }
+  @media screen and (min-width: $wwNormal){
+    width: auto;
   }
 }
 
@@ -50,7 +62,7 @@
       }
       &>a{
         &::before{
-          left:10px; top:.8em; width: 0;height: 0; box-sizing: content-box; 
+          left:10px; top:.9em; width: 0;height: 0; box-sizing: content-box; 
           border-style: solid; border-width: 8px 0 8px 10px;
           border-color: transparent transparent transparent $border-color-dark;
         }
@@ -60,7 +72,7 @@
       }
       &>ul>li>a{
         &::before{ 
-          width: 9px; height: 9px;left: 10px; top: 1em;
+          width: 9px; height: 9px;left: 10px; top: 1.15em;
           background-color: $border-color-dark;
         }
         &:hover, &:focus{ 
@@ -69,7 +81,6 @@
       }
     }
   }
-
   @media screen and (min-width: $wwNormal){
     width: auto;
   }

@@ -1,0 +1,85 @@
+.list{ 
+  width: $mmw; margin: 2em auto;
+  time{ font-size: 1rem; color: $fontColorLite; display: inline-block; white-space: nowrap; }
+  a{display: block; text-decoration: none; color: $fontColor; }
+  &>ul{ list-style: none; margin: 0;padding: 0 5px;
+    line-height: 1.6; font-size: 1.2em;
+    border-top: 2px solid $border-color;border-bottom: 2px solid $border-color;
+    &>li{ margin: 5px 0 0; border-bottom: 1px solid $border-color;
+      &:last-child{border-bottom: none;}
+      &>a{ 
+        padding: .9em 8px .9em 3.5rem; margin: 0 0 5px; transition: .3s;
+        &:hover, &:focus{background: $hilight2; text-decoration: underline;
+          // time{text-decoration: none;}
+        }
+      }
+      .numb{ display: inline-block; font-size: 1rem; 
+        width: 2.5em; text-align: right; margin:0 .8rem 0 -3.3rem;
+        &::after{content: '.';}
+      }
+      .from{ display: inline-block; font-size: 1rem; color: $primaryColor;
+        &::before{content: '（';}
+        &::after{content: '）';}
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwMedium){
+  }
+
+  @media screen and (min-width: $wwNormal){
+    width: auto; background-color: transparentize($fontInvert, .6);
+    &>ul>li{
+      time{ display: block; margin-top: .5em;}
+    }
+  }
+}
+
+.list{
+  &>table{ border-collapse: collapse; line-height: 1.5; margin:0 8px;
+    border-top: 2px solid $border-color;border-bottom: 2px solid $border-color;
+    tr{ border-bottom: 1px solid $border-color;}
+    th, td{ padding: 14px 16px 12px; position: relative;
+      &::before{content: ''; position: absolute;
+         width: 1px; background: $border-color; top: 4px; bottom: 4px; left: 0;
+      }
+      &:first-child{
+        &::before{display: none;}
+      }
+    }
+    th{ white-space: nowrap;
+    
+    }
+
+    td{ text-align: center;
+      &.numb{text-align: right;
+        &::after{content: '.';}
+      }
+      &>a{font-size: 1.2em; text-align: left; transition: .3s;
+        padding: 12px 15px 9px; margin: -10px -12px -8px -11px;
+        &:hover, &:focus{background: $hilight2;text-decoration: underline;}
+      }
+    }
+  }
+
+  @media screen and (max-width: $wwMedium - 1px){
+    &>table{ margin: 0;
+      tr:first-child{display: none;}
+      tr, th, td{ display: block;}
+      tr{
+        position: relative; overflow: hidden; padding: .8em 0 .7em 3.2em;
+        // outline: 1px solid red;
+      }
+      th, td{position: static; padding: 0;margin: 0; text-align: left;
+        &::before{display: none;}
+      }
+      td{ display: inline-block;  vertical-align: top;
+        &.numb{ position: absolute;top: .2em; left: 0; top: .9em;width: 2.7em; }
+        &>a{display: block; margin:-.5rem 0 0 -.5rem; padding:.5rem 0 .5rem .5rem; 
+          width:calc(#{$mmw} - 3rem);
+        }
+        time{margin-left: .8em;}
+      }
+    }
+  }
+}

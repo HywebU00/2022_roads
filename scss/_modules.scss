@@ -68,19 +68,25 @@
 }
 
 
-// ---------- 前言
-.preface{ overflow: hidden; line-height: 1.8; width: $mmw; margin: 0 auto;
-  // border: 1px solid red;
+// ---------- 前言、後記
+.preface{ overflow: hidden; line-height: 1.8; width: $mmw; margin: 1.5em auto 2.5em;
+  border-bottom: 2px solid $border-color-light; padding-bottom: 1em;
+  &~.preface{margin-top: 3em; margin-bottom: 5em;border-top: 2px solid $border-color-light; padding-top: 1.5em; }
   img{ float: left; 
-    width: 200px; height: 200px; object-fit: cover;
+    width: 100%; height: auto; 
     margin: 0 1em .5em 0;
-    &~ul, &~ol{ margin-left: 200px;}
   }
   a{ @extend %linkText}
-
+  
   ul, ol{line-height: 1.5; margin-bottom: 1em; margin-top: 0;}
   p{line-height: inherit; margin:0 0 1em;}
   li+li{margin-top: .5em;}
+  
+  @media screen and (min-width: $wwMedium){
+    img{ float: left; width: 200px; height: 200px;object-fit: cover;
+      &~ul, &~ol, &~p{ margin-left: 200px;}
+    }
+  }
 
   @media screen and (min-width: $wwNormal){
     width: 100%;

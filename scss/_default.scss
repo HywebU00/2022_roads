@@ -39,9 +39,7 @@ a, img{border: none;}
 
 
   @media screen and (min-width: $wwMaximum){
-    &.inner{
-      margin-top: -1*$wwMaximum*.33;
-    }
+    &.inner{margin-top: -1*$wwMaximum*.33;}
 
   }
 }

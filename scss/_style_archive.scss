@@ -2,7 +2,18 @@
   background-color: $mainBg;
   @media screen and (min-width: $wwNormal){
     background-image: url(../images/archive_bg.jpg);
-    &.inner{ background-image: url(../images/mhm_bg.jpg);}
+    &.inner{ background-image: url(../images/mhm_bg.jpg); margin-top: -28.42vw;}
+  }
+  @media screen and (min-width: $wwMaximum){
+    &.inner{margin-top: -1*$wwMaximum*.2842;}
+  }
+}
+.headBanner{
+  @media screen and (min-width: $wwNormal){
+    img{height: 29.58vw;}
+  }
+  @media screen and (min-width: $wwMaximum){
+    img{ height: $wwMaximum*.2958; }
   }
 }
 // 頁腳
@@ -19,11 +30,3 @@
   }
 }
 
-.headBanner{
-  @media screen and (min-width: $wwNormal){
-    img{height: 25vw;}
-  }
-  @media screen and (min-width: $wwMaximum){
-    img{ height: $wwMaximum*.25; }
-  }
-}

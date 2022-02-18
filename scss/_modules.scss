@@ -30,10 +30,10 @@
 .headBanner{display: none;
   @media screen and (min-width: $wwNormal){
     display: block; margin: 0;
-    img{display: block;width: 100vw; height: 20vw; object-fit: cover;}
+    img{display: block;width: 100vw; /* height: 20vw; */ object-fit: cover;}
   }
   @media screen and (min-width: $wwMaximum){
-    img{ width: $wwMaximum; height: $wwMaximum*.2;}
+    img{ width: $wwMaximum; /* height: $wwMaximum*.2; */}
   }
 }
 

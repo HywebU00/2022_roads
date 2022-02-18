@@ -1,5 +1,5 @@
 .main{  
-  background-color: #F6F3EA;
+  background-color: $mainBg;
   @media screen and (min-width: $wwNormal){
     background-image: url(../images/mhm_bg.jpg);
     &.inner{margin-top: -38vw;}

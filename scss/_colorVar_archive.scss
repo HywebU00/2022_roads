@@ -14,6 +14,7 @@ $sidebarBg : #6f4d24;
 $bodyBg: #c2baa8;
 $footerBg: #2B1207;
 $footerBg2: #220E06;
+$mainBg:#F6F3EA;
 
 $fontColor: #000;
 $fontInvert: #fff;
@@ -34,8 +35,8 @@ $grayDark: #555;
 
 $transDarken: #1a0d05bb;
 
-%shadow1{ box-shadow: #0004 0 1px 4px;}
-%shadow2{ box-shadow: #0003 0 0 15px;}
+%shadow1{ box-shadow: #0006 0 0 4px;}
+%shadow2{ box-shadow: #0009 0 4px 16px -2px;}
 
 // -------------------------
 %linkText{ color: $assistant; text-decoration: none;box-shadow:$assistant 0 2px 0 -1px;

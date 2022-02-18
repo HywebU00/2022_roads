@@ -1,5 +1,5 @@
 .main{  
-  background-color: #F6F3EA;
+  background-color: $mainBg;
   @media screen and (min-width: $wwNormal){
     background-image: url(../images/archive_bg.jpg);
     &.inner{ background-image: url(../images/mhm_bg.jpg);}
@@ -8,10 +8,6 @@
 // 頁腳
 .webFooter{
   background-color: $footerBg;
-  // &::after{ content: '';
-  //   position: absolute; left: 0;right: 0; bottom: 0; top: 100px;
-  //   background-color: $footerBg;
-  // }
   @media screen and (min-width: $wwNormal){
     background-color:transparent;
   }

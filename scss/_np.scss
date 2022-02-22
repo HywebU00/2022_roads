@@ -21,16 +21,16 @@
       margin: 5px 0 10px; padding:0;
 
       &>a{
-        box-shadow: $border-color 0 0 0 1px;  padding: .9em .5em .8em 32px;
+        box-shadow: $borderColor 0 0 0 1px;  padding: .9em .5em .8em 32px;
         height: 100%; transition: .2s;
         &::before{
           content: '';position: absolute;
           left:12px; top:1.15em; width: 0;height: 0; box-sizing: content-box; 
           border-style: solid; border-width: 8px 0 8px 10px;
-          border-color: transparent transparent transparent $border-color-dark;
+          border-color: transparent transparent transparent $borderColorDark;
         }
         &:hover, &:focus{
-          box-shadow: $fontInvert 0 0 0 1px, $border-color 0 6px 20px -3px;
+          box-shadow: $fontInvert 0 0 0 1px, $borderColor 0 6px 20px -3px;
           &::before{ border-left-color: $assistant;}
         }
       }
@@ -55,7 +55,7 @@
   &>ul{
     &>li{ 
       margin: .6em 0; padding:3px;
-      box-shadow: $border-color 0 0 0 1px;
+      box-shadow: $borderColor 0 0 0 1px;
       ul{margin-left: 1.2em;}
       a{ transition: .2s;
         &::before{content: ''; position: absolute;transition: .2s;}
@@ -64,7 +64,7 @@
         &::before{
           left:10px; top:.9em; width: 0;height: 0; box-sizing: content-box; 
           border-style: solid; border-width: 8px 0 8px 10px;
-          border-color: transparent transparent transparent $border-color-dark;
+          border-color: transparent transparent transparent $borderColorDark;
         }
         &:hover, &:focus{ 
           &::before{ border-left-color: $assistant; border-left-width:13px;}
@@ -73,7 +73,7 @@
       &>ul>li>a{
         &::before{ 
           width: 9px; height: 9px;left: 10px; top: 1.15em;
-          background-color: $border-color-dark;
+          background-color: $borderColorDark;
         }
         &:hover, &:focus{ 
           &::before{background-color: $assistant; box-shadow: $assistant 0 0 0 2px;}

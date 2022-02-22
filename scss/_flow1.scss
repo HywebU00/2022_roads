@@ -1,4 +1,4 @@
-.flowBox {
+.flowBox { position: relative;
   ul{ list-style: none; margin: 0; padding: 0;}
   .flowList{
     &>li{ padding: 0; margin: 0;
@@ -38,7 +38,7 @@ $flowBottom : 40px;
 .flow1 {
   .blockHeader{ margin: 0 7% 3em; }
 
-  .flowBox{position: relative;
+  .flowBox{
     margin: 0 0 0 6.5vw;padding: 0 0 $flowBottom*2; overflow: hidden; 
     &::after{
       content: ''; position: absolute; bottom: $flowBottom - 2px; right: 0; left: 0;
@@ -105,8 +105,7 @@ $flowBottom : 40px;
       &::after{ left: 20px; }
     }
     .flowList{
-      &>li{
-        flex: 0 0 27vw; margin: 0 2.4vw 0 1.6vw;
+      &>li{flex: 0 0 27vw; margin: 0 2.4vw 0 1.6vw;
         .image{width: 100%; height: 37.8vw;}
         // 圖檔寬高比 width:height = 10:14
 

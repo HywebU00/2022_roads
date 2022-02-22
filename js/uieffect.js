@@ -717,6 +717,203 @@ $(function(){
 
   });
 
+  // .photoflow：cp頁的照片 -----------------------------------------
+  var _photoflow = $('.photoflow');
+  _photoflow.each(function () {
+    let _this = $(this);
+    let _floxBox = _this.find('.flowBox');
+    let _flowList = _floxBox.find('.flowList');
+    let _flowItem = _flowList.children('li');
+    let slideDistance = _flowItem.first().outerWidth(true);
+    let slideCount = _flowItem.length;
+    let _btnRight = _this.find('.diskBtn.next');
+    let _btnLeft = _this.find('.diskBtn.prev');
+    const speed = 400;
+    const actClassName = 'active';
+    let i = 0;
+    let j;
+    let _dots = '';
+
+    // 產生 indicator
+    _floxBox.append('<div class="flowNav"><ul></ul></div>');
+    let _indicator = _this.find(".flowNav>ul");
+    for (let n = 0; n < slideCount; n++) {
+      _dots = _dots + '<li></li>';
+    }
+    _indicator.append(_dots);
+    let _indicatItem = _indicator.find('li');
+    _indicatItem.eq(i).addClass(actClassName);
+    _indicatItem.eq((i + 1) % slideCount).addClass(actClassName);
+
+    // 依據可視的 slide 項目，決定 indicator 樣式
+    indicatReady();
+    function indicatReady() {
+      _indicatItem.removeClass(actClassName);
+      _indicatItem.eq(i).addClass(actClassName);
+      _indicatItem.eq((i + 1) % slideCount).addClass(actClassName);
+      if (ww < wwMedium) {
+        if (slideCount > 2) {
+          flownavShow();
+        } else {
+          flownavHide();
+        }
+      }
+      if (ww >= wwMedium) {
+        if (slideCount <= 3) {
+          flownavHide();
+        } else {
+          flownavShow();
+          _indicatItem.eq((i + 1) % slideCount).addClass(actClassName);
+          _indicatItem.eq((i + 2) % slideCount).addClass(actClassName);
+        }
+      }
+      if (ww >= wwNormal) {
+        if (slideCount <= 4) {
+          flownavHide();
+        } else {
+          flownavShow();
+          _indicatItem.eq((i + 1) % slideCount).addClass(actClassName);
+          _indicatItem.eq((i + 2) % slideCount).addClass(actClassName);
+          _indicatItem.eq((i + 3) % slideCount).addClass(actClassName);
+        }
+      }
+    }
+    function flownavShow(){
+      _indicator.add(_btnRight).add(_btnLeft).show();
+    }
+    function flownavHide(){
+      _indicator.add(_btnRight).add(_btnLeft).hide();
+    }
+
+    function slideForward(){
+      _flowList.stop(true, false).animate({'margin-left': -1 * slideDistance }, speed, function(){
+        j = (i + 1) % slideCount;
+        _flowItem.eq(i).appendTo(_flowList);
+        _indicatItem.eq(i).removeClass(actClassName);
+        _indicatItem.eq(j).addClass(actClassName);
+        _indicatItem.eq((j + 1) % slideCount).addClass(actClassName);
+        _flowList.css('margin-left', 0);
+        if (ww >= wwMedium) {
+          _indicatItem.eq((j + 2) % slideCount).addClass(actClassName);
+        }
+        if (ww >= wwNormal) {
+          _indicatItem.eq((j + 3) % slideCount).addClass(actClassName);
+        }
+        i = j;
+      });
+    }
+    function slideBackward() {
+      j = (i - 1) % slideCount;
+      _flowItem.eq(j).prependTo(_flowList);
+      _flowList.css("margin-left", -1 * slideDistance);
+
+      _flowList.stop(true, false).animate({ "margin-left": 0 }, speed, function () {
+          _indicatItem.eq(j).addClass(actClassName);
+          if (ww >= wwNormal) {
+            _indicatItem.eq((i + 3) % slideCount).removeClass(actClassName);
+          } else if (ww >= wwMedium) {
+            _indicatItem.eq((i + 2) % slideCount).removeClass(actClassName);
+          } else {
+            _indicatItem.eq((i + 1) % slideCount).removeClass(actClassName);
+            _indicatItem.eq(i).removeClass(actClassName);
+          }
+          i = j;
+        });
+    }
+
+    // 點擊向右箭頭
+    _btnRight.click(function () { slideForward(); });
+
+    // 點擊向左箭頭
+    _btnLeft.click(function () { slideBackward(); });
+
+    // touch and swipe 左右滑動
+    _floxBox.swipe({
+      swipeRight: function () {slideBackward();},
+      swipeLeft: function () {slideForward();},
+      threshold: 20,
+    });
+
+    // tab focus
+    let tabCount = 0;
+    _flowItem.children('a').focus(function (e) { 
+      e.preventDefault();
+      if ( tabCount > 0 && tabCount <= slideCount) {
+        slideForward();
+      }
+      tabCount++
+      if(tabCount > slideCount) {
+        _btnLeft.focus();
+        tabCount = 0;
+      }
+    });
+
+    let winResizeTimer;
+    _window.resize(function () {
+      clearTimeout(winResizeTimer);
+      winResizeTimer = setTimeout(function () {
+        ww = _window.width();
+        slideDistance = _flowItem.first().outerWidth(true);
+        indicatReady();
+      }, 200);
+    });
+  });
+
+  // cp頁的照片開啟的燈箱內的大圖，點選滑動 -----------------------------------------------------
+  var _bigPhotoShow = $('.bigPhotoShow');
+  _bigPhotoShow.each( function() {
+    let _this = $(this);
+    let _floxBox = _this.find('.flowBox');
+    let _flowList = _floxBox.find('.flowList');
+    let _flowItem = _flowList.children('li');
+    let count = _flowItem.length;
+    let _btnRight = _this.find('.diskBtn.next');
+    let _btnLeft = _this.find('.diskBtn.prev');
+    const speed = 900;
+    const actClassName = 'active';
+    let i = 0;
+    let j;
+    
+
+    function slideForward() {
+      j = (i + 1) % count;
+      _flowItem.eq(i).stop(true, false).animate({'left': '-100%'}, speed, function(){
+        $(this).css('left', '100%');
+      })
+      _flowItem.eq(j).stop(true, false).animate({ 'left': 0}, speed);
+      i = j;
+    }
+
+    function slideBackward() {
+      j = (i - 1) % count;
+      _flowItem.eq(j).css('left', '-100%').stop(true, true).animate({left: 0} , speed);
+      _flowItem.eq(i).stop(true, true).animate({'left': '100%'}, speed );
+      i = j;
+    }
+
+    // 點擊向右箭頭
+    _btnRight.click(function () { 
+      slideForward();
+    });
+
+    // 點擊向左箭頭
+    _btnLeft.click(function () {
+      slideBackward();
+    });
+
+    // touch and swipe 左右滑動
+    _floxBox.swipe({
+      swipeRight: function () {slideBackward();},
+      swipeLeft: function () {slideForward();},
+      threshold: 20,
+    });      
+
+
+
+
+
+  })
+
 
 
 
@@ -730,52 +927,52 @@ $(function(){
 
 
 
-  // 燈箱 --- 【所屬單位清單】 顯示／隱藏 ，【登入區】顯示／隱藏 ，【進階查詢】 顯示／隱藏 ，
-  // var _showLightbox =  $('.showLightbox');
-  // var _lightbox = $('.lightbox');
+  // 燈箱 --- 
+  var _showLightbox =  $('.showLightbox');
+  var _lightbox = $('.lightbox');
   // _lightbox.filter('.courtsList').append('<div class="overlayForClose"></div>');
-  // var _hideLightbox = _lightbox.find('.closeThis, .hideLightbox, .overlayForClose');
-  // var _lightboxNow;
-  // const speed = 400;
+  var _hideLightbox = _lightbox.find('.closeThis, .hideLightbox');
+  var _lightboxNow;
+  const speed = 400;
 
-  // _lightbox.before('<div class="cover"></div>');
-  // var _cover = $('.cover');
+  _lightbox.before('<div class="coverAll"></div>');
+  var _cover = $('.coverAll');
   
-  // _showLightbox.click(function(){
-  //   let boxID = $(this).attr('data-id');
-  //   _lightboxNow = _lightbox.filter( function(){ return $(this).attr('data-id') === boxID} );
-  //   _lightboxNow.stop(true, false).slideDown(speed).addClass('show');
-  //   _lightboxNow.prev(_cover).fadeIn(speed);
-  //   _body.addClass('noScroll');
-  // })
+  _showLightbox.click(function(){
+    let boxID = $(this).attr('data-id');
+    _lightboxNow = _lightbox.filter( function(){ return $(this).attr('data-id') === boxID} );
+    _lightboxNow.stop(true, false).fadeIn(speed).addClass('show');
+    _lightboxNow.prev(_cover).fadeIn(speed);
+    _body.addClass('noScroll');
+  })
 
-  // _hideLightbox.click(function(){
-  //   let _targetLbx = $(this).parents('.lightbox');
-  //   _targetLbx.stop(true, false).slideUp(speed,
-  //     function(){
-  //       _targetLbx.removeClass('show');
-  //       if( _targetLbx.has('.tabs')){
-  //         _targetLbx.removeAttr('style');
-  //       }
-  //     }
-  //   );
-  //   _targetLbx.prev(_cover).fadeOut(speed);
-  //   _body.removeClass('noScroll');
-  // })
+  _hideLightbox.click(function(){
+    let _targetLbx = $(this).parents('.lightbox');
+    _targetLbx.stop(true, false).fadeOut(speed,
+      function(){
+        _targetLbx.removeClass('show');
+        // if( _targetLbx.has('.tabs')){
+        //   _targetLbx.removeAttr('style');
+        // }
+      }
+    );
+    _targetLbx.prev(_cover).fadeOut(speed);
+    _body.removeClass('noScroll');
+  })
 
-  // _cover.click(function(){
-  //   let _targetLbx = $(this).next('.lightbox');
-  //   $(this).fadeOut(speed);
-  //   _targetLbx.fadeOut(speed,
-  //     function(){
-  //       _targetLbx.removeClass('show');
-  //       if( _targetLbx.has('.tabs')){
-  //         _targetLbx.removeAttr('style');
-  //       }
-  //     }
-  //   );
-  //   _body.removeClass('noScroll');
-  // })
+  _cover.click(function(){
+    let _targetLbx = $(this).next('.lightbox');
+    $(this).fadeOut(speed);
+    _targetLbx.fadeOut(speed,
+      function(){
+        _targetLbx.removeClass('show');
+        // if( _targetLbx.has('.tabs')){
+        //   _targetLbx.removeAttr('style');
+        // }
+      }
+    );
+    _body.removeClass('noScroll');
+  })
 
 
 

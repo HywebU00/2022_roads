@@ -101,6 +101,13 @@ a:focus{outline: none;}
   &:focus{ box-shadow: $assistant 0 0 0 2px;}
 }
 
+// 燈箱遮罩
+.coverAll{ display: none ;z-index: 995;
+  background: rgba(0,0,0,.8);position: fixed;left: 0;right: 0;top: 0;bottom: 0;
+}
+
+
+
 
 // 回頁面最上方
 .goTop{

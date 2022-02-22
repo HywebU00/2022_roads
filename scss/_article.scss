@@ -1,0 +1,277 @@
+.cpArticle{ width: $mmw; margin: 0 auto; line-height: 1.9; font-size: 1.15rem;
+  figure{ background: #fff; margin: 0 auto 1em; padding: 5px; width: 100%;
+    text-align: center; @extend %shadow1;
+    img{ display: block; width: 100%; max-height: 70vh; object-fit: contain;}
+    figcaption{display:inline-block; margin: .5em auto 0; padding: 0; text-align: left; line-height: 1.6;}
+  }
+  p{ margin: 1em 0 3em;}
+
+  h3, h4, h5, h6{ font-weight: bold; margin: 2rem 0 .5rem;
+    & + p{margin-top: .5rem;}
+  }
+  h3{ font-size: 1.3em;}
+  h4{ font-size: 1.2em;}
+  h5{ font-size: 1.15em;}
+  h6{ font-size: 1em;}
+
+  blockquote{
+    // border-left: 5px solid $hilight;
+    position: relative; font-style: italic;
+    padding:1em 1.5em 1em; margin-left: 2.5em; margin-right: 1em; margin-bottom: 2.5em;
+    font-size: .95em; background-color: #fff8;
+    &::before, &::after{ content: ''; position: absolute; top: -5px; bottom: -5px; width: 15px;
+      border: 5px solid $hilight;
+    }
+    &::before{ left: 0; border-right:none;}
+    &::after{ right: 0; border-left:none;}
+  }
+  table{
+    border-collapse: collapse; margin: 0; width: 100%;
+    border: 2px solid $borderColor;
+    background-color: $mainBg;
+    line-height: 1.5;
+    th, td{ padding: .5em; border: 1px solid $borderColorLight;}
+    th{ background-color: darken($mainBg, 8%); 
+      &:first-child{ border-right-color: $borderColor;}
+    }
+    tr:first-child th{border-bottom-color: $borderColor;}
+  }
+
+  @media screen and (min-width: $wwMedium){
+    figure{  float: left; width: 40vw; margin-right: 1em;
+      img{height: auto; max-height: none;}
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    width: auto;
+    figure{  width: 360px;}
+    blockquote{margin-left: 4em;}
+  }
+
+
+
+}
+
+.fileDownload, .seeAlso, .photoflow{
+  width: $mmw; margin: 3em auto;
+  h3{font-size: 1.4em; margin: 0 0 .5em;}
+  ul, ol{margin: 0; padding: 0; list-style: none; line-height: 1.6;}
+  a{text-decoration: none; }
+
+  @media screen and (min-width: $wwNormal){
+    width: auto;
+  }
+}
+.fileDownload{
+  li{margin: 5px 0; padding: 0 0 5px 24px; position: relative;
+    border-bottom: 1px solid $borderColor;
+    &::before{content: ''; width: 8px; height: 8px; background: $fontColorLight;
+      position: absolute; left: 6px; top: 1em;
+    }
+  }
+  .fileName{ display: inline-block;vertical-align: middle;}
+  .fileType{ display: inline-block; vertical-align: middle; margin: 0 1px;
+
+    a{ display: block;font-size: .92em; width: 3em; height: 3em; line-height: 3em;
+      text-decoration: none; color: $fontInvert;
+      text-align: center; border-radius: 4px; transition: .2s;
+      &:hover, &:focus{border-radius: 2px;}
+    }
+
+    // &.doc a{ background-color: #06c;
+    //   &:hover, &:focus{box-shadow: #06c 0 0 0 2px;}
+    // }
+
+    &.zip a{background:#444;
+      &:hover, &:focus{box-shadow: #444 0 0 0 2px;}
+    }
+    &.pdf a{background:#c00;
+      &:hover, &:focus{box-shadow: #c00 0 0 0 2px;}
+    }
+    &.doc a{background:#1f609e;
+      &:hover, &:focus{box-shadow: #1f609e 0 0 0 2px;}
+    }
+    &.xls a{background:#297c17;
+      &:hover, &:focus{box-shadow: #297c17 0 0 0 2px;}
+    }
+    &.ppt a{background:#ec7500;
+      &:hover, &:focus{box-shadow: #ec7500 0 0 0 2px;}
+    }
+    &.jpg a{background:#78b410;
+      &:hover, &:focus{box-shadow: #78b410 0 0 0 2px;}
+    }
+    &.mp3 a{background:#6747b1;
+      &:hover, &:focus{box-shadow: #6747b1 0 0 0 2px;}
+    }
+    &.mov a{background:#55bbfd;
+      &:hover, &:focus{box-shadow: #55bbfd 0 0 0 2px;}
+    }
+    &.txt a{background:#999;
+      &:hover, &:focus{box-shadow: #999 0 0 0 2px;}
+    }
+    &.other a{background:#ddd;color:#444;
+      &:hover, &:focus{box-shadow: #ddd 0 0 0 2px;}
+    }
+
+  }
+
+}
+
+.seeAlso{
+  li{ margin: 5px 0;
+    a{ display: block; border-bottom: 1px solid $borderColor; color: $fontColor;
+      padding: .5em 0 .5em 24px; position: relative;
+      &::before{content: ''; width: 0; height: 0; border-style: solid; 
+        border-width: 6px 0 6px 8px; border-color: transparent transparent transparent $fontColorLight;
+        position: absolute; left: 6px; top: .95em;
+      }
+
+      &:hover, &:focus{ border-bottom-color: $assistant;
+        &::before{border-left-color: $assistant;}
+      }
+    }
+  }
+  
+}
+
+
+
+
+
+// photoflow, photoflow, photoflow
+.photoflow{ 
+  $dotDia : 8px;
+  $flowBottom : 40px; 
+
+  .flowBox{ width:100%; overflow: hidden; padding: 0 0 $flowBottom*2;}
+
+  .flowList{list-style: none; margin: 0 0 10px; padding: 0;
+    display: flex; flex-flow: row nowrap;
+    &>li{ flex: 0 0 calc(#{$mmw}/2 - 10px); margin: 0 5px; padding: 5px 0 0; overflow: hidden;
+      &>a{ display: block; width: 100%; position: relative; transition: .5s;
+        &::before{content: ''; 
+          position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+          box-shadow: $assistant 0 0 0 2px inset; opacity: 0; z-index: 9;
+        }
+        &:hover, &:focus {
+          transform: translateY(-5px);
+          p{ transform:  translateY(0); }
+        }
+        &:focus {
+          p{ transition: none;}
+        }
+        &:focus::before{opacity: 1;}
+      }
+      img{ display: block; width: 100%; height: calc(#{$mmw}*.5 - 10px); object-fit: cover;  transition: .3s;}
+      p{ position: absolute; left: 0; right: 0; bottom: 0;
+        background: #000a; color: #fff;  padding:5px 10px; margin: 0;
+        transform: translateY(101%); transition: .5s;
+      }
+    }
+  }
+
+  .flowNav{ position: absolute; bottom: $flowBottom - $dotDia/2 - 1px; z-index: 9;
+    width: calc(100% - 144px - 4vw);
+    ul{list-style: none; margin: 0; padding: 0; display: flex;justify-content: center;}
+    li{ margin: 0 8px; padding: 0;
+      &::before{ content: ''; display: block;
+        width: $dotDia; height: $dotDia; border-radius: 50%; cursor: default;
+        background: $fontColorLight; border: none; margin: 0; padding: 0;
+        transition: .2s;
+      }
+      &.active{
+        &::before{ box-shadow: $assistant 0 0 0 4px;background:$assistant}
+      }
+    }
+  }
+
+  // 左右箭頭 button
+  .diskBtn{ position: absolute; bottom: 6px; right: 0; z-index: 9;
+    &.prev{ margin-right: 80px;}
+  }
+
+  @media screen and (min-width: $wwMedium){
+    .flowList{
+      &>li{flex-basis: calc(#{$mmw}/3 - 10px);
+        img{height: calc(#{$mmw}/3 - 10px);}
+      }
+    }
+
+    .flowNav{
+      li{margin: 0 12px;}
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    // background-color: $mainBg;
+    .flowList{
+      &>li{ flex-basis: calc(25vw - 62.5px);
+        img{ height: calc(25vw - 62.5px);}
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    .flowList{
+      &>li{flex-basis: calc(#{$wwMaximum}*.25 - 62.5px);
+        img{height: calc(#{$wwMaximum}*.25 - 62.5px);}
+      }
+    }
+
+  }
+
+}
+
+
+// 燈箱中的大圖
+.bigPhotoShow{ 
+  .flowBox{ position: relative; top: 50px;
+    width: 100%; height: calc(100vh - 6vw - 130px);
+    // border : 1px solid #00f;
+  }
+  .flowList{
+    &>li{ position: absolute; left: 100%; top: calc(45vh - 60vw);
+      width: 94vw;height: 94vw; text-align: center;
+      // border : 1px dashed #f60;
+      &:first-child{left: 0;}
+      img{display: block; margin: 0 auto; width: 100%; height: 100%;max-height: calc(100vh - 6vw - 140px); object-fit: contain;}
+      p{padding: 10px; margin: 0; color: $fontInvert; display: inline-block; line-height: 1.6;
+        // position: absolute; bottom: 0; left: 0; right: 0;
+        min-height: 2em; text-align: left;
+      }
+    }
+    // a{ display: block;}
+  }
+
+  .diskBtn{ position: absolute; bottom: -10px; margin:0 5px auto; 
+    transform: translateY(100%);
+    &.next{left: auto; right: 0;}
+  }
+
+  @media screen and (min-width: $wwMedium){
+    .flowList>li{
+      top: 0; height: calc(100% - 6vw - 60px);
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    .flowList>li{
+      height: calc(100% - 60px);
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    .flowBox{ width: $wwMaximum*.94; }
+    .flowList>li{width: 100%;
+      // img{ height: calc(100% - 6vw - 140px); width: 100%;}
+      // height: calc(100vh - 6vw);
+      p{margin-left: 70px; margin-right: 70px;}
+    }
+  }
+
+}
+
+.lightbox.bigPhoto{
+  background-color: transparent; box-shadow: none;
+}

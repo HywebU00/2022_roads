@@ -1,11 +1,11 @@
 .list{ 
   width: $mmw; margin: 2em auto;
-  time{ font-size: 1rem; color: $fontColorLite; display: inline-block; white-space: nowrap; }
+  time{ font-size: 1rem; color: $fontColorLight; display: inline-block; white-space: nowrap; }
   a{display: block; text-decoration: none; color: $fontColor; }
   &>ul{ list-style: none; margin: 0;padding: 0 5px;
     line-height: 1.6; font-size: 1.2em;
-    border-top: 2px solid $border-color;border-bottom: 2px solid $border-color;
-    &>li{ margin: 5px 0 0; border-bottom: 1px solid $border-color;
+    border-top: 2px solid $borderColor;border-bottom: 2px solid $borderColor;
+    &>li{ margin: 5px 0 0; border-bottom: 1px solid $borderColor;
       &:last-child{border-bottom: none;}
       &>a{ 
         padding: .9em 8px .9em 3.5rem; margin: 0 0 5px; transition: .3s;
@@ -37,11 +37,11 @@
 
 .list{
   &>table{ border-collapse: collapse; line-height: 1.5; margin:0 8px;
-    border-top: 2px solid $border-color;border-bottom: 2px solid $border-color;
-    tr{ border-bottom: 1px solid $border-color;}
+    border-top: 2px solid $borderColor;border-bottom: 2px solid $borderColor;
+    tr{ border-bottom: 1px solid $borderColor;}
     th, td{ padding: 14px 16px 12px; position: relative;
       &::before{content: ''; position: absolute;
-         width: 1px; background: $border-color; top: 4px; bottom: 4px; left: 0;
+         width: 1px; background: $borderColor; top: 4px; bottom: 4px; left: 0;
       }
       &:first-child{
         &::before{display: none;}

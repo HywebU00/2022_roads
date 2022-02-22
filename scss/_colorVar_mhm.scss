@@ -16,15 +16,17 @@ $footerBg2: #220E06;
 
 $fontColor: #000;
 $fontInvert: #fff;
+$fontColorLight: #67625c;
+$linkColor: #086d6c;
 
-$border-color: #a29984;
-$border-color-light: #b6b1a2;
-$border-color-dark:#777164;
+$borderColor: #a29984;
+$borderColorLight: #b6b1a2;
+$borderColorDark:#777164;
 $shadow:#0003;
 $shadow2:#0006;
 
-$btn-bg1: $primaryColor ;
-$btn-bg2:darken($primaryColor, 12%);
+$btnBg1: $primaryColor ;
+$btnBg2:darken($primaryColor, 12%);
 
 $gray: #ddd;
 $grayLight: #ececec;

@@ -11,7 +11,7 @@
   li{float: left; position: relative;
     &:nth-child(n+2){padding-left: 2em;
       &::before{ content: '';position: absolute; left: 1em; top: .1em; 
-        width: 2px; height: 1em; background-color: $border-color-dark;
+        width: 2px; height: 1em; background-color: $borderColorDark;
         transform: rotate(20deg);border-bottom: none; border-left: none;
       }
     }
@@ -70,8 +70,8 @@
 
 // ---------- 前言、後記
 .preface{ overflow: hidden; line-height: 1.8; width: $mmw; margin: 1.5em auto 2.5em;
-  border-bottom: 2px solid $border-color-light; padding-bottom: 1em;
-  &~.preface{margin-top: 3em; margin-bottom: 5em;border-top: 2px solid $border-color-light; padding-top: 1.5em; }
+  border-bottom: 2px solid $borderColorLight; padding-bottom: 1em;
+  &~.preface{margin-top: 3em; margin-bottom: 5em;border-top: 2px solid $borderColorLight; padding-top: 1.5em; }
   img{ float: left; 
     width: 100%; height: auto; 
     margin: 0 1em .5em 0;

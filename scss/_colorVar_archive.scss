@@ -18,16 +18,18 @@ $mainBg:#F6F3EA;
 
 $fontColor: #000;
 $fontInvert: #fff;
-$fontColorLite: #67625c;
+$fontColorLight: #67625c;
+$linkColor: #086d6c;
 
-$border-color: #a29984;
-$border-color-light: #d0c8af;
-$border-color-dark:#777164;
+
+$borderColor: #a29984;
+$borderColorLight: #d0c8af;
+$borderColorDark:#777164;
 $shadow:#50504c33;
 $shadow2:#35343066;
 
-$btn-bg1: $primaryColor ;
-$btn-bg2:darken($primaryColor, 12%);
+$btnBg1: $primaryColor ;
+$btnBg2:darken($primaryColor, 12%);
 
 $gray: #ddd;
 $grayLight: #ececec;

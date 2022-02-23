@@ -28,14 +28,15 @@ $borderColorDark:#777164;
 $shadow:#50504c33;
 $shadow2:#35343066;
 
-$btnBg1: $primaryColor ;
-$btnBg2:darken($primaryColor, 12%);
+$btnBg1: $primaryColor;
+$btnBg2: $assistant;
 
 $gray: #ddd;
 $grayLight: #ececec;
 $grayDark: #555;
 
 $transDarken: #1a0d05bb;
+$transLighten: #fffb;
 
 %shadow1{ box-shadow: #0006 0 0 4px;}
 %shadow2{ box-shadow: #0009 0 4px 16px -2px;}

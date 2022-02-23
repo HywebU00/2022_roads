@@ -2,25 +2,25 @@
 %textInput {
   -webkit-appearance: none;
   box-sizing: border-box;
-  height: 2.8em;
-  line-height: 2.8em;
+  height: 2.6em;
+  line-height: 2.6;
   padding: 0 .8em;
   margin: 3px;
   // border-radius: 4px;
   vertical-align: middle;
   font-size: inherit;
   border: 1px solid $borderColor;
-  background-color: #fff;
+  background-color: $fontInvert;
 
   &:hover{border-color: $borderColorDark;}
-  &:focus{border-color: $btnBg1;box-shadow: $btnBg1 0 0 0 1px;outline: none;}
+  &:focus{border-color: $assistant;box-shadow: $assistant 0 0 0 1px;outline: none;}
 }
 // 下拉選單樣式
 %selectStyle {
   -webkit-appearance: none;
   box-sizing: border-box;
-  height: 2.8em;
-  line-height: 2.8em;
+  height: 2.6em;
+  line-height: 2.6;
   padding: 0 32px 0 .8em;
   margin: 3px;
   border: 1px solid $borderColor;
@@ -30,8 +30,8 @@
   background-size: 12px auto;
   // border-radius: 4px;
 
-  &:hover{border-color: $borderColorDark;}
-  &:focus{border-color: $btnBg1;box-shadow: $btnBg1 0 0 0 1px;outline: none;}
+  &:hover{border-color: $assistant;}
+  &:focus{border-color: $assistant;box-shadow: $assistant 0 0 0 1px;outline: none;}
 
 }
 // 顏色
@@ -62,7 +62,9 @@ input[type="search"],
 input[type="tel"],
 input[type="time"],
 input[type="url"],
-input[type="week"] { @extend %textInput; }
+input[type="week"] { @extend %textInput; 
+  &.fullWidth{ width: calc(100% - 6px);}
+}
 
 // 表單中，直接帶入的值
 .knownValue{ @extend %textInput;  border: none; }
@@ -85,7 +87,6 @@ input[type="submit"], input[type="reset"], input[type="button"] {
   color: $fontInvert;
   background-color: $btnBg1;
   vertical-align: middle;
-  // border-radius: 4px; 
   cursor: pointer; 
   outline: none; transition: .2s;
   &:hover {
@@ -107,9 +108,8 @@ input[type="submit"], input[type="reset"], input[type="button"] {
 
 textarea {
   @extend %textInput;
-  resize: vertical;
-  line-height: 1.6;
-  height: 8em;
+  resize: vertical;line-height: 1.6;height: 8em;
+  width: calc(100% - 6px);
 }
 
 // radio 和 checkbox
@@ -126,19 +126,22 @@ input[type="radio"] {
   border-radius: 50%;
   &:focus, &:checked{
     border-width: 2px;
-    border-color: $bodyBg;
-    box-shadow:$primaryColor 0 0 0 3px;
-    background-color: $primaryColor;
+    border-color: $fontInvert;
+    box-shadow:$assistant 0 0 0 3px;
+    background-color: $assistant;
+  }
+  &:checked{
+    &:focus{box-shadow:$fontInvert 0 0 0 1px,$assistant 0 0 0 4px;}
   }
 }
 input[type="checkbox"]{ 
   border-radius: 3px;
-  &:focus{box-shadow: $primaryColor 0 0 0 2px; border-color: $bodyBg;}
+  &:focus{box-shadow: $assistant 0 0 0 2px; border-color: $fontInvert;}
   &:checked{
-    background: $primaryColor url(../images/icon_check.svg) no-repeat center center;
+    background: $assistant url(../images/icon_check.svg) no-repeat center .05em;
     background-size: 96%;
-    box-shadow: $primaryColor 0 0 0 2px; border-color: $bodyBg;
-    &:focus{box-shadow: $bodyBg 0 0 0 1px, $primaryColor 0 0 0 4px;}
+    box-shadow: $assistant 0 0 0 2px; border-color: $fontInvert;
+    &:focus{box-shadow: $fontInvert 0 0 0 1px, $assistant 0 0 0 4px;}
   }
 }
 

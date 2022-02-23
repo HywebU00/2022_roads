@@ -1,33 +1,26 @@
 .formLayout {
   border-collapse: collapse;line-height: 1.3;padding: 0;margin: 0 auto;
-  outline: 1px solid red;
   td { padding: 4px 0;
-    &:nth-child(odd) {
-      padding:1.3em 0.5em 0 0;vertical-align: top; width: 20%; min-width: 8.5em;
-    }
-  input[type="text"], input[type="tel"], input[type="number"], input[type="password"]{width: 32em;}
-  textarea{width: 32em; height: 8em; line-height: 1.6; resize: vertical;}
+    &:nth-child(odd) {vertical-align: top; width: 20%;
+      padding:1.2em 0.5em 0 0; min-width: 8.5em;}
+    &:nth-child(even) { padding-bottom: .8em;}
+    // input[type="text"], input[type="tel"], input[type="number"], input[type="password"],
+    // textarea{}
+  }
 
+  @media screen and (max-width: $wwNormal - 1){
   }
 
 
   @media screen and (max-width: $wwMedium - 1) {
-    // outline: 1px solid pink;
     display: block; width: auto;
-
     tbody {display: block;}
-
-    tr, td, th {
-      display: block; width: 100%;
-    }
-
+    tr, td, th {display: block; width: 100%;}
     td {padding: 1px 0;
       &:nth-child(odd) {
-        width: 100%;padding: 1.5em 3px 0 3px;vertical-align: top;text-align: left;
+        width: 100%;padding: 1.5em 3px 0 3px;
+        vertical-align: top;text-align: left;
       }
-
-      input[type="text"], input[type="tel"], input[type="number"], input[type="password"]{ width: 100%;}
-      textarea{ width: 100%;}
     }
   }
 }
@@ -35,28 +28,59 @@
 
 // formA /////////////////////////////////
 .formA{
-  width: $mmw; margin: 0 auto; 
-
+  width: $mmw; margin: 0 auto;
+  .note:first-child{ margin: 0 auto;width: 100%; max-width: 36em;}
+  .formLayout{max-width: 34em;}
+  
   @media screen and (min-width: $wwMedium){
+    .note:first-child{max-width: 45em;}
+    .note + .formLayout{margin-top: 1.5em;}
+    .formLayout{max-width: 47em;}
   }
   
   @media screen and (min-width: $wwNormal){
-    background: #fff; width: auto;
-    padding: 1em 0;
+    width: auto; padding: 2em 0; background: $transLighten;
+    .note:first-child{ max-width: none;width: 46em;}
+    .formLayout{max-width: none;width: 44em;}
   }
 }
 
 
-.note, .warning, .hint, .error{
-  font-size: .95em; color: #292;
-  line-height: 1.3;
-  margin: .3em 3px 0;
+// 提示、說明、警告文字
+.note, .warning, .hint, .error{ position: relative;
+  font-size: .95em;line-height: 1.5;margin: .3em 3px 0;
+  &::before{display: inline-block; width: 1.4em; text-align: center; color: $fontInvert;
+    position: relative; z-index: 9; margin-right: 4px;
+  }
+  &::after{ content: ''; position: absolute; left: 0; top: 0; width: 1.4em; height: 1.4em; border-radius: 50%;}
 }
-.error{ color: #c11;}
-.hint{color: #636363;}
-.warning{color: #d36403;}
+
+.note{ color: $fontColorLight;}
+
+.error{ color: #d00003;
+  &::before{ content: '✖︎'; line-height: 1.35;}
+  &::after{background-color: #d00003;}
+}
+.hint{color: $fontColorLight;
+  &::before{display: inline-block; content: 'ⓘ';}
+  &::after{background-color: $fontColorLight;}
+}
+.warning{color: #e64800;
+  &::before{display: inline-block; content: '!';}
+  &::after{background-color: #e64800;}
+}
 
 
 .btnDv{text-align: center;
   margin: 1em auto;
+}
+
+
+.optionPool{ margin: 3px;
+  label{display: inline-block; margin:0 1em 0 0; padding: .6em 1em .4em .4em; line-height: 1.5;
+    &:hover{
+      box-shadow: $borderColorLight 0 0 0 1px;
+    }
+    input{ vertical-align: top; margin-top: .2em;}
+  }
 }

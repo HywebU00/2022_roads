@@ -128,36 +128,41 @@
           <tr>
             <td><abbr title="必填欄位" class="required">*</abbr> 您的真實姓名</td>
             <td>
-              <input type="text" name="" id="">
+              <input class="fullWidth" type="text" name="" id="">
               <p class="warning">這是必填欄位</p>
             </td>
           </tr>
           <tr>
             <td><abbr title="必填欄位" class="required">*</abbr> 聯絡電話</td>
             <td>
-              <input type="tel" name="" id="">
+              <input class="fullWidth" type="tel" name="" id="">
             </td>
           </tr>
           <tr>
             <td><abbr title="必填欄位" class="required">*</abbr> 您的電子信箱</td>
             <td>
-              <input type="text" name="" id="">
+              <input class="fullWidth" type="text" name="" id="">
             </td>
           </tr>
           <tr>
             <td><abbr title="必填欄位" class="required">*</abbr> 意見類別</td>
             <td>
-              <label><input type="radio">類別一</label>
-              <label><input type="radio">類別二</label>
-              <label><input type="radio">類別三</label>
+              <div class="optionPool">
+                <label><input type="radio" name="AA">類別一</label>
+                <label><input type="radio" name="AA">類別二二</label>
+                <label><input type="radio" name="AA">類別三三三</label>
+              </div>
+
             </td>
           </tr>
           <tr>
             <td><abbr title="必填欄位" class="required">*</abbr> 意見類別</td>
             <td>
-              <label><input type="checkbox">類別一</label>
-              <label><input type="checkbox">類別二</label>
-              <label><input type="checkbox">類別三</label>
+              <div class="optionPool">
+                <label><input type="checkbox">類別一</label>
+                <label><input type="checkbox">類別二二</label>
+                <label><input type="checkbox">類別三三三</label>
+              </div>
             </td>
           </tr>
           <tr>
@@ -168,13 +173,8 @@
                 <option value="">類別二</option>
                 <option value="">類別三</option>
               </select>
-
-              
             </td>
           </tr>
-
-
-
           <tr>
             <td><abbr title="必填欄位" class="required">*</abbr> 內容</td>
             <td>

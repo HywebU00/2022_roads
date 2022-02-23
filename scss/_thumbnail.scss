@@ -12,7 +12,6 @@
         }
         &:focus{box-shadow: $assistant 0 0 0 2px inset, #0006 0 4px 16px;}
       }
-
       img{ display: block; width: 100%; margin: 0 0 1em; }
       p{ margin: .5em 0; font-size: 1.15em; line-height: 1.5;}
       time{ display: block;}
@@ -51,4 +50,77 @@
     }
   }
 
+}
+
+
+// 一列兩筆
+.thumbnail2{
+  width: $mmw; margin: 2em auto;
+
+  .decoImage{ 
+    img{ display: block; width: 100%;}
+  }
+  ul{list-style: none; margin: 0; padding: 0;}
+  &>ul{ line-height: 1.6;
+    &>li{ margin: 0 0 24px;
+      &>a{ display: block; position: relative;
+        color: $fontColor; padding: 8px 8px 3em; height: 100%;
+        background: #fff; text-decoration: none;
+        @extend %shadow1; transition: .3s;
+        &:hover, &:focus{@extend %shadow2;
+          h3, p{text-decoration: underline;}
+          .moreFake{ background-color: $linkColor; color: $fontInvert;}
+        }
+        &:focus{box-shadow: $assistant 0 0 0 2px inset, #0006 0 4px 16px;}
+
+        img{ display: block; width: 100%; margin: 0 0 1em;
+          max-height: 80vw; object-fit: contain;
+        }
+      }
+
+      .label{ position: absolute; left: 0; top: 0;
+        height: 2.1em; line-height: 2.3em; padding: 0 1em;
+        background-color: $assistant1; color: $fontInvert;}
+      h3{ font-size: 1.2em; margin: .5em 0;
+        display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+      p{ margin: .5em 0 2em;
+        display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;
+        overflow: hidden;
+      }
+      time{ position: absolute; left: 8px; bottom: 8px; font-size: .95em;
+        &::before{content: attr(title)'：'; color: $fontColorLight;}
+      }
+      .moreFake{position: absolute; right: 8px; bottom: 8px;
+        padding: 0 2em; height: 2.1em; line-height: 2.2;
+        box-shadow: $linkColor 0 0 0 2px inset; color: $linkColor;
+        transition: .2s;
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwMedium){
+    &>ul{ display: flex; flex-flow: row wrap; justify-content: space-between;
+      &>li{ flex: 0 0 calc(50% - 12px);
+        &.decoImage{ padding:10px;
+          display: flex; flex-flow: column nowrap; justify-content: center;
+        }
+        &>a{
+          img{max-height: 45vw;}
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    width: auto;
+    &>ul{
+      &>li{
+        &>a{
+          img{max-height: 480px;}
+        }
+      }
+    }
+  }
 }

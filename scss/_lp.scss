@@ -47,9 +47,7 @@
         &::before{display: none;}
       }
     }
-    th{ white-space: nowrap;
-    
-    }
+    th{ white-space: nowrap;}
 
     td{ text-align: center;
       &.numb{text-align: right;
@@ -82,4 +80,63 @@
       }
     }
   }
+}
+
+
+
+
+
+
+
+
+
+// 
+.bannerList{
+  width: $mmw; margin: 2em auto;
+  ul{ list-style: none; margin: 0; padding: 0; line-height: 1.6; text-align: center;}
+  li{ margin: 5px 0; padding: 20px 0; border-bottom: 1px solid $borderColor;
+    a{display: block; text-decoration: none; color: $fontColor;
+      &:hover{
+        img{ @extend %shadow2;}
+        .name{ color: $assistant;}
+      }
+      &:focus{
+        img{ box-shadow: $assistant 0 0 0 2px;}
+        .name{ text-decoration: underline; color: $assistant;}
+      }
+    }
+    .name{display: block; margin: 0 auto 5px; 
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    img{ display: block; margin: 0 auto; transition: .2s;
+     width: 100%; height: $mmw/3; object-fit: cover;
+     max-width: 349px; max-height: 117px;
+     @extend %shadow1;
+    }
+  }
+
+  @media screen and (min-width: $wwMedium){
+    ul{ display: flex; flex-flow: row wrap; margin-left: -10px; margin-right: -10px;}
+    li{ margin:5px 10px 30px; padding: 0; border-bottom:none;
+      flex: 0 0 calc(50% - 20px);
+      img{height: calc((#{$mmw}*.5 - 20px)/3)}
+      .name{ width: calc(#{$mmw}*.5 - 20px);}
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    width: auto; 
+    li{ margin:5px 7px 30px; flex-basis: calc(25vw - 66px);
+      img{ width: 100%; height:calc(8.3333vw - 22px);}
+      .name{ width: calc(25vw - 66px);}
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    li{ flex-basis: calc( #{$wwMaximum}/4 - 66px);
+      img{ height: calc( #{$wwMaximum}/12 - 22px );}
+      .name{ width: calc( #{$wwMaximum}/4 - 66px);}
+    }
+  }
+
 }

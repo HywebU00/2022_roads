@@ -71,52 +71,53 @@
     }
   }
   .fileName{ display: inline-block;vertical-align: middle;}
-  .fileType{ display: inline-block; vertical-align: middle; margin: 0 1px;
-
-    a{ display: block;font-size: .92em; width: 3em; height: 3em; line-height: 3em;
-      text-decoration: none; color: $fontInvert;
-      text-align: center; border-radius: 4px; transition: .2s;
-      &:hover, &:focus{border-radius: 2px;}
-    }
-
-    // &.doc a{ background-color: #06c;
-    //   &:hover, &:focus{box-shadow: #06c 0 0 0 2px;}
-    // }
-
-    &.zip a{background:#444;
-      &:hover, &:focus{box-shadow: #444 0 0 0 2px;}
-    }
-    &.pdf a{background:#c00;
-      &:hover, &:focus{box-shadow: #c00 0 0 0 2px;}
-    }
-    &.doc a{background:#1f609e;
-      &:hover, &:focus{box-shadow: #1f609e 0 0 0 2px;}
-    }
-    &.xls a{background:#297c17;
-      &:hover, &:focus{box-shadow: #297c17 0 0 0 2px;}
-    }
-    &.ppt a{background:#ec7500;
-      &:hover, &:focus{box-shadow: #ec7500 0 0 0 2px;}
-    }
-    &.jpg a{background:#78b410;
-      &:hover, &:focus{box-shadow: #78b410 0 0 0 2px;}
-    }
-    &.mp3 a{background:#6747b1;
-      &:hover, &:focus{box-shadow: #6747b1 0 0 0 2px;}
-    }
-    &.mov a{background:#55bbfd;
-      &:hover, &:focus{box-shadow: #55bbfd 0 0 0 2px;}
-    }
-    &.txt a{background:#999;
-      &:hover, &:focus{box-shadow: #999 0 0 0 2px;}
-    }
-    &.other a{background:#ddd;color:#444;
-      &:hover, &:focus{box-shadow: #ddd 0 0 0 2px;}
-    }
-
-  }
 
 }
+
+.fileType{ display: inline-block; vertical-align: middle; margin: 0 1px;
+
+  a{ display: block;font-size: .92em; width: 3em; height: 3em; line-height: 3em;
+    text-decoration: none; color: $fontInvert;
+    text-align: center; border-radius: 4px; transition: .2s;
+    &:hover, &:focus{border-radius: 2px;}
+  }
+
+  // &.doc a{ background-color: #06c;
+  //   &:hover, &:focus{box-shadow: #06c 0 0 0 2px;}
+  // }
+
+  &.zip a{background:#444;
+    &:hover, &:focus{box-shadow: #444 0 0 0 2px;}
+  }
+  &.pdf a{background:#c00;
+    &:hover, &:focus{box-shadow: #c00 0 0 0 2px;}
+  }
+  &.doc a{background:#1f609e;
+    &:hover, &:focus{box-shadow: #1f609e 0 0 0 2px;}
+  }
+  &.xls a{background:#297c17;
+    &:hover, &:focus{box-shadow: #297c17 0 0 0 2px;}
+  }
+  &.ppt a{background:#ec7500;
+    &:hover, &:focus{box-shadow: #ec7500 0 0 0 2px;}
+  }
+  &.jpg a{background:#78b410;
+    &:hover, &:focus{box-shadow: #78b410 0 0 0 2px;}
+  }
+  &.mp3 a{background:#6747b1;
+    &:hover, &:focus{box-shadow: #6747b1 0 0 0 2px;}
+  }
+  &.mov a{background:#55bbfd;
+    &:hover, &:focus{box-shadow: #55bbfd 0 0 0 2px;}
+  }
+  &.txt a{background:#999;
+    &:hover, &:focus{box-shadow: #999 0 0 0 2px;}
+  }
+  &.other a{background:#ddd;color:#444;
+    &:hover, &:focus{box-shadow: #ddd 0 0 0 2px;}
+  }
+}
+
 
 .seeAlso{
   li{ margin: 5px 0;

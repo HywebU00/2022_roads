@@ -15,7 +15,7 @@
   }
 
   .page{ list-style: none; line-height: 1;
-    display: flex; flex-flow: row nowrap; justify-content: center;
+    display: flex; flex-flow: row wrap; justify-content: center;
     margin:5px auto; padding: 3px; 
     &>li{ margin: 3px; flex: 0 0 auto;
       a{ display: block; min-width: 2.5em; height: 2.5em; line-height: 2.5em;
@@ -30,7 +30,7 @@
       }
 
       &.first, &.prev, &.next, &.last{ 
-        a{ position: relative;
+        a{ position: relative; width: 2.5em; overflow: hidden; text-indent: 3em;
           &::before, &::after{content: ''; position: absolute; top: 50%;}
           &::after{width:8px; height:8px; 
             border: 2px solid $borderColorDark; border-top: none; border-right: none;
@@ -39,13 +39,14 @@
         }
       }
       &.first , &.last{
-        a::before{width: 2px; height: 14px; background:$borderColorDark; 
+        a::before{width: 2px; height: 14px; background:$borderColorDark;
            transform: translateY(-50%);
         }
       }
       &.first, &.prev{
         a{padding-left: 25px; padding-right: .6em; 
           &::after{ transform: rotate(45deg);left: 13px;} 
+          &::before, &::after{margin-left: 4px;}
         }
       }
       &.first a{
@@ -55,6 +56,7 @@
       &.next, &.last{
         a{padding-right: 25px; padding-left: .6em;
           &::after{ transform: rotate(225deg); left: auto; right: 13px;}
+          &::before, &::after{margin-right: 4px;}
         }
       }
       &.last a{
@@ -64,8 +66,23 @@
     }
   }
 
+  @media screen and (min-width: $wwMedium){
+    .page{
+      &>li{
+        &.first, &.prev, &.next, &.last{
+          a{ text-indent: 0; width: auto;}
+        }
+        &.first a, &.prev a{
+          &::before, &::after{ margin-left: 0;}
+        }
+        &.next a, &.last a{
+          &::before, &::after{ margin-right: 0;}
+        }
+      }
+    }
+  }
+
   @media screen and (min-width: $wwNormal){
     width: auto;
   }
-
 }

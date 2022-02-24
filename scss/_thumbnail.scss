@@ -67,20 +67,18 @@
         color: $fontColor; padding: 8px 8px 3em; height: 100%;
         background: #fff; text-decoration: none;
         @extend %shadow1; transition: .3s;
-        &:hover, &:focus{@extend %shadow2;
+        &:hover{@extend %shadow2;}
+        &:focus{box-shadow: $assistant 0 0 0 2px inset;}
+        &:hover, &:focus{
           h3, p{text-decoration: underline;}
-          .moreFake{ background-color: $linkColor; color: $fontInvert;}
         }
-        &:focus{box-shadow: $assistant 0 0 0 2px inset, #0006 0 4px 16px;}
 
         img{ display: block; width: 100%; margin: 0 0 1em;
           max-height: 80vw; object-fit: contain;
         }
       }
 
-      .label{ position: absolute; left: 0; top: 0;
-        height: 2.1em; line-height: 2.3em; padding: 0 1em;
-        background-color: $assistant1; color: $fontInvert;}
+      .label{ position: absolute; left: 0; top: 0;}
       h3{ font-size: 1.2em; margin: .5em 0;
         display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;
         overflow: hidden;
@@ -93,9 +91,9 @@
         &::before{content: attr(title)'：'; color: $fontColorLight;}
       }
       .moreFake{position: absolute; right: 8px; bottom: 8px;
-        padding: 0 2em; height: 2.1em; line-height: 2.2;
-        box-shadow: $linkColor 0 0 0 2px inset; color: $linkColor;
-        transition: .2s;
+        // padding: 0 2em; height: 2.1em; line-height: 2.2;
+        // box-shadow: $linkColor 0 0 0 2px inset; color: $linkColor;
+        // transition: .2s;
       }
     }
   }

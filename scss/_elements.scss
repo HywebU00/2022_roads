@@ -269,6 +269,20 @@ button.diskBtn{
   }
 }
 
+// 假的「更多」
+.moreFake{
+  display: inline-block;
+  padding: 0 2em; height: 2.1em; line-height: 2.2;
+  box-shadow: $linkColor 0 0 0 2px inset; color: $linkColor;
+  transition: .2s;
+}
+a:hover .moreFake,
+a:focus .moreFake{ background-color: $linkColor; color: $fontInvert;}
+
+// 類別標籤
+.label{ display: inline-block;
+  height: 2.1em; line-height: 2.3em; padding: 0 1em;
+  background-color: $assistant1; color: $fontInvert;}
 
 // 側欄遮罩
 .sidebarMask{ display: none; z-index: 980;

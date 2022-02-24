@@ -35,8 +35,8 @@
   }
 }
 
-.list{
-  &>table{ border-collapse: collapse; line-height: 1.5; margin:0 8px;
+.list{ background: #fff;
+  &>table{ border-collapse: collapse; line-height: 1.5; width: calc(100% - 16px); margin:0 8px;
     border-top: 2px solid $borderColor;border-bottom: 2px solid $borderColor;
     tr{ border-bottom: 1px solid $borderColor;}
     th, td{ padding: 14px 16px 12px; position: relative;
@@ -60,8 +60,12 @@
     }
   }
 
+  @media screen and (max-width: $wwNormal - 1){
+    &>table{ margin: 0; width: 100%;}
+  }
+
   @media screen and (max-width: $wwMedium - 1px){
-    &>table{ margin: 0;
+    &>table{
       tr:first-child{display: none;}
       tr, th, td{ display: block;}
       tr{
@@ -139,4 +143,59 @@
     }
   }
 
+}
+
+
+
+// 左邊可能有圖的條列，影片、照片
+.listRow{ width: $mmw; margin: 1em auto;
+  ul{list-style: none; padding: 0; margin: 0;}
+  &>ul{ line-height: 1.9;
+    &>li{ margin: 15px 0; background: $fontInvert;
+      &>a{position: relative; display: block; padding:1.5em 1em;
+        color: $fontColor; text-decoration: none; overflow: hidden;
+        @extend %shadow1; transition: .2s;
+        &:hover{ @extend %shadow2; }
+        &:focus{ box-shadow: $assistant 0 0 0 2px inset;}
+        &:hover, &:focus{
+          article, h3{text-decoration: underline;}
+        }
+      }
+      article{ display: block; margin: 0 auto 1em;}
+      img{ float: left;
+        width: 45vw; max-height: 45vw; object-fit: contain; 
+        margin: .2em 1em .5em 0; border: 1px solid $borderColorLight;
+      }
+      .videoPreview{ float: left; 
+        width: 45vw; height: 25.25vw; margin: .2em 1em .5em 0;
+        max-width: 360px; max-height: 202px;
+        background: #000;
+        img{ display: block; font: none; width: 100%; height: 100%; object-fit: cover; border: none; max-height: none; margin: 0;}
+      }
+      h3{margin: 0 0 .6em; font-size: 1.3em; line-height: 1.6;}
+      p{ margin: 0 0 1em;}
+      time, .visitCount, .from{ display: inline-block;margin-top: .6em; font-size: .95em; text-decoration: none;
+        &::before{ content: attr(title)'：'; display: inline-block; color: $fontColorLight;}
+        &+time, &+.visitCount,  &+.from{ margin-left: 1em;}
+      }
+      .label{ position: absolute; right: 1em; top: 0;
+        border-radius: 0 0 5px 5px; box-shadow: #0004 0 2px 3px;
+        &+h3{ margin-top: .5em;}
+      }
+      .moreFake{float: right; margin-top: .5em;}
+    }
+  }
+
+  @media screen and (min-width: $wwMedium){
+    &>ul>li{
+      img{ width: 300px; max-height: 300px;}
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    width: auto;
+    &>ul>li{
+      &>a{padding:2em 1.5em;}
+    }
+  }
 }

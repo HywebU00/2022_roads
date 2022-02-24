@@ -72,9 +72,10 @@
 .preface{ overflow: hidden; line-height: 1.8; width: $mmw; margin: 1.5em auto 2.5em;
   border-bottom: 2px solid $borderColorLight; padding-bottom: 1em;
   &~.preface{margin-top: 3em; margin-bottom: 5em;border-top: 2px solid $borderColorLight; padding-top: 1.5em; }
-  img{ float: left; 
-    width: 100%; height: auto; 
-    margin: 0 1em .5em 0;
+  img{ float: left;  margin: 0 1em .5em 0;
+    width: 45vw; height: auto; max-height: 60vw; object-fit: contain;
+    border: 1px solid $borderColorLight;
+    &~ul, &~ol{ margin-left: 45vw;}
   }
   a{ @extend %linkText}
   
@@ -83,13 +84,15 @@
   li+li{margin-top: .5em;}
   
   @media screen and (min-width: $wwMedium){
-    img{ float: left; width: 200px; height: 200px;object-fit: cover;
-      &~ul, &~ol, &~p{ margin-left: 200px;}
+    img{ max-width: 315px; max-height: 420px;
+      &~ul, &~ol, &~p{ margin-left: 330px;}
     }
   }
 
   @media screen and (min-width: $wwNormal){
-    width: 100%;
+    width: 100%; padding: 1.5em;
+    background-color: $transLighten; border: $fontInvert solid 2px;
+    &~.preface{border: $fontInvert solid 2px;}
   }
 }
 

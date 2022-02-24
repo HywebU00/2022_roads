@@ -96,3 +96,23 @@
   }
 }
 
+
+// ---------- 以下待分檔 ---------- //
+// ---------- 影音內容頁
+.videoPlay{ width: $mmw; margin: 0 auto; padding: 0 0 1em; background: #000; color: #fff;
+  iframe{ width: 100%; height: $mmw*.5625;}
+  h3{ line-height: 1.5;font-size: 1.3em; margin: 1.5em 15px .4em;}
+  p{line-height: 1.9; margin: 1em 15px;}
+
+  @media screen and (min-width: $wwNormal){
+    width: auto;
+    iframe{ height: calc(56.25vw - 118.125px);}
+    h3, p{ margin-left: 20px; margin-right: 20px;}
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    iframe{ height: calc((#{$wwMaximum} - 210px)*.5625);}
+  }
+  
+}
+

@@ -288,3 +288,18 @@ background-color: $assistant1; color: $fontInvert;}
  position: fixed; left: 0; right: 0; top: 0; bottom: 0;
  background-color: $transDarken;
 }
+
+// 影片播放符號
+.videoThumb{ position: relative;
+  &::before, &::after{ content: ''; position: absolute; left: 50%; top: 50%; opacity: .7; transition: .2s;}
+  &::before{ width: 44px; height: 44px; border-radius: 50%; 
+    margin: -22px 0 0 -22px; background-color: #0008; box-shadow: #fff 0 0 0 4px; }
+  &::after{ width: 0; height: 0; border-style: solid; border-width: 10px 0 10px 15px;
+    border-color: transparent transparent transparent #fff;
+    margin: -10px 0 0 -4px;
+  }
+}
+a:hover .videoThumb{
+  &::before, &::after{opacity: 1;}
+  &::before {background-color: #c00c;/* box-shadow: #c00b 0 0 0 4px; */}
+}

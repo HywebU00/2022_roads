@@ -74,7 +74,7 @@
   &~.preface{margin-top: 3em; margin-bottom: 5em;border-top: 2px solid $borderColorLight; padding-top: 1.5em; }
   img{ float: left;  margin: 0 1em .5em 0;
     width: 45vw; height: auto; max-height: 60vw; object-fit: contain;
-    border: 1px solid $borderColorLight;
+    // border: 1px solid $borderColorLight;
     &~ul, &~ol{ margin-left: 45vw;}
   }
   a{ @extend %linkText}

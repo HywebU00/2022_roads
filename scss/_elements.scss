@@ -303,3 +303,15 @@ a:hover .videoThumb{
   &::before, &::after{opacity: 1;}
   &::before {background-color: #c00c;/* box-shadow: #c00b 0 0 0 4px; */}
 }
+
+// 點選看大圖
+.enlarge{display: inline-block;
+  a{ display: block; transition: .2s;
+    padding: 0 1em 0 42px; height: 3em; line-height: 3em;
+    color: $fontColor; border-radius: 1.5em;text-decoration: none;
+    background:transparent url(../images/icon_enlarge.svg) no-repeat 12px center;
+    background-size: 24px auto;
+    &:hover{box-shadow: $primaryColor 0 0 0 1px; color: $primaryColor;background-color: $mainBg;}
+  }
+
+}

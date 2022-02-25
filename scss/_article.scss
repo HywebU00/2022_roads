@@ -37,6 +37,11 @@
     tr:first-child th{border-bottom-color: $borderColor;}
   }
 
+  .imageCenter{
+    margin: 1em auto; width: auto;
+    img{ display: block; max-width: 100%; margin: 0 auto;}
+  }
+
   @media screen and (min-width: $wwMedium){
     figure{  float: left; width: 40vw; margin-right: 1em;
       img{height: auto; max-height: none;}

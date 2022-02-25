@@ -151,16 +151,18 @@
 .listRow{ width: $mmw; margin: 1em auto;
   ul{list-style: none; padding: 0; margin: 0;}
   &>ul{ line-height: 1.9;
-    &>li{ margin: 15px 0; background: $fontInvert;
-      &>a{position: relative; display: block; padding:1.5em 1em;
-        color: $fontColor; text-decoration: none; overflow: hidden;
-        @extend %shadow1; transition: .2s;
-        &:hover{ @extend %shadow2; }
-        &:focus{ box-shadow: $assistant 0 0 0 2px inset;}
-        &:hover, &:focus{
-          article, h3{text-decoration: underline;}
-        }
-      }
+    &>li{ position: relative;margin: 15px 0; padding:1.5em 1em; overflow: hidden;
+       background: $fontInvert;
+
+      // &>a{position: relative; display: block; padding:1.5em 1em;
+      //   color: $fontColor; text-decoration: none; overflow: hidden;
+      //   @extend %shadow1; transition: .2s;
+      //   &:hover{ @extend %shadow2; }
+      //   &:focus{ box-shadow: $assistant 0 0 0 2px inset;}
+      //   &:hover, &:focus{
+      //     article, h3{text-decoration: underline;}
+      //   }
+      // }
       article{ display: block; margin: 0 auto 1em;}
       img{ float: left;
         width: 45vw; max-height: 45vw; object-fit: contain; 
@@ -172,7 +174,11 @@
         background: #000;
         img{ display: block; font: none; width: 100%; height: 100%; object-fit: cover; border: none; max-height: none; margin: 0;}
       }
-      h3{margin: 0 0 .6em; font-size: 1.3em; line-height: 1.6;}
+      h3{margin: 0 0 .6em; font-size: 1.3em; line-height: 1.6;
+        a{color: $fontColor;
+          &:hover, &:focus{ text-decoration: none; color: $assistant;}
+        }
+      }
       p{ margin: 0 0 1em;}
       time, .visitCount, .from{ display: inline-block;margin-top: .6em; font-size: .95em; text-decoration: none;
         &::before{ content: attr(title)'：'; display: inline-block; color: $fontColorLight;}
@@ -188,7 +194,7 @@
 
   @media screen and (min-width: $wwMedium){
     &>ul>li{
-      img{ width: 300px; max-height: 300px;}
+      img{ width: 225px; max-height: 300px;}
     }
   }
 

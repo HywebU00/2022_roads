@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>np 檔案應用專區－公路總局</title>
+  <title>FP-轉寄友人－檔案應用專區</title>
   <link rel="stylesheet" href="../css/design_archive.css">
 
   <script src="../js/jquery-3.6.0.min.js"></script>
@@ -148,7 +148,16 @@
           <tr>
             <td><abbr title="必填欄位" class="required">*</abbr> 驗證碼</td>
             <td>
-              <input type="text" name="" id="">
+              <div class="captchaSet">
+                <input type="text" class="inputCaptcha" id="apCaptcha" name="apCaptcha" maxlength="6" autocomplete="off">
+                <span class="captchaImage"><img id="CaptchaImage" src="../images/captchaImage.jpg" alt="圖型驗證碼"></span>
+                <input name="Submit" type="button" class="newCode" value="重新產生" onclick="getCAPTCHA();" onkeypress="getCAPTCHA();">
+                <input name="Submit0" type="button" class="voice" value="語音播放" onclick="getCAPTCHAVoice();" onkeypress="getCAPTCHAVoice();">
+                <iframe id="playVideo" src="" width="0" height="0" title="CAPTCHAVoice" style="display:none"></iframe>
+                <noscript class="NoscriptIECss" style="display:none">當script無法執行時可點選<a href='CaptchaVoice-1.mp3' target="_blank" title="這裡">【這裡】</a>此連結替代</noscript>
+                <noscript class="NoscriptCss" style="display:none"> 當script無法執行時可點選<a href='CaptchaVoice.mp3' target="_blank" title="這裡">【這裡】</a>此連結替代 </noscript>
+                <noscript>您的瀏覽器不支援 JavaScript 語法,將無法使用重新產生驗證碼功能，請按F5重新載入此網頁，以重新產生驗證碼。</noscript>
+              </div>
               <p class="error">您輸入的驗證碼錯誤</p>
             </td>
           </tr>

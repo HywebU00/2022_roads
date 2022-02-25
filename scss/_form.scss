@@ -232,72 +232,72 @@ label.readAndAgree{
 }
 
 
-// 驗證碼，captcha //
-.captchaSet{
-  display: flex; flex-flow: row wrap; align-items: center;
-  margin: 10px 0;
-  input[type="text"]{
-    flex: 1 1 calc(100% - 180px);
-    min-width: 6em; margin-top: 5px;
-  }
-  img.captcha{ width: 150px; margin: 3px;}
+// // 驗證碼，captcha //
+// .captchaSet{
+//   display: flex; flex-flow: row wrap; align-items: center;
+//   margin: 10px 0;
+//   input[type="text"]{
+//     flex: 1 1 calc(100% - 180px);
+//     min-width: 6em; margin-top: 5px;
+//   }
+//   img.captcha{ width: 150px; margin: 3px;}
 
-  button{
-    position: relative; white-space: nowrap;
-    flex: 0 1 auto; padding: 0 .8em 0 50px; margin: 12px 4px 3px;
-    height: 44px; line-height: 45px; 
-    border: none; border-radius: 24px;
-    background-color: $bodyBg; color: $fontColor;
-    box-shadow: $borderColor 0 0 0 1px;
-    transition: .2s;
-    i{ 
-      position: absolute; top: 2px; left: 2px;
-      width: 40px; height: 40px; border-radius: 50%;
-      background-image: url(../images/icons.png);
-       background-color: $primaryColor;
-       background-repeat: no-repeat;
-       background-size: 44px auto;
-       &.i_play{ background-position: center -201px;}
-       &.i_reflash{background-position: center -252px;}
-    }
+//   button{
+//     position: relative; white-space: nowrap;
+//     flex: 0 1 auto; padding: 0 .8em 0 50px; margin: 12px 4px 3px;
+//     height: 44px; line-height: 45px; 
+//     border: none; border-radius: 24px;
+//     background-color: $bodyBg; color: $fontColor;
+//     box-shadow: $borderColor 0 0 0 1px;
+//     transition: .2s;
+//     i{ 
+//       position: absolute; top: 2px; left: 2px;
+//       width: 40px; height: 40px; border-radius: 50%;
+//       background-image: url(../images/icons.png);
+//        background-color: $primaryColor;
+//        background-repeat: no-repeat;
+//        background-size: 44px auto;
+//        &.i_play{ background-position: center -201px;}
+//        &.i_reflash{background-position: center -252px;}
+//     }
 
-    &:hover{
-      box-shadow: $primaryColor 0 0 0 1px;
-    }
-    &:focus{
-      box-shadow: $primaryColor 0 0 0 2px;
-    }
-  }
+//     &:hover{
+//       box-shadow: $primaryColor 0 0 0 1px;
+//     }
+//     &:focus{
+//       box-shadow: $primaryColor 0 0 0 2px;
+//     }
+//   }
 
-  @media screen and (min-width: $wwMedium){
-    input[type="text"]{ flex: 1 1 auto; }
-    button{ margin-top: 3px; padding-right: 1em;}
-  }
+//   @media screen and (min-width: $wwMedium){
+//     input[type="text"]{ flex: 1 1 auto; }
+//     button{ margin-top: 3px; padding-right: 1em;}
+//   }
   
-  @media screen and (min-width: $wwNormal){
-    flex-wrap: nowrap; 
-    input[type="text"]{ max-width: 10em; }
-  }
+//   @media screen and (min-width: $wwNormal){
+//     flex-wrap: nowrap; 
+//     input[type="text"]{ max-width: 10em; }
+//   }
 
-}
+// }
 
 
 // checkbox, radio 選項群組 //
-.optionGroup{
-  margin:0 3px;
-  label{
-    position: relative;
-    display: inline-block; margin: 4px 1em 4px 0; padding:7px .5em 7px 1.8em;
-    cursor: pointer; border-radius: 4px;
-    &:hover{ color: darken($fontColor, 20%); box-shadow: $borderColorLight 0 0 0 1px;}
+// .optionGroup{
+//   margin:0 3px;
+//   label{
+//     position: relative;
+//     display: inline-block; margin: 4px 1em 4px 0; padding:7px .5em 7px 1.8em;
+//     cursor: pointer; border-radius: 4px;
+//     &:hover{ color: darken($fontColor, 20%); box-shadow: $borderColorLight 0 0 0 1px;}
 
-    input[type="radio"], input[type="checkbox"]{
-      position: absolute; left: 3px; top: 10px;
-    }
-    &:last-child {margin-right: 0;}
-  }
-}
-.formLayout td .optionGroup{ width: 90%;}
+//     input[type="radio"], input[type="checkbox"]{
+//       position: absolute; left: 3px; top: 10px;
+//     }
+//     &:last-child {margin-right: 0;}
+//   }
+// }
+// .formLayout td .optionGroup{ width: 90%;}
 
 
 // 日期區間 //

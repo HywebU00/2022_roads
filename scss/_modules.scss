@@ -116,7 +116,7 @@
   
 }
 
-
+// 圖與資料
 .imgMetaSet{
   width: $mmw; margin: 16px auto; padding:20px 0;
   border: 1px solid $borderColor;
@@ -157,6 +157,29 @@
 
   @media screen and (min-width: $wwNormal){
     width: auto;
+  }
+}
+
+// 驗證碼
+.captchaSet{
+  margin: 0 0 .5em; justify-content: flex-end;
+  display: flex; flex-flow: row wrap; align-items: center;
+  input.inputCaptcha{ width: 8em; flex: 1 1 calc(100% - 180px);}
+  .captchaImage{  margin: 0 8px 0 0;
+    img{ display: block; width: 160px;}
+  }
+  input[type="button"]{ margin:10px 2px 5px; flex: 0 1 auto;
+    border-radius: 1.5em;padding:0 .6em 0 40px;
+    background:$primaryColor url(../images/icons.png) no-repeat 0 0;
+    background-size: 44px auto;
+    &:hover, &:focus{background-color: $assistant;}
+  }
+  input.voice{background-position: 0 -200px;}
+  input.newCode{background-position: 0 -250px;}
+
+  @media screen and (min-width: $wwNormal){
+    input.inputCaptcha{flex-basis: calc( 100% - 284px - 10em);}
+    input[type="button"]{ margin-top: 5px;}
   }
 }
 

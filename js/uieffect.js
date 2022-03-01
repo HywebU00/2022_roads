@@ -719,6 +719,8 @@ $(function(){
 
   // .photoflow：cp頁的照片 -----------------------------------------
   var _photoflow = $('.photoflow');
+  var _cpBigPhoto = $('.lightbox.bigPhoto');
+  
   _photoflow.each(function () {
     let _this = $(this);
     let _floxBox = _this.find('.flowBox');
@@ -734,11 +736,15 @@ $(function(){
     let j;
     let _dots = '';
 
-    // 產生 indicator
+    
+
+    // 產生 indicator 和 自訂屬性 data-index
     _floxBox.append('<div class="flowNav"><ul></ul></div>');
     let _indicator = _this.find(".flowNav>ul");
     for (let n = 0; n < slideCount; n++) {
       _dots = _dots + '<li></li>';
+      _flowItem.eq(n).attr('data-index', n);
+      _cpBigPhoto.find('.flowList>li').eq(n).attr('data-index', n);
     }
     _indicator.append(_dots);
     let _indicatItem = _indicator.find('li');
@@ -857,62 +863,72 @@ $(function(){
         indicatReady();
       }, 200);
     });
+
+
+    // 點照片開啟燈箱 *********************************************
+    _flowItem.children('a').click(function(){
+      i = $(this).parent().attr('data-index');
+      console.log(i);
+      _cpBigPhoto.add(_cover).stop(true, false).fadeIn();
+
+      // let _bigPhotoLbx = $('.lightbox.bigPhoto');
+      let _bbfloxBox = _cpBigPhoto.find('.flowBox');
+      let _bbflowList = _cpBigPhoto.find('.flowList');
+      let _bbflowItem = _bbflowList.children('li');
+      // let count = _bbflowItem.length;
+      let _bbtnRight = _cpBigPhoto.find('.diskBtn.next');
+      let _bbtnLeft = _cpBigPhoto.find('.diskBtn.prev');
+      const speed = 900;
+      const actClassName = 'show';
+      // let i = 0;
+      // let j;
+
+      // for ( n = 0; n < count; n++) {
+      //   _bbflowItem.eq(n).attr('data-index', n);
+      // }
+
+      _bbflowItem.removeClass(actClassName).filter(function(index){
+        return  $( this ).attr( "data-index" ) === i;
+      }).addClass(actClassName).siblings();
+  
+      function slideForward() {
+        j = (i + 1) % slideCount;
+        _bbflowItem.eq(i).stop(true, false).animate({'left': '-100%'}, speed, function(){
+          $(this).removeClass(actClassName).removeAttr('style');
+        })
+        _bbflowItem.eq(j).stop(true, false).animate({ 'left': 0}, speed, function(){
+          $(this).addClass(actClassName);
+        });
+        i = j;
+        console.log(i);
+      }
+  
+      function slideBackward() {
+        j = (i - 1) % slideCount;
+        _bbflowItem.eq(j).css('left', '-100%').stop(true, true).animate({left: 0} , speed);
+        _bbflowItem.eq(i).stop(true, true).animate({'left': '100%'}, speed );
+        i = j;
+      }
+  
+      // 點擊向右箭頭
+      _bbtnRight.click(function () { 
+        slideForward(i);
+      });
+  
+      // 點擊向左箭頭
+      _bbtnLeft.click(function () {
+        slideBackward(i);
+      });
+  
+      // touch and swipe 左右滑動
+      _bbfloxBox.swipe({
+        swipeRight: function () {slideBackward();},
+        swipeLeft: function () {slideForward();},
+        threshold: 20,
+      });      
+    })
   });
 
-  // cp頁的照片開啟的燈箱內的大圖，點選滑動 -----------------------------------------------------
-  var _bigPhotoShow = $('.bigPhotoShow');
-  _bigPhotoShow.each( function() {
-    let _this = $(this);
-    let _floxBox = _this.find('.flowBox');
-    let _flowList = _floxBox.find('.flowList');
-    let _flowItem = _flowList.children('li');
-    let count = _flowItem.length;
-    let _btnRight = _this.find('.diskBtn.next');
-    let _btnLeft = _this.find('.diskBtn.prev');
-    const speed = 900;
-    const actClassName = 'active';
-    let i = 0;
-    let j;
-    
-
-    function slideForward() {
-      j = (i + 1) % count;
-      _flowItem.eq(i).stop(true, false).animate({'left': '-100%'}, speed, function(){
-        $(this).css('left', '100%');
-      })
-      _flowItem.eq(j).stop(true, false).animate({ 'left': 0}, speed);
-      i = j;
-    }
-
-    function slideBackward() {
-      j = (i - 1) % count;
-      _flowItem.eq(j).css('left', '-100%').stop(true, true).animate({left: 0} , speed);
-      _flowItem.eq(i).stop(true, true).animate({'left': '100%'}, speed );
-      i = j;
-    }
-
-    // 點擊向右箭頭
-    _btnRight.click(function () { 
-      slideForward();
-    });
-
-    // 點擊向左箭頭
-    _btnLeft.click(function () {
-      slideBackward();
-    });
-
-    // touch and swipe 左右滑動
-    _floxBox.swipe({
-      swipeRight: function () {slideBackward();},
-      swipeLeft: function () {slideForward();},
-      threshold: 20,
-    });      
-
-
-
-
-
-  })
 
 
 

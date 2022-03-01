@@ -183,3 +183,27 @@
   }
 }
 
+
+// 條列上方的查詢
+.searchHere{ width: $mmw; margin: 0 auto 2em; padding:1.2em 1em;
+ background-color: $transLighten;
+ box-shadow: #0003 0 0 16px;
+ input[type="button"], input[type="submit"]{
+   height: 2.6em; width: auto;
+ }
+ form{ display: flex; flex-flow: row wrap;
+  select{ flex: 1 1 45%;}
+  input[type="text"]{ flex: 1 1 60%; width: auto;}
+ }
+
+ @media screen and (min-width: $wwMedium){
+   form{ max-width: 40em; margin: 0 auto;
+    select{ flex: 1 1 5em;}
+    input[type="text"]{ flex: 1 1 calc(100% - 20em);}  
+   }
+ }
+
+ @media screen and (min-width: $wwNormal){
+   width: auto;
+ }
+}

@@ -10,6 +10,9 @@ body{
 }
 *{box-sizing: border-box;}
 a, img{border: none;}
+a{ color: $linkColor; text-decoration: underline;
+  &:hover, &:focus{text-decoration: none; color: $assistant;}
+}
 
 // 放 版頭（.webHeader）和 大圖輪播（.bigBanner）-------------------------------------------- //
 .topRow{

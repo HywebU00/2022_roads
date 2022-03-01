@@ -1,0 +1,71 @@
+.qaList{ width: $mmw; margin: 0 auto;
+  padding: 1px 0 0;
+  background: url(../images/qaList_bg.png) repeat-y 26px 0;
+  background-size: 48px auto;
+  ul{ list-style: none;padding: 0;}
+  .qaGroup{ position: relative;
+    display: flex; flex-flow: row nowrap; align-items: center;
+    margin: 56px 0; padding: 1em 2em 1em 0;min-height: 100px;
+     background: #fff; box-shadow: #0003 0 0 20px;
+    &:first-child{margin-top: 38px;}
+    &:last-child{margin-bottom: 0;}
+    &::before{content: ''; width: 100px; 
+      position: absolute; left: 0;top: 0; bottom: 0; background: #9C412E;
+    }
+    &:nth-child(even){
+      &::before{background: #BB7316;}
+    }
+
+    .groupName{ flex: 0 0 100px; text-align: center;z-index: 9; 
+      h3{ font-weight: normal; font-size: 1rem; color: $fontInvert; margin: 0;}
+      img{ display: block; width: 60px; height: 60px; margin: 0 auto .8em; object-fit: contain;}
+    }
+
+    &>ul{ margin:.7em 0 0 20px; flex: 1 1 auto;}
+    li{line-height: 1.6; margin-bottom: .7em;
+      a{ display: block; position: relative;padding: 0 0 0 1.2em;
+        text-decoration: none; color: $fontColor;
+        border-bottom: 1px solid transparent;
+        &::before{content: ''; position: absolute; left: .2em; top: .65em;
+          width: 4px; height: 4px; background-color: $fontColor; transition: .15s;}
+        &:hover, &:focus{border-bottom-color: $assistant; color: $assistant;
+          &::before{ background-color: $assistant; width: 8px;}
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwMedium){
+    background-position: 46px;
+    .qaGroup{min-height: 140px;
+      &::before{ width: 140px;}
+      .groupName{ flex-basis: 140px;}
+    }
+    .decoImg{
+      outline: 1px solid red;
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    width: auto;
+  }
+
+}
+
+.qaDecoImg{
+  margin: 0 auto; width: $mmw;
+  img{ display: block;max-width: 200px; max-height: 200px; object-fit: scale-down;}
+
+  &.end{ margin-top: 15px;}
+  &.start{margin-bottom: 15px;}
+
+  @media screen and (min-width: $wwMedium){
+    img{
+      max-width: 248px; max-height: 248px; object-fit: scale-down;
+    }
+  }
+  
+  @media screen and (min-width: $wwNormal){
+    width: auto; margin-left: -25px;
+  }
+}

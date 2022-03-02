@@ -22,6 +22,26 @@ $(function(){
   _html.removeClass('no-js');
 
 
+  // 設定slick 參數
+  $('.slider-for').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    fade: true,
+    asNavFor: '.slider-nav'
+  });
+  $('.slider-nav').slick({
+    variableWidth: true,
+    slidesToShow: 3,  
+    slidesToScroll: 1,
+    asNavFor: '.slider-for',
+    centerPadding: 0,
+    dots: false,
+    centerMode: true,
+    focusOnSelect: false
+  });
+
+
   // 製作側欄選單遮罩
   _body.append('<div class="sidebarMask"></div>');
 

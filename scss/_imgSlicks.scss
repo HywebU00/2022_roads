@@ -1,0 +1,79 @@
+
+.imgSlick{ position: relative;
+  width: $mmw; margin: 0 auto;
+
+  .slick-arrow{position: absolute; z-index: 9;
+    top: 50%; transform: translateY(-50%);
+    width: 56px; height: 56px; border-radius: 50%; 
+    text-indent: -20em; overflow: hidden;
+    margin: 0; border: none;
+    &::before{content: ''; position: absolute; width: 20px; height: 20px;
+      left: 50%; top: 50%; margin-top: -12px;
+      border: 4px solid #fff;border-top: none; border-right: none; transform: rotate(45deg);
+    }
+    &.slick-prev{ left: 0; 
+      &::before{ margin-left: -7px; }
+    }
+    &.slick-next{ right: 0;
+        &::before{transform: rotate(225deg); margin-left: -15px;}
+    }
+  }
+
+  .slider-for{ 
+    .slick-slide{
+      img{ display: block; width: 100%; height: $mmw; object-fit: contain; background: #000;}
+      .meta{ margin: calc(#{$mmw}/3 + 30px) auto 0; }
+    }
+
+    .slick-arrow{
+      top: $mmw/2; background-color: #0005;
+      &:hover{ background-color: #000a;}
+      &:focus{background-color: $assistant;}
+    }
+  }
+  
+  .slider-nav{ margin: 10px auto; padding: 5px 0;
+    position: absolute; top: $mmw; left: 0; right: 0;
+    background: $transLighten;
+    .slick-slide{
+      height: calc(#{$mmw}/3 - 10px); max-height: 180px; padding: 5px; margin: 5px;
+      box-shadow: $borderColor 0 0 0 1px;
+      img{ display: block; width: 100%; height: 100%; object-fit: contain;}
+
+      &.slick-current{ box-shadow: $assistant 0 0 0 3px; }
+    }
+    .slick-arrow{
+      background-color: #fff6;
+      &:hover{background-color: #fff;}
+      &:focus{background-color: #fff;}
+
+      &::before{border-color: #000;}
+    }
+  }
+
+  @media screen and (min-width: $wwMedium){
+    .slider-for{ 
+      .slick-slide{
+        img{ height: 658px; }
+        .meta{ margin-top: 240px; }
+      }
+      .slick-arrow { top: 329px; }
+    }
+    .slider-nav{ top: 658px; 
+      .slick-slide{ height: 180px; }
+    }
+
+  }
+
+  @media screen and (min-width: $wwNormal){
+    width: auto; margin-bottom: 5em;
+    // .slider-for{ 
+    //   .slick-slide{
+    //     img{ height: 720px; }
+    //   }
+    //   .slick-arrow { top: 360px; }
+    // }
+
+    // .slider-nav{ top: 720px;}
+  }
+}

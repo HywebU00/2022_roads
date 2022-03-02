@@ -126,18 +126,18 @@
     img{ display: block; width: 100%;}
     .enlarge{ position: absolute; right: 0; bottom: 0;}
   }
-  .meta{
-    // background: #fff8;
-    table{ width: 96%; margin: 1em auto 0;
-      border-collapse: collapse; line-height: 1.5;
-      border-top: 2px solid $primaryColor;border-bottom: 2px solid $primaryColor;
-    }
-    tr{border-bottom: 1px solid $primaryColor;
-      &:last-child{border: none;}
-    }
-    th, td{padding: .8em .5em .7em;}
-    th{text-align: right; font-weight: normal; white-space: nowrap;}
-  }
+  .meta table{width: 96%; margin: 1em auto 0;}
+  // .meta{
+  //   table{ width: 96%; margin: 1em auto 0;
+  //     border-collapse: collapse; line-height: 1.5;
+  //     border-top: 2px solid $primaryColor;border-bottom: 2px solid $primaryColor;
+  //   }
+  //   tr{border-bottom: 1px solid $primaryColor;
+  //     &:last-child{border: none;}
+  //   }
+  //   th, td{padding: .8em .5em .7em;}
+  //   th{text-align: right; font-weight: normal; white-space: nowrap;}
+  // }
 
   @media screen and (min-width: $wwMedium){
     display: flex; flex-flow: row nowrap; justify-content: space-between; align-items: center;
@@ -157,6 +157,23 @@
 
   @media screen and (min-width: $wwNormal){
     width: auto;
+  }
+}
+
+// meta 資料表格 <tr><th>hhh</th><td>ddd</td></tr>
+.meta{
+  table{ width: 100%; margin: 1em auto 0;
+    border-collapse: collapse; line-height: 1.5;
+    border-top: 2px solid $primaryColor;border-bottom: 2px solid $primaryColor;
+  }
+  tr{border-bottom: 1px solid $primaryColor;
+    &:last-child{border: none;}
+  }
+  th, td{padding: .8em .5em .7em;}
+  th{text-align: right; font-weight: normal; white-space: nowrap; vertical-align: top;}
+
+  @media screen and (min-width: $wwMedium){
+    // table{ width: 100%;}
   }
 }
 

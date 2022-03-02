@@ -21,7 +21,8 @@
 
   .slider-for{ 
     .slick-slide{ position: relative;
-      img{ display: block; width: 100%; height: $mmw; object-fit: contain; background: #000;}
+      img{ display: block; width: 100%; height: $mmw; object-fit: contain;
+        margin: 0 auto;  background: #000;}
       .caption{
         position: absolute; bottom: 0;left: 0; right: 0;
         padding:40px 10px 13px; margin: 0;
@@ -70,8 +71,8 @@
   // 橫式為主
   &.landscape{
     .slider-for{
-      .slick-slide{ 
-        img{ height: $mmw*.75;}
+      .slick-slide{  background: #000;
+        img{ height: $mmw*.67; width: auto; max-width: 100%; object-fit: cover;}
       }
     }
   }
@@ -102,7 +103,7 @@
     &.landscape{
       .slider-for{
         .slick-slide{ 
-          img{ height: $mmw*.75;}
+          img{ height: $mmw*.67;}
         }
       }
     }
@@ -116,7 +117,7 @@
     &.landscape{
       .slider-for{
         .slick-slide{ 
-          img{ height: calc((100vw - 210px)*.75);}
+          img{ height: calc((100vw - 210px)*.67);}
         }
       }
     }
@@ -128,7 +129,7 @@
     &.landscape{
       .slider-for{
         .slick-slide{ 
-          img{ height: calc((#{$wwMaximum} - 210px)*.75);}
+          img{ height: calc((#{$wwMaximum} - 210px)*.67);}
         }
       }
     }

@@ -1,6 +1,6 @@
 
-.imgSlick{ position: relative;
-  width: $mmw; margin: 0 auto;
+// imgSlick 大圖容器包含圖片資料表
+.imgSlick{ width: $mmw; margin: 0 auto;
 
   .slick-arrow{position: absolute; z-index: 9;
     top: 50%; transform: translateY(-50%);
@@ -20,20 +20,25 @@
   }
 
   .slider-for{ 
-    .slick-slide{
+    .slick-slide{ position: relative;
       img{ display: block; width: 100%; height: $mmw; object-fit: contain; background: #000;}
-      .meta{ margin: calc(#{$mmw}/3 + 30px) auto 0; }
+      .caption{
+        position: absolute; bottom: 0;left: 0; right: 0;
+        padding:40px 10px 13px; margin: 0;
+        color: $fontInvert;
+        background-image: linear-gradient(#0000 10%, #0008 50%, #000 90%);
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      }
     }
 
     .slick-arrow{
-      top: $mmw/2; background-color: #0005;
+      background-color: #0005;
       &:hover{ background-color: #000a;}
       &:focus{background-color: $assistant;}
     }
   }
   
   .slider-nav{ margin: 10px auto; padding: 5px 0;
-    position: absolute; top: $mmw; left: 0; right: 0;
     background: $transLighten;
     .slick-slide{
       height: calc(#{$mmw}/3 - 10px); max-height: 180px; padding: 5px; margin: 5px;
@@ -51,29 +56,83 @@
     }
   }
 
+  // 在資料表格之上空出垂直距離給導覽小圖
+  &.hasMeta{ position: relative;
+    .slider-for{ 
+      .slick-slide{
+        .meta{ margin: calc(#{$mmw}/3 + 30px) auto 0; }
+      }
+      .slick-arrow{top: $mmw/2; }
+    }
+    .slider-nav{ position: absolute; top: $mmw; left: 0; right: 0; }
+  }
+
+  // 橫式為主
+  &.landscape{
+    .slider-for{
+      .slick-slide{ 
+        img{ height: $mmw*.75;}
+      }
+    }
+  }
+
   @media screen and (min-width: $wwMedium){
     .slider-for{ 
       .slick-slide{
         img{ height: 658px; }
-        .meta{ margin-top: 240px; }
       }
-      .slick-arrow { top: 329px; }
     }
-    .slider-nav{ top: 658px; 
-      .slick-slide{ height: 180px; }
+    .slider-nav{ 
+      .slick-slide{ height: 172px; }
     }
+
+
+    // ------- hasMeta
+    &.hasMeta{
+      .slider-for{ 
+        .slick-slide{
+          .meta{ margin-top: 240px;}
+        }
+        .slick-arrow { top: 329px; }
+      }
+      .slider-nav{ top: 658px; }
+    }
+
+    // ------- landscape
+    &.landscape{
+      .slider-for{
+        .slick-slide{ 
+          img{ height: $mmw*.75;}
+        }
+      }
+    }
+  
 
   }
 
   @media screen and (min-width: $wwNormal){
     width: auto; margin-bottom: 5em;
-    // .slider-for{ 
-    //   .slick-slide{
-    //     img{ height: 720px; }
-    //   }
-    //   .slick-arrow { top: 360px; }
-    // }
+    // ------- landscape
+    &.landscape{
+      .slider-for{
+        .slick-slide{ 
+          img{ height: calc((100vw - 210px)*.75);}
+        }
+      }
+    }
+  }
 
-    // .slider-nav{ top: 720px;}
+
+  @media screen and (min-width: $wwMaximum){
+    // ------- landscape
+    &.landscape{
+      .slider-for{
+        .slick-slide{ 
+          img{ height: calc((#{$wwMaximum} - 210px)*.75);}
+        }
+      }
+    }
   }
 }
+
+

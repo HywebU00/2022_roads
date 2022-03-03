@@ -52,6 +52,7 @@
         &::after{
           content: attr(data-label); display: block; font-size: .9rem;
         }
+        &::before{display: none;}
       }
       // --- 左邊裝飾色塊
       &::before{

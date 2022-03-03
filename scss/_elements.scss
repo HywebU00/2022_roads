@@ -315,3 +315,21 @@ a:hover .videoThumb{
   }
 
 }
+
+
+// 相簿瀏覽人次 .viewCount
+.viewCount{ display: block; height: 2em; line-height: 2; color: $assistant;
+  &::before{
+    content: attr(title)"："; display: inline; vertical-align: middle;
+    color: $fontColorLight; font-size: .9em;
+  }
+}
+
+// 照片張數 .photoCount
+.photoCount{ line-height: 1.4; height: 1.5em; padding: 0 .5em; border-radius: 1em;
+  span{ display: inline-block; vertical-align: baseline;}
+  .total{ font-size: .95em;
+    &::before{content: '/'; margin-right: 2px;}
+  }
+  .current{ font-size: 1.1em; margin-right: 4px;}
+}

@@ -22,7 +22,7 @@ $(function(){
   _html.removeClass('no-js');
 
 
-  // 設定slick 參數
+  // 設定 slick 參數
   $('.slider-for').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -40,6 +40,29 @@ $(function(){
     centerMode: true,
     focusOnSelect: false
   });
+
+  // 計算照片張數
+  var _countPhoto = $('.imgSlick').filter('.count');
+  _countPhoto.each(function(){
+    let _this = $(this);
+    _this.prepend('<div class="photoCount"><span class="current" title="目前位置"></span><span class="total" title="總張數"></span></div>');
+    let _photoCount = _this.find('.photoCount');
+    let _current = _photoCount.find('.current');
+    let _total = _photoCount.find('.total');
+    let _countThis = _this.find('.slider-for');
+    // console.log(_current, _total);
+
+    _total.text(_countThis.find('.slick-slide').length);
+    _current.text( _countThis.find('.slick-current').index()+1);
+
+
+    _this.find('.slick-arrow').click( function(){
+      _current.text( _countThis.find('.slick-current').index()+1);
+    })
+
+
+  })
+  
 
 
   // 製作側欄選單遮罩

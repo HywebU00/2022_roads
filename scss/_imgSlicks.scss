@@ -1,6 +1,6 @@
 
 // imgSlick 大圖容器包含圖片資料表
-.imgSlick{ width: $mmw; margin: 0 auto;
+.imgSlick{ width: $mmw; margin: 0 auto; position: relative;
 
   .slick-arrow{position: absolute; z-index: 9;
     top: 50%; transform: translateY(-50%);
@@ -29,6 +29,10 @@
         color: $fontInvert;
         background-image: linear-gradient(#0000 10%, #0008 50%, #000 90%);
         white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        transition: .6s;
+      }
+      &:hover{
+        .caption{ transform: translateY(100%);}
       }
     }
 
@@ -75,6 +79,18 @@
         img{ height: $mmw*.67; width: auto; max-width: 100%; object-fit: cover;}
       }
     }
+  }
+
+
+  // 瀏覽人次
+  .viewCount{
+    text-align: right; padding-right: .5em;
+  }
+
+  // 相片張數
+  .photoCount{
+    position: absolute; right: 5px; top: 5px; z-index: 9;
+    background: rgba(#000 , .7); color: $fontInvert;
   }
 
   @media screen and (min-width: $wwMedium){

@@ -183,10 +183,10 @@
         }
       }
       p{ margin: 0 0 1em;}
-      time, .visitCount, .from{ display: inline-block;margin-top: .6em; font-size: .95em; text-decoration: none;
-        &::before{ content: attr(title)'：'; display: inline-block; color: $fontColorLight;}
-        &+time, &+.visitCount,  &+.from{ margin-left: 1em;}
-      }
+      // time, .visitCount, .from{ display: inline-block;margin-top: .6em; font-size: .95em; text-decoration: none;
+      //   &::before{ content: attr(title)'：'; display: inline-block; color: $fontColorLight;}
+      //   &+time, &+.visitCount,  &+.from{ margin-left: 1em;}
+      // }
       .label{ position: absolute; right: 1em; top: 0;
         border-radius: 0 0 5px 5px; box-shadow: #0004 0 2px 3px;
         &+h3{ margin-top: .5em;}

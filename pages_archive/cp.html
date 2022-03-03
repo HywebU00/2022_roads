@@ -241,27 +241,27 @@
       <h3>燈箱照片</h3>
       <div class="flowBox">
         <ul class="flowList">
-          <li><a href="javascript:;">
+          <li><a class="showLightbox" data-id="bigImg" href="javascript:;">
             <img src="../publicData/dataPh11.jpg" alt="替代文字">
             <p>圖說文字</p>
           </a></li>
-          <li><a href="javascript:;">
+          <li><a class="showLightbox" data-id="bigImg" href="javascript:;">
             <img src="../publicData/dataPh12.jpg" alt="替代文字">
             <p>圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字</p>
           </a></li>
-          <li><a href="javascript:;">
-            <img src="../publicData/dataPh13.jpg" alt="替代文字">
+          <li><a class="showLightbox" data-id="bigImg" href="javascript:;">
+            <img src="../publicData/ph02.jpg" alt="替代文字">
             <p>圖說文字</p>
           </a></li>
-          <li><a href="javascript:;">
+          <li><a class="showLightbox" data-id="bigImg" href="javascript:;">
             <img src="../publicData/dataPh21.jpg" alt="替代文字">
             <p>圖說文字</p>
           </a></li>
-          <li><a href="javascript:;">
+          <li><a class="showLightbox" data-id="bigImg" href="javascript:;">
             <img src="../publicData/dataPh22.jpg" alt="替代文字">
             <p>圖說文字</p>
           </a></li>
-          <li><a href="javascript:;">
+          <li><a class="showLightbox" data-id="bigImg" href="javascript:;">
             <img src="../publicData/dataPh23.jpg" alt="替代文字">
             <p>圖說文字</p>
           </a></li>
@@ -271,6 +271,15 @@
       </div>
 
     </section>
+
+    <section class="seeAlso"><h3>相關連結（或延伸閱讀）</h3>
+      <ol>
+        <li><a href="#">相關主題文章連結一</a></li>
+        <li><a href="#">相關主題文章連結二</a></li>
+        <li><a href="#">相關主題文章連結相關主題文章連結相關主題文章連結相關主題文章連結</a></li>
+      </ol>
+    </section>
+
 
     <section class="fileDownload">
       <h3>檔案下載（或附件）</h3>
@@ -329,13 +338,18 @@
       </ul>
     </section>
 
-    <section class="seeAlso"><h3>相關連結（或延伸閱讀）</h3>
-      <ol>
-        <li><a href="#">相關主題文章連結一</a></li>
-        <li><a href="#">相關主題文章連結二</a></li>
-        <li><a href="#">相關主題文章連結相關主題文章連結相關主題文章連結相關主題文章連結</a></li>
-      </ol>
-    </section>
+    <div class="pubInfo">
+      <span class="visitCount" title="瀏覽人次">4,321</span>
+      <time title="發布日期">111-2-24</time>
+    </div>
+
+    <nav class="cpNav">
+      <ul>
+        <li class="prev"><a href="x">上一則（標題）</a></li>
+        <li class="next"><a href="x">下一則（標題標題）</a></li>
+      </ul>
+    </nav>
+    
 
   </main>
 
@@ -407,41 +421,36 @@
 
   <button type="button" class="goTop">top</button>
 
-  <div class="lightbox bigPhoto">
+  <div class="lightbox" data-id="bigImg">
     <button type="button" title="close" class="closeThis"></button>
-    <section class="bigPhotoShow">
-      <div class="flowBox">
-        <ul class="flowList">
-          <li class="show">
-            <img src="../publicData/dataPh11.jpg" alt="替代文字">
-            <p>一圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字</p>
-          </li>
-          <li>
-            <img src="../publicData/dataPh12.jpg" alt="替代文字">
-            <p>二圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字</p>
-          </li>
-          <li>
-            <img src="../publicData/dataPh01.jpg" alt="替代文字">
-            <p>三三三圖說文字</p>
-          </li>
-          <li>
-            <img src="../publicData/dataPh21.jpg" alt="替代文字">
-            <p>四圖說文字</p>
-          </li>
-          <li>
-            <img src="../publicData/dataPh22.jpg" alt="替代文字">
-            <p>五圖說文字</p>
-          </li>
-          <li>
-            <img src="../publicData/dataPh23.jpg" alt="替代文字">
-            <p>六圖說文字 End</p>
-          </li>
-        </ul>
-        <button type="button" class="diskBtn prev">上一筆</button>
-        <button type="button" class="diskBtn next">下一筆</button>
-      </div>
 
-    </section>
+    <div class="bigImgShow">
+      <div>
+        <img src="../publicData/dataPh11.jpg" alt="替代文字">
+        <p class="caption">圖說文字</p>
+      </div>
+      <div>
+        <img src="../publicData/dataPh12.jpg" alt="替代文字">
+        <p class="caption">圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字</p>
+      </div>
+      <div>
+        <img src="../publicData/ph02.jpg" alt="替代文字">
+        <p class="caption">圖說文字</p>
+      </div>
+      <div>
+        <img src="../publicData/dataPh21.jpg" alt="替代文字">
+        <p class="caption">圖說文字</p>
+      </div>
+      <div>
+        <img src="../publicData/dataPh22.jpg" alt="替代文字">
+        <p class="caption">圖說文字</p>
+      </div>
+      <div>
+        <img src="../publicData/dataPh23.jpg" alt="替代文字">
+        <p class="caption">圖說文字</p>
+      </div>
+    </div>
+
   </div>
   
 </body>

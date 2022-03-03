@@ -21,8 +21,7 @@ $(function(){
 
   _html.removeClass('no-js');
 
-
-  // 設定 slick 參數
+  // --------------------- 外掛套件 slick 參數設定
   $('.slider-for').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -41,6 +40,16 @@ $(function(){
     focusOnSelect: false
   });
 
+  // $('.bigImgShow').slick({
+  //   dots: false,
+  //   infinite: true,
+  //   speed: 500,
+  //   fade: true,
+  //   cssEase: 'linear'
+  // });
+  // --------------------- slick 參數設定：結束
+
+
   // 計算照片張數
   var _countPhoto = $('.imgSlick').filter('.count');
   _countPhoto.each(function(){
@@ -55,12 +64,9 @@ $(function(){
     _total.text(_countThis.find('.slick-slide').length);
     _current.text( _countThis.find('.slick-current').index()+1);
 
-
     _this.find('.slick-arrow').click( function(){
       _current.text( _countThis.find('.slick-current').index()+1);
     })
-
-
   })
   
 
@@ -909,67 +915,67 @@ $(function(){
 
 
     // 點照片開啟燈箱 *********************************************
-    _flowItem.children('a').click(function(){
-      i = $(this).parent().attr('data-index');
-      console.log(i);
-      _cpBigPhoto.add(_cover).stop(true, false).fadeIn();
+    // _flowItem.children('a').click(function(){
+    //   i = $(this).parent().attr('data-index');
+    //   console.log(i);
+    //   _cpBigPhoto.add(_cover).stop(true, false).fadeIn();
 
-      // let _bigPhotoLbx = $('.lightbox.bigPhoto');
-      let _bbfloxBox = _cpBigPhoto.find('.flowBox');
-      let _bbflowList = _cpBigPhoto.find('.flowList');
-      let _bbflowItem = _bbflowList.children('li');
-      // let count = _bbflowItem.length;
-      let _bbtnRight = _cpBigPhoto.find('.diskBtn.next');
-      let _bbtnLeft = _cpBigPhoto.find('.diskBtn.prev');
-      const speed = 900;
-      const actClassName = 'show';
-      // let i = 0;
-      // let j;
+    //   // let _bigPhotoLbx = $('.lightbox.bigPhoto');
+    //   let _bbfloxBox = _cpBigPhoto.find('.flowBox');
+    //   let _bbflowList = _cpBigPhoto.find('.flowList');
+    //   let _bbflowItem = _bbflowList.children('li');
+    //   // let count = _bbflowItem.length;
+    //   let _bbtnRight = _cpBigPhoto.find('.diskBtn.next');
+    //   let _bbtnLeft = _cpBigPhoto.find('.diskBtn.prev');
+    //   const speed = 900;
+    //   const actClassName = 'show';
+    //   // let i = 0;
+    //   // let j;
 
-      // for ( n = 0; n < count; n++) {
-      //   _bbflowItem.eq(n).attr('data-index', n);
-      // }
+    //   // for ( n = 0; n < count; n++) {
+    //   //   _bbflowItem.eq(n).attr('data-index', n);
+    //   // }
 
-      _bbflowItem.removeClass(actClassName).filter(function(index){
-        return  $( this ).attr( "data-index" ) === i;
-      }).addClass(actClassName).siblings();
+    //   _bbflowItem.removeClass(actClassName).filter(function(index){
+    //     return  $( this ).attr( "data-index" ) === i;
+    //   }).addClass(actClassName).siblings();
   
-      function slideForward() {
-        j = (i + 1) % slideCount;
-        _bbflowItem.eq(i).stop(true, false).animate({'left': '-100%'}, speed, function(){
-          $(this).removeClass(actClassName).removeAttr('style');
-        })
-        _bbflowItem.eq(j).stop(true, false).animate({ 'left': 0}, speed, function(){
-          $(this).addClass(actClassName);
-        });
-        i = j;
-        console.log(i);
-      }
+    //   function slideForward() {
+    //     j = (i + 1) % slideCount;
+    //     _bbflowItem.eq(i).stop(true, false).animate({'left': '-100%'}, speed, function(){
+    //       $(this).removeClass(actClassName).removeAttr('style');
+    //     })
+    //     _bbflowItem.eq(j).stop(true, false).animate({ 'left': 0}, speed, function(){
+    //       $(this).addClass(actClassName);
+    //     });
+    //     i = j;
+    //     console.log(i);
+    //   }
   
-      function slideBackward() {
-        j = (i - 1) % slideCount;
-        _bbflowItem.eq(j).css('left', '-100%').stop(true, true).animate({left: 0} , speed);
-        _bbflowItem.eq(i).stop(true, true).animate({'left': '100%'}, speed );
-        i = j;
-      }
+    //   function slideBackward() {
+    //     j = (i - 1) % slideCount;
+    //     _bbflowItem.eq(j).css('left', '-100%').stop(true, true).animate({left: 0} , speed);
+    //     _bbflowItem.eq(i).stop(true, true).animate({'left': '100%'}, speed );
+    //     i = j;
+    //   }
   
-      // 點擊向右箭頭
-      _bbtnRight.click(function () { 
-        slideForward(i);
-      });
+    //   // 點擊向右箭頭
+    //   _bbtnRight.click(function () { 
+    //     slideForward(i);
+    //   });
   
-      // 點擊向左箭頭
-      _bbtnLeft.click(function () {
-        slideBackward(i);
-      });
+    //   // 點擊向左箭頭
+    //   _bbtnLeft.click(function () {
+    //     slideBackward(i);
+    //   });
   
-      // touch and swipe 左右滑動
-      _bbfloxBox.swipe({
-        swipeRight: function () {slideBackward();},
-        swipeLeft: function () {slideForward();},
-        threshold: 20,
-      });      
-    })
+    //   // touch and swipe 左右滑動
+    //   _bbfloxBox.swipe({
+    //     swipeRight: function () {slideBackward();},
+    //     swipeLeft: function () {slideForward();},
+    //     threshold: 20,
+    //   });      
+    // })
   });
 
 
@@ -981,8 +987,6 @@ $(function(){
   // ======================================================================
   // ======================================================================
 
-  // ----------------------------------- 外掛套件 slick 參數設定
-  // slick 參數設定：結束
 
 
 
@@ -999,10 +1003,21 @@ $(function(){
   
   _showLightbox.click(function(){
     let boxID = $(this).attr('data-id');
+
     _lightboxNow = _lightbox.filter( function(){ return $(this).attr('data-id') === boxID} );
     _lightboxNow.stop(true, false).fadeIn(speed).addClass('show');
     _lightboxNow.prev(_cover).fadeIn(speed);
     _body.addClass('noScroll');
+    if( _lightboxNow.has('.bigImgShow')) {
+      $('.bigImgShow').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        mobileFirst: true,
+        cssEase: 'linear'
+      });
+    }
   })
 
   _hideLightbox.click(function(){
@@ -1010,9 +1025,6 @@ $(function(){
     _targetLbx.stop(true, false).fadeOut(speed,
       function(){
         _targetLbx.removeClass('show');
-        // if( _targetLbx.has('.tabs')){
-        //   _targetLbx.removeAttr('style');
-        // }
       }
     );
     _targetLbx.prev(_cover).fadeOut(speed);
@@ -1025,9 +1037,6 @@ $(function(){
     _targetLbx.fadeOut(speed,
       function(){
         _targetLbx.removeClass('show');
-        // if( _targetLbx.has('.tabs')){
-        //   _targetLbx.removeAttr('style');
-        // }
       }
     );
     _body.removeClass('noScroll');

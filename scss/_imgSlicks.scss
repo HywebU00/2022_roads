@@ -1,6 +1,6 @@
 
 // imgSlick 大圖容器包含圖片資料表
-.imgSlick{ width: $mmw; margin: 0 auto; position: relative;
+.imgSlick{ width: $mmw; margin: 0 auto 5em; position: relative;
 
   .slick-arrow{position: absolute; z-index: 9;
     top: 50%; transform: translateY(-50%);
@@ -26,7 +26,7 @@
       .caption{
         position: absolute; bottom: 0;left: 0; right: 0;
         padding:40px 10px 13px; margin: 0;
-        color: $fontInvert;
+        color: $fontInvert; text-align: center;
         background-image: linear-gradient(#0000 10%, #0008 50%, #000 90%);
         white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
         transition: .6s;
@@ -58,6 +58,13 @@
       &:focus{background-color: #fff;}
 
       &::before{border-color: #000;}
+    }
+  }
+
+  &>time{
+    display: block; margin: .5em auto; text-align: right;
+    &::before{
+      display: inline-block; content: attr(title)'：'; color: $fontColorLight;
     }
   }
 
@@ -148,6 +155,57 @@
           img{ height: calc((#{$wwMaximum} - 210px)*.67);}
         }
       }
+    }
+  }
+}
+
+
+// 燈箱中的大圖瀏覽
+.lightbox{
+  .bigImgShow{
+    // outline: 1px solid red;
+
+    .slick-slide{ position: relative; width: 100%;  height: calc(100vh - 6vw);
+
+      
+      img{ display: block; width: 100%; height: 100%; object-fit: contain;}
+      .caption{
+        position: absolute; bottom: 0;left: 0; right: 0;
+        padding:50px 15px 18px; margin: 0;
+        color: $fontInvert; text-align: center;
+        background-image: linear-gradient(#0000 10%, #0008 50%, #000 90%);
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        transition: .6s;
+
+        &:hover{
+          .caption{ transform: translateY(100%);}
+        }
+      }
+    }
+
+
+    .slick-arrow{ z-index: 9;
+      &.slick-prev{left: 5px;}
+      &.slick-next{right: 5px;}
+    }
+
+    .slick-dots{  
+      list-style: none; text-align: center; margin: 0 auto;padding:6px 8px;
+      position: absolute; top: 8px; left: 50%;
+      transform: translateX(-50%);
+      overflow: hidden;
+      background-color: transparentize($fontInvert, .4); border-radius: 20px;
+
+      li{ float: left; padding: 0; margin:0 8px; line-height: 1; 
+        button{ width: 8px; height: 8px;line-height: 8px; padding: 0; margin:-2px 0 0; border-radius: 50%;
+          text-indent: -5em; overflow: hidden; border: none;
+          background-color: $primaryColor;
+        }
+        &.slick-active{
+          button{background: $assistant; box-shadow: $assistant 0 0 0 3px;}
+        }
+      }
+
     }
   }
 }

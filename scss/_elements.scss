@@ -413,3 +413,13 @@ time[attr="title"], .visitCount[attr="title"], .from[attr="title"]{ display: inl
   }
 
 }
+
+
+// 鍵盤樣式
+kbd {
+  display: inline-block; vertical-align: middle; 
+  margin: 0 .1em; padding: 0 .4em; height: 1.7em; line-height: 1.6;
+  font-size: .938em; font-family: sans-serif; font-weight: bold; 
+  border: 1px solid $borderColor; border-radius: 0.2em; 
+  color: $fontColor; background: $fontInvert; 
+}

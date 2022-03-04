@@ -1,7 +1,7 @@
 // 寬版顯示兩筆完整，第三筆顯示局部
 .flow3{
   max-width: $wwMaximum;
-  .blockHeader{ width: 93vw; max-width: 93%; margin: 0 0 3em auto; }
+  .blockHeader{ width: 86vw; max-width: 86%; margin: 0 auto 3em; }
 
   .flowBox{ position: relative; 
     width: 93vw; margin-left: 7vw; padding-bottom: 7em;overflow: hidden;

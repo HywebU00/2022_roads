@@ -355,7 +355,7 @@ a:hover .videoThumb{
 }
 
 // 瀏覽人次、發布日期、發布單位
-time, .visitCount, .from{ display: inline-block;margin-top: .6em; font-size: .95em; text-decoration: none;
+time[attr="title"], .visitCount[attr="title"], .from[attr="title"]{ display: inline-block;margin-top: .6em; font-size: .95em; text-decoration: none;
   &::before{ content: attr(title)'：'; display: inline-block; color: $fontColorLight;}
   &+time, &+.visitCount,  &+.from{ margin-left: 1em;}
 }

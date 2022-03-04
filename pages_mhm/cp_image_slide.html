@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CP-內容頁（照片多張展開） 檔案應用專區－公路總局</title>>
-  <link rel="stylesheet" href="../slick/slick.css"/> <!-- 照片顯示套件 -->
-  <link rel="stylesheet" href="../css/design_archive.css">
+  <title>CP-照片內容頁－後山公路文物館</title>
+
+  <link rel="stylesheet" href="../slick/slick.css"/> <!-- slick 套件用 -->
+  <link rel="stylesheet" href="../css/design_mhm.css">
 
   <script src="../js/jquery-3.6.0.min.js"></script>
-  <script src="../slick/slick.min.js"></script>
+  <script src="../slick/slick.min.js"></script> <!-- slick 套件 -->
   <script src="../js/jquery.touchSwipe.min.js"></script>
   <script src="../js/uieffect.js"></script>
 </head>
@@ -149,7 +150,7 @@
     </div>
 
     <div class="pageHeader">
-      <h2>CP-內容頁（照片多張展開）</h2>
+      <h2>CP-照片內容頁</h2>
       
       <section class="share">
         <ul>
@@ -164,107 +165,127 @@
       </section>
     </div>
 
-    <article class="cpArticle">
-      <div class="imageCenter">
-        <img src="../publicData/OrganizationChart_img.png" alt="組織圖">
-      </div>
-      <p>
-        本局置局長、2位副局長、主任秘書。<br>
-        本局局內共設2個室及5個處。<br>
-        2個室為人事室、統計室。<br>
-        5個處為會計處、總務處、機料處、業務處、監理處。<br>
-        人事室下設第一股、第二股及第三股等3股。<br>
-        統計室下設編輯課及研究課等2課。<br>
-        會計處下設綜核課、檢查課及帳務課等3課。<br>
-        總務處下設文書課、出納課及庶務課等3課。<br>
-        機料處下設儲備課、供應課、設計課及機務課等4課。<br>
-        業務處下設調度課、營業課及聯運課等3課。<br>
-        監理處下設牌照課、稽核課及督導課等3課。<br><br>
-        本局外部共設臺北段、臺中段、高雄段、枋寮段及花蘇段等5個工務段；材料總庫；臺北修車廠；臺北、臺中、高雄及枋寮等4個保養廠；監理處派駐臺北、臺中、高雄、花蓮及臺東等5個辦公處所。
-      </p>
-    </article>
 
-    <section class="imgWithData">
-      <div class="imgMetaSet">
-        <div class="image">
-          <img src="../publicData/OrganizationChart__commonuse03.png" alt="圖說">
-          <span class="enlarge"><a href="#">點選看大圖</a></span>
+    <section class="imgSlick landscape count">
+      <!-- <div class="photoCount">
+        <span class="current" title="目前位置">1</span><span class="total" title="總張數">6</span>
+      </div> -->
+
+      <div class="slider-for">
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/ph01.jpg" alt="圖說">
+          <p class="caption">們法造研術族無魚黃</p>
         </div>
-        <div class="meta">
-          <table>
-            <tr>
-              <th>檔號</th>
-              <td>0036/654/5/1/001</td>
-            </tr>
-            <tr>
-              <th>檔案日期</th>
-              <td>民國36年10月29日</td>
-            </tr>
-            <tr>
-              <th>案由</th>
-              <td>公有營業機關概況表。</td>
-            </tr>
-            <tr>
-              <th>說明</th>
-              <td>電呈交通處公有營業機關概況表文件。</td>
-            </tr>
-          </table>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/ph03.jpg" alt="圖說">
+          <p class="caption">看本樣步到評結</p>
         </div>
-      </div>
-      <div class="imgMetaSet">
-        <div class="image">
-          <img src="../publicData/OrganizationChart__commonuse02.png" alt="圖說">
-          <span class="enlarge"><a href="#">點選看大圖</a></span>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/ph02.jpg" alt="圖說">
+          <p class="caption">論前來立而信來關親著識福來來學為</p>
         </div>
-        <div class="meta">
-          <table>
-            <tr>
-              <th>檔號</th>
-              <td>0036/654/5/1/001</td>
-            </tr>
-            <tr>
-              <th>檔案日期</th>
-              <td>民國36年10月29日</td>
-            </tr>
-            <tr>
-              <th>案由</th>
-              <td>公路局所屬機關所在地。</td>
-            </tr>
-            <tr>
-              <th>說明</th>
-              <td>電呈交通處公有營業機關概況表附表。</td>
-            </tr>
-          </table>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/ph04.jpg" alt="圖說">
+          <p class="caption">熱前形外字其此輕不市拿出</p>
+        </div>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/defaultImage.png" alt="圖說">
+          <p class="caption">大臉海的（測試過長的文字，測試過長的文字，測試過長的文字，測試過長的文字，測試過長的文字，測試過長的文字，測試過長的文字，）</p>
+        </div>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/dataPh26.jpg" alt="圖說">
+          <p class="caption">企然深後原己權懷愛，說今新</p>
+        </div>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/dataPh21.jpg" alt="圖說">
+          <p class="caption">作小都計往不找我寶會斯只本度清告精王變前平部少，仍充友劇消話這兒溫司人行情路光的離才且放、可幾一天</p>
+        </div>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/dataPh22.jpg" alt="圖說">
+          <p class="caption">工信給白對全</p>
+        </div>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/dataPh23.jpg" alt="圖說">
+          <p class="caption">大獨醫卻共心的經來兒日上</p>
+        </div>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/dataPh24.jpg" alt="圖說">
+          <p class="caption">二場提身指半下</p>
+        </div>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/dataPh25.jpg" alt="圖說">
+          <p class="caption">特資是麗提等車十一活公行</p>
         </div>
       </div>
-      <div class="imgMetaSet">
-        <div class="image">
-          <img src="../publicData/OrganizationChart__commonuse03.png" alt="圖說">
-          <span class="enlarge"><a href="#">點選看大圖</a></span>
-        </div>
-        <div class="meta">
-          <table>
-            <tr>
-              <th>檔號</th>
-              <td>0037/656/1/003</td>
-            </tr>
-            <tr>
-              <th>檔案日期</th>
-              <td>民國37年2月20日</td>
-            </tr>
-            <tr>
-              <th>案由</th>
-              <td>臺灣省公路局機關組織調查表。</td>
-            </tr>
-            <tr>
-              <th>說明</th>
-              <td>呈請各處室填報業務查報表文件。</td>
-            </tr>
-          </table>
-        </div>
+      <div class="slider-nav">
+        <div><img src="../publicData/ph01.jpg" alt="圖說"></div>
+        <div><img src="../publicData/ph03.jpg" alt="圖說"></div>
+        <div><img src="../publicData/ph02.jpg" alt="圖說"></div>
+        <div><img src="../publicData/ph04.jpg" alt="圖說"></div>
+        <div><img src="../publicData/defaultImage.png" alt="圖說"></div>
+        <div><img src="../publicData/dataPh26.jpg" alt="圖說"></div>
+        <div><img src="../publicData/dataPh21.jpg" alt="圖說"></div>
+        <div><img src="../publicData/dataPh22.jpg" alt="圖說"></div>
+        <div><img src="../publicData/dataPh23.jpg" alt="圖說"></div>
+        <div><img src="../publicData/dataPh24.jpg" alt="圖說"></div>
+        <div><img src="../publicData/dataPh25.jpg" alt="圖說"></div>
       </div>
+      <div class="viewCount" title="相簿瀏覽人次">29</div>
     </section>
 
+    <section class="fileDownload">
+      <h3>檔案下載（或附件）</h3>
+      <ul>
+        <li>
+          <span class="fileName">111年度施政計畫-草案版</span>
+          <span class="fileType pdf">
+            <a download href="檔案名稱AAA.pdf" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱AAA.pdf)">pdf</a>
+          </span>
+          <span class="fileType doc">
+            <a download href="檔案名稱AAA.doc" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱AAA.doc)">doc</a>
+          </span>
+          <span class="fileType doc">
+            <a download href="檔案名稱AAA.docx" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱AAA.docx)">docx</a>
+          </span>
+        </li>
+        <li>
+          <span class="fileName">檔案名稱BBB</span>
+          <span class="fileType zip">
+            <a download href="檔案名稱BBB.zip" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱BBB.zip)">zip</a>
+          </span>
+          <span class="fileType xls">
+            <a download href="檔案名稱BBB.xls" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱BBB.xls)">xls</a>
+          </span>
+          <span class="fileType xls">
+            <a download href="檔案名稱BBB.xlsx" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱BBB.xlsx)">xlsx</a>
+          </span>
+          <span class="fileType xls">
+            <a download href="檔案名稱BBB.csv" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱BBB.csv)">csv</a>
+          </span>
+          <span class="fileType xls">
+            <a download href="檔案名稱BBB.ods" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱BBB.ods)">ods</a>
+          </span>
+        </li>
+        <li>
+          <span class="fileName">檔案名稱CCC</span>
+          <span class="fileType ppt">
+            <a download href="檔案名稱CCC.ppt" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱CCC.ppt)">ppt</a>
+          </span>
+          <span class="fileType jpg">
+            <a download href="檔案名稱CCC.jpg" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱CCC.jpg)">jpg</a>
+          </span>
+          <span class="fileType mp3">
+            <a download href="檔案名稱CCC.mp3" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱CCC.mp3)">mp3</a>
+          </span>
+          <span class="fileType mov">
+            <a download href="檔案名稱CCC.mov" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱CCC.mov)">mov</a>
+          </span>
+          <span class="fileType txt">
+            <a download href="檔案名稱CCC.txt" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱CCC.txt)">txt</a>
+          </span>
+          <span class="fileType other">
+            <a download href="檔案名稱CCC.xxx" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱CCC.xxx)">xxx</a>
+          </span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="seeAlso"><h3>相關連結（或延伸閱讀）</h3>
+      <ol>
+        <li><a href="#">相關主題文章連結一</a></li>
+        <li><a href="#">相關主題文章連結二</a></li>
+        <li><a href="#">相關主題文章連結相關主題文章連結相關主題文章連結相關主題文章連結</a></li>
+      </ol>
+    </section>
 
   </main>
 
@@ -336,6 +357,26 @@
 
   <button type="button" class="goTop">top</button>
 
- 
+
+  <div class="lightbox" data-id="bigImg">
+    <button type="button" title="close" class="closeThis"></button>
+
+    <div class="bigImgShow">
+      <div><img src="../publicData/ph01.jpg" alt="圖說"></div>
+      <div><img src="../publicData/ph03.jpg" alt="圖說"></div>
+      <div><img src="../publicData/ph02.jpg" alt="圖說"></div>
+      <div><img src="../publicData/ph04.jpg" alt="圖說"></div>
+      <div><img src="../publicData/defaultImage.png" alt="圖說"></div>
+      <div><img src="../publicData/dataPh26.jpg" alt="圖說"></div>
+      <div><img src="../publicData/dataPh21.jpg" alt="圖說"></div>
+      <div><img src="../publicData/dataPh22.jpg" alt="圖說"></div>
+      <div><img src="../publicData/dataPh23.jpg" alt="圖說"></div>
+      <div><img src="../publicData/dataPh24.jpg" alt="圖說"></div>
+      <div><img src="../publicData/dataPh25.jpg" alt="圖說"></div>
+    </div>
+
+  </div>
+
+  
 </body>
 </html>

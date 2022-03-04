@@ -10,31 +10,33 @@ $notice: $assistant;
 $hilight: #d26c00;
 
 $sidebarBg : #6f4d24;
-$bodyBg: #484641;
-$footerBg: #545b5a;
+$bodyBg: #c2baa8;
+$footerBg: #2B1207;
 $footerBg2: #220E06;
+$mainBg:#F6F3EA;
 
 $fontColor: #000;
 $fontInvert: #fff;
 $fontColorLight: #67625c;
-$linkColor: #086d6c;
+$linkColor: #805203;
+
 
 $borderColor: #a29984;
-$borderColorLight: #b6b1a2;
+$borderColorLight: #d0c8af;
 $borderColorDark:#777164;
-$shadow:#0003;
-$shadow2:#0006;
+$shadow:#50504c33;
+$shadow2:#35343066;
 
-$btnBg1: $primaryColor ;
-$btnBg2:darken($primaryColor, 12%);
+$btnBg1: $primaryColor;
+$btnBg2: $assistant;
 
 $gray: #ddd;
-$grayLight: #ececec;
-$grayDark: #555;
 
 $transDarken: #1a0d05bb;
-%shadow1{ box-shadow: #0004 0 0 5px;}
-%shadow2{ box-shadow: #0003 0 0 15px;}
+$transLighten: #fffb;
+
+%shadow1{ box-shadow: #0004 0 1px 4px;}
+%shadow2{ box-shadow: #0008 0 4px 18px -2px;}
 
 // -------------------------
 %linkText{ color: $assistant; text-decoration: none;box-shadow:$assistant 0 2px 0 -1px;

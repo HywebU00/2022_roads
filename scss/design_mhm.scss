@@ -12,7 +12,7 @@ $wwNormal: 960px;
 $wwMaximum: 1200px;
 // ---------- RWD 斷點 ------------- //
 
-@import "_colorVar_mhm"; // 「後山公路文物館」用
+@import "_colorVar_archive"; // 「檔案應用專區」顏色變數
 @import "_default";
 @import "_elements";
 @import "_webHeader";
@@ -20,6 +20,7 @@ $wwMaximum: 1200px;
 @import "_menu";
 @import "_webFooter";
 @import "_form";
+@import "_formLayout";
 @import "_aas";
 @import "_flow1";
 @import "_flow2";
@@ -28,4 +29,13 @@ $wwMaximum: 1200px;
 @import "_modules";
 @import "_category";
 @import "_np";
+@import "_lp";
+@import "_article";
+@import "_thumbnail";
+@import "_qa";
+@import "_paginations";
+@import "_imgSlicks"; // 使用 slick 套件的模組
+@import "_lightbox"; // 燈箱
+@import "_sitemap";
+// ------------------------------------------
 @import "_style_mhm"; // 「後山公路文物館」用

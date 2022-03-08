@@ -20,7 +20,7 @@
   }
 
   .slider-for{ 
-    .slick-slide{ position: relative;
+    .slick-slide{ position: relative; cursor: pointer;
       img{ display: block; width: 100%; height: $mmw; object-fit: contain;
         margin: 0 auto;  background: #000;}
       .caption{
@@ -45,7 +45,7 @@
   
   .slider-nav{ margin: 10px auto; padding: 5px 0;
     background: $transLighten;
-    .slick-slide{
+    .slick-slide{ cursor: pointer;
       height: calc(#{$mmw}/3 - 10px); max-height: 180px; padding: 5px; margin: 5px;
       box-shadow: $borderColor 0 0 0 1px;
       img{ display: block; width: 100%; height: 100%; object-fit: contain;}

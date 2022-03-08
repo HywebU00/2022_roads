@@ -37,7 +37,7 @@ $(function(){
     centerPadding: 0,
     dots: false,
     centerMode: true,
-    focusOnSelect: false
+    focusOnSelect: true
   });
 
   // $('.bigImgShow').slick({

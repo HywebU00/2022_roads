@@ -34,6 +34,13 @@
       &:hover{
         .caption{ transform: translateY(100%);}
       }
+
+      &::before{content: ''; position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+        box-shadow: $assistant 0 0 0 2px inset; z-index: -1;  display: none;
+      }
+      &:focus{
+        &::before{display: block;z-index: 9;}
+      }
     }
 
     .slick-arrow{

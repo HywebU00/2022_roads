@@ -1006,6 +1006,7 @@ $(function(){
 
     _lightboxNow = _lightbox.filter( function(){ return $(this).attr('data-id') === boxID} );
     _lightboxNow.stop(true, false).fadeIn(speed).addClass('show');
+    _lightboxNow.find('.closeThis').focus();
     _lightboxNow.prev(_cover).fadeIn(speed);
     _body.addClass('noScroll');
     if( _lightboxNow.has('.bigImgShow')) {
@@ -1019,6 +1020,10 @@ $(function(){
       });
     }
   })
+
+  // _showLightbox.keyup(function(){
+  //   $(this).trigger('click');
+  // })
 
   _hideLightbox.click(function(){
     let _targetLbx = $(this).parents('.lightbox');

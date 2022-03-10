@@ -182,6 +182,14 @@ $(function(){
       });
     }
   })
+
+  _search.find('input[type="text"]').focus(function(){
+    _search.addClass('reveal').show();
+  })
+
+
+
+
   _closeSearch.click(function () {
     searchHide();
   })

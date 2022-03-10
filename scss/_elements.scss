@@ -21,17 +21,16 @@ a:focus{outline: none;}
     position: absolute; top: -2em;left: $sideStripe;
     font-size: .9rem; border-radius: 0 0 4px 4px;
     height: 1.6em; line-height: 1.6; padding: 0 .5em; margin-left: 1em;
-    background: $assistant;color: $fontInvert;
+    background: $assistant; 
     text-decoration: none; outline: none;  cursor: pointer;
-    transition:.3s; 
+    transition:top .3s; 
     &:focus{ top: 0;}
-    &:hover, &:focus{ border-color: $assistant; opacity: 1;
+    &:hover, &:focus{ border-color: $assistant; opacity: 1; color: $fontInvert;
     }
   }
   @media screen and (min-width: $wwMaximum){
     left: calc(50vw - #{$wwMaximum}/2 + #{$sideStripe});
   }
-  
 }
 
 // ---------- 主選單、漢堡選單、查詢圖示

@@ -91,7 +91,7 @@
 
 // ---------- 快速查詢區
 .search { 
-  display: none;
+  // display: none;
   position: absolute; top: 64px; left: 100vw;
   width: 100vw; padding: 24px 1em 10px; 
   background: #000c; color: darken($fontInvert, 20%);

@@ -27,6 +27,7 @@ $(function(){
     slidesToScroll: 1,
     arrows: true,
     fade: true,
+    infinite: false,
     asNavFor: '.slider-nav'
   });
   $('.slider-nav').slick({
@@ -37,16 +38,10 @@ $(function(){
     centerPadding: 0,
     dots: false,
     centerMode: true,
+    infinite: false,
     focusOnSelect: true
   });
 
-  // $('.bigImgShow').slick({
-  //   dots: false,
-  //   infinite: true,
-  //   speed: 500,
-  //   fade: true,
-  //   cssEase: 'linear'
-  // });
   // --------------------- slick 參數設定：結束
 
 
@@ -186,9 +181,6 @@ $(function(){
   _search.find('input[type="text"]').focus(function(){
     _search.addClass('reveal').show();
   })
-
-
-
 
   _closeSearch.click(function () {
     searchHide();
@@ -1024,6 +1016,7 @@ $(function(){
         speed: 500,
         fade: true,
         mobileFirst: true,
+        infinite: false,
         cssEase: 'linear'
       });
     }

@@ -35,7 +35,7 @@
   }
 }
 
-.list{ background: #fff;
+.list{ /* background: transparentize($mainBg, .2); */ background-color: $mainBg;
   &>table{ border-collapse: collapse; line-height: 1.5; width: calc(100% - 16px); margin:0 8px;
     border-top: 2px solid $borderColor;border-bottom: 2px solid $borderColor;
     tr{ border-bottom: 1px solid $borderColor;}
@@ -177,16 +177,12 @@
         background: #000;
         img{ display: block; font: none; width: 100%; height: 100%; object-fit: cover; border: none; max-height: none; margin: 0;}
       }
-      h3{margin: 0 0 .6em; font-size: 1.3em; line-height: 1.6;
-        a{color: $fontColor;
+      h3{margin: 0 0 .6em; font-size: 1.5em; line-height: 1.6; color: $primaryColor;
+        a{color: $primaryColor;
           &:hover, &:focus{ text-decoration: none; color: $assistant;}
         }
       }
       p{ margin: 0 0 1em;}
-      // time, .visitCount, .from{ display: inline-block;margin-top: .6em; font-size: .95em; text-decoration: none;
-      //   &::before{ content: attr(title)'：'; display: inline-block; color: $fontColorLight;}
-      //   &+time, &+.visitCount,  &+.from{ margin-left: 1em;}
-      // }
       .label{ position: absolute; right: 1em; top: 0;
         border-radius: 0 0 5px 5px; box-shadow: #0004 0 2px 3px;
         &+h3{ margin-top: .5em;}

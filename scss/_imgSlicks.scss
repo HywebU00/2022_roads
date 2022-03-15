@@ -50,14 +50,14 @@
     }
   }
   
-  .slider-nav{ margin: 10px auto; padding: 5px 0;
+  .slider-nav{ margin: 10px auto; padding: 5px 0 5px 10px;
     background: $transLighten;
     .slick-slide{ cursor: pointer;
       height: calc(#{$mmw}/3 - 10px); max-height: 180px; padding: 5px; margin: 5px;
-      box-shadow: $borderColor 0 0 0 1px;
+      box-shadow: $borderColor 0 0 0 1px inset;
       img{ display: block; width: 100%; height: 100%; object-fit: contain;}
 
-      &.slick-current{ box-shadow: $assistant 0 0 0 3px; }
+      &.slick-current{ box-shadow: $assistant 0 0 0 3px inset; }
     }
     .slick-arrow{
       background-color: #fff6;

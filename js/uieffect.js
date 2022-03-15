@@ -35,9 +35,8 @@ $(function(){
     slidesToShow: 3,  
     slidesToScroll: 1,
     asNavFor: '.slider-for',
-    centerPadding: 0,
     dots: false,
-    centerMode: true,
+    centerMode: false,
     infinite: false,
     focusOnSelect: true
   });

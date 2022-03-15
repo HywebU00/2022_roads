@@ -148,7 +148,7 @@
 // 特殊樣式編號
 .topMost, .imgPreface{
   width: $mmw; margin: 0 auto 1em;padding:1.2em 1.5em 1em;line-height: 1.9;
-  box-shadow: rgba(#000, .15) 0 0 16px;
+  box-shadow: rgba(#000, .15) 0 0 16px; text-align: justify;
   @media screen and (min-width: $wwNormal){ 
     width: auto;
   }

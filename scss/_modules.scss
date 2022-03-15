@@ -73,7 +73,7 @@
 
 // ---------- 前言、後記
 .preface{ overflow: hidden; line-height: 1.8; width: $mmw; margin: 1.5em auto 2.5em;
-  border-bottom: 2px solid $borderColorLight; padding-bottom: 1em;
+  border-bottom: 2px solid $borderColorLight; padding-bottom: 1em; text-align: justify;
   &~.preface{margin-top: 3em; margin-bottom: 5em;border-top: 2px solid $borderColorLight; padding-top: 1.5em; }
   img{ float: left;  margin: 0 1em .5em 0;
     width: 45vw; height: auto; max-height: 60vw; object-fit: contain;

@@ -150,7 +150,7 @@
 // 左邊可能有圖的條列，影片、照片
 .listRow{ width: $mmw; margin: 1em auto;
   ul{list-style: none; padding: 0; margin: 0;}
-  &>ul{ line-height: 1.9;
+  &>ul{ line-height: 1.9; text-align: justify;
     &>li{ position: relative;margin: 15px 0; padding:1.5em 1em;
        background: $fontInvert;@extend %shadow1;
        &::after{content: ''; display: block; clear: both;}

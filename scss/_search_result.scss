@@ -1,0 +1,94 @@
+.search_result{
+
+  .gsc-control-cse, .gsc-control-cse .gsc-table-result { font-size: 1rem;}
+  .gsc-control-cse{background-color: $mainBg; border: none; margin-bottom: 4em; padding-top: 1.5em; padding-bottom: 1.5em; }
+
+  table{margin: 0; border-collapse: collapse;}
+
+  table.gsc-search-box{
+    td{ padding: 0; background: none;
+
+      // 左邊 td 放輸入欄位
+      &.gsc-input{ padding-right: 4px;
+        input{margin: 0;}
+        input.gsc-input{ font-size: 1rem;  padding: 0 .5em !important;
+          height:2.65em !important; margin: 0 !important;
+        }
+      }
+    
+      &.gsib_a{ padding: 0 !important;}
+
+      &.gsib_b{
+        .gsst_b{ font-size: 1rem; padding: 0;}
+        a.gsst_a{display: block; padding: 0; font-size: 1rem; text-decoration: none;border: 1px solid transparent;
+          &:hover, &:focus{
+            .gscb_a{color: $assistant; transform: scale(1.2); transition: .15s;}
+          }
+          &:focus {border-color: $assistant;}
+        }
+        .gscb_a{ display: block; width: 1.5em;line-height: 1.6; text-align: center; color: $primaryColor;}
+      }
+
+      // 右邊 td 放查詢 button
+      &.gsc-search-button{ width: 2em;
+        button.gsc-search-button.gsc-search-button-v2{
+          font-size: 1rem; width: 2.6em;height: 2.6em; margin: 0 ;padding: 0;
+          border-radius: 0; border: none; background-color: $assistant;
+
+          svg{ width: 1.2em; height: 2.4em;display: block; margin: 0 auto;}
+        }
+      }
+    }
+  }
+
+  .gsc-above-wrapper-area{ border-bottom: 2px solid $borderColorLight; margin-bottom: 1em; margin-top: 1em;}
+
+
+  .gsc-result-info{font-size: 1rem; color: $fontColor;}
+  .gsc-orderby-label{color: $fontColor; padding: 0;}
+  .gsc-selected-option-container{ font-size: 1rem; position: relative;
+    border: 1px solid $borderColor; height: 2.4em; line-height: 2.4em; padding: 0 2.4em 0 .5em;
+    box-shadow: none; font-weight: normal; color: $fontColor;
+
+  }
+
+  .gsc-control-cse{
+    .gsc-option-menu-container{ height: 2.6em; font-size: inherit;}
+    .gsc-option-selector{ background-color: #ffc; background: none; margin: 0; padding: 0;
+      &::before{content: ''; position: absolute; top: .2em; right: 3px; width: 1px; height: 1px; border-width:6px 5px 0 5px; border-style: solid; border-color: $borderColorDark transparent transparent; }
+    }
+    .gsc-option-menu{ font-size: 1em;}
+  }
+
+  .gsc-option-menu-container{ white-space: nowrap;}
+
+
+
+  .gsc-webResult.gsc-result {border: none; border-bottom:1px solid $borderColorLight; padding-bottom: 1em; margin-bottom: .8em; line-height: 1.6;}
+  .gs-web-image-box{margin-right: 5px; width: auto;}
+  .gsc-control-cse .gs-result .gs-title {font-size: 1.1em;
+    a.gs-title { font-size: inherit; margin-bottom: .3em;
+       &:focus, &:hover{border-bottom: 1px solid $assistant; color: $assistant;}
+    }
+  }
+  a.gs-image {display: block; border: 1px solid $borderColorLight; width: auto; max-width: none;
+   img.gs-image{ display: block; border: none;}
+   &:focus, &:hover{ border-color: $assistant;}
+  }
+
+  .gsc-results{width: 100%;
+    .gsc-cursor-box{ margin: 1em auto 2em;
+      .gsc-cursor-page{display: inline-block; min-width: 1.5em; border: 1px solid $borderColorLight; text-align: center; height: 1.5em; line-height: 1.5; margin: 2px;
+        &:focus, &:hover{ border-color: $assistant; outline: none; text-decoration: none; color: $assistant;}
+        &.gsc-cursor-current-page{ border-color: $primaryColor; color: $fontInvert; background-color: $primaryColor;
+          &:focus{ box-shadow: $assistant 0 0 0 1px; border-color: $fontInvert;}
+        }
+      }
+    }
+
+    .gcsc-more-maybe-branding-root a{ display: inline-block; 
+      &:focus{outline: 1px solid $assistant;}
+    }
+  }
+  
+}

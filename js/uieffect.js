@@ -58,7 +58,7 @@ $(function(){
     _total.text(_countThis.find('.slick-slide').length);
     _current.text( _countThis.find('.slick-current').index()+1);
 
-    _this.find('.slick-arrow').click( function(){
+    _this.find('.slick-arrow').add('.slick-slide').click( function(){
       _current.text( _countThis.find('.slick-current').index()+1);
     })
   })

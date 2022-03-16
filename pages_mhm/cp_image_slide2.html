@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CP照片輪播２－後山公路文物館</title>
+  <title>CP照片輪播２ －後山公路文物館</title>
 
-  <link rel="stylesheet" href="../slick/slick.css"/> <!-- slick 套件用 -->
+  <link rel="stylesheet" href="../slick/slick.css"/> <!-- 照片顯示套件 -->
   <link rel="stylesheet" href="../css/design_mhm.css">
 
   <script src="../js/jquery-3.6.0.min.js"></script>
-  <script src="../slick/slick.min.js"></script> <!-- slick 套件 -->
+  <script src="../slick/slick.min.js"></script>
   <script src="../js/jquery.touchSwipe.min.js"></script>
   <script src="../js/uieffect.js"></script>
 </head>
@@ -29,74 +29,33 @@
       <button class="menuCtrl" type="button">主選單開關</button><!-- 主選單開關 -->
       <nav class="menu">
         <ul>
-          <li>
-            <img class="deco" src="../publicData/menu_item_Laws.png" alt="">
-            <a href="#">檔案法令規章</a>
+          <li><a href="#">最新消息</a></li>
+          <li><a href="#">本館介紹</a>
             <ul>
-              <li><a href="#">公路總局文檔規範</a></li>
-              <li><a href="#">檔案管理局文檔法規</a></li>
+              <li><a href="#">館史沿革</a></li>
+              <li><a href="#">識別標誌</a></li>
+              <li><a href="#">入口意象</a></li>
+              <li><a href="#">展區導覽</a></li>
             </ul>
           </li>
-          <li>
-            <img class="deco" src="../publicData/menu_item_File.png" alt="">
-            <a href="#">檔案應用申請服務</a>
+          <li><a href="#">文化園地</a>
             <ul>
-              <li><a href="#">檔案應用申請須知</a></li>
-              <li><a href="#">申請文件下載</a></li>
-              <li><a href="#">檔案應用服務Q&A</a></li>
+              <li><a href="#">歷史淵源</a></li>
+              <li><a href="#">在地生活</a></li>
+              <li><a href="#">傳統產業</a></li>
+              <li><a href="#">節慶禮俗</a></li>
             </ul>
           </li>
-          <li>
-            <img class="deco" src="../publicData/menu_item_History.png" alt="">
-            <a href="#">線上檔案展</a>
+          <li><a href="#">公路欣賞</a></li>
+          <li><a href="#">參觀本館</a>
             <ul>
-              <li><a href="#">歷史回顧檔案展</a></li>
-              <li><a href="#">公路演進</a>
-                <ul>
-                  <li><a href="#">蘇花公路</a></li>
-                  <li><a href="#">西螺大橋</a></li>
-                </ul>
-              </li>
-              <li><a href="#">流金歲月</a>
-                <ul>
-                  <li><a href="#">承先啟後</a></li>
-                  <li><a href="#">繼往開來</a></li>
-                </ul>
-              </li>
-              <li><a href="#">檔案瑰寶</a>
-                <ul>
-                  <li><a href="#">鑑古知今</a></li>
-                  <li><a href="#">相輔相成</a></li>
-                </ul>
-              </li>
-              <li><a href="#">公路大小事</a></li>
+              <li><a href="#">入館須知</a></li>
+              <li><a href="#">預約申請</a></li>
+              <li><a href="#">導覽需求</a></li>
             </ul>
           </li>
-          <li>
-            <img class="deco" src="../publicData/menu_item_Learn.png" alt="">
-            <a href="#">標竿學習與教育訓練</a>
-            <ul>
-              <li><a href="#">標竿學習</a></li>
-              <li><a href="#">教育訓練</a></li>
-            </ul>
-          </li>
-          <li>
-            <img class="deco" src="../publicData/menu_item_File.png" alt="">
-            <a href="#">影音專區</a>
-          </li>
-          <li>
-            <img class="deco" src="../publicData/menu_item_Knowledge.png" alt="">
-            <a href="#">知識情報讚</a>
-            <ul>
-              <li><a href="#">檔案樂活情報</a></li>
-              <li><a href="#">國家檔案典藏新訊</a></li>
-              <li><a href="#">其他檔案管理資訊</a></li>
-            </ul>
-          </li>
-          <li>
-            <img class="deco" src="../publicData/menu_item_Agency.png" alt="">
-            <a href="#">檔案資源</a>
-          </li>
+          <li><a href="#">訪客留言</a></li>
+          <li><a href="#">相關連結</a></li>
         </ul>
       </nav>
 
@@ -155,6 +114,7 @@
       <section class="share">
         <ul>
           <li class="print"><a href="javascript:;"><img src="../images/icon_print.png" alt="列印"></a></li>
+          <li class="forward"><a href="javascript:;"><img src="../images/icon_mail.png" alt="轉寄"></a></li>
           <li><a target="_blank" title="分享到facebook (另開新視窗)" href="x">
               <img src="../images/share_facebook.png" alt="Facebook"></a></li>
           <li><a target="_blank" title="分享到Twitter (另開新視窗)" href="x">
@@ -174,7 +134,7 @@
       <p>因辦公室不敷使用於民國38年5月16日擬訂租約向臺灣產物保險有限公司承租原臺灣通運股份有限公司所租臺北市開封街1段1號三層樓屋，又於民國38年6月28日再函臺灣通運股份有限公司早日遷讓。該公司於民國38年7月15日函覆自民國38年8月份起由本局續租。（秘書室吳瑞鵬）</p>
     </article>
 
-    <section class="imgSlick hasMeta">
+    <section class="imgSlick hasMeta count">
       <div class="slider-for">
         <div class="showLightbox" data-id="bigImg"><img src="../publicData/dataPh01.jpg" alt="圖說">
           <div class="meta">
@@ -256,16 +216,25 @@
         </div>
       </div>
       <div class="slider-nav">
-        <div><img src="../publicData/dataPh01.jpg" alt="圖說"></div>
-        <div><img src="../publicData/dataPh02.jpg" alt="圖說"></div>
-        <div><img src="../publicData/dataPh03.jpg" alt="圖說"></div>
-        <div><img src="../publicData/dataPh04.jpg" alt="圖說"></div>
-        <div><img src="../publicData/dataPh21.jpg" alt="圖說"></div>
+        <div><a href="javascript:;"><img src="../publicData/dataPh01.jpg" alt="圖說"></a></div>
+        <div><a href="javascript:;"><img src="../publicData/dataPh02.jpg" alt="圖說"></a></div>
+        <div><a href="javascript:;"><img src="../publicData/dataPh03.jpg" alt="圖說"></a></div>
+        <div><a href="javascript:;"><img src="../publicData/dataPh04.jpg" alt="圖說"></a></div>
+        <div><a href="javascript:;"><img src="../publicData/dataPh21.jpg" alt="圖說"></a></div>
       </div>
 
       <time title="發布日期">111-03-02</time>
 
     </section>
+
+    <!-- 燈箱：顯示單張大圖 -->
+    <div class="lightbox" data-id="bigImg" role="dialog">
+      <button type="button" title="close" class="closeThis"></button>
+      <div class="bigImgShow">
+        <img src="../publicData/dataPh01.jpg" alt="圖說">
+      </div>
+    </div>
+    
 
   </main>
 
@@ -307,7 +276,7 @@
       </nav>
     </div>
     <section class="base">
-      <div class="logo"><img src="../publicData/footer_logo_mhm.png" alt="後山公路文物館"></div>
+      <div class="logo"><img src="../publicData/footer_logo_archive.png" alt="後山公路文物館"></div>
 
       <div class="contact">
         <p>服務時間：<em>上午08:30­至下午05:30</em></p>
@@ -337,18 +306,6 @@
 
   <button type="button" class="goTop">top</button>
 
-  <div class="lightbox" data-id="bigImg">
-    <button type="button" title="close" class="closeThis"></button>
-
-    <div class="bigImgShow">
-      <div><img src="../publicData/dataPh01.jpg" alt="圖說"></div>
-      <div><img src="../publicData/dataPh02.jpg" alt="圖說"></div>
-      <div><img src="../publicData/dataPh03.jpg" alt="圖說"></div>
-      <div><img src="../publicData/dataPh04.jpg" alt="圖說"></div>
-      <div><img src="../publicData/dataPh21.jpg" alt="圖說"></div>
-    </div>
-
-  </div>
 
 </body>
 </html>

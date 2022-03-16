@@ -1,3 +1,4 @@
+// 項目
 .list{ 
   width: $mmw; margin: 2em auto;
   time{ font-size: 1rem; color: $fontColorLight; display: inline-block; white-space: nowrap; }
@@ -35,13 +36,15 @@
   }
 }
 
+
+// 表格
 .list{ /* background: transparentize($mainBg, .2); */ background-color: $mainBg;
   &>table{ border-collapse: collapse; line-height: 1.5; width: calc(100% - 16px); margin:0 8px;
     border-top: 2px solid $borderColor;border-bottom: 2px solid $borderColor;
     tr{ border-bottom: 1px solid $borderColor;}
     th, td{ padding: 14px 16px 12px; position: relative;
       &::before{content: ''; position: absolute;
-         width: 1px; background: $borderColor; top: 4px; bottom: 4px; left: 0;
+         width: 1px; background: $borderColorLight; top: 4px; bottom: 4px; left: 0;
       }
       &:first-child{
         &::before{display: none;}
@@ -50,8 +53,16 @@
     th{ white-space: nowrap;}
 
     td{ text-align: center;
-      &.numb{text-align: right;
+      &.numb{text-align: right; 
         &::after{content: '.';}
+
+
+
+        // &::before{ content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 50px;
+        //   background-color: $assistant1; min-height: 2em;
+        //   background: #000;
+        // }
+       
       }
       &>a{font-size: 1.2em; text-align: left; transition: .3s;
         padding: 12px 15px 9px; margin: -10px -12px -8px -11px;
@@ -151,24 +162,26 @@
 .listRow{ width: $mmw; margin: 1em auto;
   ul{list-style: none; padding: 0; margin: 0;}
   &>ul{ line-height: 1.9; text-align: justify;
-    &>li{ position: relative;margin: 15px 0; padding:1.5em 1em;
-       background: $fontInvert;@extend %shadow1;
+    &>li{ position: relative;margin: 15px 0; padding:1.5em 0;
+      //  background: $fontInvert;@extend %shadow1;
+       border-bottom: 1px solid $borderColor;
+      
        &::after{content: ''; display: block; clear: both;}
 
-        &>a{position: relative; display: block; 
-          padding:1.5em 1em; margin: -1.5em -1em;
-          color: $fontColor; text-decoration: none; overflow: hidden;
-          transition: .2s;
-          &:hover{ @extend %shadow2; }
-          &:focus{ box-shadow: $assistant 0 0 0 2px inset;}
-          &:hover, &:focus{
-            article, h3 {text-decoration: underline;}
-          }
-        }
+        // &>a{position: relative; display: block; 
+        //   padding:1.5em 1em; margin: -1.5em -1em;
+        //   color: $fontColor; text-decoration: none; overflow: hidden;
+        //   transition: .2s;
+        //   &:hover{ @extend %shadow2; }
+        //   &:focus{ box-shadow: $assistant 0 0 0 2px inset;}
+        //   &:hover, &:focus{
+        //     article, h3 {text-decoration: underline;}
+        //   }
+        // }
 
       article{ display: block; margin: 0 auto 1em;}
       img{ float: left;
-        width: 45vw; max-height: 45vw; object-fit: contain; 
+        width: 42vw; max-height: 42vw; object-fit: contain; 
         margin: .2em 1em .5em 0; border: 1px solid $borderColorLight;
       }
       .videoThumb{ float: left; 
@@ -177,9 +190,13 @@
         background: #000;
         img{ display: block; font: none; width: 100%; height: 100%; object-fit: cover; border: none; max-height: none; margin: 0;}
       }
-      h3{margin: 0 0 .6em; font-size: 1.5em; line-height: 1.6; color: $primaryColor;
+      h3{margin: 0 0 .6em; padding: 0; font-size: 1.4em; line-height: 1.6; color: $primaryColor;
+        position: relative;
         a{color: $primaryColor;
           &:hover, &:focus{ text-decoration: none; color: $assistant;}
+        }
+        &>span{position: relative; display: inline-block; padding: .16em 1.8em .1em .9em; margin-left: -4px; background: $assistant1; color: $fontInvert; border-radius: 1.5em;
+          &::after{ content: ''; display: inline-block; vertical-align: baseline; margin:0 0 -1px 12px; width: 10px; height: 10px; background-color: $hilight2;}
         }
       }
       p{ margin: 0 0 1em;}
@@ -198,12 +215,20 @@
   }
 
   @media screen and (min-width: $wwNormal){
-    width: auto;
+    width: auto; padding: 0 1.5em;
+    background-color: transparentize($mainBg, .3);
     &>ul>li{
-      &>a{padding:2em 1.5em;}
+      &:last-child{border-bottom: none;}
     }
   }
 }
+
+
+
+
+
+
+
 
 // 大事記要
 .events{ width: $mmw; margin: 0 auto 2em;

@@ -155,6 +155,7 @@
       <section class="share">
         <ul>
           <li class="print"><a href="javascript:;"><img src="../images/icon_print.png" alt="列印"></a></li>
+          <li class="forward"><a href="javascript:;"><img src="../images/icon_mail.png" alt="轉寄"></a></li>
           <li><a target="_blank" title="分享到facebook (另開新視窗)" href="x">
               <img src="../images/share_facebook.png" alt="Facebook"></a></li>
           <li><a target="_blank" title="分享到Twitter (另開新視窗)" href="x">
@@ -253,18 +254,6 @@
       <div class="flowBox">
         <ul class="flowList">
           <li><a class="showLightbox" data-id="bigImg" href="javascript:;">
-            <img src="../publicData/dataPh11.jpg" alt="替代文字">
-            <p>圖說文字</p>
-          </a></li>
-          <li><a class="showLightbox" data-id="bigImg" href="javascript:;">
-            <img src="../publicData/dataPh12.jpg" alt="替代文字">
-            <p>圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字</p>
-          </a></li>
-          <li><a class="showLightbox" data-id="bigImg" href="javascript:;">
-            <img src="../publicData/ph02.jpg" alt="替代文字">
-            <p>圖說文字</p>
-          </a></li>
-          <li><a class="showLightbox" data-id="bigImg" href="javascript:;">
             <img src="../publicData/dataPh21.jpg" alt="替代文字">
             <p>圖說文字</p>
           </a></li>
@@ -276,12 +265,37 @@
             <img src="../publicData/dataPh23.jpg" alt="替代文字">
             <p>圖說文字</p>
           </a></li>
+          <li><a class="showLightbox" data-id="bigImg" href="javascript:;">
+            <img src="../publicData/dataPh11.jpg" alt="替代文字">
+            <p>圖說文字</p>
+          </a></li>
+          <li><a class="showLightbox" data-id="bigImg" href="javascript:;">
+            <img src="../publicData/dataPh12.jpg" alt="替代文字">
+            <p>圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字</p>
+          </a></li>
+          <li><a class="showLightbox" data-id="bigImg" href="javascript:;">
+            <img src="../publicData/ph02.jpg" alt="替代文字">
+            <p>圖說文字</p>
+          </a></li>
         </ul>
         <button type="button" class="diskBtn prev">上一筆</button>
         <button type="button" class="diskBtn next">下一筆</button>
       </div>
 
     </section>
+
+    <!-- 燈箱：顯示單張大圖 -->
+    <div class="lightbox" data-id="bigImg" role="dialog">
+      <button type="button" title="close" class="closeThis"></button>
+      <div class="bigImgShow">
+        <img src="../publicData/dataPh21.jpg" alt="替代文字">
+        <p>圖說文字</p>
+      </div>
+    </div>
+    
+
+
+  
 
     <section class="seeAlso"><h3>相關連結（或延伸閱讀）</h3>
       <ol>
@@ -432,37 +446,6 @@
 
   <button type="button" class="goTop">top</button>
 
-  <div class="lightbox" data-id="bigImg" role="dialog">
-    <button type="button" title="關閉燈箱" class="closeThis"></button>
-
-    <div class="bigImgShow">
-      <div>
-        <img src="../publicData/dataPh11.jpg" alt="替代文字">
-        <p class="caption">圖說文字</p>
-      </div>
-      <div>
-        <img src="../publicData/dataPh12.jpg" alt="替代文字">
-        <p class="caption">圖說文字圖說文字圖說文字圖說文字圖說文字圖說文字</p>
-      </div>
-      <div>
-        <img src="../publicData/ph02.jpg" alt="替代文字">
-        <p class="caption">圖說文字</p>
-      </div>
-      <div>
-        <img src="../publicData/dataPh21.jpg" alt="替代文字">
-        <p class="caption">圖說文字</p>
-      </div>
-      <div>
-        <img src="../publicData/dataPh22.jpg" alt="替代文字">
-        <p class="caption">圖說文字</p>
-      </div>
-      <div>
-        <img src="../publicData/dataPh23.jpg" alt="替代文字">
-        <p class="caption">圖說文字</p>
-      </div>
-    </div>
-
-  </div>
   
 </body>
 </html>

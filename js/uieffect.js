@@ -53,7 +53,6 @@ $(function(){
     let _current = _photoCount.find('.current');
     let _total = _photoCount.find('.total');
     let _countThis = _this.find('.slider-for');
-    // console.log(_current, _total);
 
     _total.text(_countThis.find('.slick-slide').length);
     _current.text( _countThis.find('.slick-current').index()+1);
@@ -100,7 +99,6 @@ $(function(){
   //複製「主選單」到側欄給行動版用
   _menu.clone().prependTo(_sidebar);
   _menuCtrl.clone().appendTo(_webHeader).addClass('sidebarCtrl').removeClass('menuCtrl');
-  // _sidebar.find('.menuCtrl').addClass('sidebarCtrl');
   $('.topNav').clone().appendTo(_sidebar);
   var _sidebarCtrl = _webHeader.find('.sidebarCtrl');
   var _sidebarMenu = _sidebar.find('.menu');
@@ -601,25 +599,6 @@ $(function(){
         tabCount = 0;
       }
     })
-
-
-
-    // 點擊數字 ＊＊＊未完成
-    // _indicatItem.children('button').click(function(){
-    //   let k = $(this).parent().index();
-    //   $(this).parent().addClass(actClassName).siblings().removeClass(actClassName);
-    //   _flowItem.eq(k).addClass(actClassName).siblings().removeClass(actClassName);
-
-    //   if (k > j) {
-    //     _flowList.stop(true, false).animate({'left': (j - k) * slideDistance}, speed, function () {
-    //       _flowList.css('left', 0);
-    //       _flowItem.eq(i).appendTo(_flowList);
-    //       j = k;
-    //     });
-    //   }
-
-    // })
-
     
 
     let winResizeTimer;
@@ -912,88 +891,20 @@ $(function(){
       }, 200);
     });
 
-
-    // 點照片開啟燈箱 *********************************************
-    // _flowItem.children('a').click(function(){
-    //   i = $(this).parent().attr('data-index');
-    //   console.log(i);
-    //   _cpBigPhoto.add(_cover).stop(true, false).fadeIn();
-
-    //   // let _bigPhotoLbx = $('.lightbox.bigPhoto');
-    //   let _bbfloxBox = _cpBigPhoto.find('.flowBox');
-    //   let _bbflowList = _cpBigPhoto.find('.flowList');
-    //   let _bbflowItem = _bbflowList.children('li');
-    //   // let count = _bbflowItem.length;
-    //   let _bbtnRight = _cpBigPhoto.find('.diskBtn.next');
-    //   let _bbtnLeft = _cpBigPhoto.find('.diskBtn.prev');
-    //   const speed = 900;
-    //   const actClassName = 'show';
-    //   // let i = 0;
-    //   // let j;
-
-    //   // for ( n = 0; n < count; n++) {
-    //   //   _bbflowItem.eq(n).attr('data-index', n);
-    //   // }
-
-    //   _bbflowItem.removeClass(actClassName).filter(function(index){
-    //     return  $( this ).attr( "data-index" ) === i;
-    //   }).addClass(actClassName).siblings();
-  
-    //   function slideForward() {
-    //     j = (i + 1) % slideCount;
-    //     _bbflowItem.eq(i).stop(true, false).animate({'left': '-100%'}, speed, function(){
-    //       $(this).removeClass(actClassName).removeAttr('style');
-    //     })
-    //     _bbflowItem.eq(j).stop(true, false).animate({ 'left': 0}, speed, function(){
-    //       $(this).addClass(actClassName);
-    //     });
-    //     i = j;
-    //     console.log(i);
-    //   }
-  
-    //   function slideBackward() {
-    //     j = (i - 1) % slideCount;
-    //     _bbflowItem.eq(j).css('left', '-100%').stop(true, true).animate({left: 0} , speed);
-    //     _bbflowItem.eq(i).stop(true, true).animate({'left': '100%'}, speed );
-    //     i = j;
-    //   }
-  
-    //   // 點擊向右箭頭
-    //   _bbtnRight.click(function () { 
-    //     slideForward(i);
-    //   });
-  
-    //   // 點擊向左箭頭
-    //   _bbtnLeft.click(function () {
-    //     slideBackward(i);
-    //   });
-  
-    //   // touch and swipe 左右滑動
-    //   _bbfloxBox.swipe({
-    //     swipeRight: function () {slideBackward();},
-    //     swipeLeft: function () {slideForward();},
-    //     threshold: 20,
-    //   });      
-    // })
   });
 
 
 
 
-
-
-  // ======================================================================
-  // ======================================================================
   // ======================================================================
 
 
 
 
-  // 燈箱 --- 
+  // 燈箱 ---------------------------------------
   var _showLightbox =  $('.showLightbox');
   var _lightbox = $('.lightbox');
-  // _lightbox.filter('.courtsList').append('<div class="overlayForClose"></div>');
-  var _hideLightbox = _lightbox.find('.closeThis, .hideLightbox');
+  var _hideLightbox = _lightbox.find('.closeThis');
   var _lightboxNow;
   const speed = 400;
 
@@ -1008,17 +919,6 @@ $(function(){
     _lightboxNow.find('.closeThis').focus();
     _lightboxNow.prev(_cover).fadeIn(speed);
     _body.addClass('noScroll');
-    if( _lightboxNow.has('.bigImgShow')) {
-      $('.bigImgShow').slick({
-        dots: true,
-        infinite: true,
-        speed: 500,
-        fade: true,
-        mobileFirst: true,
-        infinite: false,
-        cssEase: 'linear'
-      });
-    }
   })
 
   _showLightbox.focus(function(){
@@ -1043,53 +943,13 @@ $(function(){
   _cover.click(function(){
     let _targetLbx = $(this).next('.lightbox');
     $(this).fadeOut(speed);
+    _body.removeClass('noScroll');
     _targetLbx.fadeOut(speed,
       function(){
         _targetLbx.removeClass('show');
       }
     );
-    _body.removeClass('noScroll');
   })
-
-
-
-
-  // // 條列頁 active 樣式
-  // var _category = $('.category');
-  // _category.each(function(){
-  //   let _item = $(this).find('li');
-  //   _item.click(function(){
-  //     $(this).addClass('active').siblings().removeClass('active');
-  //   })
-  // })
-
-
-  // // 開合區 slideToggle
-  // var _slideToggle = $('.slideToggle');
-  // _slideToggle.each(function(){
-  //   let _this = $(this);
-  //   let _ctrl = _this.find('.slideCtrl');
-  //   let _drawer = _this.find('.drawer');
-  //   let text1 = _ctrl.text();
-  //   let text2 = _ctrl.attr('data-altTitle');
-
-  //   if(_drawer.is(':hidden')) {
-  //     _ctrl.addClass('openIt').text(text2);
-  //   } else {
-  //     _ctrl.removeClass('openIt').text(text1);
-  //   }
-
-  //   _ctrl.click(function(){
-  //     if (_drawer.is(':visible')) {
-  //       _drawer.slideUp();
-  //       $(this).addClass('openIt').text(text2);
-  //     } else {
-  //       _drawer.slideDown();
-  //       $(this).removeClass('openIt').text(text1);
-  //     }
-  //   })
-  // })
-
 
 
 

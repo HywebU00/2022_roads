@@ -58,7 +58,7 @@
       &.back{
         img{background-color: $primaryColor;}
       }
-      &.print{
+      &.print, &.forward{
         img{background-color: $linkColor;}
       }
     }

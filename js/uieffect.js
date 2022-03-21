@@ -163,7 +163,7 @@ $(function(){
 
   // 查詢區開合 -----------------------------------------------------
   var _searchCtrl = $('.searchCtrl');
-  var _search = $('.search');
+  var _search = $('.search').hide();
   var _closeSearch = _search.find('.closeThis');
   _searchCtrl.click(function(){
     if( _search.hasClass('reveal')) {
@@ -184,7 +184,7 @@ $(function(){
   })
   function searchHide(){
     _search.removeClass('reveal');
-    setTimeout(function(){_search.removeAttr('style')}, 800);
+    setTimeout(function(){_search.removeAttr('style').hide()}, 800);
   }
 
 

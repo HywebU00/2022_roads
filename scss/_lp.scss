@@ -308,3 +308,56 @@
     }
   }
 }
+
+
+
+// 檔案下載列表頁
+.downloadList{width: $mmw; margin: 2em auto;
+  ul{list-style: none; margin: 0; padding: 0; line-height: 1.6;}
+  li{position: relative; color: $primaryColor;
+    padding: 16px 10px 12px 6.5em; margin: 0 0 1px calc(#{$mmw}*.5 - 50vw); overflow: hidden;
+    &::before{ content: ''; position: absolute; top: 50%;left: -20px; height: 100px; width: 100px;margin-top: -50px;
+      transform:rotate(51deg) skewX(15deg); background-color: darken($assistant1, 5%);
+    }
+    &::after{content: ''; position: absolute; left: 5em; right: 0; bottom: 0; border-bottom: 1px dashed $assistant1;}
+    .numb{ position: absolute; left:0 ; top: 0;bottom: 0; z-index: 9; letter-spacing: -1px;
+      display: flex; flex-flow: column nowrap; justify-content: center;
+      padding: 0; width: 2.2em; overflow: hidden; text-align: right;
+      font-family: 'Courier New', Courier, monospace; font-weight: bold; font-size: 1.2rem; line-height: 1;
+      background-color: darken($assistant1, 5%); color: $fontInvert;}
+
+    &:nth-child(odd){
+      &::before{background-color: lighten($assistant1, 8%);}
+      .numb{ background-color: lighten($assistant1, 8%);}
+    }
+
+    .title{ font-size: 1.2em; margin: 0; padding: 0; float: left; font-weight: normal; width: calc(100% - 6.5em);}
+
+    .downloadThis{ float: right; margin-right: 5px;
+      a{ display: block; padding: 0 1.2em; height: 2.4em; line-height: 2.6em;  border-radius: 1.5em; text-decoration: none;
+        background-color: $mainBg; color: $primaryColor;
+        box-shadow: #0005 0 1px 3px; transition: .2s;
+
+        &:hover, &:focus{ box-shadow:$mainBg 0 0 0 2px,  $primaryColor 0 5px 18px -5px; background-color: $assistant; color: $fontInvert;}
+      }
+    }
+
+    .fileInfo{ display: block; clear: both; text-align: right; padding: .8em 0 0 ;
+      .size, time{  margin-left: 1.2em;
+        &::before{content: attr(title)"："; display: inline-block;font-size: .92em;}
+      }
+    }
+
+  }
+
+  @media screen and (min-width: $wwMedium){
+    li{
+      margin-left: 0; padding-left: 7em;
+      &::after{ left: 6.5em;}
+      .title{width: calc(100% - 7em);}
+    }
+  }
+  @media screen and (min-width: $wwNormal){
+    width: auto;
+  }
+}

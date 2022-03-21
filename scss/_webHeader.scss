@@ -95,7 +95,7 @@
   position: absolute; top: 64px; left: 100vw;
   width: 100vw; padding: 24px 1em 10px; 
   background: #000c; color: darken($fontInvert, 20%);
-  transition: .6s;
+  transition:.6s;
 
   a{ color: $fontInvert;}
   form{margin: 0;padding: 0;}

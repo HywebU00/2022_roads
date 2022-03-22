@@ -331,7 +331,11 @@
       .numb{ background-color: lighten($assistant1, 8%);}
     }
 
-    .title{ font-size: 1.2em; margin: 0; padding: 0; float: left; font-weight: normal; width: calc(100% - 6.5em);}
+    .title{ font-size: 1.2em; margin: 0; padding: 0; float: left; font-weight: normal; width: calc(100% - 6.5em);
+      a{text-decoration: none; color: $primaryColor;
+        &:hover, &:focus{text-decoration: underline;}
+      }
+    }
 
     .downloadThis{ float: right; margin-right: 5px;
       a{ display: block; padding: 0 1.2em; height: 2.4em; line-height: 2.6em;  border-radius: 1.5em; text-decoration: none;

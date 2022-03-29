@@ -347,9 +347,10 @@
     }
 
     .fileInfo{ display: block; clear: both; text-align: right; padding: .8em 0 0 ;
-      .size, time{  margin-left: 1.2em;
-        &::before{content: attr(title)"："; display: inline-block;font-size: .92em;}
+      .size, time{ display: inline-block;
+        &::before{content: attr(title)"："; display: inline-block; font-size: .92em;}
       }
+      .size + time, time + .size{ margin-left: 1.2em;}
     }
 
   }

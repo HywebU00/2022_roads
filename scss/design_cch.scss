@@ -1,0 +1,44 @@
+// ---------- 長度常數 ---------- //
+$sideStripe : 100px;  //寬版 logo 區寬度
+$sideBarWidth: 280px;  // 窄版側欄選單
+$mmw: 94vw; // 行動版內頁模組寬度 modeles width in mobile
+
+// ---------- 長度常數 ---------- //
+
+// ---------- RWD 斷點 ---------- //
+$wwSlim: 480px;
+$wwMedium: 700px;
+$wwNormal: 960px;
+// $wwWide: 1200px;
+$wwMaximum: 1200px;
+// ---------- RWD 斷點 ------------- //
+
+
+@import "_colorVar_cch"; // 「中橫」顏色變數
+@import "_default";
+@import "_elements";
+@import "_webHeader";
+@import "_bigBanner";
+@import "_menu";
+@import "_webFooter";
+@import "_form";
+@import "_formLayout";
+@import "_aas";
+@import "_flow1";
+@import "_flow2";
+@import "_flow3";
+@import "_videoPreview";
+@import "_modules";
+@import "_category";
+@import "_np";
+@import "_lp";
+@import "_article";
+@import "_thumbnail";
+@import "_qa";
+@import "_paginations";
+@import "_imgSlicks"; // 使用 slick 套件的模組
+@import "_lightbox"; // 燈箱
+@import "_sitemap";
+@import "_search_result"; // google 搜尋結果
+// ------------------------------------------
+@import "_style_cch"; // 「檔案應用專區」

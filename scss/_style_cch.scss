@@ -1,0 +1,154 @@
+.main{  
+  background-color: $mainBg;
+  @media screen and (min-width: $wwNormal){
+    // background-image: url(../images/cch_bg.jpg);
+    &.inner{ 
+      // background-image: url(../images/mhm_bg.jpg); 
+      margin-top: -28.42vw;
+    }
+  }
+  @media screen and (min-width: $wwMaximum){
+    &.inner{margin-top: -1*$wwMaximum*.2842;}
+  }
+}
+.webHeader{
+  background-color: #fffd;
+  @media screen and (min-width: $wwNormal){
+  }
+  &::before{ 
+    background-color: #eeec;
+  }
+}
+.headBanner{
+  @media screen and (min-width: $wwNormal){
+    img{height: 29.58vw;}
+  }
+  @media screen and (min-width: $wwMaximum){
+    img{ height: $wwMaximum*.2958; }
+  }
+}
+// 頁腳
+.webFooter{
+  background-color: $footerBg;
+  @media screen and (min-width: $wwNormal){
+    background-color:transparent;
+  }
+}
+// 頁腳的選單
+.siteTree{
+  @media screen and (min-width: $wwNormal){
+    // background: url(../images/footerBg_cch.png) right 0 no-repeat;
+    background-color: $footerBg;
+  }
+}
+
+
+
+
+// 20220406 中橫補
+// 主選單、漢堡選單
+.menuCtrl, .sidebarCtrl{
+  &::before, &::after{
+    background: $fontColor;
+  }
+  &::before{
+   box-shadow: $fontColor 0 20px 0;
+  }
+
+
+
+}
+
+// 查詢圖示
+.searchCtrl{
+
+  &::before{
+   border: 3px solid $fontColor;
+  }
+  &::after{
+   background-color: $fontColor; 
+  }
+}
+
+
+.flow3{
+  .flowList>li{
+    &:nth-child(3n+1)::before{background: url(../images/ploy3-c1-cch.svg) no-repeat 0 0}
+    &:nth-child(3n+2)::before{background: url(../images/ploy3-c2-cch.svg) no-repeat 0 0;}
+    &:nth-child(3n)::before{background: url(../images/ploy3-c3-cch.svg) no-repeat 0 0;}
+
+    &:nth-child(3n+1) time::after{ color: $assistant1;}
+    &:nth-child(3n+2) time::after{ color: $assistant2;}
+    &:nth-child(3n) time::after{ color: $assistant3;}
+
+  }
+
+}
+.flow2{
+  .flowList>li{
+    figure{
+      figcaption{ background: $assistant; color: $fontColor; }
+    }
+    &.active{
+      &>a:hover{
+        figure{
+          figcaption{background: saturate($assistant, 15%);}
+        }
+      }
+    }
+  }
+  .flowNav{
+    li.active span{background-image: url(../images/ploy01_black.svg);}
+  }
+
+  @media screen and (min-width: $wwNormal){
+    .flowList>li{
+      figure{ background-color: transparent; 
+        figcaption{
+          color: $fontColor; background-color: transparent;
+        }
+      }
+      &.active{
+        figure { background-color: $assistant; 
+          figcaption{ color: $fontColor;}
+        }
+      }
+    }
+  }
+}
+
+// 左右箭頭 button
+button.diskBtn{
+  &:hover, &:focus{ background: $assistant;
+    &.prev, &.next{
+      &::before{border-color: $fontColor;}
+      &::after{background: $fontColor;}
+    }
+  }
+  &:hover{ box-shadow: $assistant 0 0 0 3px;}
+  &:focus{ box-shadow: $fontColor 0 0 0 3px;}
+}
+
+// more
+.more{ 
+  a{
+    &:hover, &:focus{ background-color: $assistant; color: $fontColor;
+      &::before{border-color: $fontColor; border-width: 2px;}
+    }
+    &:focus{ box-shadow: $fontColor 0 0 0 3px; }
+
+  }
+}
+.videoPreview{
+  .image{
+    .type{
+      background-image: url(../images/polyColor3.svg) ; color: $fontColor; 
+    }
+  }
+}
+
+.fatFootCtrl{
+  &:hover, &:focus{ background-color: $assistant;
+    &::before{border-color: $fontColor; border-width: 2px;}
+  }
+}

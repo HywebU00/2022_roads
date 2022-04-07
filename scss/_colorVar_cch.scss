@@ -1,0 +1,46 @@
+// ---------- 「中橫」顏色變數 ---------- //
+$primaryColor: #000;
+$secondaryColor: #488B73;
+
+$assistant: #C9CD36;
+$assistant1: #17836D;
+$assistant2: #50801E;
+$assistant3: #6E6F2C;
+$notice: #b60a04;
+$hilight: #ec6e0e;
+$hilight2: #a0d001;
+
+$sidebarBg : #2C8D79;
+$bodyBg: #fff;
+$footerBg: #294229;
+$footerBg2: #000;
+$mainBg:#dfdfdf;
+
+$fontColor: #000;
+$fontInvert: #fff;
+$fontColorLight: #616161;
+$linkColor: #038069;
+
+
+$borderColor: #a3a3a3;
+$borderColorLight: #d3d3d3;
+$borderColorDark:#707070;
+$shadow:#50505033;
+$shadow2:#31313166;
+
+$btnBg1: $primaryColor;
+$btnBg2: $assistant;
+
+$gray: #ddd;
+
+$transDarken: #1a0d05bb;
+$transLighten: #fffb;
+
+%shadow1{ box-shadow: #0004 0 1px 4px;}
+%shadow2{ box-shadow: #0008 0 4px 18px -2px;}
+
+// -------------------------
+%linkText{ color: $assistant; text-decoration: none;box-shadow:$assistant 0 2px 0 -1px;
+  &:hover{text-decoration: none; box-shadow:$assistant 0 3px 0 -1px;}
+  &:focus{text-decoration: none; box-shadow:$assistant 0 0 0 1px;}
+}

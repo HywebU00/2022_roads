@@ -17,8 +17,8 @@
         z-index: 9;
       }
       &:hover, &:focus{
-        &::before{background: $assistant;}
-        &::after{border-left-color: $fontInvert;}
+        &::before{background: #d00;}
+        &::after{border-left-color: #fff;}
         text-decoration: underline;
       }
       &:focus{

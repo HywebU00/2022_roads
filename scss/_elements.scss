@@ -138,8 +138,8 @@ a:focus{outline: none;}
   transform: rotate(90deg); transition:bottom .5s;
   cursor: pointer;
 
-  &:hover, &:focus{ background: $assistant; border: none;}
-  &:focus{ box-shadow: $assistant 0 0 0 2px; }
+  &:hover, &:focus{ background: #b00; border: none;}
+  &:focus{ box-shadow: #b00 0 0 0 2px; }
 
   &::before, &::after{
     content: ''; position: absolute;
@@ -246,7 +246,7 @@ button.diskBtn{
   background: $primaryColor; color: $fontInvert; text-indent: -10em;
 
   &:hover, &:focus{
-    background: $assistant; box-shadow: $assistant 0 0 0 2px;
+    background: $assistant; box-shadow: $assistant 0 0 0 3px;
   }
 
   &.prev, &.next{

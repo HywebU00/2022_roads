@@ -38,6 +38,7 @@ a{ color: $linkColor; text-decoration: underline;
     background-size: 100% auto;
 
     &.inner{margin-top: -33vw; padding: 3em 70px 120px 140px;}
+    .accesskey+.row{padding-top: 60px;}
   }
 
 

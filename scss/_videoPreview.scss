@@ -1,6 +1,5 @@
 // 首頁的影音區塊
-.videoPreview{
-  margin: 0 auto 3em;  padding:0; width: 87vw;
+.videoPreview{ margin: 0 auto 3em;  padding:0; width: 87vw;
   .blockHeader{ text-align: center; display: block;}
   .preview{padding-top: 35px;
     &>a{position: relative; display: block; color: $fontColor; text-decoration: none; 

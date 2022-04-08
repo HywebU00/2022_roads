@@ -16,7 +16,7 @@
   @media screen and (min-width: $wwNormal){
   }
   &::before{ 
-    background-color: #eeec;
+    background-color: #f6f6f6b6;
   }
 }
 .headBanner{
@@ -37,8 +37,8 @@
 // 頁腳的選單
 .siteTree{
   @media screen and (min-width: $wwNormal){
-    // background: url(../images/footerBg_cch.png) right 0 no-repeat;
-    background-color: $footerBg;
+    padding-top: 70px;
+    background: url(../images/footerBg_cch.png) center top no-repeat;
   }
 }
 

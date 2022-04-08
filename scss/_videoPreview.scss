@@ -4,7 +4,8 @@
   .blockHeader{ text-align: center; display: block;}
   .preview{padding-top: 35px;
     &>a{position: relative; display: block; color: $fontColor; text-decoration: none; 
-      &::before, &::after{ content: ''; position: absolute;left: calc(50% - 32px); top: calc(28vw - 32px); 
+      &::before, &::after{ content: ''; position: absolute;
+        left: calc(50% - 32px); top: calc(28vw - 32px); 
         transition:background .3s , border-color .3s;}
       &::before{
         width: 64px; height: 64px;border-radius: 50%; 
@@ -21,9 +22,7 @@
         &::after{border-left-color: #fff;}
         text-decoration: underline;
       }
-      &:focus{
-        outline: 2px solid $assistant;
-      }
+      &:focus{outline: 2px solid $assistant;}
     }
   }
   .image{position: relative; padding: 0; margin: 0 0 2em;
@@ -33,8 +32,7 @@
       background-size: contain;
       padding: 22px 2em;
     }
-    img{ 
-      display: block; margin:0; width: 87vw; height: 56vw; object-fit: cover;
+    img{ display: block; margin:0; width: 87vw; height: 56vw; object-fit: cover;
       box-shadow: #0006 0 0 30px;
     }
   }
@@ -48,13 +46,10 @@
 
 
   @media screen and (min-width: $wwMedium){
-    .preview>a{
-      display: flex; align-items: flex-end;
+    .preview>a{display: flex; align-items: flex-end;
       &::before, &::after{ left: calc(25vw - 32px); top: calc(16vw - 32px);}
     }
-
-    .image{
-      flex: 0 0 51%; margin:0 4% 1.3em 0;
+    .image{flex: 0 0 51%; margin:0 4% 1.3em 0;
       img{width: 50vw; height: 32vw;}
       .type{right: -25px;}
     }
@@ -64,11 +59,10 @@
   @media screen and (min-width: $wwMaximum){
     width: calc(#{$wwMaximum} - 160px);
     .preview>a{
-      &::before, &::after{ left:248px; top: 148px;}
+      &::before, &::after{ left:calc(#{$wwMaximum}*.25 - 32px); top: calc(#{$wwMaximum}*.16 - 32px);}
     }
     .image{ 
-      img{ width: 560px; height: 360px;}
-      .type{right: 5px;}
+      img{ width: $wwMaximum*.5; height: $wwMaximum*.32;}
     }
   }
 

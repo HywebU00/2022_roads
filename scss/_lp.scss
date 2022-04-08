@@ -163,26 +163,13 @@
   ul{list-style: none; padding: 0; margin: 0;}
   &>ul{ line-height: 1.9; text-align: justify;
     &>li{ position: relative;margin: 15px 0; padding:1.5em 0;
-      //  background: $fontInvert;@extend %shadow1;
        border-bottom: 1px solid $borderColor;
       
        &::after{content: ''; display: block; clear: both;}
 
-        // &>a{position: relative; display: block; 
-        //   padding:1.5em 1em; margin: -1.5em -1em;
-        //   color: $fontColor; text-decoration: none; overflow: hidden;
-        //   transition: .2s;
-        //   &:hover{ @extend %shadow2; }
-        //   &:focus{ box-shadow: $assistant 0 0 0 2px inset;}
-        //   &:hover, &:focus{
-        //     article, h3 {text-decoration: underline;}
-        //   }
-        // }
-
       article{ display: block; margin: 0 auto 1em;}
-      img{ float: left;
-        width: 42vw; max-height: 42vw; object-fit: contain; 
-        margin: .2em 1em .5em 0; border: 1px solid $borderColorLight;
+      img{ float: left; width: 42vw; /* max-height: 42vw; */ object-fit: contain; 
+        margin: .2em 1em .5em 0; border: 1px solid $borderColorLight; background: #fff;
       }
       .videoThumb{ float: left; 
         width: 45vw; height: 25.25vw; margin: .2em 1em .5em 0;
@@ -205,6 +192,14 @@
         &+h3{ margin-top: .5em;}
       }
       .moreFake{float: right; margin-top: .5em;}
+    }
+  }
+
+  // 雙數列圖靠右
+  &.alternate{
+    &>ul>li:nth-child(even){
+      img{ float: right; margin-right: 0; margin-left: 1em;}
+      article{overflow: hidden;}
     }
   }
 

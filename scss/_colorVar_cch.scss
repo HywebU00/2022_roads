@@ -40,7 +40,7 @@ $transLighten: rgba(255, 255, 255, 0.7);
 %shadow2{ box-shadow: rgba(0,0,0,.5) 0 4px 18px -2px;}
 
 // -------------------------
-%linkText{ color: $assistant; text-decoration: none;box-shadow:$assistant 0 2px 0 -1px;
-  &:hover{text-decoration: none; box-shadow:$assistant 0 3px 0 -1px;}
-  &:focus{text-decoration: none; box-shadow:$assistant 0 0 0 1px;}
+%linkText{ color: $linkColor; text-decoration: none;box-shadow:$linkColor 0 2px 0 -1px;
+  &:hover{text-decoration: none; box-shadow:$linkColor 0 3px 0 -1px;color: $linkColor;}
+  &:focus{text-decoration: none; box-shadow:$linkColor 0 0 0 1px;color: $linkColor;}
 }

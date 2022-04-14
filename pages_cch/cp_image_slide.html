@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CP照片輪播 －檔案應用專區</title>
+
+  <link rel="stylesheet" href="../slick/slick.css"/> <!-- 照片顯示套件 -->
+  <link rel="stylesheet" href="../css/design_archive.css">
+
+  <script src="../js/jquery-3.6.0.min.js"></script>
+  <script src="../slick/slick.min.js"></script>
+  <script src="../js/jquery.touchSwipe.min.js"></script>
+  <script src="../js/uieffect.js"></script>
+</head>
+<body>
+  <a class="goCenter" href="#aC" tabindex="0">跳至內容區</a>
+
+  <div class="topRow">
+    <header class="webHeader">
+      <a class="accesskey" href="#aU" id="aU" accesskey="U" title="上方功能區塊" >:::</a>
+  
+      <h1 title="檔案應用專區">
+        <img class="normal" src="../publicData/h1_cch.png" alt="檔案應用專區"><!-- 寬螢幕用 -->
+        <img class="mobile" src="../publicData/h1_cch_mobile.png" alt="檔案應用專區"><!-- 手機、小螢幕用 -->
+      </h1>
+      
+      <button class="menuCtrl" type="button">主選單開關</button><!-- 主選單開關 -->
+      <nav class="menu">
+        <ul>
+          <li><a href="#">關於中橫</a>
+            <ul>
+              <li><a href="#">本站緣起</a></li>
+              <li><a href="#">認識中橫</a></li>
+              <li><a href="#">我想說的是</a></li>
+            </ul>
+          </li>
+          <li><a href="#">歷史中橫</a>
+            <ul>
+              <li><a href="#">十年初闢</a></li>
+              <li><a href="#">二十弱冠</a></li>
+              <li><a href="#">三十挺立</a></li>
+              <li><a href="#">四十五十</a></li>
+              <li><a href="#">六十耳順</a></li>
+              <li><a href="#">中橫記憶</a></li>
+              <li><a href="#">中橫人物故事</a></li>
+            </ul>
+          </li>
+          <li><a href="#">今日中橫</a>
+            <ul>
+              <li><a href="#">台8臨37便道</a></li>
+              <li><a href="#">活動回顧</a></li>
+              <li><a href="#">中橫相關報導</a></li>
+            </ul>
+          </li>
+          <li><a href="#">影像中橫</a>
+            <ul>
+              <li><a href="#">典藏照片</a></li>
+              <li><a href="#">影音故事</a></li>
+            </ul>
+          </li>
+          <li><a href="#">線上展覽</a>
+            <ul>
+              <li><a href="#">線上書展</a></li>
+              <li><a href="#">實境展覽</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+  
+      <button class="searchCtrl" type="button">查詢區開關</button><!-- 查詢區開關 -->
+      <section class="search">
+        <button class="closeThis" type="button">關閉</button>
+        <form action="">
+          <input type="text" placeholder="請輸入查詢詞" aria-label="查詢關鍵字" accesskey="S">
+          <input type="button" value="查詢">
+        </form>
+        <div class="hotKeywords">
+          <span class="label">熱門關鍵字：</span>
+          <ul>
+            <li><a href="x">關鍵字ㄧ</a></li>
+            <li><a href="x">關鍵字二</a></li>
+            <li><a href="x">關鍵字關３</a></li>
+            <!-- <li><a href="x">關鍵關鍵字４</a></li> -->
+          </ul>
+        </div>
+      </section>
+      
+      <img class="decoImg" src="../publicData/webHeader_deco_cch.png" alt="Archives Application Area"><!-- 裝飾圖 -->
+  
+    </header>
+
+    <nav class="topNav">
+      <ul>
+        <li><a href="#">回首頁</a></li>
+        <li><a href="sitemap.html">網站導覽</a></li>
+        <li><a href="#">交通部公路總局</a></li>
+      </ul>
+    </nav>
+
+    <div class="headBanner"><img src="../publicData/headBanner_cch.jpg" alt=""></div>
+  </div>
+
+  <!-- 行動版側欄選單容器 -->
+  <aside class="sidebar">
+  </aside><!-- /.sidebar -->
+  
+  <main class="main inner">
+    <a class="accesskey" href="#aC" id="aC" accesskey="C" title="中央內容區塊">:::</a>
+
+    <div class="breadcrumb" title="現在位置">
+      <ul>
+        <li><a href="mp.html">首頁</a></li>
+        <li><a href="x">節點一</a></li>
+        <li>節點一之一</li>
+      </ul>
+    </div>
+
+    <div class="pageHeader">
+      <h2>CP-照片內容頁</h2>
+      
+      <section class="share">
+        <ul>
+          <li class="print"><a href="javascript:;"><img src="../images/icon_print.png" alt="列印"></a></li>
+          <li class="forward"><a href="javascript:;"><img src="../images/icon_mail.png" alt="轉寄"></a></li>
+          <li><a target="_blank" title="分享到facebook (另開新視窗)" href="x">
+              <img src="../images/share_facebook.png" alt="Facebook"></a></li>
+          <li><a target="_blank" title="分享到Twitter (另開新視窗)" href="x">
+              <img src="../images/share_twitter.png" alt="Twitter"></a></li>
+          <li><a target="_blank" title="分享到 LINE(另開新視窗)" href="x">
+              <img src="../images/share_line.png" alt="LINE"></a></li>
+          <li class="back"><a href="back"><img src="../images/icon_back.png" alt="回前一頁"></a></li>
+        </ul>
+      </section>
+    </div>
+
+
+    <section class="imgSlick landscape count">
+      <div class="slider-for">
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/ph01.jpg" alt="圖說">
+          <p class="caption">們法造研術族無魚黃 <span title="點閱數" class="photoViewCount">22</span></p>
+        </div>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/ph03.jpg" alt="圖說">
+          <p class="caption">看本樣步到評結 <span title="點閱數" class="photoViewCount">899</span></p>
+        </div>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/ph02.jpg" alt="圖說">
+          <p class="caption">論前來立而信來關親著識福來來學為 <span title="點閱數" class="photoViewCount">5</span></p>
+        </div>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/ph04.jpg" alt="圖說">
+          <p class="caption">熱前形外字其此輕不市拿出 <span title="點閱數" class="photoViewCount">7</span></p>
+        </div>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/defaultImage.png" alt="圖說">
+          <p class="caption">大臉海的（測試過長的文字，測試過長的文字，測試過長的文字，測試過長的文字，測試過長的文字，測試過長的文字，測試過長的文字，） <span title="點閱數" class="photoViewCount">1234</span></p>
+        </div>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/dataPh26.jpg" alt="圖說">
+          <p class="caption">企然深後原己權懷愛，說今新 <span title="點閱數" class="photoViewCount">99</span></p>
+        </div>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/dataPh21.jpg" alt="圖說">
+          <p class="caption">作小都計往不找我寶會斯只本度清告精王變前平部少，仍充友劇消話這兒溫司人行情路光的離才且放、可幾一天 <span title="點閱數" class="photoViewCount">8</span></p>
+        </div>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/dataPh22.jpg" alt="圖說">
+          <p class="caption">工信給白對全 <span title="點閱數" class="photoViewCount">9</span></p>
+        </div>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/dataPh23.jpg" alt="圖說">
+          <p class="caption">大獨醫卻共心的經來兒日上 <span title="點閱數" class="photoViewCount">45</span></p>
+        </div>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/dataPh24.jpg" alt="圖說">
+          <p class="caption">二場提身指半下 <span title="點閱數" class="photoViewCount">123</span></p>
+        </div>
+        <div class="showLightbox" data-id="bigImg"><img src="../publicData/dataPh25.jpg" alt="圖說">
+          <p class="caption">特資是麗提等車十一活公行 <span title="點閱數" class="photoViewCount">45</span></p>
+        </div>
+      </div>
+      <div class="slider-nav">
+        <div><a href="javascript:;"><img src="../publicData/ph01.jpg" alt="圖說"></a></div>
+        <div><a href="javascript:;"><img src="../publicData/ph03.jpg" alt="圖說"></a></div>
+        <div><a href="javascript:;"><img src="../publicData/ph02.jpg" alt="圖說"></a></div>
+        <div><a href="javascript:;"><img src="../publicData/ph04.jpg" alt="圖說"></a></div>
+        <div><a href="javascript:;"><img src="../publicData/defaultImage.png" alt="圖說"></a></div>
+        <div><a href="javascript:;"><img src="../publicData/dataPh26.jpg" alt="圖說"></a></div>
+        <div><a href="javascript:;"><img src="../publicData/dataPh21.jpg" alt="圖說"></a></div>
+        <div><a href="javascript:;"><img src="../publicData/dataPh22.jpg" alt="圖說"></a></div>
+        <div><a href="javascript:;"><img src="../publicData/dataPh23.jpg" alt="圖說"></a></div>
+        <div><a href="javascript:;"><img src="../publicData/dataPh24.jpg" alt="圖說"></a></div>
+        <div><a href="javascript:;"><img src="../publicData/dataPh25.jpg" alt="圖說"></a></div>
+      </div>
+      <div class="viewCount" title="相簿瀏覽人次">29</div>
+    </section>
+
+    <!-- 燈箱：顯示單張大圖 -->
+    <div class="lightbox" data-id="bigImg" role="dialog">
+      <button type="button" title="close" class="closeThis"></button>
+      <div class="bigImgShow">
+        <img src="../publicData/ph01.jpg" alt="圖說">
+        <p class="caption">們法造研術族無魚黃</p>
+      </div>
+    </div>
+    
+
+    <section class="fileDownload">
+      <h3>檔案下載（或附件）</h3>
+      <ul>
+        <li>
+          <span class="fileName">111年度施政計畫-草案版</span>
+          <span class="fileType pdf">
+            <a download href="檔案名稱AAA.pdf" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱AAA.pdf)">pdf</a>
+          </span>
+          <span class="fileType doc">
+            <a download href="檔案名稱AAA.doc" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱AAA.doc)">doc</a>
+          </span>
+          <span class="fileType doc">
+            <a download href="檔案名稱AAA.docx" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱AAA.docx)">docx</a>
+          </span>
+        </li>
+        <li>
+          <span class="fileName">檔案名稱BBB</span>
+          <span class="fileType zip">
+            <a download href="檔案名稱BBB.zip" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱BBB.zip)">zip</a>
+          </span>
+          <span class="fileType xls">
+            <a download href="檔案名稱BBB.xls" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱BBB.xls)">xls</a>
+          </span>
+          <span class="fileType xls">
+            <a download href="檔案名稱BBB.xlsx" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱BBB.xlsx)">xlsx</a>
+          </span>
+          <span class="fileType xls">
+            <a download href="檔案名稱BBB.csv" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱BBB.csv)">csv</a>
+          </span>
+          <span class="fileType xls">
+            <a download href="檔案名稱BBB.ods" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱BBB.ods)">ods</a>
+          </span>
+        </li>
+        <li>
+          <span class="fileName">檔案名稱CCC</span>
+          <span class="fileType ppt">
+            <a download href="檔案名稱CCC.ppt" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱CCC.ppt)">ppt</a>
+          </span>
+          <span class="fileType jpg">
+            <a download href="檔案名稱CCC.jpg" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱CCC.jpg)">jpg</a>
+          </span>
+          <span class="fileType mp3">
+            <a download href="檔案名稱CCC.mp3" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱CCC.mp3)">mp3</a>
+          </span>
+          <span class="fileType mov">
+            <a download href="檔案名稱CCC.mov" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱CCC.mov)">mov</a>
+          </span>
+          <span class="fileType txt">
+            <a download href="檔案名稱CCC.txt" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱CCC.txt)">txt</a>
+          </span>
+          <span class="fileType other">
+            <a download href="檔案名稱CCC.xxx" title="檔案名稱 (檔案下載 檔案名稱及格式:檔案名稱CCC.xxx)">xxx</a>
+          </span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="seeAlso"><h3>相關連結（或延伸閱讀）</h3>
+      <ol>
+        <li><a href="#">相關主題文章連結一</a></li>
+        <li><a href="#">相關主題文章連結二</a></li>
+        <li><a href="#">相關主題文章連結相關主題文章連結相關主題文章連結相關主題文章連結</a></li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer class="webFooter">
+    <a class="accesskey" href="#aZ" id="aZ" accesskey="Z" title="頁腳區">:::</a>
+
+    <button type="button" class="fatFootCtrl" data-altText="開啟">收合</button>
+    <div class="fatFooter">
+      <nav class="siteTree">
+        <ul>
+          <li><a href="#">關於中橫</a>
+            <ul>
+              <li><a href="#">本站緣起</a></li>
+              <li><a href="#">認識中橫</a></li>
+              <li><a href="#">我想說的是</a></li>
+            </ul>
+          </li>
+          <li><a href="#">歷史中橫</a>
+            <ul>
+              <li><a href="#">十年初闢</a></li>
+              <li><a href="#">二十弱冠</a></li>
+              <li><a href="#">三十挺立</a></li>
+              <li><a href="#">四十五十</a></li>
+              <li><a href="#">六十耳順</a></li>
+              <li><a href="#">中橫記憶</a></li>
+              <li><a href="#">中橫人物故事</a></li>
+            </ul>
+          </li>
+          <li><a href="#">今日中橫</a>
+            <ul>
+              <li><a href="#">台8臨37便道</a></li>
+              <li><a href="#">活動回顧</a></li>
+              <li><a href="#">中橫相關報導</a></li>
+            </ul>
+          </li>
+          <li><a href="#">影像中橫</a>
+            <ul>
+              <li><a href="#">典藏照片</a></li>
+              <li><a href="#">影音故事</a></li>
+            </ul>
+          </li>
+          <li><a href="#">線上展覽</a>
+            <ul>
+              <li><a href="#">線上書展</a></li>
+              <li><a href="#">實境展覽</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <section class="base">
+      <div class="logo"><img src="../publicData/footer_logo_cch.png" alt=行腳中橫數位公路館"></div>
+
+      <div class="contact">
+        <p>服務時間：<em>上午08:30­至下午05:30</em></p>
+        <p>服務電話：<em>(02)2307­0123 #1303、#1304</em></p>
+      </div>
+      <div class="contact">
+        <p>服務地址：<em>108234臺北市萬華區東園街65號</em></p>
+        <p>本網站建議最佳瀏覽器為 Google Chrome</p>
+      </div>
+
+      <div class="copyright">
+        <ul>
+          <li><a href="#">隱私權政策</a></li>
+          <li><a href="#">資通安全政策</a></li>
+          <li><a href="#">政府網站資料開放宣告</a></li>
+        </ul>
+        <p>©交通部公路總局版權所有</p>
+      </div>
+
+      <div class="aaAndOthers">
+        <span class="aMark"><a href="https://accessibility.ncc.gov.tw/" target="_blank" title="無障礙網站『另開新視窗』"><img src="../publicData/aaBadge.png" alt="通過AA檢測等級無障礙網頁檢測"></a></span>
+        <p class="count">瀏覽人次：32,888</p>
+        <p class="date">更新日期：110/09/15</p>
+      </div>
+    </section>
+  </footer>
+
+  <button type="button" class="goTop">top</button>
+
+  
+</body>
+</html>

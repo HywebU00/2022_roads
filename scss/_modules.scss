@@ -211,7 +211,7 @@
 // 條列上方的查詢
 .searchHere{ width: $mmw; margin: 0 auto 2em; padding:1.2em 1em;
  background-color: $transLighten;
- box-shadow: #0003 0 0 16px;
+ box-shadow: rgba(0,0,0,.2) 0 0 16px;
  input[type="button"], input[type="submit"]{
    height: 2.6em; width: auto;
  }

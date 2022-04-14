@@ -17,7 +17,7 @@ a:focus{outline: none;}
 .goCenter{
   display: none;
   @media screen and (min-width: $wwNormal){
-    display: block;;z-index: 99; opacity: .5 ; overflow: hidden;
+    display: block; overflow: hidden; z-index: 99; opacity: .5 ;
     position: absolute; top: -2em;left: $sideStripe;
     font-size: .9rem; border-radius: 0 0 4px 4px;
     height: 1.6em; line-height: 1.6; padding: 0 .5em; margin-left: 1em;
@@ -25,8 +25,7 @@ a:focus{outline: none;}
     text-decoration: none; outline: none;  cursor: pointer;
     transition:top .3s; 
     &:focus{ top: 0;}
-    &:hover, &:focus{ border-color: $assistant; opacity: 1; color: $fontInvert;
-    }
+    &:hover, &:focus{ border-color: $assistant; opacity: 1; color: $fontInvert;}
   }
   @media screen and (min-width: $wwMaximum){
     left: calc(50vw - #{$wwMaximum}/2 + #{$sideStripe});
@@ -180,7 +179,7 @@ a:focus{outline: none;}
         &::before{
           content: ''; position: absolute; left: 4px;top: 4px;
           width: 12px; height: 12px; border-radius: 50%; z-index: 9;
-          background: $primaryColor; box-shadow: $fontInvert 0 0 3px;
+          background: $primaryColor; box-shadow: $fontInvert 0 0 2px 1px;
           background-size: contain;
         }
         &::after{ content: attr(title);
@@ -191,10 +190,10 @@ a:focus{outline: none;}
           transition:background-color .5s, color .5s;
         }
         &:hover{
-          &::before{background: $assistant;}
+          &::before{background: $assistant; box-shadow: $fontInvert 0 0 0 2px;}
           &::after{
-            background-color: transparentize($fontColor, .4); color: $fontInvert;
             width: auto;padding: 0 25px 0 .6em; 
+            background-color: transparentize($fontColor, .4); color: $fontInvert;
           }
         }
         &:focus{outline: none;}
@@ -222,20 +221,35 @@ a:focus{outline: none;}
 // 「實境展覽」連結圖示
 .vrLink{ display: none;
   @media screen and (min-width: $wwNormal){
-    display: block;
-    position: fixed; bottom: 110px; right: 6px; z-index: 599;
+    display: block;text-align: center;
+    position: fixed; bottom: 25px; right: 50px; z-index: 599;
+    
+    // 停在 footer 上面
+    &.bottomStop{position: absolute; right: 50px; bottom: 105px;}
+
+    // 停在 topRow 下面
+    &.topStop{position: absolute; right: 50px; bottom: auto; top: 10px;}
+
   }
-  a{ 
-    display: block; width: 5.6em;
-    padding:2em 1.8em; line-height: 1.5;
-    background: url(../images/polyColor1.svg) 0 center no-repeat;
-    background-size: contain;
-    text-decoration: none; color: $fontInvert;
+  a{ position: relative; box-sizing: content-box;
+    display: block; width: 2em; padding:85px 35px 25px; line-height: 1.6;
+    background: url(../images/polyBlack.svg) bottom center no-repeat;
+    background-size:contain;
+    text-decoration: none; color: $fontInvert; border-radius: 4px;
+    transition: .15s;
+
+    &::before{
+      content: ''; position: absolute; top: 0; left: 0; width: 122px; height: 93px;
+      background: url(../images/deco_camera.png) 0 0 no-repeat;
+    }
+    
+    &:hover, &:focus{ font-size: 1.15em; color: $hilight2; }
+    &:focus{box-shadow: $assistant 0 0 0 2px;}
   }
 
   @media screen and (min-width: $wwMaximum ){
-    right: calc( 50vw - #{$wwMaximum}/2 + 6px );
-
+    
+    right: calc( 50vw - #{$wwMaximum}/2 + 50px );
   }
 }
 
@@ -312,7 +326,7 @@ background-color: $assistant1; color: $fontInvert;}
 .videoThumb{ position: relative;
   &::before, &::after{ content: ''; position: absolute; left: 50%; top: 50%; opacity: .7; transition: .2s;}
   &::before{ width: 44px; height: 44px; border-radius: 50%; 
-    margin: -22px 0 0 -22px; background-color: #0008; box-shadow: #fff 0 0 0 4px; }
+    margin: -22px 0 0 -22px; background-color: rgba(0,0,0,.5); box-shadow: #fff 0 0 0 4px; }
   &::after{ width: 0; height: 0; border-style: solid; border-width: 10px 0 10px 15px;
     border-color: transparent transparent transparent #fff;
     margin: -10px 0 0 -4px;
@@ -379,7 +393,7 @@ a:hover .videoThumb{
       a{ display: block; position: relative;
         background: $mainBg; color: $primaryColor; text-decoration: none;
         height: 2.8em; line-height: 2.9; padding: 0 1em; border-radius: 2em;
-        box-shadow:$borderColor 0 0 0 1px, #0005 0 1px 3px; transition:.2s ;
+        box-shadow:$borderColor 0 0 0 1px, rgba(0,0,0,.3) 0 1px 3px; transition:.2s ;
         &::before{
           content: ''; position: absolute; top: 1em;
           width: 11px;height: 11px;
@@ -387,7 +401,7 @@ a:hover .videoThumb{
           transform: rotate(45deg); transition: .2s;
         }
 
-        &:hover{box-shadow:$borderColor 0 0 0 2px, #0007 0 6px 18px -4px;
+        &:hover{box-shadow:$borderColor 0 0 0 2px, rgba(0,0,0,.45) 0 6px 18px -4px;
           color: $assistant;
           &::before{ border-color: $assistant;}
         }

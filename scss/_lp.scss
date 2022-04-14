@@ -188,7 +188,7 @@
       }
       p{ margin: 0 0 1em;}
       .label{ position: absolute; right: 1em; top: 0;
-        border-radius: 0 0 5px 5px; box-shadow: #0004 0 2px 3px;
+        border-radius: 0 0 5px 5px; box-shadow: rgba(0,0,0,.25) 0 2px 3px;
         &+h3{ margin-top: .5em;}
       }
       .moreFake{float: right; margin-top: .5em;}
@@ -335,7 +335,7 @@
     .downloadThis{ float: right; margin-right: 5px;
       a{ display: block; padding: 0 1.2em; height: 2.4em; line-height: 2.6em;  border-radius: 1.5em; text-decoration: none;
         background-color: $mainBg; color: $primaryColor;
-        box-shadow: #0005 0 1px 3px; transition: .2s;
+        box-shadow: rgba(0,0,0,.3) 0 1px 3px; transition: .2s;
 
         &:hover, &:focus{ box-shadow:$mainBg 0 0 0 2px,  $primaryColor 0 5px 18px -5px; background-color: $assistant; color: $fontInvert;}
       }

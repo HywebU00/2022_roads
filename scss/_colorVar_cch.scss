@@ -25,19 +25,19 @@ $linkColor: #038069;
 $borderColor: #a3a3a3;
 $borderColorLight: #d3d3d3;
 $borderColorDark:#707070;
-$shadow:#50505033;
-$shadow2:#31313166;
+$shadow:rgba(80, 80, 80, 0.2);
+$shadow2:rgba(49, 49, 49, 0.4);
 
 $btnBg1: $primaryColor;
 $btnBg2: $assistant;
 
 $gray: #ddd;
 
-$transDarken: #000000c3;
-$transLighten: #fffb;
+$transDarken: rgba(0, 0, 0, 0.8);
+$transLighten: rgba(255, 255, 255, 0.7);
 
-%shadow1{ box-shadow: #0004 0 1px 4px;}
-%shadow2{ box-shadow: #0008 0 4px 18px -2px;}
+%shadow1{ box-shadow: rgba(0,0,0,.25) 0 1px 4px;}
+%shadow2{ box-shadow: rgba(0,0,0,.5) 0 4px 18px -2px;}
 
 // -------------------------
 %linkText{ color: $assistant; text-decoration: none;box-shadow:$assistant 0 2px 0 -1px;

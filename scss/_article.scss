@@ -207,7 +207,7 @@
       }
       img{ display: block; width: 100%; height: calc(#{$mmw}*.5 - 10px); object-fit: cover;  transition: .3s;}
       p{ position: absolute; left: 0; right: 0; bottom: 0;
-        background: #000a; color: #fff;  padding:5px 10px; margin: 0;
+        background: rgba(0,0,0,.65); color: #fff;  padding:5px 10px; margin: 0;
         transform: translateY(101%); transition: .5s;
       }
     }

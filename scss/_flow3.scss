@@ -27,7 +27,7 @@
       .brief{
         position: absolute; left: 5%; bottom: 0; width: 90%;
         padding: 60px 7% 1.5em;
-        background: linear-gradient(#0000, #0008 30%, #000f); color: #fff;
+        background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.5) 30%, rgba(0,0,0,1)); color: #fff;
         h3{
           line-height: 1.6; margin: 0; padding: 0;
           text-overflow: ellipsis; white-space: nowrap; overflow: hidden;

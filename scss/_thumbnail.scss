@@ -9,9 +9,9 @@
         &:hover{@extend %shadow2; 
           p, h3{text-decoration: underline;}
         }
-        &:focus{box-shadow: $assistant 0 0 0 2px inset, #0006 0 4px 16px;}
+        &:focus{box-shadow: $assistant 0 0 0 2px inset, rgba(0,0,0,.4) 0 4px 16px;}
       }
-      .label{position: absolute; right: 4px; top: -3px; border-radius: 2px 2px 6px 6px; box-shadow: #0004 0 2px 3px; z-index: 9;}
+      .label{position: absolute; right: 4px; top: -3px; border-radius: 2px 2px 6px 6px; box-shadow: rgba(0,0,0,.25) 0 2px 3px; z-index: 9;}
       img{ display: block; width: 100%; margin: 0 0 1em; }
 
       .videoThumb{ width: 100%; height: calc((#{$mmw} - 16px)*.56); background: #000;
@@ -118,7 +118,7 @@
         }
       }
 
-      .label{position: absolute; right: 4px; top: -3px; border-radius: 2px 2px 6px 6px; box-shadow: #0004 0 2px 3px; z-index: 9;}
+      .label{position: absolute; right: 4px; top: -3px; border-radius: 2px 2px 6px 6px; box-shadow: rgba(0,0,0,.25) 0 2px 3px; z-index: 9;}
 
       h3{ font-size: 1.3em; margin: .5em 0;
         display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;
@@ -177,7 +177,7 @@
           p, h3{text-decoration: underline;}
           &::before{background-color: $assistant; height:6px;}
         }
-        &:focus{box-shadow: $assistant 0 0 0 2px inset, #0006 0 4px 16px;}
+        &:focus{box-shadow: $assistant 0 0 0 2px inset, rgba(0,0,0,.4) 0 4px 16px;}
       }
       img.cover{ display: block; width: 100%; margin: 15px 0;
         box-shadow: rgba(0,0,0,.5) 0 2px 4px; }

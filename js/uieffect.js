@@ -17,9 +17,10 @@ $(function(){
   var _menuCtrl = $('.menuCtrl');
   var _sidebar = $('.sidebar');
   var _webHeader = $('.webHeader');
-
+  var _webFooter = $('.webFooter');
 
   _html.removeClass('no-js');
+
 
   // --------------------- 外掛套件 slick 參數設定
   $('.slider-for').slick({
@@ -205,17 +206,27 @@ $(function(){
   })
 
 
-  // 向上捲動箭頭 -----------------------------------------------------
+  // 向上捲動箭頭 + 實境展連結-----------------------------------------------------
 	var _goTop = $('.goTop');
+  var _vrLink = $('.vrLink');
   _goTop.click(function(){
     _html.stop(true,false).animate({scrollTop: 0}, 800);
   });
+
+
 	_window.scroll(function() {
-		if ( $(this).scrollTop() > 200){
-			_goTop.addClass('show');
+    if ( _window.scrollTop() > 200){
+      _goTop.addClass('show');
 		} else {
       _goTop.removeClass('show');
 		}
+    
+    if (_goTop.offset().top + 100 >=  _webFooter.offset().top ) {
+      _vrLink.addClass('bottomStop');
+    } else {
+      _vrLink.removeClass('bottomStop');
+    }
+
 	});
 
 

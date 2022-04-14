@@ -16,6 +16,13 @@
     img{ height: $wwMaximum*.2958; }
   }
 }
+// webHeader
+.webHeader{
+  @media screen and (min-width: $wwNormal) {
+    .searchCtrl{ top: 55%;}
+    .menuCtrl{ top: calc(55% - 70px);}
+  }
+}
 // 頁腳
 .webFooter{
   background-color: $footerBg;

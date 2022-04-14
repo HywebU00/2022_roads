@@ -1,9 +1,12 @@
-.main{  
+// 行腳中橫數位公路館
+.main{
   background-color: $mainBg;
   @media screen and (min-width: $wwNormal){
-    // background-image: url(../images/cch_bg.jpg);
+    background-image: url(../images/cch_bg.jpg);
+    background-repeat: repeat-y;
+    padding-bottom: 240px;
     &.inner{ 
-      // background-image: url(../images/mhm_bg.jpg); 
+      background-image: url(../images/cch_bg.jpg); 
       margin-top: -28.42vw;
     }
   }
@@ -11,12 +14,14 @@
     &.inner{margin-top: -1*$wwMaximum*.2842;}
   }
 }
+
 .webHeader{
-  background-color: #fffd;
+  background-color: rgba(255, 255, 255, 0.88);
   @media screen and (min-width: $wwNormal){
-  }
-  &::before{ 
-    background-color: #f6f6f6b6;
+    background-color: transparent;
+    &::before{ 
+      background-color: rgba(255, 255, 255, 0.8);
+    }
   }
 }
 .headBanner{
@@ -27,6 +32,16 @@
     img{ height: $wwMaximum*.2958; }
   }
 }
+
+// 主選單
+@media screen and (min-width: $wwNormal){
+  .topRow .menu{
+    &>ul>li>a{ color: $assistant;}
+  }
+}
+
+
+
 // 頁腳
 .webFooter{
   background-color: $footerBg;
@@ -54,23 +69,39 @@
   &::before{
    box-shadow: $fontColor 0 20px 0;
   }
-
-
-
 }
+
+// 本頁快速連結點點
+.mpNav{
+  @media screen and (min-width: $wwNormal){
+    li{
+      a:hover::before{ box-shadow: rgba(0,0,0,.5) 0 0 0 2px;}
+      &.focused a::before{box-shadow:  $assistant 0 0 0 2px; }
+    }
+  }
+}
+
 
 // 查詢圖示
 .searchCtrl{
+  &::before{border: 3px solid $fontColor;}
+  &::after{ background-color: $fontColor;}
+}
 
-  &::before{
-   border: 3px solid $fontColor;
-  }
-  &::after{
-   background-color: $fontColor; 
+// ---------- 快速查詢區
+.search {
+  input[type="button"]{ color: $fontColor;
+    &:hover{ background-color: $assistant; box-shadow: $assistant 0 0 0 2px;}
+    &:focus{ background-color: $hilight;}
   }
 }
 
+// 首頁大圖輪播
+.bigBanner{
+  .flowNav li.active::before{ background: $assistant; box-shadow: $assistant 0 0 0 2px, #000 0 0 0 4px;}
+}
 
+// 活動回顧
 .flow3{
   .flowList>li{
     &:nth-child(3n+1)::before{background: url(../images/ploy3-c1-cch.svg) no-repeat 0 0}
@@ -80,10 +111,11 @@
     &:nth-child(3n+1) time::after{ color: $assistant1;}
     &:nth-child(3n+2) time::after{ color: $assistant2;}
     &:nth-child(3n) time::after{ color: $assistant3;}
-
   }
 
 }
+
+// 歷史中橫
 .flow2{
   .flowList>li{
     figure{
@@ -98,7 +130,7 @@
     }
   }
   .flowNav{
-    li.active span{background-image: url(../images/ploy01_black.svg);}
+    li.active span{background-image: url(../images/polyBlack.svg);}
   }
 
   @media screen and (min-width: $wwNormal){
@@ -139,6 +171,22 @@ button.diskBtn{
 
   }
 }
+
+// X 關閉 button
+.closeThis{
+  &:hover, &:focus{
+    &::before, &::after{background-color: #000;}
+  }
+}
+
+// 跳至內容區
+.goCenter{
+  &:hover, &:focus{ color: $fontColor;}
+}
+
+
+
+
 .videoPreview{
   .image{
     .type{

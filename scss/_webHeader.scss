@@ -26,8 +26,8 @@
 
     .sidebarCtrl {display: none;}
     .menuCtrl, .searchCtrl{display: block; position: absolute; left: auto; right: auto; }
-    .searchCtrl{ margin: 10px auto 10px ($sideStripe - 56px)/2; top: 55%;}
-    .menuCtrl{  margin: 10px auto 10px ($sideStripe - 56px)/2; top: calc(55% - 70px);}
+    .searchCtrl{ margin: 10px auto 10px ($sideStripe - 56px)/2; top: 60%;}
+    .menuCtrl{  margin: 10px auto 10px ($sideStripe - 56px)/2; top: calc(60% - 70px);}
   
     &::before{ content: ""; 
       position: absolute; top: 0; bottom: 0; left: 0; width: 100%;
@@ -94,13 +94,12 @@
   // display: none;
   position: absolute; top: 64px; left: 100vw;
   width: 100vw; padding: 24px 1em 10px; 
-  background: #000c; color: darken($fontInvert, 20%);
+  background: rgba(0,0,0,.8); color: darken($fontInvert, 20%);
   transition:.6s;
 
   a{ color: $fontInvert;}
   form{margin: 0;padding: 0;}
   input[type="text"], input[type="button"]{ font-size: inherit; height: 2.8em; border-radius: 4px;border: none;padding: 0 .5em; margin: 0; vertical-align: top; display: inline;
-    // background-color: $bodyBg;
   }
   input[type="text"]{
     width: calc(100vw - 4em - 68px); max-width: 24em; margin-right: 3px;

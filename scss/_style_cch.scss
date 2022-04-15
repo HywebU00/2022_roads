@@ -35,9 +35,20 @@
 
 // 主選單
 @media screen and (min-width: $wwNormal){
-  .topRow .menu{
-    &>ul>li>a{ color: $assistant;}
+  .topRow {
+    .menu{
+      &>ul>li>a{ color: $assistant;}
+    }
+
+    .topNav{
+      &>ul{
+        &>li{
+          a::after{background-color: $assistant2; }
+        }
+      }
+    }
   }
+
 }
 
 
@@ -195,8 +206,13 @@ button.diskBtn{
   }
 }
 
-.fatFootCtrl{
-  &:hover, &:focus{ background-color: $assistant;
-    &::before{border-color: $fontColor; border-width: 2px;}
-  }
-}
+// .fatFootCtrl{
+//   &:hover, &:focus{ background-color: $assistant;
+//     &::before{border-color: $fontColor; border-width: 2px;}
+//   }
+// }
+
+
+
+
+// ------------------------------------------------------------------------------------------

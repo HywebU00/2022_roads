@@ -2,7 +2,7 @@
 // imgSlick 大圖容器包含圖片資料表
 .imgSlick{ width: $mmw; margin: 0 auto 5em; position: relative;
 
-  .slick-arrow{position: absolute; z-index: 9;
+  .slick-arrow{ position: absolute; z-index: 9;
     top: 50%; transform: translateY(-50%);
     width: 56px; height: 56px; border-radius: 50%; 
     text-indent: -20em; overflow: hidden;
@@ -31,7 +31,7 @@
         white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
         transition: .6s;
         .photoViewCount{ display: block; margin-top: .5em; font-size: .9em;
-          &::before{content: ''; display: inline-block; width: 22px; height: 16px;vertical-align: middle;  margin-right: 3px;
+          &::before{content: ''; display: inline-block; width: 22px; height: 16px; vertical-align: middle;  margin-right: 3px;
             background: url(../images/icon_eye2.png) no-repeat 0 0; background-size: 22px; }
         }
       }
@@ -48,9 +48,9 @@
     }
 
     .slick-arrow{
-      background-color: rgba(0,0,0,.3);
+      background-color: rgba(0,0,0,.3); border: none;
       &:hover{ background-color: rgba(0,0,0,.65);}
-      &:focus{background-color: $assistant;}
+      &:focus{background-color: $btnBg2; box-shadow: $btnBg2 0 0 0 3px; border-color: $hilight;}
     }
   }
   
@@ -61,10 +61,10 @@
       box-shadow: $borderColor 0 0 0 1px inset;
       img{ display: block; height: 100%; width: auto; object-fit: contain;}
 
-      &.slick-current{ box-shadow: $assistant 0 0 0 3px inset; }
+      &.slick-current{ box-shadow: $hilight 0 0 0 3px inset; }
     }
     .slick-arrow{
-      background-color: #fff6;
+      background-color: rgba(255,255,255,.4);
       &:hover{background-color: #fff;}
       &:focus{background-color: #fff;}
 
@@ -191,32 +191,6 @@
       }
 
     }
-
-
-    // 20220316 只顯示單張圖，不套用 slick
-    // .slick-arrow{ z-index: 9;
-    //   &.slick-prev{left: 5px;}
-    //   &.slick-next{right: 5px;}
-    // }
-
-    // .slick-dots{  
-    //   list-style: none; text-align: center; margin: 0 auto;padding:6px 8px;
-    //   position: absolute; top: 8px; left: 50%;
-    //   transform: translateX(-50%);
-    //   overflow: hidden;
-    //   background-color: transparentize($fontInvert, .4); border-radius: 20px;
-
-    //   li{ float: left; padding: 0; margin:0 8px; line-height: 1; 
-    //     button{ width: 8px; height: 8px;line-height: 8px; padding: 0; margin:-2px 0 0; border-radius: 50%;
-    //       text-indent: -5em; overflow: hidden; border: none;
-    //       background-color: $primaryColor;
-    //     }
-    //     &.slick-active{
-    //       button{background: $assistant; box-shadow: $assistant 0 0 0 3px;}
-    //     }
-    //   }
-    // }
-
   }
 }
 

@@ -147,8 +147,8 @@
   text-indent: -10em; overflow: hidden; border: none;
   transition: .2s;
 
-  &:hover, &:focus{ background-color: $assistant; box-shadow: none; outline: none;}
-  &:focus{box-shadow: $assistant 0 0 0 2px}
+  &:hover, &:focus{ background-color: $btnBg2; box-shadow: none; outline: none;}
+  &:focus{box-shadow: $btnBg2 0 0 0 2px}
   &::before{
     content: '';position: absolute; left: 50%; top: 50%;
     width: 10px; height: 10px; margin: -4px auto auto -5px;

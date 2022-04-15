@@ -1,6 +1,5 @@
 // ---------- 「中橫」顏色變數 ---------- //
 $primaryColor: #000;
-$secondaryColor: #488B73;
 
 $assistant: #C9CD36;
 $assistant1: #17836D;
@@ -8,13 +7,13 @@ $assistant2: #50801E;
 $assistant3: #6E6F2C;
 $notice: #b60a04;
 $hilight: #ec6e0e;
-$hilight2: #a0d001;
+$hilight2: #e3ea5c;
 
-$sidebarBg : #2C8D79;
+$sidebarBg : $assistant1;
 $bodyBg: #fff;
 $footerBg: #294229;
 $footerBg2: #000;
-$mainBg:#dfdfdf;
+$mainBg:#edeeeb;
 
 $fontColor: #000;
 $fontInvert: #fff;
@@ -29,7 +28,7 @@ $shadow:rgba(80, 80, 80, 0.2);
 $shadow2:rgba(49, 49, 49, 0.4);
 
 $btnBg1: $primaryColor;
-$btnBg2: $assistant;
+$btnBg2: $assistant2;
 
 $gray: #ddd;
 

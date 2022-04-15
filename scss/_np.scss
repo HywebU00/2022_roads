@@ -4,7 +4,7 @@
     a{
       position: relative; display: block; padding: .7em .5em .65em 26px;
       text-decoration: none; color: $fontColor;
-      &:hover, &:focus{background-color: #fff7;}
+      &:hover, &:focus{background-color: rgba(255,255,255,.7);}
     }
   }
   &>ul>li>a{ padding-left: 30px;}
@@ -14,24 +14,22 @@
 // 單層
 .np{width: $mmw; margin: 10px auto;
   &>ul{
-    // display: flex; flex-flow: row wrap; justify-content: space-between; 
     margin: 15px 0;
     &>li{
-      // flex:0 0 calc(50% - 6px);
       margin: 5px 0 10px; padding:0;
-
       &>a{
-        box-shadow: $borderColor 0 0 0 1px;  padding: .9em .5em .8em 32px;
-        height: 100%; transition: .2s;
+        padding: .9em .5em .8em 32px;height: 100%;
+        box-shadow: $borderColor 0 0 0 1px;background-color: rgba(255,255,255,.4);
+        transition: .2s;
         &::before{
           content: '';position: absolute;
           left:12px; top:1.15em; width: 0;height: 0; box-sizing: content-box; 
           border-style: solid; border-width: 8px 0 8px 10px;
-          border-color: transparent transparent transparent $borderColorDark;
+          border-color: transparent transparent transparent $primaryColor;
         }
         &:hover, &:focus{
-          box-shadow: $fontInvert 0 0 0 1px, $borderColor 0 6px 20px -3px;
-          &::before{ border-left-color: $assistant;}
+          box-shadow: #fff 0 0 0 1px, $borderColor 0 6px 20px -3px;
+          &::before{ border-left-color: $hilight;}
         }
       }
     }
@@ -64,19 +62,20 @@
         &::before{
           left:10px; top:.9em; width: 0;height: 0; box-sizing: content-box; 
           border-style: solid; border-width: 8px 0 8px 10px;
-          border-color: transparent transparent transparent $borderColorDark;
+          border-color: transparent transparent transparent $primaryColor;
         }
-        &:hover, &:focus{ 
-          &::before{ border-left-color: $assistant; border-left-width:13px;}
+        &:hover, &:focus{ box-shadow: #fff 0 0 0 1px inset;
+          &::before{ border-left-color: $hilight; border-left-width:13px;}
         }
       }
       &>ul>li>a{
         &::before{ 
           width: 9px; height: 9px;left: 10px; top: 1.15em;
-          background-color: $borderColorDark;
+          background-color: $primaryColor;
         }
-        &:hover, &:focus{ 
-          &::before{background-color: $assistant; box-shadow: $assistant 0 0 0 2px;}
+        &:hover, &:focus{
+          box-shadow: #fff 0 0 0 1px inset;
+          &::before{background-color: $hilight; box-shadow: $hilight 0 0 0 2px;}
         }
       }
     }

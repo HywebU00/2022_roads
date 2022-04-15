@@ -10,9 +10,7 @@
       &:last-child{border-bottom: none;}
       &>a{ 
         padding: .9em 8px .9em 3.5rem; margin: 0 0 5px; transition: .3s;
-        &:hover, &:focus{background: $hilight2; text-decoration: underline;
-          // time{text-decoration: none;}
-        }
+        &:hover, &:focus{background: $hilight2; text-decoration: underline;}
       }
       .numb{ display: inline-block; font-size: 1rem; 
         width: 2.5em; text-align: right; margin:0 .8rem 0 -3.3rem;
@@ -29,7 +27,7 @@
   }
 
   @media screen and (min-width: $wwNormal){
-    width: auto; background-color: transparentize($fontInvert, .6);
+    width: auto; background-color: rgba(255,255,255,.6);
     &>ul>li{
       time{ display: block; margin-top: .5em;}
     }
@@ -38,7 +36,8 @@
 
 
 // 表格
-.list{ /* background: transparentize($mainBg, .2); */ background-color: $mainBg;
+.list{ 
+  // background-color: $mainBg;
   &>table{ border-collapse: collapse; line-height: 1.5; width: calc(100% - 16px); margin:0 8px;
     border-top: 2px solid $borderColor;border-bottom: 2px solid $borderColor;
     tr{ border-bottom: 1px solid $borderColor;}
@@ -55,14 +54,6 @@
     td{ text-align: center;
       &.numb{text-align: right; 
         &::after{content: '.';}
-
-
-
-        // &::before{ content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 50px;
-        //   background-color: $assistant1; min-height: 2em;
-        //   background: #000;
-        // }
-       
       }
       &>a{font-size: 1.2em; text-align: left; transition: .3s;
         padding: 12px 15px 9px; margin: -10px -12px -8px -11px;
@@ -71,7 +62,7 @@
     }
   }
 
-  @media screen and (max-width: $wwNormal - 1){
+  @media screen and (max-width: $wwNormal - 1px){
     &>table{ margin: 0; width: 100%;}
   }
 
@@ -81,7 +72,6 @@
       tr, th, td{ display: block;}
       tr{
         position: relative; overflow: hidden; padding: .8em 0 .7em 3.2em;
-        // outline: 1px solid red;
       }
       th, td{position: static; padding: 0;margin: 0; text-align: left;
         &::before{display: none;}
@@ -113,11 +103,10 @@
     a{display: block; text-decoration: none; color: $fontColor;
       &:hover{
         img{ @extend %shadow2;}
-        .name{ color: $assistant;}
       }
       &:focus{
-        img{ box-shadow: $assistant 0 0 0 2px;}
-        .name{ text-decoration: underline; color: $assistant;}
+        img{ box-shadow: $hilight 0 0 0 2px;}
+        .name{ text-decoration: underline;}
       }
     }
     .name{display: block; margin: 0 auto 5px; 
@@ -164,7 +153,9 @@
   &>ul{ line-height: 1.9; text-align: justify;
     &>li{ position: relative;margin: 15px 0; padding:1.5em 0;
        border-bottom: 1px solid $borderColor;
-      
+      a{ color: $fontColor; text-decoration: none;
+        &:hover{text-decoration: underline;}
+      }
        &::after{content: ''; display: block; clear: both;}
 
       article{ display: block; margin: 0 auto 1em;}
@@ -179,8 +170,8 @@
       }
       h3{margin: 0 0 .6em; padding: 0; font-size: 1.4em; line-height: 1.6; color: $primaryColor;
         position: relative;
-        a{color: $primaryColor;
-          &:hover, &:focus{ text-decoration: none; color: $assistant;}
+        a{color: $primaryColor; text-decoration: underline;
+          &:hover, &:focus{color: $linkColor;}
         }
         &>span{position: relative; display: inline-block; padding: .16em 1.8em .1em .9em; margin-left: -4px; background: $assistant1; color: $fontInvert; border-radius: 1.5em;
           &::after{ content: ''; display: inline-block; vertical-align: baseline; margin:0 0 -1px 12px; width: 10px; height: 10px; background-color: $hilight2;}
@@ -335,9 +326,9 @@
     .downloadThis{ float: right; margin-right: 5px;
       a{ display: block; padding: 0 1.2em; height: 2.4em; line-height: 2.6em;  border-radius: 1.5em; text-decoration: none;
         background-color: $mainBg; color: $primaryColor;
-        box-shadow: rgba(0,0,0,.3) 0 1px 3px; transition: .2s;
+        box-shadow: $btnBg2 0 0 1px 1px; transition: .2s;
 
-        &:hover, &:focus{ box-shadow:$mainBg 0 0 0 2px,  $primaryColor 0 5px 18px -5px; background-color: $assistant; color: $fontInvert;}
+        &:hover, &:focus{ box-shadow:$mainBg 0 0 0 2px,  $primaryColor 0 5px 18px -5px; background-color: $btnBg2; color: $fontInvert;}
       }
     }
 

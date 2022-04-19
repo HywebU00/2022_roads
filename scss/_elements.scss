@@ -351,7 +351,7 @@ a:hover .videoThumb{
 
 
 // 相簿瀏覽人次 .viewCount
-.viewCount{ display: block; height: 2em; line-height: 2; color: $assistant;
+.viewCount{ display: block; height: 2em; line-height: 2; color: $primaryColor;
   &::before{
     content: attr(title) "："; display: inline; vertical-align: middle;
     color: $fontColorLight; font-size: .9em;
@@ -402,8 +402,8 @@ a:hover .videoThumb{
         }
 
         &:hover{box-shadow:$borderColor 0 0 0 2px, rgba(0,0,0,.45) 0 6px 18px -4px;
-          color: $assistant;
-          &::before{ border-color: $assistant;}
+          color: $hilight;
+          &::before{ border-color: $hilight;}
         }
       }
 

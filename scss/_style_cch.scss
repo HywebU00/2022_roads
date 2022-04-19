@@ -26,10 +26,10 @@
 }
 .headBanner{
   @media screen and (min-width: $wwNormal){
-    img{height: 29.58vw;}
+    img{height: 29.5vw;}
   }
   @media screen and (min-width: $wwMaximum){
-    img{ height: $wwMaximum*.2958; }
+    img{ height: $wwMaximum*.295; }
   }
 }
 

@@ -223,7 +223,7 @@
         transition: .2s;
       }
       &.active{
-        &::before{ box-shadow: $assistant 0 0 0 4px;background:$assistant}
+        &::before{ box-shadow: $primaryColor 0 0 0 4px;background:$primaryColor}
       }
     }
   }

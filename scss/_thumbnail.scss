@@ -177,7 +177,7 @@
           p, h3{text-decoration: underline;}
           &::before{background-color: $hilight; height:6px;}
         }
-        &:focus{box-shadow: $hilight 0 0 0 2px inset, rgba(0,0,0,.4) 0 4px 16px;}
+        &:focus{background-color: $transLighten;box-shadow: $hilight 0 0 0 2px inset, rgba(0,0,0,.4) 0 4px 16px;}
       }
       img.cover{ display: block; width: 100%; margin: 15px 0;
         box-shadow: rgba(0,0,0,.5) 0 2px 4px; }

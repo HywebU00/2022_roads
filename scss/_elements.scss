@@ -288,10 +288,10 @@ button.diskBtn{
 
 
 .more{ margin: 1em -5px; overflow: hidden; padding: 5px;
-  a{ position: relative;
-    float: right; height: 3.6em; line-height: 3.6; padding: 0 48px 0 1.6em;
+  a{ position: relative; float: right; 
+    height: 3.6em; line-height: 3.6; padding: 0 48px 0 1.6em;
     background: $primaryColor; color: $fontInvert;
-    text-decoration: none; border-radius: 2em; transition: .2s;
+    text-decoration: none !important; border-radius: 2em; transition: .2s;
     &::before{content: ''; position: absolute;
       right: 25px; top: 24px;
       width: 11px; height: 11px; border: 1px solid $fontInvert; border-bottom: none; border-left: none;
@@ -344,7 +344,7 @@ a:hover .videoThumb{
     color: $fontColor; border-radius: 1.5em;text-decoration: none;
     background:transparent url(../images/icon_enlarge.svg) no-repeat 12px center;
     background-size: 24px auto;
-    &:hover{box-shadow: $primaryColor 0 0 0 1px; color: $primaryColor;background-color: $mainBg;}
+    &:hover, &:focus{box-shadow: $primaryColor 0 0 0 1px; color: $primaryColor;background-color: $mainBg;}
   }
 
 }

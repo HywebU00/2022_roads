@@ -41,7 +41,6 @@ $(function(){
     infinite: false,
     focusOnSelect: true
   });
-
   // --------------------- slick 參數設定：結束
 
 

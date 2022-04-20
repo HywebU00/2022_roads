@@ -63,9 +63,11 @@
 .topRow .topNav{display: none;
   @media screen and (min-width: $wwNormal){
     display: block;
-    position: absolute; right: 3.25vw; top: 0; z-index: 99;
-    padding-top: calc(2.5vw - 1em);
+    position: absolute; right: 3vw; top: 20px; z-index: 99;
+    // padding-top: calc(2.5vw - 1em);
+    padding: 0 5px;
     font-size: 1.125em;
+    background-color: rgba(255,255,255,.8); border-radius: 2em;
     ul{list-style: none; margin:0; padding: 0;}
     &>ul{ overflow: hidden; line-height: 1;
       &>li{ float: left; position: relative; margin: 0; padding: 0 .8em;
@@ -75,10 +77,10 @@
         }
         &:last-child::before{display: none;}
         a{ display: block; position: relative;
-          padding: 0; text-decoration: none; color: $fontColor;
-          height: 2em; line-height: 2;
+          padding: 0; height: 2em; line-height: 2.2;
+          text-decoration: none; color: $fontColor;
           &::after{content: ''; 
-            position: absolute; left: 50%; bottom: .2em; height: 3px; width: 0;
+            position: absolute; left: 50%; bottom: .3em; height: 2px; width: 0;
             background-color: $assistant; transition: .2s;
           }
           &:hover::after, &:focus::after{ width: 100%; left: 0; }

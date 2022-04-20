@@ -229,25 +229,27 @@ $(function(){
 
   // 「實境展覽」固定在視窗右下，下緣不超過 _webFooter，上緣不超過 _topRow
   function vrLinkFixed(){
-
-    // 向下捲，到達 _webFooter
-    if ( _vrLink.offset().top + _vrLink.innerHeight() >= _webFooter.offset().top ) {
-      _vrLink.addClass('bottomStop');
-    }
-    
-    // 向下捲，離開 _topRow
-    if (_vrLink.hasClass('topStop') && _window.scrollTop() >= _vrLink.innerHeight() + _vrLink.offset().top - _window.height()) {
-      _vrLink.removeClass('topStop');
-    }
-
-    // 向上捲，離開 _webFooter
-    if ( _vrLink.hasClass('bottomStop') && _window.scrollTop() + _window.height() <=  _webFooter.offset().top ) {
-      _vrLink.removeClass('bottomStop');
-    }
-
-    // 向上捲，到達 _topRow
-    if ( _vrLink.offset().top <= _topRow.innerHeight() ){
-      _vrLink.addClass('topStop');
+    if ( _vrLink.length > 0 ) {
+      
+      // 向下捲，到達 _webFooter
+      if ( _vrLink.offset().top + _vrLink.innerHeight() >= _webFooter.offset().top ) {
+        _vrLink.addClass('bottomStop');
+      }
+      
+      // 向下捲，離開 _topRow
+      if (_vrLink.hasClass('topStop') && _window.scrollTop() >= _vrLink.innerHeight() + _vrLink.offset().top - _window.height()) {
+        _vrLink.removeClass('topStop');
+      }
+  
+      // 向上捲，離開 _webFooter
+      if ( _vrLink.hasClass('bottomStop') && _window.scrollTop() + _window.height() <=  _webFooter.offset().top ) {
+        _vrLink.removeClass('bottomStop');
+      }
+  
+      // 向上捲，到達 _topRow
+      if ( _vrLink.offset().top <= _topRow.innerHeight() ){
+        _vrLink.addClass('topStop');
+      }
     }
   }
 

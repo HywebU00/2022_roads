@@ -244,7 +244,9 @@ a:focus{outline: none;}
     &:hover, &:focus{ font-size: 1.15em; color: $hilight2; }
     &:focus{box-shadow: $assistant 0 0 0 2px;}
   }
-
+  @media screen and (min-width: $wwMaximum ){
+    &.bottomStop, &.topStop{ right: calc( 50px - 50vw + #{$wwMaximum}/2);}
+  }
   @media screen and (min-width: $wwMaximum + 60px ){
     right: calc( 50vw - #{$wwMaximum}/2 + 20px );
     &.bottomStop, &.topStop{ right: 20px;}

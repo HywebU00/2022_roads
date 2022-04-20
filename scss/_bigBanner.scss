@@ -30,13 +30,15 @@
 
   .flowNav{ position: absolute; bottom: 24px; z-index: 9;
     left: 0; right: 0; text-align: center;
-    ul{list-style: none; margin: 0; padding: 0; border-radius: 20px; overflow: hidden;
-      display: inline-block; background-color: transparentize($fontInvert, .4);
+    ul{list-style: none; margin: 0; padding: 0; overflow: hidden;
+      display: inline-block;  border-radius: 20px; 
+      // background-color: transparentize($fontInvert, .4);
+      background-color: $transLighten;
     }
     li{ margin: 8px; padding: 0; float: left;
       &::before{ content: ''; display: block;
-        width: 8px; height: 8px; border-radius: 50%;transition: .4s;
-        background: $primaryColor; border: none; margin: 0; padding: 0;
+        width: 8px; height: 8px; border-radius: 50%; border: none; margin: 0; padding: 0;
+        background: $primaryColor; transition: .2s;
       }
       &.active{
         &::before{ background: $assistant; box-shadow: $assistant 0 0 0 3px;}

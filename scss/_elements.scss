@@ -221,24 +221,22 @@ a:focus{outline: none;}
 // 「實境展覽」連結圖示
 .vrLink{ display: none;
   @media screen and (min-width: $wwNormal){
-    display: block;text-align: center;
-    position: fixed; bottom: 25px; right: 50px; z-index: 599;
-    
-    // 停在 footer 上面
-    &.bottomStop{position: absolute; right: 50px; bottom: 105px;}
-
-    // 停在 topRow 下面
-    &.topStop{position: absolute; right: 50px; bottom: auto; top: 10px;}
-
+    display: block; text-align: center; z-index: 599;
+    position: fixed; right: 50px; bottom: 0; top: auto; padding: 10px 0 20px;
+   
+    // 停在 .webFooter 上面
+    &.bottomStop{ position: absolute; bottom: 80px; }
+    // 停在 .topRow 下面
+    &.topStop{ position: absolute; top: 0; bottom: auto; }
   }
   a{ position: relative; box-sizing: content-box;
     display: block; width: 2em; padding:85px 35px 25px; line-height: 1.6;
-    background: url(../images/polyBlack.svg) bottom center no-repeat;
+    background: url(../images/polyBlack.svg) center bottom no-repeat;
     background-size:contain;
     text-decoration: none; color: $fontInvert; border-radius: 4px;
     transition: .15s;
 
-    &::before{
+    &::before {
       content: ''; position: absolute; top: 0; left: 0; width: 122px; height: 93px;
       background: url(../images/deco_camera.png) 0 0 no-repeat;
     }
@@ -247,9 +245,9 @@ a:focus{outline: none;}
     &:focus{box-shadow: $assistant 0 0 0 2px;}
   }
 
-  @media screen and (min-width: $wwMaximum ){
-    
-    right: calc( 50vw - #{$wwMaximum}/2 + 50px );
+  @media screen and (min-width: $wwMaximum + 60px ){
+    right: calc( 50vw - #{$wwMaximum}/2 + 20px );
+    &.bottomStop, &.topStop{ right: 20px;}
   }
 }
 

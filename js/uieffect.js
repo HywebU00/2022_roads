@@ -205,28 +205,51 @@ $(function(){
   })
 
 
-  // 向上捲動箭頭 + 實境展連結-----------------------------------------------------
-	var _goTop = $('.goTop');
-  var _vrLink = $('.vrLink');
+  // 向上捲動箭頭 + 「實境展覽」連結-----------------------------------------------------
+  var _goTop = $('.goTop');
+  var _vrLink = $('.vrLink'); // 「實境展覽」連結元件
+  var _topRow = $('.topRow'); // 版頭，含大圖輪播
+
   _goTop.click(function(){
     _html.stop(true,false).animate({scrollTop: 0}, 800);
   });
 
+  vrLinkFixed(); // 「實境展覽」定位模式
 
-	_window.scroll(function() {
-    if ( _window.scrollTop() > 200){
+  _window.scroll(function () {
+    if (_window.scrollTop() > 200) {
       _goTop.addClass('show');
-		} else {
-      _goTop.removeClass('show');
-		}
-    
-    if (_goTop.offset().top + 100 >=  _webFooter.offset().top ) {
-      _vrLink.addClass('bottomStop');
     } else {
+      _goTop.removeClass('show');
+    }
+
+    vrLinkFixed();
+
+  });
+
+  // 「實境展覽」固定在視窗右下，下緣不超過 _webFooter，上緣不超過 _topRow
+  function vrLinkFixed(){
+
+    // 向下捲，到達 _webFooter
+    if ( _vrLink.offset().top + _vrLink.innerHeight() >= _webFooter.offset().top ) {
+      _vrLink.addClass('bottomStop');
+    }
+    
+    // 向下捲，離開 _topRow
+    if (_vrLink.hasClass('topStop') && _window.scrollTop() >= _vrLink.innerHeight() + _vrLink.offset().top - _window.height()) {
+      _vrLink.removeClass('topStop');
+    }
+
+    // 向上捲，離開 _webFooter
+    if ( _vrLink.hasClass('bottomStop') && _window.scrollTop() + _window.height() <=  _webFooter.offset().top ) {
       _vrLink.removeClass('bottomStop');
     }
 
-	});
+    // 向上捲，到達 _topRow
+    if ( _vrLink.offset().top <= _topRow.innerHeight() ){
+      _vrLink.addClass('topStop');
+    }
+  }
 
 
   // 右側點點快速連結 -----------------------------------------------------
@@ -362,6 +385,7 @@ $(function(){
       winResizeTimer = setTimeout(function () {
         clearInterval(autoLoop);
         autoLoop = setInterval( slideForward , duration);
+        vrLinkFixed();
       }, 200);
     });
 

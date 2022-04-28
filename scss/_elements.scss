@@ -417,15 +417,12 @@ a:hover .videoThumb{
           &::before{ left: auto; right: 20px;}
         }
       }
-
-
     }
   }
 
   @media screen and (min-width: $wwNormal){
     width: auto;
   }
-
 }
 
 

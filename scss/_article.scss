@@ -1,4 +1,4 @@
-.cpArticle{ width: $mmw; margin: 0 auto; line-height: 1.9; font-size: 1.15rem; text-align: justify;
+.cpArticle{ width: $mmw; margin: 0 auto; line-height: 1.9; font-size: 1.15em; text-align: justify;
   figure{ background: #fff; margin: 0 auto 1em; padding: 5px; width: 100%;
     text-align: center; @extend %shadow1;
     img{ display: block; width: 100%; max-height: 70vh; object-fit: contain;}
@@ -76,7 +76,7 @@
   li{margin: 5px 0; padding: 0 0 5px 24px; position: relative;
     border-bottom: 1px solid $borderColor;
     &::before{content: ''; width: 8px; height: 8px; background: $fontColorLight;
-      position: absolute; left: 6px; top: 1em;
+      position: absolute; left: 6px; top: 1.125em;
     }
   }
   .fileName{ display: inline-block;vertical-align: middle;}

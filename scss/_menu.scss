@@ -19,7 +19,7 @@
 
   a{ color: $fontInvert; text-decoration: none;}
 
-  .menu{ font-size: 1.15em;
+  .menu{ font-size: 1em;
     &>ul{ line-height: 1.4;border-bottom: 3px solid #fff8;
       li{ border-bottom: 1px solid #fff4;
         &:last-child{ border-bottom: none;}
@@ -71,6 +71,7 @@
   }
 }
 
+// --- 寬版 ---
 @media screen and (min-width: $wwNormal){
   .sidebar{display: none;}
 
@@ -100,7 +101,7 @@
           width: 7vw; height: 7vw; max-width: 84px; max-height: 84px;
         }
   
-        li{font-size: .95em; margin: 0 0 4px;}
+        li{font-size: .88em; margin: 0 0 4px;}
         ul ul{ display: none;}
       }
     }

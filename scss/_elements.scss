@@ -130,8 +130,9 @@ a:focus{outline: none;}
 // 回頁面最上方
 .goTop{
   position: fixed; bottom: -64px; right: -16px;  z-index: 90; 
-  padding: 0 8px 0 44px;margin: 0; height: 2em; line-height: 2.1;
-  text-transform: uppercase; font-family: 'Times New Roman', Times, serif; font-weight: bold;
+  padding: 0 8px 0 44px;margin: 0; height: 2em; line-height: 2.1; 
+  font-size: .87em; text-transform: uppercase;
+  font-family: 'Times New Roman', Times, serif; font-weight: bold;
   border: none; border-radius: 4px; box-shadow: none;
   background: transparentize($primaryColor, .4);color: $fontInvert;
   transform: rotate(90deg); transition:bottom .5s;
@@ -168,9 +169,8 @@ a:focus{outline: none;}
 .mpNav{
   display: none;
   @media screen and (min-width: $wwNormal){
-    display: block;
-    position: fixed; top: 45vh; right: 16px; z-index: 995;
-    transform: translateY(-55%);
+    display: block; position: fixed; top: 45vh; right: 16px; z-index: 995;
+    font-size: .87em; transform: translateY(-55%);
     ul{list-style: none; margin: 0; padding: 0;}
     li{margin:8px auto; padding: 0;
       a{
@@ -287,7 +287,7 @@ button.diskBtn{
 }
 
 
-.more{ margin: 1em -5px; overflow: hidden; padding: 5px;
+.more{ margin: 1em -5px; overflow: hidden; padding: 5px; font-size: .87em;
   a{ position: relative; float: right; 
     height: 3.6em; line-height: 3.6; padding: 0 48px 0 1.6em;
     background: $primaryColor; color: $fontInvert;
@@ -369,7 +369,7 @@ a:hover .videoThumb{
 
 // 瀏覽人次、發布日期、發布單位
 // cp 頁的瀏覽人次與發布日期容器
-.pubInfo{ width: $mmw;
+.pubInfo{ width: $mmw; font-size: .87em;
   padding: 8px; margin: 1em auto; text-align: right;
   border-bottom: 3px solid $borderColorDark;
 
@@ -386,7 +386,7 @@ a:hover .videoThumb{
 
 // 上一則、下一則
 .cpNav{
-  width: $mmw; margin: 1em auto 5em;
+  width: $mmw; margin: 1em auto 5em; font-size: .87em;
   ul{ list-style: none; margin: 0; padding: 0;
     display: flex; justify-content: space-between;
     &>li{margin: 0; padding: 0;

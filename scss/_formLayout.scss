@@ -29,19 +29,16 @@
 // formA /////////////////////////////////
 .formA{
   width: $mmw; margin: 0 auto;
-  .note:first-child{ margin: 0 auto;width: 100%; max-width: 36em;}
-  .formLayout{max-width: 34em;}
+  .note:first-child{ margin: 0 auto; width: calc(100% - 12px);}
   
   @media screen and (min-width: $wwMedium){
-    .note:first-child{max-width: 45em;}
     .note + .formLayout{margin-top: 1.5em;}
-    .formLayout{max-width: 47em;}
   }
   
   @media screen and (min-width: $wwNormal){
     width: auto; padding: 2em 0; background: $transLighten;
-    .note:first-child{ max-width: none;width: 46em;}
-    .formLayout{max-width: none;width: 44em;}
+    .note:first-child{ max-width: none;width: 41em; width: 90%;}
+    .formLayout{max-width: none;width: 90%;}
   }
 }
 

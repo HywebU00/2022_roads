@@ -150,16 +150,18 @@
 // 左邊可能有圖的條列，影片、照片
 .listRow{ width: $mmw; margin: 1em auto;
   ul{list-style: none; padding: 0; margin: 0;}
-  &>ul{ line-height: 1.9; text-align: justify;
-    &>li{ position: relative;margin: 0; padding:35px 0;
-       border-bottom: 1px solid $borderColor;
+  &>ul{ line-height: 1.9; 
+    &>li{
+      position: relative;margin: 0; padding:40px 0; border-bottom: 1px solid $borderColor;
       &>a{ color: $fontColor; text-decoration: none;
-        &:hover{text-decoration: underline;}
+        &:hover, &:focus{
+          h3, article{text-decoration: underline;}
+        }
       }
-       &::after{content: ''; display: block; clear: both;}
+      &::after{content: ''; display: block; clear: both;}
 
-      article{ display: block; margin: 0 auto 1em;}
-      img{ float: left; width: 42vw; /* max-height: 42vw; */ object-fit: contain; 
+      article{ display: block; margin: 0 auto 2em; overflow: hidden; text-align: justify; }
+      img{ float: left; width: 42vw; object-fit: contain; 
         margin: .2em 1em .5em 0; border: 1px solid $borderColorLight; background: #fff;
       }
       .videoThumb{ float: left; 
@@ -183,6 +185,16 @@
         &+h3{ margin-top: .5em;}
       }
       .moreFake{float: right; margin-top: .5em;}
+  
+      time, .visitCount, .from{
+        clear: both; margin-right: 1em; height: 2em; line-height: 2;
+        display: inline-block; font-size: .87em; text-decoration: none;
+        &::before{ content: attr(title) "：" ; display: inline-block; color: $fontColorLight;}
+        // &+time, &+.visitCount,  &+.from{ margin-left: 1em;}
+      }
+      time ~  .more{
+        float: right;
+      }
     }
   }
 

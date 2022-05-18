@@ -190,7 +190,6 @@
         clear: both; margin-right: 1em; height: 2em; line-height: 2;
         display: inline-block; font-size: .87em; text-decoration: none;
         &::before{ content: attr(title) "：" ; display: inline-block; color: $fontColorLight;}
-        // &+time, &+.visitCount,  &+.from{ margin-left: 1em;}
       }
       time ~  .more{
         float: right;

@@ -20,8 +20,8 @@
   a{ color: $fontInvert; text-decoration: none;}
 
   .menu{ font-size: 1em;
-    &>ul{ line-height: 1.4;border-bottom: 3px solid #fff8;
-      li{ border-bottom: 1px solid #fff4;
+    &>ul{ line-height: 1.4;border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+      li{ border-bottom: 1px solid rgba(255, 255, 255, 0.25);
         &:last-child{ border-bottom: none;}
         a{ padding: .9em .8em .8em;
           transition: .2s;
@@ -43,7 +43,7 @@
 
         ul{ 
           display: none; font-size: 1rem;
-          border: 1px solid #fff3; margin: 0 8px 8px 1.2em;
+          border: 1px solid rgba(255, 255, 255, 0.2); margin: 0 8px 8px 1.2em;
         }
       }
       &>li{
@@ -56,10 +56,12 @@
   .topNav{
     ul{ list-style: none; margin: 0; padding: 0;}
     &>ul{display: flex; flex-flow: row wrap; margin: 20px auto 0; width: 92%;
-      &>li{ flex: 1 1 45%; margin: 3px;
+      &>li{
+        flex: 1 1 45%; margin: 3px; line-height: 1.3;
         a{
-          display: block; height: 2.8em; line-height: 2.8;
-          border: 1px solid #fff3; text-align: center;
+          display: block; padding: .9em .5em .7em;
+          // height: 2.8em; line-height: 2.8;
+          border: 1px solid rgba(255, 255, 255, 0.2); text-align: center;
           transition: .2s;
           &:hover, &:focus{ border-color: $hilight; box-shadow: $hilight 0 0 0 1px;}
         }

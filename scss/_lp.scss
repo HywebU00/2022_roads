@@ -161,8 +161,10 @@
       &::after{content: ''; display: block; clear: both;}
 
       article{ display: block; margin: 0 auto 2em; overflow: hidden; text-align: justify; }
-      img{ float: left; width: 42vw; object-fit: contain; 
-        margin: .2em 1em .5em 0; border: 1px solid $borderColorLight; background: #fff;
+      img{
+        float: left; width: 42vw; object-fit: contain; 
+        margin: .2em 1em .5em 0; 
+        // border: 1px solid $borderColorLight; background: #fff;
       }
       .videoThumb{ float: left; 
         width: 45vw; height: 25.25vw; margin: .2em 1em .5em 0;

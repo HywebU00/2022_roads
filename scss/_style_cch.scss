@@ -245,6 +245,18 @@ button.diskBtn{
 // }
 
 
+.sitemap{
+  .cascading{
+    &>ul>li{
+      &>a{
+        border-bottom-color: $assistant2;
+      }
+      a:hover, a:focus{
+        border-bottom-color: $assistant; color: $assistant;
+      }
+    }
+  }
+}
 
 
 // ------------------------------------------------------------------------------------------

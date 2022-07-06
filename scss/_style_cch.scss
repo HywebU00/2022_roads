@@ -2,25 +2,25 @@
 .main{
   background-color: $mainBg;
   @media screen and (min-width: $wwNormal){
-    background-image: url(../images/cch_bg_mp.jpg);
+    background-image: url(../images/cch_bg.jpg);
     background-repeat: repeat-y;
     padding-bottom: 240px;
     &.inner{ 
       background-image: url(../images/cch_bg.jpg); 
-      margin-top: -28.42vw;
+      margin-top: -28.5vw;
     }
   }
   @media screen and (min-width: $wwMaximum){
-    &.inner{margin-top: -1*$wwMaximum*.2842;}
+    &.inner{margin-top: -342px;}
   }
 }
 
 .webHeader{
-  background-color: rgba(255, 255, 255, 0.88);
+  background-color: rgba(0, 0, 0, 0.8);
   @media screen and (min-width: $wwNormal){
     background-color: transparent;
     &::before{ 
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(0, 0, 0, 0.8);
     }
   }
 }
@@ -37,18 +37,23 @@
 @media screen and (min-width: $wwNormal){
   .topRow {
     .menu{
-      &>ul>li>a{ color: $assistant;}
+      &>ul>li>a{ color: #ffd53e;}
     }
 
     .topNav{
+      background-color: rgba(0, 0, 0, 0.75); border-radius: 0;
+      padding: 12px;
+      color: $fontInvert;
+      a{ color: $fontInvert;}
       &>ul{
         &>li{
-          a::after{background-color: $assistant2; }
+          &::before{background-color: $fontInvert;}
+          a{color: $fontInvert;}
+          a::after{background-color: $hilight2; }
         }
       }
     }
   }
-
 }
 
 
@@ -74,11 +79,15 @@
 // 20220406 中橫補
 // 主選單、漢堡選單
 .menuCtrl, .sidebarCtrl{
-  &::before, &::after{
-    background: $fontColor;
+  &::before, &::after{ background: #fff; }
+  &::before{ box-shadow: #fff 0 20px 0;}
+
+  &:hover, &:focus{
+    &::before{ box-shadow: #fff 0 20px 0;}
   }
-  &::before{
-   box-shadow: $fontColor 0 20px 0;
+
+  &.closeIt{
+    &::before{box-shadow: none;}
   }
 }
 
@@ -86,8 +95,7 @@
 .mpNav{
   @media screen and (min-width: $wwNormal){
     li{
-      a:hover::before{ box-shadow: rgba(0,0,0,.5) 0 0 0 2px;}
-      &.focused a::before{box-shadow:  $assistant 0 0 0 2px; }
+      a:hover::before, a:focus::before{ box-shadow: #fff 0 0 0 2px; }
     }
   }
 }
@@ -95,27 +103,47 @@
 
 // 查詢圖示
 .searchCtrl{
-  &::before{border: 3px solid $fontColor;}
-  &::after{ background-color: $fontColor;}
+  &::before{border: 3px solid #fff;}
+  &::after{ background-color: #fff;}
 }
 
 // ---------- 快速查詢區
 .search {
-  input[type="button"]{ color: $fontColor;
-    &:hover{ background-color: $assistant; box-shadow: $assistant 0 0 0 2px;}
-    &:focus{ background-color: $hilight;}
+  input[type="text"]:focus{ box-shadow: #fff 0 0 0 2px, $assistant 0 0 0 1px inset;}
+  input[type="button"]{ 
+    &:hover, &:focus{ background-color: $assistant; box-shadow: $assistant 0 0 0 2px;}
+    &:focus{ box-shadow: $assistant 0 0 0 2px, rgba(255, 255, 255, 0.7) 0 0 0 1px inset;}
   }
 }
 
 // 首頁大圖輪播
 .bigBanner{ 
+  
   .flowNav{
     ul{background-color: rgba(0,0,0,.65);}
     li{
       &::before{background-color: rgba(255, 255, 255, 0.5);}
-      &.active::before{ background: $assistant;}
+      &.active::before{ background: #fff; box-shadow: #fff 0 0 0 2px;}
     }
   }
+
+  @media screen and (min-width: $wwNormal){
+    position: relative;
+    &::before{
+      content: ''; position: absolute; left: 0; bottom: 0; right: 0;
+      width: 100%; height: 16vw;
+      background: url(../images/bigBannerDeco.png)  no-repeat left bottom;
+      background-size: 100% auto;
+      z-index: 9;
+    }
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    &::before{
+      height: 192px;
+    }
+  }
+
 }
 
 // 活動回顧
@@ -124,10 +152,13 @@
     &:nth-child(3n+1)::before{background: url(../images/ploy3-c1-cch.svg) no-repeat 0 0}
     &:nth-child(3n+2)::before{background: url(../images/ploy3-c2-cch.svg) no-repeat 0 0;}
     &:nth-child(3n)::before{background: url(../images/ploy3-c3-cch.svg) no-repeat 0 0;}
-
-    &:nth-child(3n+1) time::after{ color: $assistant1;}
-    &:nth-child(3n+2) time::after{ color: $assistant2;}
-    &:nth-child(3n) time::after{ color: $assistant3;}
+    time{
+      color: $fontInvert;
+      background-repeat: no-repeat; background-position: 0 0;
+    }
+    &:nth-child(3n+1) time{ background-image: url(../images/poly-cch-c1.svg); }
+    &:nth-child(3n+2) time{ background-image: url(../images/poly-cch-c2.svg); }
+    &:nth-child(3n) time{ background-image: url(../images/poly-cch-c3.svg); }
   }
 
 }
@@ -136,12 +167,12 @@
 .flow2{
   .flowList>li{
     figure{
-      figcaption{ background: $assistant; color: $fontColor; }
+      figcaption{ background: #080808;}
     }
     &.active{
       &>a:hover{
         figure{
-          figcaption{background: saturate($assistant, 15%);}
+          figcaption{background: #080808; color: #fff;}
         }
       }
     }
@@ -151,15 +182,17 @@
   }
 
   @media screen and (min-width: $wwNormal){
+    .flowBox{
+      background-image: url(../images/poly-cch-flow2.svg);
+    }
     .flowList>li{
-      figure{ background-color: transparent; 
-        figcaption{
-          color: $fontColor; background-color: transparent;
-        }
+      figure{ 
+        figcaption{color: $fontColor; background-color: transparent;}
       }
       &.active{
-        figure { background-color: $assistant; 
-          figcaption{ color: $fontColor;}
+        figure {
+          background: #080808;
+          figcaption{background: #080808;color: #fff;}
         }
       }
     }
@@ -168,32 +201,26 @@
 
 // 左右箭頭 button
 button.diskBtn{
-  &:hover, &:focus{ background: $assistant;
-    &.prev, &.next{
-      &::before{border-color: $fontColor;}
-      &::after{background: $fontColor;}
-    }
-  }
+  &:hover, &:focus{ background: $assistant;}
   &:hover{ box-shadow: $assistant 0 0 0 3px;}
-  &:focus{ box-shadow: $fontColor 0 0 0 3px;}
+  &:focus{ box-shadow: $assistant 0 0 0 3px;}
 }
 
 // more
 .more{ 
   a{
-    &:hover, &:focus{ background-color: $assistant; color: $fontColor;
-      &::before{border-color: $fontColor; border-width: 2px;}
+    &:hover, &:focus{ background-color: $assistant;
+      &::before{ margin-right: -2px; transition-property:margin; transition-duration: .1s;}
     }
-    &:focus{ box-shadow: $fontColor 0 0 0 3px; }
   }
 }
 
 // X 關閉 button
-.closeThis{
-  &:hover, &:focus{
-    &::before, &::after{background-color: #000;}
-  }
-}
+// .closeThis{
+//   &:hover, &:focus{
+//     &::before, &::after{background-color: #fff;}
+//   }
+// }
 
 // 跳至內容區
 .goCenter{
@@ -206,7 +233,7 @@ button.diskBtn{
 .videoPreview{
   .image{
     .type{
-      background-image: url(../images/polyColor3.svg) ; color: $fontColor; 
+      background-image: url(../images/polyBlack.svg) ; color: $fontInvert; 
     }
   }
 }

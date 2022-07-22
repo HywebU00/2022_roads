@@ -1,3 +1,19 @@
+// ---------- 快捷鍵
+@media screen and (min-width: $wwNormal){
+  .accesskey{ 
+    color: $fontColorLight;
+    &:focus{ outline: 2px solid $hilight;}
+  }
+  .webHeader .accesskey{
+    color: $fontColorLight;
+    &:focus{ color: $hilight;}
+  }
+  .webFooter .accesskey{
+    top: 40px; color: $fontColorLight;
+    &:focus{ color: $hilight;}
+  }
+}
+
 // 行腳中橫數位公路館
 .main{
   background-color: $mainBg;
@@ -89,6 +105,10 @@
   &.closeIt{
     &::before{box-shadow: none;}
   }
+}
+.menuCtrl.closeIt{
+  background-color: transparentize($assistant, .3);
+  &:focus{ background-color:$assistant}
 }
 
 // 本頁快速連結點點
@@ -224,7 +244,7 @@ button.diskBtn{
 
 // 跳至內容區
 .goCenter{
-  &:hover, &:focus{ color: $fontColor;}
+  &:hover, &:focus{ color: $fontInvert;}
 }
 
 

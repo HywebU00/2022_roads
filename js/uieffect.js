@@ -71,26 +71,23 @@ $(function(){
   _menu.find('li').has('ul').addClass('hasChild');
 
   // 寬版「主選單」開合
-  const _sideStripeWidth = 100;
   _menuCtrl.click(function(){
-    ww = _window.width();
-    if (_menu.is(':visible')) {
+    if (_menu.hasClass('reveal')) {
       $(this).removeClass('closeIt');
-      // _menu.removeClass('reveal');
-      if (ww >= wwMaximum) {
-        _menu.animate({left: -1*wwMaximum }, 800, function(){
-          _menu.hide();
-        })
-
-      } else {
-        _menu.animate({left: '-100vw'}, 800, function(){
-          _menu.hide();
-        })
-      }
+      _menu.removeClass('reveal');
+      setTimeout( function(){ _menu.hide(); }, 800);
     } else {
       $(this).addClass('closeIt');
-      // _menu.addClass('reveal');
-      _menu.show().animate({left: _sideStripeWidth}, 800);
+      _menu.show(5, function(){_menu.addClass('reveal')});
+    }
+  })
+
+  // 離開（key Tab out） _menu 隱藏所有次選單
+  $('*').not(_menuCtrl).focus(function(){
+    if( $(this).parents('.menu').length == 0 && _menu.hasClass('reveal') ){
+      _menu.removeClass('reveal');
+      setTimeout( function(){ _menu.hide(); }, 800);
+      _menuCtrl.removeClass('closeIt');
     }
   })
 
@@ -153,7 +150,7 @@ $(function(){
         _sidebar.removeClass('reveal');
         _sidebarCtrl.removeClass('closeIt');
       } else {
-        _menu.hide().removeAttr('style');
+        _menu.removeAttr('style').removeClass('reveal');
         _menuCtrl.removeClass('closeIt');
       }
     }, 200);
@@ -164,7 +161,11 @@ $(function(){
   // 查詢區開合 -----------------------------------------------------
   var _searchCtrl = $('.searchCtrl');
   var _search = $('.search').hide();
+  // var _search = $('.search');
   var _closeSearch = _search.find('.closeThis');
+  _search.append('<button class="skip" typ="button"></button>');
+  var _searchSkip = _search.find('.skip');
+
   _searchCtrl.click(function(){
     if( _search.hasClass('reveal')) {
       searchHide();
@@ -174,9 +175,16 @@ $(function(){
       });
     }
   })
+  
+  // Alt 的鍵盤代碼是 18，S 的鍵盤代碼是 83
+  _body.keyup(function(e){
+    if ((e.altKey) && (e.keyCode == 83)) {
+      _search.show().addClass('reveal').find('input[type="text"]').focus();
+    }
+  })
 
-  _search.find('input[type="text"]').focus(function(){
-    _search.addClass('reveal').show();
+  _searchSkip.focus(function(){
+    _closeSearch.focus();
   })
 
   _closeSearch.click(function () {
@@ -184,7 +192,10 @@ $(function(){
   })
   function searchHide(){
     _search.removeClass('reveal');
-    setTimeout(function(){_search.removeAttr('style').hide()}, 800);
+    setTimeout( function(){
+      _search.removeAttr('style').hide();
+      _searchCtrl.focus();
+    } , 800);
   }
 
 
@@ -265,7 +276,8 @@ $(function(){
   // 產生<li><a>元件
   for (let n = 0; n < roleCount; n++) {
     let rowtext = _mainRow.eq(n).find('.blockHeader>h2').text();
-    rowDotLi = rowDotLi + `<li><a href="#row${n}" title="${rowtext}"></a></li>`;
+    // rowDotLi = rowDotLi + `<li><a href="#row${n}" title="${rowtext}"></a></li>`;
+    rowDotLi = rowDotLi + `<li><a href="#row${n}"><span>${rowtext}</span></a></li>`;
     _mainRow.eq(n).attr('id', 'row' + n);
   }
   _navDotsUl.append(rowDotLi);

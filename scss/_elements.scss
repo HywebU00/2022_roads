@@ -182,16 +182,27 @@ a:focus{outline: none;}
           background: $primaryColor; box-shadow: $fontInvert 0 0 2px 1px;
           background-size: contain;
         }
-        &::after{ content: attr(title);
+        &>span{
           position: absolute; right: -2px; top: -2px; white-space: nowrap; 
           height: 1.5em; line-height: 1.5; border-radius: 1em;
           background-color: transparent; color: transparent;
           width: 0; padding: 0; overflow: hidden;
           transition:background-color .5s, color .5s;
         }
+        // &::after{ content: attr(title);
+        //   position: absolute; right: -2px; top: -2px; white-space: nowrap; 
+        //   height: 1.5em; line-height: 1.5; border-radius: 1em;
+        //   background-color: transparent; color: transparent;
+        //   width: 0; padding: 0; overflow: hidden;
+        //   transition:background-color .5s, color .5s;
+        // }
         &:hover{
           &::before{background: $assistant; box-shadow: $fontInvert 0 0 0 2px;}
-          &::after{
+          // &::after{
+          //   width: auto;padding: 0 25px 0 .6em; 
+          //   background-color: transparentize($fontColor, .4); color: $fontInvert;
+          // }
+          &>span{
             width: auto;padding: 0 25px 0 .6em; 
             background-color: transparentize($fontColor, .4); color: $fontInvert;
           }
@@ -201,7 +212,12 @@ a:focus{outline: none;}
 
       &.focused a{
         &::before{background: $assistant; box-shadow:  $fontInvert 0 0 0 3px; }
-        &::after{
+        // &::after{
+        //   background-color: $fontColor; color: $fontInvert;
+        //   width: auto;padding: 0 25px 0 .6em;
+        //   transition:background-color .5s, color .5s;
+        // }
+        &>span{
           background-color: $fontColor; color: $fontInvert;
           width: auto;padding: 0 25px 0 .6em;
           transition:background-color .5s, color .5s;

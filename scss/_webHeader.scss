@@ -60,7 +60,8 @@
 }
 
 // ---------- 右上導覽列 topNav
-.topRow .topNav{display: none;
+.topRow .topNav{
+  display: none;
   @media screen and (min-width: $wwNormal){
     display: block; position: absolute; right: 24px; top: 24px; z-index: 99;
     padding: 0 5px; font-size: .9em;
@@ -109,7 +110,6 @@
     background-color: $assistant;
     &:hover{ background-color: $hilight; box-shadow: $hilight 0 0 0 2px;}
     &:focus{ background-color: $assistant; box-shadow: $assistant 0 0 0 2px;}
-
   }
 
   // 熱門關鍵字
@@ -125,6 +125,10 @@
 
   &.reveal{ left: 0;}
   .closeThis{ right: 2px; top: 2px; }
+  button.skip{
+    position: absolute; right: 0; bottom: 0; padding: 0;
+    width: 1px; height: 1px; border: none; background: #000;
+  }
 
   @media screen and (min-width: $wwNormal){
     left: 0; top: 55%; right: auto; width: 21em; padding-top: 54px;

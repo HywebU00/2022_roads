@@ -6,8 +6,6 @@
 }
 
 .topRow .menu {display: none;}
-
-
 // 行動版側欄
 .sidebar{ position: fixed; z-index: 990;
   width: $sideBarWidth; margin-left:$sideBarWidth * (-1);
@@ -80,10 +78,15 @@
   // 寬版選單
   .topRow .menu{
     display: none;
-    position: absolute; top: 0; left:-100vw;  width:calc(100vw - #{$sideStripe});
+    position: absolute; top: 0; left:-100vw;
+    width:calc(100vw - #{$sideStripe});height: 100%;
     padding: 6.5vw 5vw 4vw 3vw;
-    height: 100%; overflow-Y: auto; background: $transDarken;
-    
+    overflow-Y: auto; background: $transDarken;
+    transition: left 780ms;
+    &.reveal{
+      // display: block;
+      left: $sideStripe;
+    }
     a{ color: $fontInvert; text-decoration: none; }
 
     &>ul{
@@ -112,8 +115,12 @@
     .topRow .menu{
       width: $wwMaximum - $sideStripe; left: $sideStripe - $wwMaximum;
       padding: 78px 60px 48px 36px; 
-      &>ul>li{
-        padding-left: 96px; }
+      &>ul>li{padding-left: 96px; }
+
+      &.reveal{
+        // display: block;
+        left: $sideStripe;
+      }
     }
   }
 }

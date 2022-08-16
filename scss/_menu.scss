@@ -84,7 +84,6 @@
     overflow-Y: auto; background: $transDarken;
     transition: left 780ms;
     &.reveal{
-      // display: block;
       left: $sideStripe;
     }
     a{ color: $fontInvert; text-decoration: none; }
@@ -118,7 +117,6 @@
       &>ul>li{padding-left: 96px; }
 
       &.reveal{
-        // display: block;
         left: $sideStripe;
       }
     }

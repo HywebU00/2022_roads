@@ -85,7 +85,7 @@
       .slick-slide{
         .meta{ margin: calc(#{$mmw}/3 + 30px) auto 0; }
       }
-      .slick-arrow{top: $mmw/2; }
+      .slick-arrow{top: calc($mmw/2);}
     }
     .slider-nav{ position: absolute; top: $mmw; left: 0; right: 0; }
   }

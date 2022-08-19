@@ -213,7 +213,7 @@
     }
   }
 
-  .flowNav{ position: absolute; bottom: $flowBottom - $dotDia/2 - 1px; z-index: 9;
+  .flowNav{ position: absolute; bottom: calc($flowBottom - $dotDia/2 - 1px); z-index: 9;
     width: calc(100% - 144px - 4vw);
     ul{list-style: none; margin: 0; padding: 0; display: flex;justify-content: center;}
     li{ margin: 0 8px; padding: 0;

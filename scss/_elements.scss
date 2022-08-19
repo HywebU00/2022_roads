@@ -157,7 +157,7 @@ a:focus{outline: none;}
 
   &.show{bottom: 40px; transition:background .3s, box-shadow .3s, bottom .8s;}
 
-  @media screen and (min-width: $wwMaximum + 110px){
+  @media screen and (min-width: calc($wwMaximum + 110px)){
     right: auto;
     left: calc(50% + #{$wwMaximum}/2 - 16px);
   }
@@ -226,7 +226,7 @@ a:focus{outline: none;}
     }
   }
 
-  @media screen and (min-width: $wwMaximum + 96px){
+  @media screen and (min-width: calc($wwMaximum + 96px)){
     right: auto;
     left: calc(50% + #{$wwMaximum}/2 + 12px );
   }
@@ -263,7 +263,7 @@ a:focus{outline: none;}
   @media screen and (min-width: $wwMaximum ){
     &.bottomStop, &.topStop{ right: calc( 50px - 50vw + #{$wwMaximum}/2);}
   }
-  @media screen and (min-width: $wwMaximum + 60px ){
+  @media screen and (min-width: calc($wwMaximum + 60px) ){
     right: calc( 50vw - #{$wwMaximum}/2 + 20px );
     &.bottomStop, &.topStop{ right: 20px;}
   }

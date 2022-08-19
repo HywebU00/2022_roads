@@ -39,7 +39,7 @@ $(function(){
     dots: false,
     centerMode: false,
     infinite: false,
-    focusOnSelect: true
+    focusOnSelect: true,
   });
   // --------------------- slick 參數設定：結束
 
@@ -222,7 +222,9 @@ $(function(){
   var _topRow = $('.topRow'); // 版頭，含大圖輪播
 
   _goTop.click(function(){
-    _html.stop(true,false).animate({scrollTop: 0}, 800);
+    _html.stop(true,false).animate({scrollTop: 0}, 800, function(){
+      $('a#aU').focus();
+    });
   });
 
   vrLinkFixed(); // 「實境展覽」定位模式

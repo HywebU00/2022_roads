@@ -14,6 +14,16 @@ a{ color: $linkColor; text-decoration: underline;
   &:hover, &:focus{text-decoration: none; color: $assistant;}
 }
 
+// ----<noscript>
+.no-js  noscript{ line-height: 1.7;}
+.no-js .webHeader > noscript{
+  position: absolute; left: 100px; top: 80px;
+  width: 32em; height: auto; padding: 15px;
+  background: rgba(0,0,0,.8); color: $fontInvert;
+  a{color: $hilight2;}
+}
+
+
 // 放 版頭（.webHeader）和 大圖輪播（.bigBanner）-------------------------------------------- //
 .topRow{
   position: relative;  overflow: hidden;

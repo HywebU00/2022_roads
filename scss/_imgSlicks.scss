@@ -54,14 +54,20 @@
     }
   }
   
-  .slider-nav{ margin: 10px auto; padding: 5px 0 5px 10px;
+  .slider-nav{ 
+    margin: 10px auto; padding: 5px 0 5px 10px;
     background: $transLighten;
-    .slick-slide{ cursor: pointer;display: block;
+    .slick-slide{ 
+      cursor: pointer;display: block;
       height: calc(#{$mmw}/3 - 10px);padding: 5px; margin: 5px;
       box-shadow: $borderColor 0 0 0 1px inset;
       img{ display: block; height: 100%; width: auto; object-fit: contain;}
-
-      &.slick-current{ box-shadow: $hilight 0 0 0 3px inset; }
+      &:hover{ box-shadow: $borderColorDark 0 0 0 1px inset;}
+      &:focus{box-shadow: $borderColorDark 0 0 0 2px inset; outline: none;}
+      &.slick-current{ 
+        box-shadow: $hilight 0 0 0 2px inset;
+        &:focus{ box-shadow: $hilight 0 0 0 4px inset;}
+      }
     }
     .slick-arrow{
       background-color: rgba(255,255,255,.4);

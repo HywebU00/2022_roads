@@ -61,6 +61,22 @@ $(function(){
       _current.text( _countThis.find('.slick-current').index()+1);
     })
   })
+
+
+  // 使用 slick 套件的導覽小圖，點擊對應另一組 slick 大圖
+  // 用於 cp_image_slide.html, cp_image_slide2.html, cp_image_slide3.html
+  var _slideNav = $('.imgSlick').find('.slider-nav');
+  _slideNav.each(function(){
+    let _navItem = $(this).find('.slick-slide');
+    _navItem.focus( function(){
+      $(this).keyup(function (e) { 
+        if( e.keyCode == 13 ){
+          $(this).trigger('click');
+        }
+      });  
+    })
+  })
+
   
 
 
@@ -956,12 +972,20 @@ $(function(){
   var _lightbox = $('.lightbox');
   var _hideLightbox = _lightbox.find('.closeThis');
   var _lightboxNow;
+  var _lbFlag;
   const speed = 400;
 
   _lightbox.before('<div class="coverAll"></div>');
+  _lightbox.append('<button type="button" class="skip"></button>');
   var _cover = $('.coverAll');
-  
+  var _skipToClose = _lightbox.find('.skip');
+
+  _skipToClose.focus( function () {
+    _hideLightbox.focus();
+  })
+
   _showLightbox.click(function(){
+    _lbFlag = $(this);
     let boxID = $(this).attr('data-id');
 
     _lightboxNow = _lightbox.filter( function(){ return $(this).attr('data-id') === boxID} );
@@ -984,6 +1008,7 @@ $(function(){
     _targetLbx.stop(true, false).fadeOut(speed,
       function(){
         _targetLbx.removeClass('show');
+        _lbFlag.focus();
       }
     );
     _targetLbx.prev(_cover).fadeOut(speed);

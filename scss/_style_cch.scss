@@ -15,14 +15,14 @@
 }
 
 // 行腳中橫數位公路館
+body{background-color: darken($mainBg, 18%);}
 .main{
   background-color: $mainBg;
+  background-image: url(../images/cch_bg.jpg);
+  background-repeat: repeat-y;
   @media screen and (min-width: $wwNormal){
-    background-image: url(../images/cch_bg.jpg);
-    background-repeat: repeat-y;
     padding-bottom: 240px;
     &.inner{ 
-      background-image: url(../images/cch_bg.jpg); 
       margin-top: -28.5vw;
     }
   }

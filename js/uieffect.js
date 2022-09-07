@@ -369,10 +369,10 @@ $(function(){
 
     function slideForward() {
       j = (i + 1) % count;
-      _flowItem.eq(i).stop(true, false).animate({'left': '-100%'}, speed, function(){
+      _flowItem.eq(i).stop(true, true).animate({'left': '-100%'}, speed, function(){
         $(this).css('left', '100%');
       })
-      _flowItem.eq(j).stop(true, false).animate({ 'left': 0}, speed);
+      _flowItem.eq(j).stop(true, true).animate({ 'left': 0}, speed);
       _indicatItem.eq(i).removeClass(actClassName);
       _indicatItem.eq(j).addClass(actClassName);
       i = j;

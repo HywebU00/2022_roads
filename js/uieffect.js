@@ -340,6 +340,7 @@ $(function(){
     let j;
     let _dots = '';
     let _indicatItem;
+    let autoLoop;
     
     if (count > 1){
       // 產生 indicator
@@ -351,21 +352,24 @@ $(function(){
       _indicator.append(_dots);
       _indicatItem = _indicator.find('li');
       _indicatItem.eq(i).addClass(actClassName);
+
+      // 開始自動輪播
+      autoLoop = setInterval( slideForward , duration);
+
+      // 滑鼠移入、移出輪播區
+      _floxBox.mouseenter(function(){
+        clearInterval(autoLoop);
+      });
+      _floxBox.mouseleave(function(){
+        clearInterval(autoLoop);
+        autoLoop = setInterval( slideForward , duration);
+      });
+
     } else {
       _btnRight.add(_btnLeft).hide();
     }
 
-    // 開始自動輪播
-    let autoLoop = setInterval( slideForward , duration);
 
-
-    // 滑鼠移入、移出輪播區
-    _floxBox.mouseenter(function(){
-      clearInterval(autoLoop);
-    });
-    _floxBox.mouseleave(function(){
-      autoLoop = setInterval( slideForward , duration);
-    });
 
     function slideForward() {
       j = (i + 1) % count;
@@ -407,7 +411,7 @@ $(function(){
       swipeRight: function () {slideBackward();},
       swipeLeft: function () {slideForward();},
       threshold: 20,
-    });      
+    });
 
 
     // 改變視窗大小時，暫停自動輪播
@@ -415,8 +419,10 @@ $(function(){
     _window.resize(function () {
       clearTimeout(winResizeTimer);
       winResizeTimer = setTimeout(function () {
-        clearInterval(autoLoop);
-        autoLoop = setInterval( slideForward , duration);
+        if (count > 1){
+          clearInterval(autoLoop);
+          autoLoop = setInterval( slideForward , duration);
+        }
         vrLinkFixed();
       }, 200);
     });

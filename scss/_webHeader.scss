@@ -7,11 +7,17 @@
   .decoImg{display: none;}
 
   h1{margin: 0 64px; padding: 0; height: 64px; overflow: hidden;
-    &>a{ display: block;}
     img{ position: static;
       &.normal { display: none;}
-      &.mobile { display: block; margin: 5px;
-        width: calc( 100vw - 138px); height: 54px; object-fit: contain;}
+      &.mobile { 
+        display: block; margin: 5px;
+        width: calc( 100vw - 138px); height: 54px; object-fit: contain;
+      }
+    }
+    &>a{
+      &:nth-child(1){display: none;}
+      &:nth-child(2){ display: block;}
+      &:hover, &:focus{ box-shadow: $hilight 0 0 0 2px inset;}
     }
   }
 
@@ -40,7 +46,14 @@
       text-indent: -20em; overflow: hidden;
       img{
         &.mobile{ display: none;}
-        &.normal{ display: block; width: 100%; height: auto; margin: 0;}}
+        &.normal{ display: block; width: 100%; height: auto; margin: 0;}
+      }
+      &>a{
+        &:nth-child(2){display: none;}
+        &:nth-child(1){ display: block;}
+        &:hover, &:focus{ box-shadow: $hilight 0 0 0 2px inset;}
+      }
+  
     }
   
     .decoImg{ display: block; z-index: 8;

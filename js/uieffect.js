@@ -117,7 +117,7 @@ $(function(){
   var _sidebarMenu = _sidebar.find('.menu');
   var _hasChild = _sidebarMenu.find('.hasChild>a');
   var _sidebarMask = $('.sidebarMask');
-  _hasChild.click(
+  _hasChild.click(  
     function(e){
       e.preventDefault();
 
@@ -239,7 +239,7 @@ $(function(){
 
   _goTop.click(function(){
     _html.stop(true,false).animate({scrollTop: 0}, 800, function(){
-      $('a#aU').focus();
+      $('.goCenter').focus();
     });
   });
 
@@ -365,6 +365,31 @@ $(function(){
         autoLoop = setInterval( slideForward , duration);
       });
 
+      // touch and swipe 左右滑動
+      _floxBox.swipe({
+        swipeRight: function () {slideBackward();},
+        swipeLeft: function () {slideForward();},
+        threshold: 20,
+      });
+
+      // tab 鍵遊走
+      _flowItem.children('a').focus(function(){
+        clearInterval(autoLoop);
+        $(this).parent().css('left', 0).siblings().css('left', '-100%');
+        i = $(this).parent().index();
+        _indicatItem.removeClass(actClassName).eq(i).addClass(actClassName);
+      })
+      _flowItem.last().children('a').blur( function(){
+        _flowItem.css('left', '100%');
+        _flowItem.last().css('left', 0);
+        i = count - 1;
+        j = (i + 1) % count;
+      })
+      _floxBox.focusout( function(){
+        clearInterval(autoLoop);
+        autoLoop = setInterval( slideForward , duration);
+      })
+
     } else {
       _btnRight.add(_btnLeft).hide();
     }
@@ -402,16 +427,12 @@ $(function(){
       clearInterval(autoLoop);
       slideBackward();
     });
+    // 點擊向右箭頭
     _btnRight.add(_btnLeft).focus(function(){
       clearInterval(autoLoop);
     })
 
-    // touch and swipe 左右滑動
-    _floxBox.swipe({
-      swipeRight: function () {slideBackward();},
-      swipeLeft: function () {slideForward();},
-      threshold: 20,
-    });
+
 
 
     // 改變視窗大小時，暫停自動輪播
@@ -427,23 +448,7 @@ $(function(){
       }, 200);
     });
 
-    // tab 鍵遊走
-    _flowItem.children('a').focus(function(){
-      clearInterval(autoLoop);
-      $(this).parent().css('left', 0).siblings().css('left', '-100%');
-      i = $(this).parent().index();
-      _indicatItem.removeClass(actClassName).eq(i).addClass(actClassName);
-    })
-    _flowItem.last().children('a').blur( function(){
-      _flowItem.css('left', '100%');
-      _flowItem.last().css('left', 0);
-      i = count - 1;
-      j = (i + 1) % count;
-    })
-    _floxBox.focusout( function(){
-      clearInterval(autoLoop);
-      autoLoop = setInterval( slideForward , duration);
-    })
+
 
 
   })

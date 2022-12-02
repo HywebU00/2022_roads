@@ -10,6 +10,19 @@
   img.fl{ float: left; margin:0 1em .5em 0;}
   img.fr{ float: right; margin:0 0 .5em 1em;}
 
+  a{
+    &>img{
+      display: block;border: 1px solid $linkColor;
+      transition: .2s;
+    }
+    &:hover{
+      &>img{box-shadow: $assistant 0 0 0 2px;}
+    }
+    &:focus{
+      &>img{ border-color: $fontInvert;box-shadow: $assistant 0 0 0 3px;}
+    }
+  }
+
   h3, h4, h5, h6{ font-weight: bold; margin: 2rem 0 .5rem;
     & + p{margin-top: .5rem;}
   }

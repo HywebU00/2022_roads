@@ -26,9 +26,11 @@ $(function(){
   $('.slider-for').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
+    speed : 400,
     arrows: true,
     fade: true,
     infinite: false,
+    accessibility: true,
     asNavFor: '.slider-nav'
   });
   $('.slider-nav').slick({
@@ -62,6 +64,28 @@ $(function(){
     })
   })
 
+  // 20221227 無障礙修改：開燈箱的圖片可由 tab 鍵 focus
+  var _lbxPhotoImgSlick = $('.imgSlick').has('.showLightbox');
+  var _lbxTrigger = _lbxPhotoImgSlick.find('.showLightbox');
+  var _sliderBtns = _lbxPhotoImgSlick.find('.slick-arrow');
+  var _sliderNav = _lbxPhotoImgSlick.find('.slider-nav');
+  var _sliderNavImgDiv = _sliderNav.find('.slick-slide');
+  console.log(_sliderNavImgDiv);
+
+  // 把目前顯示的圖的容器 和 導覽小圖的容器的 tabindex 由 -1 改為 0，才能被 focus
+  _lbxTrigger.filter('.slick-active').attr('tabindex', 0);
+  _sliderNavImgDiv.attr('tabindex', 0);
+
+  // 每次點左右箭頭或小圖都要再重新設定 tabindex
+  _sliderBtns.add(_sliderNavImgDiv).click( function(){
+    setTimeout( function(){
+      _lbxTrigger.filter('.slick-active').attr('tabindex', 0);
+      _sliderNavImgDiv.attr('tabindex', 0);
+    }, 500 )
+  })
+  // 20221227 修改結束
+
+
 
   // 使用 slick 套件的導覽小圖，點擊對應另一組 slick 大圖
   // 用於 cp_image_slide.html, cp_image_slide2.html, cp_image_slide3.html
@@ -69,7 +93,7 @@ $(function(){
   _slideNav.each(function(){
     let _navItem = $(this).find('.slick-slide');
     _navItem.focus( function(){
-      $(this).keyup(function (e) { 
+      $(this).keyup(function (e) {
         if( e.keyCode == 13 ){
           $(this).trigger('click');
         }

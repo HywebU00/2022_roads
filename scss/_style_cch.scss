@@ -221,9 +221,9 @@ body{background-color: darken($mainBg, 18%);}
 
 // 左右箭頭 button
 button.diskBtn{
-  &:hover, &:focus{ background: $assistant;}
-  &:hover{ box-shadow: $assistant 0 0 0 3px;}
-  &:focus{ box-shadow: $assistant 0 0 0 3px;}
+  // &:hover, &:focus{ background: $assistant;}
+  &:hover{ background: $assistant}
+  &:focus{ background: $assistant;box-shadow:$fontInvert 0 0 0 1px, $assistant 0 0 0 4px;}
 }
 
 // more

@@ -275,8 +275,11 @@ button.diskBtn{
   border: none; width: 64px; height: 64px; border-radius: 50%; overflow: hidden;
   background: $primaryColor; color: $fontInvert; text-indent: -10em;
 
-  &:hover, &:focus{
+  &:hover{
     background: $assistant; box-shadow: $assistant 0 0 0 3px;
+  }
+  &:focus{
+    box-shadow:$fontInvert 0 0 0 1px, $assistant 0 0 0 3px;
   }
 
   &.prev, &.next{
@@ -417,8 +420,12 @@ a:hover .videoThumb{
           transform: rotate(45deg); transition: .2s;
         }
 
-        &:hover{box-shadow:$borderColor 0 0 0 2px, rgba(0,0,0,.45) 0 6px 18px -4px;
-          color: $hilight;
+        &:hover{
+          box-shadow:$borderColor 0 0 0 2px, rgba(0,0,0,.45) 0 6px 18px -4px;
+        }
+        &:focus{
+          background-color: $primaryColor;color: $fontInvert;
+          box-shadow:$hilight 0 0 0 3px, rgba(0,0,0,.45) 0 6px 18px -4px;
           &::before{ border-color: $hilight;}
         }
       }

@@ -2,20 +2,25 @@
   ul{ list-style: none; margin: 0; padding: 0; line-height: 1.1;
     &::after{ content: ''; display: block; clear: both;}
   }
-  li{ float: left; margin: 3px;
+  li{ float: left; margin:4px 4px 5px;
     a {display: block; 
       color: $fontInvert; background: $primaryColor; text-decoration: none;
       height: 2.6em; line-height: 2.6em; padding: 0 1em;
       border-radius: 1.5em; transition: .2s;
-      &:hover, &:focus{ box-shadow: $primaryColor 0 0 0 2px;}
+      &:hover { box-shadow: $primaryColor 0 0 0 2px;}
+      &:focus { box-shadow:$hilight2 0 0 0 3px, $primaryColor 0 0 0 4px;}
       
     }
     &.active{
-      a{background-color: $hilight; box-shadow: $hilight 0 0 0 2px;
-        &:hover, &:focus{box-shadow:rgba(255,255,255,.7) 0 0 0 1px, $hilight 0 0 0 3px;}
-        &::before{content: ''; display: inline-block; vertical-align: middle;
-          width: 8px; height: 8px; margin: -3px 6px 0 -6px;
-          background-color: $hilight2; border-radius: 50%;}
+      a{background-color: $hilight2; box-shadow: $primaryColor 0 0 0 3px;
+        color: $primaryColor;
+        &:hover, &:focus{
+          box-shadow:#fff 0 0 0 3px, $primaryColor 0 0 0 5px;
+          background-color: $hilight; color: #fff;
+        }
+        // &::before{content: ''; display: inline-block; vertical-align: middle;
+        //   width: 8px; height: 8px; margin: -3px 6px 0 -6px;
+        //   background-color: $hilight2; border-radius: 50%;}
       }
     }
   }

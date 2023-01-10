@@ -19,6 +19,7 @@
       &>img{box-shadow: $assistant 0 0 0 2px;}
     }
     &:focus{
+      outline: 2px solid $assistant;
       &>img{ border-color: $fontInvert;box-shadow: $assistant 0 0 0 3px;}
     }
   }

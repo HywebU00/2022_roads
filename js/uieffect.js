@@ -111,13 +111,16 @@ $(function(){
   _menu.find('li').has('ul').addClass('hasChild');
 
   // 寬版「主選單」開合
+  const menuCtrlText1 = '顯示主選單';
+  const menuCtrlText2 = '隱藏主選單';
+  _menu.hasClass('reveal') ?  _menuCtrl.text(menuCtrlText2) : _menuCtrl.text(menuCtrlText1);
   _menuCtrl.click(function(){
     if (_menu.hasClass('reveal')) {
-      $(this).removeClass('closeIt');
+      $(this).removeClass('closeIt').text(menuCtrlText1);
       _menu.removeClass('reveal');
       setTimeout( function(){ _menu.hide(); }, 800);
     } else {
-      $(this).addClass('closeIt');
+      $(this).addClass('closeIt').text(menuCtrlText2);
       _menu.show(5, function(){_menu.addClass('reveal')});
     }
   })
@@ -199,11 +202,13 @@ $(function(){
 
 
   // 查詢區開合 -----------------------------------------------------
-  var _searchCtrl = $('.searchCtrl');
+  const searchCtrlText1 = '顯示查詢區';
+  const searchCtrlText2 = '隱藏查詢區';
   var _search = $('.search').hide();
-  // var _search = $('.search');
+  var _searchCtrl = $('.searchCtrl').text(searchCtrlText1);
+
   var _closeSearch = _search.find('.closeThis');
-  _search.append('<button class="skip" typ="button"></button>');
+  _search.append('<button class="skip" typ="button">跳到關閉按鈕</button>');
   var _searchSkip = _search.find('.skip');
 
   _searchCtrl.click(function(){
@@ -212,6 +217,7 @@ $(function(){
     } else {
       _search.show(0, function(){
         $(this).addClass('reveal');
+        _searchCtrl.text(searchCtrlText2);
       });
     }
   })
@@ -232,6 +238,7 @@ $(function(){
   })
   function searchHide(){
     _search.removeClass('reveal');
+    _searchCtrl.text(searchCtrlText1);
     setTimeout( function(){
       _search.removeAttr('style').hide();
       _searchCtrl.focus();

@@ -88,17 +88,27 @@ a:focus{outline: none;}
 .closeThis{
   position: absolute; right: 0; top: 0;
   border: none; background: none; margin: 0; overflow: hidden;
-  width: 44px; height: 44px; text-indent: -10em;
+  width: 44px; height: 44px; text-indent: -20em;
   transition: background-color .2s;
   &::before, &::after{
     content: ''; position: absolute; width: 20px; height: 2px; background: #fff;
     top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(45deg);
   }
   &::after{ width: 2px; height: 20px;}
-  &:hover, &:focus{ background-color: $assistant;}
-  &:focus{ box-shadow: $assistant 0 0 0 2px;}
-}
+  &:hover, &:focus { background-color: $assistant;box-shadow:none;}
 
+  &.reFocuse:focus{
+    background-color: $notice;
+    // box-shadow: rgba(255,255,255,1) 0 0 0 1px inset, $notice 0 0 0 2px;
+    animation: closeThisAni 2s 1;
+  }
+}
+@keyframes closeThisAni {
+  0% {box-shadow: rgba(255,255,255,0) 0 0 0 1px inset, transparent 0 0 0 2px;} 
+  20% {box-shadow: rgba(255,255,255,1) 0 0 0 1px inset, $notice 0 0 0 2px;}
+  60% {box-shadow: rgba(255,255,255,1) 0 0 0 1px inset, $notice 0 0 0 2px;}
+  100% {box-shadow: rgba(255,255,255,0) 0 0 0 1px inset, transparent 0 0 0 2px;}
+}
 // 燈箱遮罩
 .coverAll{ 
   display: none ;
@@ -446,6 +456,14 @@ a:hover .videoThumb{
   @media screen and (min-width: $wwNormal){
     width: auto;
   }
+}
+
+// 藏在燈箱最後的 button, 用來跳回Ｘ
+button.skip{
+  position: absolute; right: 0; bottom: 0; 
+  width: 1px; height: 1px; padding: 0;
+  border: none; background: none;
+  overflow: hidden;
 }
 
 

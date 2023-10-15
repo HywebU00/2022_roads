@@ -35,13 +35,14 @@ $(function(){
   });
   $('.slider-nav').slick({
     variableWidth: true,
-    slidesToShow: 3,  
+    slidesToShow: 1,  
     slidesToScroll: 1,
     asNavFor: '.slider-for',
     dots: false,
     centerMode: false,
     infinite: false,
     focusOnSelect: true,
+    arrows: false
   });
   // --------------------- slick 參數設定：結束
 
@@ -64,13 +65,14 @@ $(function(){
     })
   })
 
+
   // 20221227 無障礙修改：開燈箱的圖片可由 tab 鍵 focus
   var _lbxPhotoImgSlick = $('.imgSlick').has('.showLightbox');
   var _lbxTrigger = _lbxPhotoImgSlick.find('.showLightbox');
   var _sliderBtns = _lbxPhotoImgSlick.find('.slick-arrow');
   var _sliderNav = _lbxPhotoImgSlick.find('.slider-nav');
   var _sliderNavImgDiv = _sliderNav.find('.slick-slide');
-  console.log(_sliderNavImgDiv);
+  // console.log(_sliderNavImgDiv);
 
   // 把目前顯示的圖的容器 和 導覽小圖的容器的 tabindex 由 -1 改為 0，才能被 focus
   _lbxTrigger.filter('.slick-active').attr('tabindex', 0);
@@ -89,17 +91,36 @@ $(function(){
 
   // 使用 slick 套件的導覽小圖，點擊對應另一組 slick 大圖
   // 用於 cp_image_slide.html, cp_image_slide2.html, cp_image_slide3.html
-  var _slideNav = $('.imgSlick').find('.slider-nav');
-  _slideNav.each(function(){
-    let _navItem = $(this).find('.slick-slide');
-    _navItem.focus( function(){
+  var _imgSlick = $('.imgSlick');
+  _imgSlick.each(function(){
+    let _thisSlick  = $(this);
+    let _slideNav = _thisSlick.find('.slider-nav');
+    let _navItem = _slideNav.find('.slick-slide');
+    let _slickArrow = _thisSlick.find('.slider-for').find('.slick-arrow');
+
+    _navItem.on('focus', function(){
       $(this).keyup(function (e) {
-        if( e.keyCode == 13 ){
+        if( e.key == "Tab" ){
           $(this).trigger('click');
         }
       });  
     })
+
+    // 20231013 無障礙修改：大小圖同步 slide
+    // 把導覽小圖的 aria-hidden 由 true 改為 false，img 的替代文字才能被語音報讀軟體報讀
+    _navItem.attr('aria-hidden', 'false');
+
+    // 每次點左右箭頭或小圖都要再重新設定 aria-hidden = "false"
+    _slickArrow.add(_navItem).click(function () {
+      setTimeout(function () {
+        _navItem.attr('aria-hidden', 'false');
+      }, 500)
+    })
+    // 20231013 修改結束
+
   })
+
+
 
   
 
@@ -208,7 +229,7 @@ $(function(){
   var _searchCtrl = $('.searchCtrl').text(searchCtrlText1);
 
   var _closeSearch = _search.find('.closeThis');
-  _search.append('<button class="skip" typ="button">跳到關閉按鈕</button>');
+  _search.append('<button class="skip" type="button">跳到關閉按鈕</button>');
   var _searchSkip = _search.find('.skip');
 
   _searchCtrl.click(function(){
@@ -652,10 +673,14 @@ $(function(){
     _indicatItem.removeClass(actClassName).eq(1).addClass(actClassName);
     _flowItem.removeClass(actClassName).eq(1).addClass(actClassName);
 
+    // tabindex 初始值
+    _flowItem.children('a').attr('tabindex', -1);
+    _flowItem.filter('.active').children('a').attr('tabindex', 0);
+
     function slideForward() {
       j = (i + 1) % slideCount;
-      _flowItem.eq(j).removeClass(actClassName);
-      _flowItem.eq((j + 1) % slideCount).addClass(actClassName);
+      _flowItem.eq(j).removeClass(actClassName).children('a').attr('tabindex', -1);
+      _flowItem.eq((j + 1) % slideCount).addClass(actClassName).children('a').attr('tabindex', 0);
 
       _flowList.stop(true, false).animate({'left': -1 * slideDistance}, speed, function () {
         _flowList.css('left', 0);
@@ -668,8 +693,8 @@ $(function(){
 
     function slideBackward() {
       j = (i - 1) % slideCount;
-      _flowItem.eq((i + 1) % slideCount).removeClass(actClassName);
-      _flowItem.eq(i).addClass(actClassName);
+      _flowItem.eq((i + 1) % slideCount).removeClass(actClassName).children('a').attr('tabindex', -1);
+      _flowItem.eq(i).addClass(actClassName).children('a').attr('tabindex', 0);
       _flowItem.eq(j).prependTo(_flowList);
       _flowList.css('left', -1 * slideDistance);
 
@@ -677,7 +702,7 @@ $(function(){
         _indicatItem.removeClass(actClassName).eq(i).addClass(actClassName);
         i = j;
       });
-    }
+    } 
 
     // 點擊向右箭頭
     _btnRight.click(function () { slideForward(); });
@@ -693,20 +718,20 @@ $(function(){
     });
 
     // tab focus
-    let tabCount = 0;
-    _flowItem.children('a').focus(function(e){
-      e.preventDefault();
-      if (tabCount == 0) {
-        slideBackward();
-        tabCount++;
-      } else if ( tabCount < slideCount) {
-        slideForward();
-        tabCount++;
-      } else {
-        _btnLeft.focus();
-        tabCount = 0;
-      }
-    })
+    // let tabCount = 0;
+    // _flowItem.children('a').focus(function(e){
+    //   e.preventDefault();
+    //   if (tabCount == 0) {
+    //     slideBackward();
+    //     tabCount++;
+    //   } else if ( tabCount < slideCount) {
+    //     slideForward();
+    //     tabCount++;
+    //   } else {
+    //     _btnLeft.focus();
+    //     tabCount = 0;
+    //   }
+    // })
     
 
     let winResizeTimer;
@@ -1017,13 +1042,15 @@ $(function(){
   var _lbFlag;
   const speed = 400;
 
+  _hideLightbox.text('click 或按 enter 鍵關閉燈箱');
   _lightbox.before('<div class="coverAll"></div>');
-  _lightbox.append('<button type="button" class="skip"></button>');
+  _lightbox.append('<button type="button" class="skip">跳到「關閉燈箱」</button>');
   var _cover = $('.coverAll');
   var _skipToClose = _lightbox.find('.skip');
 
   _skipToClose.focus( function () {
-    _hideLightbox.focus();
+    _hideLightbox.focus().addClass('reFocuse');
+    setTimeout( () => _hideLightbox.removeClass('reFocuse'), 2100);
   })
 
   _showLightbox.click(function(){
@@ -1032,7 +1059,8 @@ $(function(){
 
     _lightboxNow = _lightbox.filter( function(){ return $(this).attr('data-id') === boxID} );
     _lightboxNow.stop(true, false).fadeIn(speed).addClass('show');
-    _lightboxNow.find('.closeThis').focus();
+    // _lightboxNow.find('.closeThis').focus();
+    _skipToClose.focus();
     _lightboxNow.prev(_cover).fadeIn(speed);
     _body.addClass('noScroll');
   })
@@ -1055,6 +1083,7 @@ $(function(){
     );
     _targetLbx.prev(_cover).fadeOut(speed);
     _body.removeClass('noScroll');
+    _hideLightbox.removeClass('reFocuse');
   })
 
   _cover.click(function(){

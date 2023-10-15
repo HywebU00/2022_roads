@@ -31,9 +31,12 @@
       }
 
       &>a{
-        &::before{ content: ''; display: none;
+        position: relative; 
+        &::before{ 
+          content: ''; 
+          display: none;
           position: absolute; left: 0;right: 0;top: 0;bottom: 0;
-          box-shadow: $assistant 0 0 0 2px inset;
+          box-shadow: $assistant 0 0 0 2px;
         }
         &:focus::before{ display: block; z-index: 9;}
         &:hover{ 
@@ -93,8 +96,8 @@
     // ---------- flowList
     .flowList{ padding: 10vw 0 6vw; margin: 0 0 10px;
       &>li{
-        height: calc(30vw + 100px); width: auto; flex-basis: 8vw;
-        padding: 60px 5vw 0; font-size: .85em; line-height: 1.8;
+        flex-basis: 9vw; width: auto; height: calc(30vw + 115px);
+        padding: 60px 4.5vw 0; font-size: .85em; line-height: 1.8;
         transition: .8s ease-out;
 
         &::before, &::after{
@@ -104,10 +107,13 @@
         &::before{ left: 0;}
         &::after{ right: 0;}
 
-        figure{ width: 8vw; background-color: transparent; overflow: visible; transition:transform .3s;
-          img{ width: 8vw;  height: 6vw; transition: .6s;}
+        figure{ 
+          width: 9vw; 
+          overflow: visible; 
+          background-color: transparent; transition:transform .3s;
+          img{ width: 100%; height: 6vw; transition: .6s;}
           figcaption{
-            width: calc(8vw + 1em); padding: .6em 0 0; margin: 0 -.5em;
+            width: 100%; padding: .6em 0 0; margin: 0;
             color: $fontColor; background-color: transparent;
           }
         }
@@ -117,7 +123,9 @@
         &.active{ 
           flex: 0 0 64vw; padding-right: 0; padding-top: 0; font-size: 1em; 
           &::before, &::after{ display: none;}
-          figure{ position: relative; width: 100%; background-color: $assistant1;
+          figure{ 
+            position: relative; width: 100%;
+            background-color: $assistant1;
             img{ width: 40vw; height: 30vw;}
             figcaption{
               position: absolute; left: 40vw;bottom: 0; top: 0; 
@@ -148,29 +156,33 @@
   }
 
   @media screen and (min-width: $wwMaximum){
-    .flowBox{
-      background-position: $wwMaximum*.18 0;
-    }
+
+    .flowBox{background-position: $wwMaximum*.18 0;}
 
     .flowList{ 
       padding: $wwMaximum*.1 0 $wwMaximum*.06;
       background-position: calc( #{$wwMaximum}*.18 - 2px) 0;
 
       &>li{
-        width: $wwMaximum*.18; flex-basis: $wwMaximum*.18;
-        padding-left: $wwMaximum*.05; padding-right: $wwMaximum*.05;
-        height: calc(#{$wwMaximum}*.3 + 100px);
+        height: calc( $wwMaximum*.3 + 115px);
+        width: $wwMaximum*.18; 
+        flex-basis: $wwMaximum*.18;
+        padding-left: $wwMaximum*.045; padding-right: $wwMaximum*.045;
         &::before, &::after {
           top: calc(60px + #{$wwMaximum}*.06 + 1.4em); width: $wwMaximum*.04;
         }
 
         figure{
-          img { width: $wwMaximum*.08; height: $wwMaximum*0.06;}
+          width: $wwMaximum*.09; 
+          img { /* width: $wwMaximum*.08; */ width: 100%; height: $wwMaximum*0.06; }
           figcaption { width:calc( #{$wwMaximum}*.08 + 1em );}
         }
 
-        &.active{ flex-basis: $wwMaximum*.64; padding-left: 60px;
-          figure{ padding-right: 228px;
+        &.active{ 
+          flex-basis: $wwMaximum*.64; 
+          // padding-left: 60px;
+          figure{ 
+            padding-right: 228px;
             img{ width: $wwMaximum*.4; height: $wwMaximum*.3;}
             figcaption{ left: $wwMaximum*.4; width: $wwMaximum*.19; }
           }

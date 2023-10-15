@@ -30,11 +30,10 @@
 		],
 		"liveServer.settings.AdvanceCustomBrowserCmdLine": "",
 		"auto-rename-tag.activationOnLanguage": [
-
-
 			"*"
 		],
 		"liveServer.settings.port": 5504,
-		"scss.format.newlineBetweenRules": false
+		"scss.format.newlineBetweenRules": false,
+		"liveSassCompile.settings.showOutputWindowOn": "Warning"
 	}
 }
